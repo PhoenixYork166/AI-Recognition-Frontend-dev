@@ -1,0 +1,12 @@
+#face-image {
+    margin-top: 1vh;
+    width: 50vw;
+    height: 50vh;
+}
+
+#age-number {
+    color: #c5e60c;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}

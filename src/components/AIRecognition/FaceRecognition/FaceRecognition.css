@@ -1,0 +1,27 @@
+#face-image {
+    margin-top: 5vh;
+    width: 50vw;
+    height: 50vh;
+}
+
+.bounding-box {
+    position: absolute;
+    box-shadow: 0 0 0 3px #069cfa inset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.celebrity-name-outer {
+    display: flex;
+}
+
+.celebrity-name {
+    color: #1738f1;
+    margin-top: -5vh;
+    width: 25vw;
+    height: 4vh;
+    font-size: 2rem;
+}
+

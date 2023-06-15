@@ -1,0 +1,15 @@
+.color-container {
+    display: flex;
+}
+
+.color-image {
+    margin-top: 2vh;
+    top: 0vh;
+    width: 50vw;
+    height: 50vh;
+}
+
+.color-details {
+    top: 0vh;
+    /* background-color: blue; */
+}
