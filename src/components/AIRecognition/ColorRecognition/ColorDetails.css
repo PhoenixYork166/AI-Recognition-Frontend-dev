@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .color-name {
     /* background-color: blue; */
     margin-top: 1vh;
@@ -51,3 +52,58 @@
     display: flex;
 }
 
+=======
+.color-name {
+    /* background-color: blue; */
+    margin-top: 1vh;
+}
+
+.error-msg {
+    margin-top: 1vh;
+}
+
+.color-page {
+    width: 48vw;
+    font-size: 20px;
+    margin-top: 2vh;
+    padding-inline: 2% 2%;
+}
+
+.color-table {
+    width: 48vw;
+    padding-right: 2vw;
+}
+
+.raw-hex {
+    height: 5vh;
+    width: 9vw;
+    display: flex;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.w3c-hex-input {
+    width: 1vw;
+}
+
+.w3c-name-inner {
+    width: 10.5vw;
+}
+
+.w3c-hex-input-inner {
+    width: 7vw;
+}
+
+.raw-hex-input {
+    width: 7vw;
+}
+
+
+.save-button {
+    height: 5vh;
+    width: 25vw;
+    display: flex;
+}
+
+>>>>>>> d7f1c00d012083fb6955d68e956c0eead0a877b1
