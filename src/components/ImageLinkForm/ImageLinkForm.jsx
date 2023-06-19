@@ -32,21 +32,21 @@ const ImageLinkForm = ({
           <button
             className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
             onClick={onCelebrityButton}
-            disabled={celebrity_active}
+            // disabled={celebrity_active}
           >
             Detect Celebrity
           </button>
           <button
             className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
             onClick={onColorButton}
-            disabled={color_active}
+            // disabled={color_active}
           >
             Detect Color
           </button>
           <button
             className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
             onClick={onAgeButton}
-            disabled={age_active}
+            // disabled={age_active}
           >
             Detect Age
           </button>
