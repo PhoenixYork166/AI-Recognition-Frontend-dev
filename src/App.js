@@ -66,11 +66,6 @@ class App extends Component {
       color_hidden: true,
       age_hidden: true,
       responseStatusCode: Number(''),
-      disabled: {
-        celebrity_active: null,
-        color_active: null,
-        age_active: null
-      },
       route: 'signin',
       isSignedIn: false,
       user: { // just copy from database
@@ -78,13 +73,16 @@ class App extends Component {
         name: '',
         email: '',
         entries: 0,
-        joined: ''
-      }
+        joined: '',
+        raw_hex: [],
+      },
+      state_raw_hex_array: [],
     };
   }
   
-  // For <Register />
-  // fetch('http://localhost:3000/signin')
+  // For <Register /> && <Signin />
+  // To receive fetched data from server-side
+  // fetch('http://localhost:3000/signin') || fetch('http://localhost:3000/register')
   // .then(res => res.json())
   // .then(data => )
   // data here equals to response.json()
@@ -99,13 +97,9 @@ class App extends Component {
       console.log('App.js - this.state.user: \n', this.state.user)
     })
   }
-  // componentDidMount() {
-  //   fetch('http://localhost:3000/')
-  //   .then(response => response.json())
-  //   .then(data => console.log('data\n', data));
-  // }
 
   // For Celebrity detection model
+  // data from fetching Clarifai API response
   findCelebrity = data => {
     // We'd like to only get 1 celebrity at a time
     const clarifaiCelebrity = data.outputs[0].data.regions[0].data.concepts[0];
@@ -119,6 +113,7 @@ class App extends Component {
   };
 
   // For Color detection model
+  // data from fetching Clarifai API response
   findColor = data => {
     const clarifaiColors = data.outputs[0].data.colors;
     console.log('data - Colors:\n', clarifaiColors);
@@ -131,6 +126,7 @@ class App extends Component {
   };
 
   // For Age detection model
+  // data from fetching Clarifai API response
   findAge = data => {
     const clarifaiAges = data.outputs[0].data.concepts;
     console.log('findAge(data) - Ages:\n', clarifaiAges);
@@ -164,6 +160,7 @@ class App extends Component {
   };
 
   // Face-detection func
+  // data from fetching Clarifai API response
   calculateFaceLocation = data => {
     // We'd like to try only get 1 face now
     // bounding_box is % of image size
@@ -195,6 +192,7 @@ class App extends Component {
     };
   };
 
+
   displayFaceBox = box => {
     this.setState({ box: box }, () => console.log('box object: \n', box));
   };
@@ -206,86 +204,55 @@ class App extends Component {
     );
   };
 
-  validateState = () => {
-    // Using DOM to retrieve DOM elements produced by the 3 buttons
-    // onCelebrityButton
-    const celebrity_detection = document.querySelector('#face-image');
-    const celebrity_name = document.querySelector(
-      '#root > div > div.center.ma > div > div.bounding-box > div > button'
-    );
-    // onColorButton
-    const color_box = document.querySelector(
-      '#color-container > div.color-image > img'
-    );
-    const color_details = document.querySelector('#color-details');
-    // onAgeButton
-    const age_detection = document.querySelector('#face-image');
-    const age_number = document.querySelector('#age-number > h3');
-
-    // destructuring state variables for 3 buttons
-    const { face_hidden, color_hidden, age_hidden } = this.state;
-
-    // Determine which detection model is active
-    const face_active =
-      face_hidden === false && color_hidden === true && age_hidden === true;
-    const color_active =
-      face_hidden === true && color_hidden === false && age_hidden === true;
-    const age_active =
-      face_hidden === true && color_hidden === true && age_hidden === false;
-
-    // When Face detection model is currently active
-    if (face_active) {
-      // Hide all DOM elements rendered by Celebrity detection model
-      // before other Detection Models fetching new data
-      celebrity_detection.style.display = 'none';
-      celebrity_name.style.display = 'none';
-      this.setState({ 
-        face_hidden: true,
-        // Clear out current celebrity state data
-        celebrity: {}, 
-      });
-
-      // When Color detection model is currently active
-    } else if (color_active) {
-      // Hide all DOM elements rendered by Color detection model
-      // before next fetch by other Detection Model buttons
-      color_box.style.display = 'none';
-      color_details.style.display = 'none';
-      this.setState({ 
-        color_hidden: true, 
-        // Clear out current colors state data
-        colors: [],
-      });
-
-      // When Age detection model is currently active
-    } else if (age_active) {
-      // Hide all DOM elements rendered by Age detection model
-      // before next fetch by other Detection Model buttons
-      age_detection.style.display = 'none';
-      age_number.style.display = 'none';
-
-      this.setState({ 
-        age_hidden: true,
-        // Clear out current age state data
-        age: [],
-      });
-    }
+  // Everytime any of Detection Models is clicked
+  // reset all state variables to allow proper rendering of DOM elements
+  resetState = () => {
+    this.setState({
+      box: {},
+      celebrity: {},
+      celebrityName: '',
+      colors: [],
+      age: [],
+      face_hidden: true,
+      color_hidden: true,
+      age_hidden: true
+    })
   };
+
+  // Everytime any of Detection Model is activated
+  // update this.state.user.entries by 1 by
+  // sending data to server-side
+  updateEntries = async () => {
+      await fetch('http://localhost:3000/image', {
+        method: 'put', // PUT (Update) 
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+        id: this.state.user.id
+        })
+      })
+      .then(response => response.json())
+      .then(fetchedUser => {
+        console.log(`fetchedUser response from server: \n ${fetchedUser}`);
+        this.setState(Object.assign(this.state.user, {
+          entries: fetchedUser.entries
+        }), () => {
+          console.log(`this.state.user.entries is: ${this.state.user.entries}`);
+        })
+        })
+      .catch(err => console.log(err))
+  }
 
   // Button to activate Celebrity detection model <FaceRecognition />
   onCelebrityButton = () => {
-    this.validateState();
+    // Reset all state variables to allow proper rendering from Detection Models
+    // Before next fetch
+    this.resetState();
 
     // Whenever clicking Detect button => setState
     this.setState(
       {
         // setState imageUrl: this.state.input from InputChange as event onChange
         imageUrl: this.state.input,
-        // Disable Detect Celebrity button when Celebrity Detection is Active
-        celebrity_active: true,
-        color_active: false,
-        age_active: false,
-        // setState color_hidden: false to allow rendering of <FaceRecognition />
         face_hidden: false
       },
       // Logging state variables right after setState
@@ -293,10 +260,7 @@ class App extends Component {
       () => console.log('this.state.face_hidden:\n', this.state.face_hidden)
     );
 
-    // Clearing out current celebrity data from this.state.celebrity before next fetch
-    // this.setState({celebrity: {} });
-
-    // From Clarifai API documentation, an API can be consumed as below:
+    // From Clarifai API documentation, this API can be consumed as below:
     // fetch(
     //  "https://api.clarifai.com/v2/models/general-image-recognition/outputs", 
     //  returnClarifaiRequestOptions(imageUrl))
@@ -339,37 +303,17 @@ class App extends Component {
         //         res.status(400).json('not found');
         //     }
         // })
-        if (response) { 
-          fetch('http://localhost:3000/image', {
-            method: 'put', // PUT (Update) 
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ // sending stringified this.state variables as JSON objects
-            id: this.state.user.id
-            })
-          })
-          .then(response => response.json()) // string to json
-          .then(count => { // count is coming from server-side response
-            // Avoid mutating this.state.user.props like below:
-          //    this.setState({
-          //     user: {
-          //      entries: count
-          //   }
-          // }, () => {
-          //   console.log(`this.state.user.entries is: ${this.state.user.entries}`)
-          // })
 
-          // Object.assign(target, source)
-            this.setState(Object.assign(this.state.user, {
-              entries: count
-            }), () => {
-              console.log(`this.state.user.entries is: ${this.state.user.entries}`);
-            })
-          })
+        // If there's a response from Clarifai API
+        // update this.state.user.entries on Front-end
+        if (response) { 
+          this.updateEntries();
         };
 
         this.displayFaceBox(this.calculateFaceLocation(response));
         // Celebrity-face-detection
         this.displayCelebrity(this.findCelebrity(response));
+        
         // Store HTTP response status code
         this.setState({ responseStatusCode: response.status.code });
         // this.displayFaceBox() setState({box: box})
@@ -385,17 +329,15 @@ class App extends Component {
   };
 
   onColorButton = () => {
-    this.validateState();
+    // Reset all state variables to allow proper rendering from Detection Models
+    // Before next fetch
+    this.resetState(); 
 
     // Whenever clicking Detect button
     this.setState(
       {
         // setState imageUrl: this.state.input from InputChange
         imageUrl: this.state.input,
-        // Disable Detect Color button on 'home' page when Color Detection is Active
-        celebrity_active: false,
-        color_active: true,
-        age_active: false,
         // setState color_hidden: false to allow rendering of <ColorRecognition />
         // then passing color_props to <ColorRecognition />
         color_hidden: false
@@ -404,19 +346,16 @@ class App extends Component {
       () => console.log('this.state.color_hidden:\n', this.state.color_hidden)
     );
 
-    // Clearing out this.state.colors before future fetching
-    // this.setState({colors: [] });
-
     fetch(
       'https://api.clarifai.com/v2/models/' + 'color-recognition' + '/outputs',
       returnClarifaiRequestOptions(this.state.input)
     )
       .then(response => response.json())
       .then(response => {
-        console.log('HTTP Response: \n', response);
-        console.log('HTTP request status code:\n', response.status.code);
+        // console.log('HTTP Response: \n', response);
+        // console.log('HTTP request status code:\n', response.status.code);
         console.log('Fetched Colors obj:\n', response.outputs[0].data);
-
+        // user.raw_hex: 
         // color-detection
         // this.displayColor adding color hex to this.state.color
         // this.findColor(response) returns color hex
@@ -424,23 +363,7 @@ class App extends Component {
         // If there's a response upon fetching Clarifai API
         // fetch our server-side to update entries count too
         if (response) { 
-          fetch('http://localhost:3000/image', {
-            method: 'put', // PUT (Update) 
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ // sending stringified this.state variables as JSON objects
-            id: this.state.user.id
-            })
-          })
-          .then(response => response.json()) // string to json
-          .then(count => { // count is coming from server-side response
-          
-          // Object.assign(target, source)
-            this.setState(Object.assign(this.state.user, {
-              entries: count
-            }), () => {
-              console.log(`this.state.user.entries is: ${this.state.user.entries}`);
-            })
-          })
+          this.updateEntries();
         };
 
         this.displayColor(this.findColor(response));
@@ -448,27 +371,76 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  // For <SaveColorBtn /> in <ColorRecognition />
+  // Arrow function to send this.state.state_raw_hex_array
+  // to server-side right after setting state for state_raw_hex_array
+  // to avoid delay in server-side
+  loadRawHex = async() => {
+    // Sending state user.id && state_raw_hex_array to server-side
+    await fetch('http://localhost:3000/image', {
+        method: 'put', // PUT (Update) 
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+        id: this.state.user.id,
+        raw_hex: this.state.state_raw_hex_array
+        })
+    })
+    .then(response => response.json()) // string to json
+    .then(fetchedUser => { // entries is coming from server-side response
+    console.log('fetchedUser: ', fetchedUser);
+
+      // Object.assign(target, source)
+        this.setState(Object.assign(this.state.user, {
+          entries: fetchedUser.entries,
+          raw_hex: this.state.state_raw_hex_array
+        }), () => {
+          console.log(`this.state.user.entries is: ${this.state.user.entries}`);
+          console.log(`raw_hex array passed to server-side: ${this.state.state_raw_hex_array}`);
+        })
+      })
+  }
+
+  // For <SaveColorBtn /> in <ColorRecognition />
+  onSaveColorButton = () => {
+    // Create an empty array to store raw_hex values 
+    // from this.state.colors data fetched from Clarifai API
+    let raw_hex_array = [];
+
+    // Iterate through each color in this.state.colors 
+    // && push each raw_hex to empty array
+    this.state.colors.map((color) => {
+      raw_hex_array.push(color.colors.raw_hex);
+    });
+    // Logging updated empty array with raw_hex values
+    console.log('Cached raw hex array: \n', raw_hex_array);
+
+    // Shallow copying raw_hex array to this.state.state_raw_hex_array
+    this.setState({
+      state_raw_hex_array: raw_hex_array
+    }, () => {
+      // sending state_raw_hex_array to server-side
+      // right after setting state to avoid delay in server-side
+      this.loadRawHex(); 
+    });
+    };
+  
+
   onAgeButton = () => {
-    this.validateState();
+    // Reset all state variables to allow proper rendering from Detection Models
+    // Before next fetch
+    this.resetState();
 
     // Whenever clicking 'Detect Age' button
     this.setState(
       {
         // setState imageUrl: this.state.input from InputChange
         imageUrl: this.state.input,
-        // Disable Detect Age button when Age Detection is Active
-        celebrity_active: false,
-        color_active: false,
-        age_active: true,
         // setState({age_hidden: false}) to allow rendering of <AgeRecognition />
         age_hidden: false
       },
       () => console.log('this.state.input:\n', this.state.input),
       () => console.log('this.state.age_hidden:\n', this.state.age_hidden)
     );
-
-    // Clearing out this.state.colors before future fetching
-    // this.setState({age: [] });
 
     fetch(
       'https://api.clarifai.com/v2/models/' +
@@ -489,23 +461,7 @@ class App extends Component {
         // this.displayColor adding color hex to this.state.color
         // this.findColor(response) returns color hex
         if (response) { 
-          fetch('http://localhost:3000/image', {
-            method: 'put', // PUT (Update) 
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ // sending stringified this.state variables as JSON objects
-            id: this.state.user.id
-            })
-          })
-          .then(response => response.json()) // string to json
-          .then(count => { // count is coming from server-side response
-          
-          // Object.assign(target, source)
-            this.setState(Object.assign(this.state.user, {
-              entries: count
-            }), () => {
-              console.log(`this.state.user.entries is: ${this.state.user.entries}`);
-            })
-          })
+          this.updateEntries();
         };
         this.displayAge(this.findAge(response));
       })
@@ -532,9 +488,6 @@ class App extends Component {
       face_hidden,
       color_hidden,
       age_hidden,
-      celebrity_active,
-      color_active,
-      age_active,
       box,
       colors,
       celebrity,
@@ -551,6 +504,7 @@ class App extends Component {
     console.log('age_props\n', age_props);
 
     // Tracking all state variables in render() {...}
+    {
     console.log('this.state.input: \n', input);
     console.log('this.state.imageUrl: \n', imageUrl);
     console.log('this.state.box: \n', box);
@@ -561,6 +515,8 @@ class App extends Component {
     console.log('this.state.color_hidden', color_hidden);
     console.log('this.state.age_hidden', age_hidden);
     console.log('this.state.responseStatusCode:\n', responseStatusCode);
+    console.log('this.state.user.entries: \n', user.entries);
+    }
 
     return (
       <div className="App">
@@ -580,11 +536,8 @@ class App extends Component {
             <ImageLinkForm
               onInputChange={this.onInputChange}
               onCelebrityButton={this.onCelebrityButton}
-              celebrity_active={celebrity_active}
               onColorButton={this.onColorButton}
-              color_active={color_active}
               onAgeButton={this.onAgeButton}
-              age_active={age_active}
               face_hidden={face_hidden}
               color_hidden={color_hidden}
               age_hidden={age_hidden}
@@ -599,6 +552,8 @@ class App extends Component {
               imageUrl={imageUrl}
               color_props={colors_array}
               color_hidden={color_hidden}
+              name={user.name}
+              onSaveColorButton={this.onSaveColorButton}
             />
             <AgeRecognition
               age={age_props}
