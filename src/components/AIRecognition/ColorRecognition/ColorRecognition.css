@@ -9,7 +9,8 @@
     height: 50vh;
 }
 
-.color-details {
-    top: 0vh;
-    /* background-color: blue; */
+#detailBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

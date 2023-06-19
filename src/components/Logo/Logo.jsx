@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Tilt from "react-parallax-tilt";
 import './Logo.css';
 import brain from './smart-brain.jpg';

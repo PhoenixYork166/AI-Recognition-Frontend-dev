@@ -1,8 +1,15 @@
 import React from 'react';
 import './ColorRecognition.css';
 import ColorDetails from './ColorDetails';
+import SaveColorBtn from './SaveColorBtn';
 
-const ColorRecognition = ( { imageUrl, color_props, color_hidden } ) => {
+const ColorRecognition = ( { 
+    name, 
+    imageUrl, 
+    color_props, 
+    color_hidden,
+    onSaveColorButton 
+} ) => {
     return color_hidden ? (
     <h2></h2>
     ) : (
@@ -14,8 +21,17 @@ const ColorRecognition = ( { imageUrl, color_props, color_hidden } ) => {
                     />
                 </div>
 
-                <div id="color-details">
-                    <ColorDetails color_props={color_props} />
+                <div id='detailBtn'>                
+                    <div id="color-details">
+                        <ColorDetails color_props={color_props} />
+                        
+                    </div>
+                    <div id="saveColorBtn">
+                        <SaveColorBtn 
+                            name={name} 
+                            onSaveColorButton={onSaveColorButton} 
+                        />
+                    </div>
                 </div>
         </div>
     )
