@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import classes from './Register.module.css';
+import tick from './tick.jpg';
+import cross from './cross.jpg';
 
 // Make Register a smart component to process states
 class Register extends Component {
@@ -6,30 +9,175 @@ class Register extends Component {
     super(props);
     this.state = {
       name: '',
+      nameValid: false,
       email: '',
+      emailValid: false,
       password: '',
+      passwordConfirm: '',
+      lockRegister: true,
+      password12Char: false,
+      password1SpecialChar: false,
+      passwordMatch: false,
+      passwordValidated: false
     }
   }
   
   // Listens to onChange events of name <input>
   onNameChange = (event) => {
     this.setState({ name: event.target.value }, () => {
-      // console.log('this.state.signInEmail: \n', this.state.signInEmail);
+      this.validateInputs();
+      console.log('this.state.signInEmail: \n', this.state.signInEmail);
     })
   }
   
   // Listens to onChange events of email && password <input>
   onEmailChange = (event) => {
     this.setState({ email: event.target.value }, () => {
-      // console.log('this.state.signInEmail: \n', this.state.signInEmail);
+      this.validateInputs();
+      console.log('this.state.email: \n', this.state.email);
     })
   }
 
   onPasswordChange = (event) => {
-    this.setState({ password: event.target.value }, () => {
-      // console.log('this.state.signInPassword: \n', this.state.signInPassword);
+    const newPassword = event.target.value;
+    this.setState({ password: newPassword }, () => {
+      this.validateInputs();
+      console.log('this.state.password: \n', this.state.password);
     })
   }
+
+  onPasswordConfirmChange = (event) => {
+    const newPasswordConfirm = event.target.value;
+    this.setState({ passwordConfirm: newPasswordConfirm }, () => {
+      this.validateInputs();
+      console.log('this.state.passwordConfirm: \n', this.state.passwordConfirm);
+    })
+  }
+
+  // Welcome to my Callback Hell :D
+  validateInputs = () => {
+    const specialChar = ['!', '@', '#' , '$' , '%' , '^' , '&' , '*' , '(' , ')' , '-' , '=' , '{' , '}' , '{' , '}' , '|' , '\\' , ';' , ':' , "'" , '"' , ',' , '<' , '.' , '>' , '`' , '~' ];
+        
+        if (this.state.name.length > 0) {
+          this.setState({
+            nameValid: true
+          }, () => {
+            console.log(`this.state.name.length:\n${this.state.name.length}`);
+            console.log(`this.state.nameValid:\n${this.state.nameValid}`);
+            const emailRegExp = /@.*\.com|@.*\.hk|@.*\.cn|@.*\.tw|@.*\.gov|@.*\.net|@.*\.edu|@.*\.au$/.test(this.state.email);
+            if (emailRegExp) {
+              this.setState({
+                emailValid: true
+              }, () => {
+                console.log(`this.state.emailValid:\n${this.state.emailValid}`);
+                if (this.state.password === this.state.passwordConfirm) {
+                  this.setState({ 
+                    passwordMatch: true
+                  }, () => {
+                    console.log(`this.state.passwordMatch: \n${this.state.passwordMatch}`);
+                    if (this.state.password.length >=12 && this.state.passwordConfirm.length >=12) {
+                      this.setState({
+                        password12Char: true
+                      }, () => {
+                        console.log(`this.state.password12Char: ${this.state.password12Char}`);
+                        const anySpecialChar = specialChar.map(element => {
+                          if (this.state.password.includes(element) && this.state.passwordConfirm.includes(element)) {
+                            return true;
+                          } else {
+                            this.setState({
+                              password1SpecialChar: false,
+                              lockRegister: true
+                            }, () => {
+                              console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+                            })
+                          }
+                        }) 
+                        if (anySpecialChar.includes(true) ) {
+                          this.setState({
+                            password1SpecialChar: true
+                          }, () => {
+                            console.log(`this.state.password1SpecialChar: ${this.state.password1SpecialChar}`);
+                            if (this.state.nameValid && this.state.emailValid && this.state.passwordMatch && this.state.password12Char && this.state.password1SpecialChar) {
+                              this.setState({
+                                lockRegister: false
+                              }, () => {
+                                console.log(`this.state.lockRegister: ${this.state.lockRegister}`);
+                              })
+                            } else {
+                              this.setState({
+                                lockRegister: true
+                              }, () => {
+                                console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+                              })
+                            }
+                          })
+                        } else {
+                          this.setState({
+                            password1SpecialChar: false,
+                            lockRegister: true
+                          }, () => {
+                            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+                          })
+                        }
+                      });
+                    } else {
+                      this.setState({
+                        password12Char: false,
+                        lockRegister: true
+                      }, () => {
+                        console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+                      })
+                    }
+                  });
+                } else {
+                  this.setState({
+                    passwordMatch: false,
+                    lockRegister: true
+                  }, () => {
+                    console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+                  })
+                }
+              })
+            } else {
+              this.setState({
+                emailValid: false,
+                lockRegister: true
+              }, () => {
+                console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+              })
+            }
+          })
+        } else {
+          this.setState({
+            nameValid: false,
+            lockRegister: true
+          }, () => {
+            console.log(`this.state.nameValid:\n${this.state.nameValid}`);
+            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+          })
+        }
+    };
+  
+  
+  componentDidUpdate(prevProps, prevState) {
+      // Check if password or passwordConfirm have changed
+      if (
+        this.state.name !== prevState.name ||
+        this.state.nameValid !== prevState.nameValid ||
+        this.state.email !== prevState.email ||
+        this.state.emailValid !== prevState.emailValid ||
+        this.state.password !== prevState.password || 
+        this.state.passwordMatch !== prevState.passwordMatch || 
+        this.state.password.length !== prevState.password.length ||
+        this.state.password12Char !== prevState.password12Char ||
+        this.state.password1SpecialChar !== prevState.password1SpecialChar ||
+        this.state.passwordConfirm !== prevState.passwordConfirm ||
+        this.state.passwordValidated !== prevState.passwordValidated
+      ) {
+        this.validateInputs();
+      }
+    }
+
 
   // App 'Sign In' button onClick event handler
   onSubmitSignIn = (event) => {
@@ -50,16 +198,42 @@ class Register extends Component {
     .then(response => response.json()) // res.json() to parse data
     .then(user => { // data passing in as user with props
       console.log('onRegisterSignIn - user: \n', user);
-      if (user) { // if we get a user with props => route to 'home'
+      if (user.id) { // if we get a user with props => route to 'home'
         // this.props coming from App.js
         // App.js front-end will handle user features
         this.props.loadUser(user); 
         this.props.onRouteChange('home');
+      } else if (!user.id) {
+        this.props.onRouteChange('register');
+        alert('Email has been registered...\nPlease try again');
+        const emailInput = document.querySelector('#email-address');
+        const passwordInput = document.querySelector('#password');
+        const passwordConfirmInput = document.querySelector('#confirmPassword');
+        emailInput.value = '';
+        passwordInput.value = '';
+        passwordConfirmInput.value = '';
       }
     })
   }
 
   render() {
+
+    const { 
+      name,
+      nameValid,
+      email,
+      emailValid,
+      password,
+      passwordConfirm,
+      lockRegister,
+      password12Char,
+      password1SpecialChar,
+      passwordMatch,
+      passwordValidated
+      } = this.state;
+
+      // css style for register button
+      const registerTachyons = 'b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib';
 
     return (
       <div>
@@ -68,41 +242,133 @@ class Register extends Component {
           <form className="measure">
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
               <legend className="f1 fw6 ph0 mh0">Register</legend>
-              <div className="mt3">
-                <label className="db fw6 lh-copy f6" htmlFor="name">
-                  Name
-                </label>
-                <input
-                  className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                  type="text"
-                  name="name"
-                  id="name"
-                  onChange={this.onNameChange}
-                />
+              <div className={`${classes.nameContainer} mt3}`}>
+                <div className={`${classes.name}`}>
+                  <label className="db fw6 lh-copy f6" htmlFor="name">
+                    Name
+                  </label>
+                  <input
+                    className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                    type="text"
+                    name="name"
+                    id="name"
+                    onChange={this.onNameChange}
+                  />
+                </div>
+                <div className={`${classes.nameIcon}`}>
+                  <img 
+                    className={`${classes.nameIconInput}`}
+                    type='text'
+                    name='nameIcon'
+                    id='nameIcon' 
+                    src={nameValid === true ? `${tick}`:`${cross}`} 
+                    alt='nameIcon'
+                  />
+                </div>
               </div>
-              <div className="mt3">
-                <label className="db fw6 lh-copy f6" htmlFor="email-address">
-                  Email
-                </label>
-                <input
-                  className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                  type="email"
-                  name="email-address"
-                  id="email-address"
-                  onChange={this.onEmailChange}
-                />
+              <div className={`${classes.emailContainer} mt3`} >
+                <div className={`${classes.email}`}>
+                  <label className="db fw6 lh-copy f6" htmlFor="email-address">
+                    Email
+                  </label>
+                  <input
+                    className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                    type="email"
+                    name="email-address"
+                    id="email-address"
+                    onChange={this.onEmailChange}
+                  />
+                </div>
+                <div className={`${classes.emailIcon}`}>
+                  <img 
+                    className={`${classes.emailIconInput}`}
+                    type='text'
+                    name='emailIcon'
+                    id='emailIcon' 
+                    src={emailValid === true ? `${tick}`:`${cross}`} 
+                    alt='emailIcon'
+                  />
+                </div>
               </div>
-              <div className="mv3">
-                <label className="db fw6 lh-copy f6" htmlFor="password">
-                  Password
-                </label>
-                <input
-                  className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                  type="password"
-                  name="password"
-                  id="password"
-                  onChange={this.onPasswordChange}
-                />
+              <div className={`${classes.passwordContainer} mv3`}>
+                <div className={`${classes.passwordInputContainer}`}>
+                  <div className={`${classes.password}`}>
+                    <label className="db fw6 lh-copy f6" htmlFor="password">
+                      Password
+                    </label>
+                    <input
+                      className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                      type="password"
+                      name="password"
+                      id="password"
+                      onChange={this.onPasswordChange}
+                    />
+                  </div>
+                  <div className={`${classes.passwordConfirm} mv3`}>
+                    <label className="db fw6 lh-copy f6" htmlFor="passwordConfirmation">
+                      Confirm Password
+                    </label>
+                    <input
+                      className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                      type="password"
+                      name="confirmPassword"
+                      id="confirmPassword"
+                      onChange={this.onPasswordConfirmChange}
+                    />
+                  </div>
+                </div>
+                <div className={`${classes.passwordValidationContainer}`}>
+                  <div className={`${classes.passwordValidationInputContainer}`}>
+                    <input
+                      className={`${classes.passwordMatchInput}`}
+                      type='text'
+                      name='passwordMatchInput'
+                      id='passwordMatchInput'
+                      value='password Match'
+                    />
+                    <input
+                      className={`${classes.password12CharInput}`}
+                      type='text'
+                      name='password12CharInput'
+                      id='password12CharhInput'
+                      value='>=12Char'
+                    />
+                    <input
+                      className={`${classes.password1SpecialCharInput}`}
+                      type='text'
+                      name='password1SpecialCharInput'
+                      id='password1SpecialCharInput'
+                      value='>=1 Special Char'
+                    />
+                  </div>
+                  <div className={`${classes.passwordValidationIconContainer}`}>
+                    <img 
+                      className={`${classes.passwordMatchIcon}`}
+                      type='text'
+                      name='passwordMatchIcon'
+                      id='passwordMatchIcon' 
+                      src={passwordMatch === true ? `${tick}`:`${cross}`} 
+                      alt='passwordMatchIcon'
+                    />
+                    <img 
+                      className={`${classes.password12CharIcon}`}
+                      type='text'
+                      name='password12CharIcon'
+                      id='password12CharIcon' 
+                      src={password12Char === true ? `${tick}`:`${cross}`} 
+                      alt='password12CharIcon'
+                    />
+                    <img 
+                      className={`${classes.password1SpecialCharIcon}`}
+                      type='text'
+                      name='password1SpecialCharIcon'
+                      id='password1SpecialCharIcon' 
+                      src={password1SpecialChar === true ? `${tick}`:`${cross}`} 
+                      alt='password1SpecialCharIcon'
+                    />
+                  </div>
+                </div>
+                
               </div>
               {/* <label className="pa0 ma0 lh-copy f6 pointer">
                 <input type="checkbox" /> Remember me
@@ -111,7 +377,11 @@ class Register extends Component {
             <div className="">
               <input
                 onClick={this.onSubmitSignIn}
-                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                disabled={lockRegister}
+                className={lockRegister === true ? 
+                  `${registerTachyons}` :
+                  `${classes.registerBtnOK} ${registerTachyons}`}
+                // "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Register"
               />

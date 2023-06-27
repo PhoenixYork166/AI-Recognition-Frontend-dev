@@ -1,0 +1,51 @@
+.nameContainer, .emailContainer, .passwordContainer, .passwordValidationContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.passwordInputContainer, .passwordValidationIcon {
+    display: flex;
+    flex-direction: column;
+}
+
+.nameIcon, .emailIcon {
+    display: flex;
+    align-items: center;
+    height: 6.4vh;
+}
+
+.nameIconInput, .emailIconInput {
+    height: 3.3vh;
+    width: 5vw;
+}
+
+.passwordValidationInputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.passwordMatchInput, .password12CharInput, .password1SpecialCharInput {
+    display: flex;
+    align-items: center;
+    height: 3vh;
+    width: 8vw;
+    font-size: 0.7rem;
+}
+
+.passwordValidationIconContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.passwordMatchIcon, .password12CharIcon, .password1SpecialCharIcon {
+    display: flex;
+    align-items: center;
+    height: 3.3vh;
+    width: 5vw;
+}
+
+.registerBtnOK {
+    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8,
+    -2px -2px 1rem #eefa43;
+}

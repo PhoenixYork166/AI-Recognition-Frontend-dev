@@ -464,6 +464,22 @@ class App extends Component {
     this.setState({ route: routeInput });
   };
 
+  // validateUsers = () => {
+  //   if (!this.state.user.id) {
+  //     this.onRouteChange('signin');
+  //     alert('Pardon me, your registration was unsuccessful\nPlease try registering with another email');
+  //   }
+  // }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   // Check if password or passwordConfirm have changed
+  //   if (
+  //     this.state.user !== prevState.user
+  //   ) {
+  //     this.validateUsers();      
+  //   }
+  // }
+
   render() {
     // destructuring all props from this.state
     const {

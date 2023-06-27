@@ -44,6 +44,9 @@ class Signin extends Component {
       if (user.id) { // if user.id exists
         this.props.loadUser(user);
         this.props.onRouteChange('home');
+      } else if (!user.id) { // if user.id does NOT exist
+        this.props.onRouteChange('signin');
+        alert('Signin credentials incorrect...\nPlease try again');
       }
     })
   }
