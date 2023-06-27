@@ -1,0 +1,10 @@
+.saveBtnText {
+    margin-top: 0.8vh;
+    margin-left: 1.2vw;
+    border-radius: 1rem;
+    background-color: #ebc2e2;
+    user-select: none;
+    box-shadow: 10px 10px 30px #e9ec13,
+    -5px -5px 100px #ffffff;
+    font-size: 1rem;
+}

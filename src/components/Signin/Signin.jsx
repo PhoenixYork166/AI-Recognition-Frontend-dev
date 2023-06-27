@@ -39,7 +39,8 @@ class Signin extends Component {
     })
     .then(response => response.json()) // JSON server response to parse data
     .then(user => { // server.js - app.post('/signin') --> res.json(database.users[i])
-      console.log('onSubmitSignIn - user: \n', user);
+      console.log('onSubmitSignIn - response: \n', user);
+      console.log('onSubmitSignIn - typeof response: \n', typeof user);
       if (user.id) { // if user.id exists
         this.props.loadUser(user);
         this.props.onRouteChange('home');

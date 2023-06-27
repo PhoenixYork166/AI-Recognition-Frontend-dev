@@ -51,4 +51,10 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: flex-start;
+    
 }
+
+/* .detectCelebrity, .detectColor, .detectAge {
+    box-shadow: 0.3rem 0.3rem 1rem #e9ec13,
+    -2px -2px 1rem #ffffff;
+} */

@@ -230,11 +230,14 @@ class App extends Component {
         id: this.state.user.id
         })
       })
-      .then(response => response.json())
-      .then(fetchedUser => {
-        console.log(`fetchedUser response from server: \n ${fetchedUser}`);
-        this.setState(Object.assign(this.state.user, {
-          entries: fetchedUser.entries
+      .then(response => {
+        return response.json()
+      })
+      .then(fetchedEntries => {
+        console.log(`fetched ENTRIES from server: \n ${fetchedEntries}`);
+        console.log(`typeof fetched ENTRIES from server: \n ${typeof fetchedEntries}`);
+         this.setState(Object.assign(this.state.user, {
+          entries: fetchedEntries
         }), () => {
           console.log(`this.state.user.entries is: ${this.state.user.entries}`);
         })
@@ -283,27 +286,6 @@ class App extends Component {
           response.outputs[0].data.regions[0].data.concepts[0]
         );
 
-        // Face-detection model
-
-        // Express.js server-side code below:
-        // If there's a response upon fetching Clarifai API
-        // ///////////////////////////////////////////////////////////
-        //   app.put('/image', (req, res) => { // PUT request to update
-        //     const { id } = req.body;
-        //     let found = false;
-        //     database.users.forEach(user => {
-        //         if (user.id === id) {
-        //             found = true;
-        //             user.entries ++ // increase entries!!
-        //             return res.json(user.entries);
-        //         }
-                
-        //     })
-        //     if (!found) {
-        //         res.status(400).json('not found');
-        //     }
-        // })
-
         // If there's a response from Clarifai API
         // update this.state.user.entries on Front-end
         if (response) { 
@@ -342,8 +324,7 @@ class App extends Component {
         // then passing color_props to <ColorRecognition />
         color_hidden: false
       },
-      () => console.log('this.state.input:\n', this.state.input),
-      () => console.log('this.state.color_hidden:\n', this.state.color_hidden)
+      () => console.log(`this.state.input:\n${this.state.input}\nthis.state.color_hidden:\n${this.state.color_hidden}`)
     );
 
     fetch(
@@ -402,6 +383,7 @@ class App extends Component {
 
   // For <SaveColorBtn /> in <ColorRecognition />
   onSaveColorButton = () => {
+    this.updateEntries();
     // Create an empty array to store raw_hex values 
     // from this.state.colors data fetched from Clarifai API
     let raw_hex_array = [];
@@ -422,6 +404,7 @@ class App extends Component {
       // right after setting state to avoid delay in server-side
       this.loadRawHex(); 
     });
+
     };
   
 
@@ -515,7 +498,8 @@ class App extends Component {
     console.log('this.state.color_hidden', color_hidden);
     console.log('this.state.age_hidden', age_hidden);
     console.log('this.state.responseStatusCode:\n', responseStatusCode);
-    console.log('this.state.user.entries: \n', user.entries);
+    console.log('this.state.user.id:\n', user.id);
+    console.log('this.state.user.entries:\n', user.entries);
     }
 
     return (

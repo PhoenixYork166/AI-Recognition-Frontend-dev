@@ -1,3 +1,5 @@
+import './SaveColorBtn.css';
+
 const SaveColorBtn = ( { name, onSaveColorButton }) => {
 
     return (

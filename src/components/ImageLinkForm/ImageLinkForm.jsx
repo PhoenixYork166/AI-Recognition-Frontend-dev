@@ -27,19 +27,19 @@ const ImageLinkForm = ({
         </div>
         <div className="buttons">
           <button
-            className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
+            className="detectCelebrity w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
             onClick={onCelebrityButton}
           >
             Detect Celebrity
           </button>
           <button
-            className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
+            className="detectColor w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
             onClick={onColorButton}
           >
             Detect Color
           </button>
           <button
-            className="w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
+            className="detectAge w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
             onClick={onAgeButton}
           >
             Detect Age
