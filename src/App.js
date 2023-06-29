@@ -219,8 +219,8 @@ class App extends Component {
     })
   };
 
-  // Everytime any of Detection Model is activated
-  // update this.state.user.entries by 1 by
+  // Everytime any of the Detection Models is activated
+  // update this.state.user.entries by 1 through
   // sending data to server-side
   updateEntries = async () => {
       await fetch('http://localhost:3000/image', {
@@ -245,7 +245,7 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  // Button to activate Celebrity detection model <FaceRecognition />
+  // ClarifaiAPI Celebrity Face Detection model
   onCelebrityButton = () => {
     // Reset all state variables to allow proper rendering from Detection Models
     // Before next fetch
@@ -310,6 +310,7 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  // ClarifaiAPI Color Detection model
   onColorButton = () => {
     // Reset all state variables to allow proper rendering from Detection Models
     // Before next fetch
@@ -407,7 +408,7 @@ class App extends Component {
 
     };
   
-
+  // ClarifaiAPI Age Detection model
   onAgeButton = () => {
     // Reset all state variables to allow proper rendering from Detection Models
     // Before next fetch
@@ -464,24 +465,23 @@ class App extends Component {
     this.setState({ route: routeInput });
   };
 
-  // validateUsers = () => {
-  //   if (!this.state.user.id) {
-  //     this.onRouteChange('signin');
-  //     alert('Pardon me, your registration was unsuccessful\nPlease try registering with another email');
-  //   }
-  // }
+  // To avoid malicious users from breaking in from <Register />
+  // If there's no user.id => route to 'signin' page
+  validateUsers = () => {
+    if (!this.state.user.id) {
+      this.onRouteChange('signin');
+      alert('Pardon me, your registration was unsuccessful\nPlease try registering with another email');
+    }
+  }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   // Check if password or passwordConfirm have changed
-  //   if (
-  //     this.state.user !== prevState.user
-  //   ) {
-  //     this.validateUsers();      
-  //   }
-  // }
+  // Keep tracking for user
+  // Validate users whenever there's a change
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.user !== prevState.user) this.validateUsers();
+  }
 
   render() {
-    // destructuring all props from this.state
+    // destructuring props from this.state
     const {
       age,
       face_hidden,
@@ -508,6 +508,8 @@ class App extends Component {
     console.log('this.state.imageUrl: \n', imageUrl);
     console.log('this.state.box: \n', box);
     console.log('this.state.celebrity: \n', celebrity);
+    console.log('this.state.celebrity.name: \n', celebrity.name);
+    console.log('typeof this.state.celebrity.name: \n', typeof celebrity.name);
     console.log('this.state.colors: \n', colors);
     console.log('this.state.age: \n', age);
     console.log('this.state.face_hidden', face_hidden);

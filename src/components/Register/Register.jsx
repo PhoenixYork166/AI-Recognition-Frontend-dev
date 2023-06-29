@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import classes from './Register.module.css';
 import tick from './tick.jpg';
-import cross from './cross.jpg';
+import cross from './cross2.png';
 
 // Make Register a smart component to process states
 class Register extends Component {
@@ -17,12 +17,12 @@ class Register extends Component {
       lockRegister: true,
       password12Char: false,
       password1SpecialChar: false,
-      passwordMatch: false,
-      passwordValidated: false
+      passwordMatch: false
     }
   }
   
   // Listens to onChange events of name <input>
+  // Trigger this.validateInputs() whenever there's any changes
   onNameChange = (event) => {
     this.setState({ name: event.target.value }, () => {
       this.validateInputs();
@@ -54,98 +54,16 @@ class Register extends Component {
     })
   }
 
-  // Welcome to my Callback Hell :D
-  validateInputs = () => {
-    const specialChar = ['!', '@', '#' , '$' , '%' , '^' , '&' , '*' , '(' , ')' , '-' , '=' , '{' , '}' , '{' , '}' , '|' , '\\' , ';' , ':' , "'" , '"' , ',' , '<' , '.' , '>' , '`' , '~' ];
+  // To validate users' inputs in <Register />
+  validateInputs = () => {    
         
+        // Validate name input 
         if (this.state.name.length > 0) {
           this.setState({
             nameValid: true
           }, () => {
             console.log(`this.state.name.length:\n${this.state.name.length}`);
             console.log(`this.state.nameValid:\n${this.state.nameValid}`);
-            const emailRegExp = /@.*\.com|@.*\.hk|@.*\.cn|@.*\.tw|@.*\.gov|@.*\.net|@.*\.edu|@.*\.au$/.test(this.state.email);
-            if (emailRegExp) {
-              this.setState({
-                emailValid: true
-              }, () => {
-                console.log(`this.state.emailValid:\n${this.state.emailValid}`);
-                if (this.state.password === this.state.passwordConfirm) {
-                  this.setState({ 
-                    passwordMatch: true
-                  }, () => {
-                    console.log(`this.state.passwordMatch: \n${this.state.passwordMatch}`);
-                    if (this.state.password.length >=12 && this.state.passwordConfirm.length >=12) {
-                      this.setState({
-                        password12Char: true
-                      }, () => {
-                        console.log(`this.state.password12Char: ${this.state.password12Char}`);
-                        const anySpecialChar = specialChar.map(element => {
-                          if (this.state.password.includes(element) && this.state.passwordConfirm.includes(element)) {
-                            return true;
-                          } else {
-                            this.setState({
-                              password1SpecialChar: false,
-                              lockRegister: true
-                            }, () => {
-                              console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
-                            })
-                          }
-                        }) 
-                        if (anySpecialChar.includes(true) ) {
-                          this.setState({
-                            password1SpecialChar: true
-                          }, () => {
-                            console.log(`this.state.password1SpecialChar: ${this.state.password1SpecialChar}`);
-                            if (this.state.nameValid && this.state.emailValid && this.state.passwordMatch && this.state.password12Char && this.state.password1SpecialChar) {
-                              this.setState({
-                                lockRegister: false
-                              }, () => {
-                                console.log(`this.state.lockRegister: ${this.state.lockRegister}`);
-                              })
-                            } else {
-                              this.setState({
-                                lockRegister: true
-                              }, () => {
-                                console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
-                              })
-                            }
-                          })
-                        } else {
-                          this.setState({
-                            password1SpecialChar: false,
-                            lockRegister: true
-                          }, () => {
-                            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
-                          })
-                        }
-                      });
-                    } else {
-                      this.setState({
-                        password12Char: false,
-                        lockRegister: true
-                      }, () => {
-                        console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
-                      })
-                    }
-                  });
-                } else {
-                  this.setState({
-                    passwordMatch: false,
-                    lockRegister: true
-                  }, () => {
-                    console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
-                  })
-                }
-              })
-            } else {
-              this.setState({
-                emailValid: false,
-                lockRegister: true
-              }, () => {
-                console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
-              })
-            }
           })
         } else {
           this.setState({
@@ -156,11 +74,109 @@ class Register extends Component {
             console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
           })
         }
+
+        // Validate email input
+        const emailRegExp = /@\w+\.com$|@\w+\.tw$|@\w+\.cn$|@\w+\.hk$|@\w+\.edu$|@\w+\.au$|@\w+\.uk$|@\w+\.net$|@\w+\.io$|@\w+\.gov$|@\w+\.com.hk$|@\w+\.com.tw$@\w+\.edu.hk$|@\w+\.edu.tw$|@\w+\.gov.hk$|@\w+\.gov.tw$|@\w+\.gov.uk$/.test(this.state.email);
+        if (emailRegExp) {
+          this.setState({
+            emailValid: true
+          }, () => {
+            console.log(`this.state.emailValid:\n${this.state.emailValid}`)
+          })
+        } else {
+          this.setState({
+            emailValid: false,
+            lockRegister: true
+          }, () => {
+            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+          })
+        }
+
+        // Validate whether password && passwordConfirm match up
+        if (this.state.password && this.state.passwordConfirm && this.state.password === this.state.passwordConfirm) {
+          this.setState({ 
+            passwordMatch: true
+          }, () => {
+            console.log(`this.state.passwordMatch: \n${this.state.passwordMatch}`);
+          });
+        } else {
+          this.setState({
+            passwordMatch: false,
+            lockRegister: true
+          }, () => {
+            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+          })
+        }
+        
+        // Validate whether both password && passwordConfirm length >= 12
+        if (this.state.password.length >=12 && this.state.passwordConfirm.length >=12) {
+          this.setState({
+            password12Char: true
+          }, () => {
+            console.log(`this.state.password12Char: ${this.state.password12Char}`);
+          });
+        } else {
+          this.setState({
+            password12Char: false,
+            lockRegister: true
+          }, () => {
+            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+          })
+        }
+
+        // Validate whether both password && passwordConfirm include at least 1 special character
+        const specialChar = ['!', '@', '#' , '$' , '%' , '^' , '&' , '*' , '(' , ')' , '-' , '=' , '{' , '}' , '{' , '}' , '|' , '\\' , ';' , ':' , "'" , '"' , ',' , '<' , '.' , '>' , '`' , '~' ];
+        const anySpecialChar = specialChar.map(element => {
+          if (this.state.password.includes(element) && this.state.passwordConfirm.includes(element)) {
+            return true;
+          } else {
+            this.setState({
+              password1SpecialChar: false,
+              lockRegister: true
+            }, () => {
+              console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+            })
+          }
+        }) 
+        if (anySpecialChar.includes(true) ) {
+          this.setState({
+            password1SpecialChar: true
+          }, () => {
+            console.log(`this.state.password1SpecialChar: ${this.state.password1SpecialChar}`);
+          })
+        } else {
+          this.setState({
+            password1SpecialChar: false,
+            lockRegister: true
+          }, () => {
+            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+          })
+        }
+
+        // Validate whehter all criterion are satisfied for user registraton
+        // 1. name
+        // 2. email
+        // 3. password && passwordConfirm match up
+        // 4. password && passwordConfirm consist of at least 12 characters
+        // 5. password && passwordConfirm consist of at least 1 special character
+        if (this.state.nameValid && this.state.emailValid && this.state.passwordMatch && this.state.password12Char && this.state.password1SpecialChar) {
+          this.setState({
+            lockRegister: false // If all criterion are met => unlock 'Register' button
+          }, () => {
+            console.log(`this.state.lockRegister: ${this.state.lockRegister}`);
+          })
+        } else {
+          this.setState({
+            lockRegister: true
+          }, () => {
+            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+          })
+        }
     };
   
   
   componentDidUpdate(prevProps, prevState) {
-      // Check if password or passwordConfirm have changed
+      // To keep tracking real-time users' input validations
       if (
         this.state.name !== prevState.name ||
         this.state.nameValid !== prevState.nameValid ||
@@ -171,12 +187,11 @@ class Register extends Component {
         this.state.password.length !== prevState.password.length ||
         this.state.password12Char !== prevState.password12Char ||
         this.state.password1SpecialChar !== prevState.password1SpecialChar ||
-        this.state.passwordConfirm !== prevState.passwordConfirm ||
-        this.state.passwordValidated !== prevState.passwordValidated
+        this.state.passwordConfirm !== prevState.passwordConfirm
       ) {
         this.validateInputs();
       }
-    }
+  }
 
 
   // App 'Sign In' button onClick event handler
@@ -218,6 +233,7 @@ class Register extends Component {
 
   render() {
 
+    // Destructuring props from this.state
     const { 
       name,
       nameValid,
@@ -228,12 +244,11 @@ class Register extends Component {
       lockRegister,
       password12Char,
       password1SpecialChar,
-      passwordMatch,
-      passwordValidated
+      passwordMatch
       } = this.state;
 
-      // css style for register button
-      const registerTachyons = 'b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib';
+    // tachyons styling for register button
+    const registerTachyons = 'b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib';
 
     return (
       <div>
@@ -248,7 +263,7 @@ class Register extends Component {
                     Name
                   </label>
                   <input
-                    className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                    className={`${classes.nameInput} pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100`}
                     type="text"
                     name="name"
                     id="name"
@@ -272,7 +287,7 @@ class Register extends Component {
                     Email
                   </label>
                   <input
-                    className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                    className={`${classes.emailInput} pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100`}
                     type="email"
                     name="email-address"
                     id="email-address"
@@ -291,25 +306,25 @@ class Register extends Component {
                 </div>
               </div>
               <div className={`${classes.passwordContainer} mv3`}>
-                <div className={`${classes.passwordInputContainer}`}>
+                <div className={`${classes.passwordInputsContainer}`}>
                   <div className={`${classes.password}`}>
-                    <label className="db fw6 lh-copy f6" htmlFor="password">
+                    <label className={`${classes.passwordInputLabel} db fw6 lh-copy f6`} htmlFor="password">
                       Password
                     </label>
                     <input
-                      className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                      className={`${classes.passwordInput} b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100`}
                       type="password"
                       name="password"
                       id="password"
                       onChange={this.onPasswordChange}
                     />
                   </div>
-                  <div className={`${classes.passwordConfirm} mv3`}>
-                    <label className="db fw6 lh-copy f6" htmlFor="passwordConfirmation">
+                  <div className={`${classes.passwordConfirmContainer} mv3`}>
+                    <label className={`${classes.passwordConfirmLabel} db fw6 lh-copy f6`} htmlFor="passwordConfirmation">
                       Confirm Password
                     </label>
                     <input
-                      className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                      className={`${classes.passwordConfirmInput} b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100`}
                       type="password"
                       name="confirmPassword"
                       id="confirmPassword"
@@ -318,29 +333,6 @@ class Register extends Component {
                   </div>
                 </div>
                 <div className={`${classes.passwordValidationContainer}`}>
-                  <div className={`${classes.passwordValidationInputContainer}`}>
-                    <input
-                      className={`${classes.passwordMatchInput}`}
-                      type='text'
-                      name='passwordMatchInput'
-                      id='passwordMatchInput'
-                      value='password Match'
-                    />
-                    <input
-                      className={`${classes.password12CharInput}`}
-                      type='text'
-                      name='password12CharInput'
-                      id='password12CharhInput'
-                      value='>=12Char'
-                    />
-                    <input
-                      className={`${classes.password1SpecialCharInput}`}
-                      type='text'
-                      name='password1SpecialCharInput'
-                      id='password1SpecialCharInput'
-                      value='>=1 Special Char'
-                    />
-                  </div>
                   <div className={`${classes.passwordValidationIconContainer}`}>
                     <img 
                       className={`${classes.passwordMatchIcon}`}
@@ -365,6 +357,29 @@ class Register extends Component {
                       id='password1SpecialCharIcon' 
                       src={password1SpecialChar === true ? `${tick}`:`${cross}`} 
                       alt='password1SpecialCharIcon'
+                    />
+                  </div>
+                  <div className={`${classes.passwordValidationInputContainer}`}>
+                    <input
+                      className={`${classes.passwordMatchInput}`}
+                      type='text'
+                      name='passwordMatchInput'
+                      id='passwordMatchInput'
+                      value='Match'
+                    />
+                    <input
+                      className={`${classes.password12CharInput}`}
+                      type='text'
+                      name='password12CharInput'
+                      id='password12CharhInput'
+                      value='>=12Char'
+                    />
+                    <input
+                      className={`${classes.password1SpecialCharInput}`}
+                      type='text'
+                      name='password1SpecialCharInput'
+                      id='password1SpecialCharInput'
+                      value='>=1 Symbol'
                     />
                   </div>
                 </div>
@@ -392,8 +407,5 @@ class Register extends Component {
       </div>
     );
   }
-// const Register = ({ onRouteChange }) => {
-  
-};
-
+}
 export default Register;

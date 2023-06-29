@@ -45,8 +45,10 @@ class Signin extends Component {
         this.props.loadUser(user);
         this.props.onRouteChange('home');
       } else if (!user.id) { // if user.id does NOT exist
+        const signInPasswordInput = document.querySelector('#password');
         this.props.onRouteChange('signin');
         alert('Signin credentials incorrect...\nPlease try again');
+        signInPasswordInput.value = '';
       }
     })
   }

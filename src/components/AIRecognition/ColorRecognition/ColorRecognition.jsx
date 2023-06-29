@@ -28,7 +28,8 @@ const ColorRecognition = ( {
                     </div>
                     <div id="saveColorBtn">
                         <SaveColorBtn 
-                            name={name} 
+                            name={name}
+                            color_props={color_props}
                             onSaveColorButton={onSaveColorButton} 
                         />
                     </div>

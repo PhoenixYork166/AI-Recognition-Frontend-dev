@@ -1,0 +1,14 @@
+.celebrityName {
+    color: #1738f1;
+    margin-top: -5vh;
+    width: 25vw;
+    height: 4vh;
+    font-size: 2rem;
+    opacity: 1;
+}
+
+.invisible {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}

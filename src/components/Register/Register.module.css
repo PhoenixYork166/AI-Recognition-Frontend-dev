@@ -3,20 +3,26 @@
     flex-direction: row;
 }
 
-.passwordInputContainer, .passwordValidationIcon {
+.nameInput, .emailInput {
+    width: 12.5vw;
+}
+
+.passwordInputsContainer, .passwordValidationIcon {
     display: flex;
     flex-direction: column;
 }
 
+
+
 .nameIcon, .emailIcon {
     display: flex;
     align-items: center;
-    height: 6.4vh;
+    height: 5.2vh;
 }
 
 .nameIconInput, .emailIconInput {
-    height: 3.3vh;
-    width: 5vw;
+    height: 2.5vh;
+    width: 3vw;
 }
 
 .passwordValidationInputContainer {
@@ -25,11 +31,12 @@
     justify-content: center;
 }
 
+/* Password validation boxes styling */
 .passwordMatchInput, .password12CharInput, .password1SpecialCharInput {
     display: flex;
     align-items: center;
-    height: 3vh;
-    width: 8vw;
+    height: 2.38vh;
+    width: 5vw;
     font-size: 0.7rem;
 }
 
@@ -41,7 +48,7 @@
 .passwordMatchIcon, .password12CharIcon, .password1SpecialCharIcon {
     display: flex;
     align-items: center;
-    height: 3.3vh;
+    height: 2.35vh;
     width: 5vw;
 }
 

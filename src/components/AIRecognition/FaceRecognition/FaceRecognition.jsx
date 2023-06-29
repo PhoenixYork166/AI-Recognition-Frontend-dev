@@ -1,11 +1,13 @@
 import React from 'react';
 import './FaceRecognition.css';
+import classes from './FaceRecognition.module.css';
 
 const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
 
+    const bounding_box = document.querySelector('#root > div > div.center.ma > div > div.bounding-box');
+
     return face_hidden ? (
     <h2></h2>
-        
     ) : ( 
         <div className="center ma">
             <div className='absolute mt2'>
@@ -16,9 +18,6 @@ const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
                     id='face-image'
                     src={imageUrl}
                     alt="Ooops...It seems the entered URL is BROKEN...Please enter a working URL starting with 'https' in .jpg format"
-                    // style={{
-                    //     visibility: 'hidden'
-                    // }}
                    /> 
                 </div>
                
@@ -36,7 +35,8 @@ const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
                 on a new browser window*/}
                 <div className='celebrity-name-outer'>
                     <button 
-                     className='celebrity-name'
+                     className=
+                     {celebrityName ? `${classes.celebrityName}`:`${classes.invisible}`}
                      onClick={() => 
                         window.open(`https://www.google.com/search?q=${celebrityName}`, '_blank')}
                     >
