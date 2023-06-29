@@ -14,6 +14,30 @@ import Rank from './components/Rank/Rank';
 //   apiKey: '910f3adce45b4519a33c50ab13e1efcb'
 // });
 
+const initialState = {
+  input: '',
+  imageUrl: '',
+  box: {},
+  celebrity: {},
+  celebrityName: '',
+  colors: [],
+  age: [],
+  face_hidden: true,
+  color_hidden: true,
+  age_hidden: true,
+  responseStatusCode: Number(''),
+  route: 'signin',
+  isSignedIn: false,
+  user: { // just copy from database
+    id: '',
+    name: '',
+    email: '',
+    entries: 0,
+    joined: ''
+  },
+  state_raw_hex_array: [],
+}
+
 // Most API requires an API Key
 const returnClarifaiRequestOptions = imageUrl => {
   const PAT = 'b3e95c6890e443c29885edab45529224';
@@ -54,30 +78,7 @@ const returnClarifaiRequestOptions = imageUrl => {
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      input: '',
-      imageUrl: '',
-      box: {},
-      celebrity: {},
-      celebrityName: '',
-      colors: [],
-      age: [],
-      face_hidden: true,
-      color_hidden: true,
-      age_hidden: true,
-      responseStatusCode: Number(''),
-      route: 'signin',
-      isSignedIn: false,
-      user: { // just copy from database
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: '',
-        raw_hex: [],
-      },
-      state_raw_hex_array: [],
-    };
+    this.state = initialState;
   }
   
   // For <Register /> && <Signin />
@@ -215,7 +216,35 @@ class App extends Component {
       age: [],
       face_hidden: true,
       color_hidden: true,
-      age_hidden: true
+      age_hidden: true,
+      responseStatusCode: Number(''),
+      state_raw_hex_array: [],
+        })
+  };
+
+  resetApp = () => {
+    this.setState({
+      input: '',
+      imageUrl: '',
+      box: {},
+      celebrity: {},
+      celebrityName: '',
+      colors: [],
+      age: [],
+      face_hidden: true,
+      color_hidden: true,
+      age_hidden: true,
+      responseStatusCode: Number(''),
+      route: 'signin',
+      isSignedIn: false,
+      user: { // just copy from database
+        id: '',
+        name: '',
+        email: '',
+        entries: 0,
+        joined: ''
+      },
+      state_raw_hex_array: [],
     })
   };
 
@@ -456,10 +485,12 @@ class App extends Component {
   onRouteChange = routeInput => {
     // if onClick={() => onRouteChange('signout')}
     if (routeInput === 'signout') {
-      this.setState({ isSignedIn: false });
+      this.setState({ isSignedIn: false});
       // else if onClick={() => onRouteChange('home')}
     } else if (routeInput === 'home') {
       this.setState({ isSignedIn: true });
+    } else {
+      this.setState(initialState);
     }
     // No matter what, still wanna change the route
     this.setState({ route: routeInput });
@@ -470,7 +501,7 @@ class App extends Component {
   validateUsers = () => {
     if (!this.state.user.id) {
       this.onRouteChange('signin');
-      alert('Pardon me, your registration was unsuccessful\nPlease try registering with another email');
+      // alert('Pardon me, your registration was unsuccessful\nPlease try registering with another email');
     }
   }
 

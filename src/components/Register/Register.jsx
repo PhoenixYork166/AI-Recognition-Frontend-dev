@@ -26,7 +26,7 @@ class Register extends Component {
   onNameChange = (event) => {
     this.setState({ name: event.target.value }, () => {
       this.validateInputs();
-      console.log('this.state.signInEmail: \n', this.state.signInEmail);
+      // console.log('this.state.signInEmail: \n', this.state.signInEmail);
     })
   }
   
@@ -34,7 +34,7 @@ class Register extends Component {
   onEmailChange = (event) => {
     this.setState({ email: event.target.value }, () => {
       this.validateInputs();
-      console.log('this.state.email: \n', this.state.email);
+      // console.log('this.state.email: \n', this.state.email);
     })
   }
 
@@ -42,7 +42,7 @@ class Register extends Component {
     const newPassword = event.target.value;
     this.setState({ password: newPassword }, () => {
       this.validateInputs();
-      console.log('this.state.password: \n', this.state.password);
+      // console.log('this.state.password: \n', this.state.password);
     })
   }
 
@@ -50,7 +50,7 @@ class Register extends Component {
     const newPasswordConfirm = event.target.value;
     this.setState({ passwordConfirm: newPasswordConfirm }, () => {
       this.validateInputs();
-      console.log('this.state.passwordConfirm: \n', this.state.passwordConfirm);
+      // console.log('this.state.passwordConfirm: \n', this.state.passwordConfirm);
     })
   }
 
@@ -61,17 +61,14 @@ class Register extends Component {
         if (this.state.name.length > 0) {
           this.setState({
             nameValid: true
-          }, () => {
-            console.log(`this.state.name.length:\n${this.state.name.length}`);
-            console.log(`this.state.nameValid:\n${this.state.nameValid}`);
-          })
+          });
         } else {
           this.setState({
             nameValid: false,
             lockRegister: true
           }, () => {
-            console.log(`this.state.nameValid:\n${this.state.nameValid}`);
-            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+            // console.log(`this.state.nameValid:\n${this.state.nameValid}`);
+            // console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
           })
         }
 
@@ -81,14 +78,14 @@ class Register extends Component {
           this.setState({
             emailValid: true
           }, () => {
-            console.log(`this.state.emailValid:\n${this.state.emailValid}`)
+            // console.log(`this.state.emailValid:\n${this.state.emailValid}`)
           })
         } else {
           this.setState({
             emailValid: false,
             lockRegister: true
           }, () => {
-            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+            // console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
           })
         }
 
@@ -97,14 +94,14 @@ class Register extends Component {
           this.setState({ 
             passwordMatch: true
           }, () => {
-            console.log(`this.state.passwordMatch: \n${this.state.passwordMatch}`);
+            // console.log(`this.state.passwordMatch: \n${this.state.passwordMatch}`);
           });
         } else {
           this.setState({
             passwordMatch: false,
             lockRegister: true
           }, () => {
-            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+            // console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
           })
         }
         
@@ -113,14 +110,14 @@ class Register extends Component {
           this.setState({
             password12Char: true
           }, () => {
-            console.log(`this.state.password12Char: ${this.state.password12Char}`);
+            // console.log(`this.state.password12Char: ${this.state.password12Char}`);
           });
         } else {
           this.setState({
             password12Char: false,
             lockRegister: true
           }, () => {
-            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+            // console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
           })
         }
 
@@ -134,7 +131,7 @@ class Register extends Component {
               password1SpecialChar: false,
               lockRegister: true
             }, () => {
-              console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+              // console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
             })
           }
         }) 
@@ -142,14 +139,14 @@ class Register extends Component {
           this.setState({
             password1SpecialChar: true
           }, () => {
-            console.log(`this.state.password1SpecialChar: ${this.state.password1SpecialChar}`);
+            // console.log(`this.state.password1SpecialChar: ${this.state.password1SpecialChar}`);
           })
         } else {
           this.setState({
             password1SpecialChar: false,
             lockRegister: true
           }, () => {
-            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+            // console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
           })
         }
 
@@ -163,13 +160,13 @@ class Register extends Component {
           this.setState({
             lockRegister: false // If all criterion are met => unlock 'Register' button
           }, () => {
-            console.log(`this.state.lockRegister: ${this.state.lockRegister}`);
+            // console.log(`this.state.lockRegister: ${this.state.lockRegister}`);
           })
         } else {
           this.setState({
             lockRegister: true
           }, () => {
-            console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+            // console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
           })
         }
     };
