@@ -195,7 +195,9 @@ class Register extends Component {
 
 
   // App 'Sign In' button onClick event handler
-  onSubmitSignIn = (event) => {
+  onSubmitRegister = (event) => {
+    // Destructuring this.state variables for Registration
+    const { name, email, password } = this.state;
     event.preventDefault(); // Stop page from refreshing on Signin form submission
     // Send Register info via HTTP POST request to server localhost:3000
     // To avoid Query Strings
@@ -205,9 +207,9 @@ class Register extends Component {
       method: 'post', // to create
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ // stringifying this.state variables before fetching
-        name: this.state.name,
-        email: this.state.email,
-        password: this.state.password
+        name: name,
+        email: email,
+        password: password
       })
     })
     .then(response => response.json()) // res.json() to parse data
@@ -391,7 +393,7 @@ class Register extends Component {
             </fieldset>
             <div className="">
               <input
-                onClick={this.onSubmitSignIn}
+                onClick={this.onSubmitRegister}
                 disabled={lockRegister}
                 className={lockRegister === true ? 
                   `${registerTachyons}` :

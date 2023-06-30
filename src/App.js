@@ -36,44 +36,41 @@ const initialState = {
 }
 
 // Most API requires an API Key
-// const app = new Clarifai.App({
-//   apiKey: '910f3adce45b4519a33c50ab13e1efcb'
-// });
-const returnClarifaiRequestOptions = imageUrl => {
-  const PAT = 'b3e95c6890e443c29885edab45529224';
+// const returnClarifaiRequestOptions = imageUrl => {
+//   const PAT = 'b3e95c6890e443c29885edab45529224';
 
-  const USER_ID = 'phoenixyork166';
-  const APP_ID = 'my-app';
-  // const MODEL_ID = "face-detection";
-  const IMAGE_URL = imageUrl;
+//   const USER_ID = 'phoenixyork166';
+//   const APP_ID = 'my-app';
+//   // const MODEL_ID = "face-detection";
+//   const IMAGE_URL = imageUrl;
 
-  const raw = JSON.stringify({
-    user_app_id: {
-      user_id: USER_ID,
-      app_id: APP_ID
-    },
-    inputs: [
-      {
-        data: {
-          image: {
-            url: IMAGE_URL
-          }
-        }
-      }
-    ]
-  });
+//   const raw = JSON.stringify({
+//     user_app_id: {
+//       user_id: USER_ID,
+//       app_id: APP_ID
+//     },
+//     inputs: [
+//       {
+//         data: {
+//           image: {
+//             url: IMAGE_URL
+//           }
+//         }
+//       }
+//     ]
+//   });
 
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      Authorization: 'Key ' + PAT
-    },
-    body: raw
-  };
+//   const requestOptions = {
+//     method: 'POST',
+//     headers: {
+//       Accept: 'application/json',
+//       Authorization: 'Key ' + PAT
+//     },
+//     body: raw
+//   };
 
-  return requestOptions;
-};
+//   return requestOptions;
+// };
 
 class App extends Component {
   constructor() {
@@ -296,12 +293,19 @@ class App extends Component {
     // fetch(
     //  "https://api.clarifai.com/v2/models/general-image-recognition/outputs", 
     //  returnClarifaiRequestOptions(imageUrl))
-    fetch(
-      'https://api.clarifai.com/v2/models/' +
-        'celebrity-face-detection' +
-        '/outputs',
-      returnClarifaiRequestOptions(this.state.input)
-    )
+    // fetch(
+    //   'https://api.clarifai.com/v2/models/' +
+    //     'celebrity-face-detection' +
+    //     '/outputs',
+    //   returnClarifaiRequestOptions(this.state.input)
+    // )
+    fetch('http://localhost:3000/celebrityimage', {
+        method: 'post', 
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+          input: this.state.input
+        })
+      })
       .then(response => response.json())
       .then(response => {
         console.log('HTTP Response: \n', response);
@@ -357,10 +361,13 @@ class App extends Component {
       () => console.log(`this.state.input:\n${this.state.input}\nthis.state.color_hidden:\n${this.state.color_hidden}`)
     );
 
-    fetch(
-      'https://api.clarifai.com/v2/models/' + 'color-recognition' + '/outputs',
-      returnClarifaiRequestOptions(this.state.input)
-    )
+    fetch('http://localhost:3000/colorimage', {
+        method: 'post', 
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+          input: this.state.input
+        })
+      })
       .then(response => response.json())
       .then(response => {
         // console.log('HTTP Response: \n', response);
@@ -456,12 +463,13 @@ class App extends Component {
       () => console.log('this.state.age_hidden:\n', this.state.age_hidden)
     );
 
-    fetch(
-      'https://api.clarifai.com/v2/models/' +
-        'age-demographics-recognition' +
-        '/outputs',
-      returnClarifaiRequestOptions(this.state.input)
-    )
+    fetch('http://localhost:3000/ageimage', {
+        method: 'post', 
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+          input: this.state.input
+        })
+      })
       .then(response => response.json())
       .then(response => {
         console.log('HTTP Response\nAge Detection', response);
