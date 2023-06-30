@@ -6,18 +6,21 @@ class Signin extends Component {
     this.state = {
       signInEmail: '',
       signInPassword: '',
+      lockSignIn: true
     }
   }
 
   // Listens to onChange events of email && password <input>
   onEmailChange = (event) => {
     this.setState({ signInEmail: event.target.value }, () => {
+      this.validateInputs();
       // console.log('this.state.signInEmail: \n', this.state.signInEmail);
     })
   }
 
   onPasswordChange = (event) => {
     this.setState({ signInPassword: event.target.value }, () => {
+      this.validateInputs();
       // console.log('this.state.signInPassword: \n', this.state.signInPassword);
     })
   }
@@ -45,12 +48,28 @@ class Signin extends Component {
         this.props.loadUser(user);
         this.props.onRouteChange('home');
       } else if (!user.id) { // if user.id does NOT exist
-        const signInPasswordInput = document.querySelector('#password');
+        const signInPasswordInput = document.querySelector('#current-password');
         this.props.onRouteChange('signin');
         alert('Signin credentials incorrect...\nPlease try again');
         signInPasswordInput.value = '';
       }
     })
+  }
+
+  validateInputs = () => {
+    if (this.state.signInEmail.length > 0 && this.state.signInPassword.length > 0) {
+      this.setState({
+        lockSignIn: false
+      })
+    } else {
+      this.setState({
+        lockSignIn: true
+      })
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.lockSignIn !== prevState.lockSignIn) this.validateInputs();
   }
 
   render() {
@@ -94,6 +113,7 @@ class Signin extends Component {
               <input
                 // onClick={() => onRouteChange('home')}
                 onClick={this.onSubmitSignIn}
+                disabled={this.state.lockSignIn}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Sign in"

@@ -10,9 +10,6 @@ import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
 import Rank from './components/Rank/Rank';
 
-// const app = new Clarifai.App({
-//   apiKey: '910f3adce45b4519a33c50ab13e1efcb'
-// });
 
 const initialState = {
   input: '',
@@ -39,6 +36,9 @@ const initialState = {
 }
 
 // Most API requires an API Key
+// const app = new Clarifai.App({
+//   apiKey: '910f3adce45b4519a33c50ab13e1efcb'
+// });
 const returnClarifaiRequestOptions = imageUrl => {
   const PAT = 'b3e95c6890e443c29885edab45529224';
 
@@ -408,7 +408,8 @@ class App extends Component {
           console.log(`this.state.user.entries is: ${this.state.user.entries}`);
           console.log(`raw_hex array passed to server-side: ${this.state.state_raw_hex_array}`);
         })
-      })
+    })
+    .catch (err => console.log(err))
   }
 
   // For <SaveColorBtn /> in <ColorRecognition />
@@ -482,7 +483,7 @@ class App extends Component {
   };
 
   // To allow routing through onClick={() => onRouteChange(routeInput)}
-  onRouteChange = routeInput => {
+  onRouteChange = (routeInput) => {
     // if onClick={() => onRouteChange('signout')}
     if (routeInput === 'signout') {
       this.setState({ isSignedIn: false});
@@ -501,7 +502,6 @@ class App extends Component {
   validateUsers = () => {
     if (!this.state.user.id) {
       this.onRouteChange('signin');
-      // alert('Pardon me, your registration was unsuccessful\nPlease try registering with another email');
     }
   }
 

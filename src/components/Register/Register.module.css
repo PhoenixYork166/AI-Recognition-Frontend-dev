@@ -4,7 +4,8 @@
 }
 
 .nameInput, .emailInput {
-    width: 12.5vw;
+    /* width: 12.5vw; */
+    width: max-content;
 }
 
 .passwordInputsContainer, .passwordValidationIcon {
@@ -49,7 +50,7 @@
     display: flex;
     align-items: center;
     height: 2.35vh;
-    width: 5vw;
+    width: max-content;
 }
 
 .registerBtnOK {

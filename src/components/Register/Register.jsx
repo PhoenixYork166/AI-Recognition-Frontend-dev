@@ -58,7 +58,9 @@ class Register extends Component {
   validateInputs = () => {    
         
         // Validate name input 
-        if (this.state.name.length > 0) {
+        const nameRegExp = new RegExp(/^[a-zA-Z]+$/, 'gm');
+        const nameValidation = nameRegExp.test(this.state.name);
+        if (nameValidation && this.state.name.length >= 3) {
           this.setState({
             nameValid: true
           });
@@ -73,8 +75,9 @@ class Register extends Component {
         }
 
         // Validate email input
-        const emailRegExp = /@\w+\.com$|@\w+\.tw$|@\w+\.cn$|@\w+\.hk$|@\w+\.edu$|@\w+\.au$|@\w+\.uk$|@\w+\.net$|@\w+\.io$|@\w+\.gov$|@\w+\.com.hk$|@\w+\.com.tw$@\w+\.edu.hk$|@\w+\.edu.tw$|@\w+\.gov.hk$|@\w+\.gov.tw$|@\w+\.gov.uk$/.test(this.state.email);
-        if (emailRegExp) {
+        const emailRegExp = new RegExp(/^\w+@[A-Za-z]+[A-Za-z]+(\.com|\.gov|\.tw|\.cn|\.hk|\.edu|\.au|\.uk|\.net|\.io|\.gov\.hk|\.com\.hk|\.com\.tw|\.edu\.tw|\.gov\.uk|\.edu\.hk|\.edu\.uk|\.edu\.au)$/, 'gm')
+        const emailValidation = emailRegExp.test(this.state.email);
+        if (emailValidation) {
           this.setState({
             emailValid: true
           }, () => {
