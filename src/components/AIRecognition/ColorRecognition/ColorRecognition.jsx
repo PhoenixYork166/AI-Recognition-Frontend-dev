@@ -1,7 +1,6 @@
 import React from 'react';
 import './ColorRecognition.css';
 import ColorDetails from './ColorDetails';
-import SaveColorBtn from './SaveColorBtn';
 
 const ColorRecognition = ( { 
     name, 
@@ -25,13 +24,6 @@ const ColorRecognition = ( {
                     <div id="color-details">
                         <ColorDetails color_props={color_props} />
                         
-                    </div>
-                    <div id="saveColorBtn">
-                        <SaveColorBtn 
-                            name={name}
-                            color_props={color_props}
-                            onSaveColorButton={onSaveColorButton} 
-                        />
                     </div>
                 </div>
         </div>
