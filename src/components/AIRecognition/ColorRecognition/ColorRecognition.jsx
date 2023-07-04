@@ -7,7 +7,6 @@ const ColorRecognition = ( {
     imageUrl, 
     color_props, 
     color_hidden,
-    onSaveColorButton 
 } ) => {
     return color_hidden ? (
     <h2></h2>
