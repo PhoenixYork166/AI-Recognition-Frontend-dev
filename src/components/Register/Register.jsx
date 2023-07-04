@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import classes from './Register.module.css';
+import Name from './Name';
+import Email from './Email';
+import Password from './Password';
+import PasswordConfirm from './PasswordConfirm';
 import tick from './tick.jpg';
 import cross from './cross2.png';
 
@@ -21,6 +25,7 @@ class Register extends Component {
     }
   }
   
+  //////// Smart component functions 
   // Listens to onChange events of name <input>
   // Trigger this.validateInputs() whenever there's any changes
   onNameChange = (event) => {
@@ -109,7 +114,7 @@ class Register extends Component {
         }
         
         // Validate whether both password && passwordConfirm length >= 12
-        if (this.state.password.length >=12 && this.state.passwordConfirm.length >=12) {
+        if (this.state.password.length >=12) {
           this.setState({
             password12Char: true
           }, () => {
@@ -127,7 +132,7 @@ class Register extends Component {
         // Validate whether both password && passwordConfirm include at least 1 special character
         const specialChar = ['!', '@', '#' , '$' , '%' , '^' , '&' , '*' , '(' , ')' , '-' , '=' , '{' , '}' , '{' , '}' , '|' , '\\' , ';' , ':' , "'" , '"' , ',' , '<' , '.' , '>' , '`' , '~' ];
         const anySpecialChar = specialChar.map(element => {
-          if (this.state.password.includes(element) && this.state.passwordConfirm.includes(element)) {
+          if (this.state.password.includes(element)) {
             return true;
           } else {
             this.setState({
@@ -254,144 +259,70 @@ class Register extends Component {
 
     return (
       <div>
-        <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-        <main className="pa4 black-80">
+        <article className={`${classes.article}`}> 
+        <main className={`${classes.formContainer} black-80`}>
           <form className="measure">
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-              <legend className="f1 fw6 ph0 mh0">Register</legend>
-              <div className={`${classes.nameContainer} mt3}`}>
-                <div className={`${classes.name}`}>
-                  <label className="db fw6 lh-copy f6" htmlFor="name">
-                    Name
-                  </label>
-                  <input
-                    className={`${classes.nameInput} pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100`}
-                    type="text"
-                    name="name"
-                    id="name"
-                    onChange={this.onNameChange}
-                  />
+              <legend className={`${classes.register} f1 fw6 ph0 mh0`}>Register</legend>
+              <div className={`${classes.inputs}`} >
+                <Name 
+                  onNameChange={this.onNameChange}
+                  nameValid={this.state.nameValid}
+                />
+                <div className={`${classes.nameNotice}`}>
+                  <p
+                    className={`${classes.nameNoticeInner}`}
+                  >
+                    {
+                      this.state.nameValid === true ?
+                      `Name is valid` : `Please enter a valid name`
+                    }
+                  </p>
                 </div>
-                <div className={`${classes.nameIcon}`}>
-                  <img 
-                    className={`${classes.nameIconInput}`}
-                    type='text'
-                    name='nameIcon'
-                    id='nameIcon' 
-                    src={nameValid === true ? `${tick}`:`${cross}`} 
-                    alt='nameIcon'
-                  />
+                <Email 
+                  onEmailChange={this.onEmailChange}
+                  emailValid={this.state.emailValid}
+                />
+                <div className={`${classes.emailNotice}`}>
+                  <p
+                    className={`${classes.emailNoticeInner}`}
+                  >
+                    {
+                    this.state.emailValid === true ? 
+                    `Email is valid` : `Please enter a valid email`
+                    }
+                  </p>
                 </div>
+                <Password
+                  onPasswordChange={this.onPasswordChange}
+                  password12Char={this.state.password12Char}
+
+                />
+                <PasswordConfirm
+                  onPasswordConfirmChange={this.onPasswordConfirmChange}
+                  password1SpecialChar={this.state.password1SpecialChar}
+                />      
+                <div className={`${classes.passwordNotice}`}>
+                <p
+                  className={`${classes.passwordNoticeInner}`}
+                >{
+                  !this.state.passwordConfirm === true ? 
+                  `Please confirm password` 
+                  : 
+                  this.state.password === this.state.passwordConfirm ? 
+                  `Password MATCH!` : `Password must MATCH`
+                }</p>     
+                </div>
+  
               </div>
-              <div className={`${classes.emailContainer} mt3`} >
-                <div className={`${classes.email}`}>
-                  <label className="db fw6 lh-copy f6" htmlFor="email-address">
-                    Email
-                  </label>
-                  <input
-                    className={`${classes.emailInput} pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100`}
-                    type="email"
-                    name="email-address"
-                    id="email-address"
-                    onChange={this.onEmailChange}
-                  />
-                </div>
-                <div className={`${classes.emailIcon}`}>
-                  <img 
-                    className={`${classes.emailIconInput}`}
-                    type='text'
-                    name='emailIcon'
-                    id='emailIcon' 
-                    src={emailValid === true ? `${tick}`:`${cross}`} 
-                    alt='emailIcon'
-                  />
-                </div>
-              </div>
-              <div className={`${classes.passwordContainer} mv3`}>
-                <div className={`${classes.passwordInputsContainer}`}>
-                  <div className={`${classes.password}`}>
-                    <label className={`${classes.passwordInputLabel} db fw6 lh-copy f6`} htmlFor="password">
-                      Password
-                    </label>
-                    <input
-                      className={`${classes.passwordInput} b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100`}
-                      type="password"
-                      name="password"
-                      id="password"
-                      onChange={this.onPasswordChange}
-                    />
-                  </div>
-                  <div className={`${classes.passwordConfirmContainer} mv3`}>
-                    <label className={`${classes.passwordConfirmLabel} db fw6 lh-copy f6`} htmlFor="passwordConfirmation">
-                      Confirm Password
-                    </label>
-                    <input
-                      className={`${classes.passwordConfirmInput} b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100`}
-                      type="password"
-                      name="confirmPassword"
-                      id="confirmPassword"
-                      onChange={this.onPasswordConfirmChange}
-                    />
-                  </div>
-                </div>
-                <div className={`${classes.passwordValidationContainer}`}>
-                  <div className={`${classes.passwordValidationIconContainer}`}>
-                    <img 
-                      className={`${classes.passwordMatchIcon}`}
-                      type='text'
-                      name='passwordMatchIcon'
-                      id='passwordMatchIcon' 
-                      src={passwordMatch === true ? `${tick}`:`${cross}`} 
-                      alt='passwordMatchIcon'
-                    />
-                    <img 
-                      className={`${classes.password12CharIcon}`}
-                      type='text'
-                      name='password12CharIcon'
-                      id='password12CharIcon' 
-                      src={password12Char === true ? `${tick}`:`${cross}`} 
-                      alt='password12CharIcon'
-                    />
-                    <img 
-                      className={`${classes.password1SpecialCharIcon}`}
-                      type='text'
-                      name='password1SpecialCharIcon'
-                      id='password1SpecialCharIcon' 
-                      src={password1SpecialChar === true ? `${tick}`:`${cross}`} 
-                      alt='password1SpecialCharIcon'
-                    />
-                  </div>
-                  <div className={`${classes.passwordValidationInputContainer}`}>
-                    <input
-                      className={`${classes.passwordMatchInput}`}
-                      type='text'
-                      name='passwordMatchInput'
-                      id='passwordMatchInput'
-                      value='Match'
-                    />
-                    <input
-                      className={`${classes.password12CharInput}`}
-                      type='text'
-                      name='password12CharInput'
-                      id='password12CharhInput'
-                      value='>=12Char'
-                    />
-                    <input
-                      className={`${classes.password1SpecialCharInput}`}
-                      type='text'
-                      name='password1SpecialCharInput'
-                      id='password1SpecialCharInput'
-                      value='>=1 Symbol'
-                    />
-                  </div>
-                </div>
-                
-              </div>
+                   
+         
               {/* <label className="pa0 ma0 lh-copy f6 pointer">
                 <input type="checkbox" /> Remember me
               </label> */}
             </fieldset>
-            <div className="">
+
+            <div className={`${classes.register}`}>
               <input
                 onClick={this.onSubmitRegister}
                 disabled={lockRegister}

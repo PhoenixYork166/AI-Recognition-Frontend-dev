@@ -6,7 +6,7 @@ const AgeRecognition = ( { imageUrl, age, age_hidden } ) => {
     return age_hidden ? (
     <h2></h2>
     ) : ( 
-        <div className="center ma">
+        <div className="age-container center ma">
             <div className='absolute mt2' id='age-container'>
                 <div id='age-number'>
                     <h3>Age: {age}</h3>

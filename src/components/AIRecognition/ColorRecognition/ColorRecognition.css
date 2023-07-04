@@ -1,5 +1,7 @@
 .color-container {
     display: flex;
+    flex-flow: row wrap;
+    margin-top: 5vh;
 }
 
 .color-image {

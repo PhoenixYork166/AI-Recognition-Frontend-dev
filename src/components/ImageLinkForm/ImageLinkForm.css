@@ -9,7 +9,7 @@
 }
 
 #container {
-    width: 120vw;
+    width: 90vw;
     /* background-color: aquamarine; */
     display: flex;
     flex-direction: column;

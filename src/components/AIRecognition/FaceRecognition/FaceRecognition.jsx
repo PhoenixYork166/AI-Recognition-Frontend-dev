@@ -9,7 +9,7 @@ const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
     return face_hidden ? (
     <h2></h2>
     ) : ( 
-        <div className="center ma">
+        <div className="face-container center ma">
             <div className='absolute mt2'>
                 <div >
                    <img

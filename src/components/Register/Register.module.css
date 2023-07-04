@@ -1,56 +1,50 @@
-.nameContainer, .emailContainer, .passwordContainer, .passwordValidationContainer {
+.article {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 35rem;
+    min-width: 30rem;
+    max-height: 40rem;
+    min-height: 35rem;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    width: 50%;
+
+    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
 }
 
-.nameInput, .emailInput {
-    /* width: 12.5vw; */
-    width: max-content;
+.article .register {
+    max-height: 0.1rem;
+    min-height: 0rem;
 }
 
-.passwordInputsContainer, .passwordValidationIcon {
-    display: flex;
-    flex-direction: column;
-}
-
-
-
-.nameIcon, .emailIcon {
-    display: flex;
-    align-items: center;
-    height: 5.2vh;
-}
-
-.nameIconInput, .emailIconInput {
-    height: 2.5vh;
-    width: 3vw;
-}
-
-.passwordValidationInputContainer {
+.article .formContainer {
+    padding: var(--spacing-large);
+    height: 47vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-/* Password validation boxes styling */
-.passwordMatchInput, .password12CharInput, .password1SpecialCharInput {
+.article .formContainer .inputs {
     display: flex;
-    align-items: center;
-    height: 2.38vh;
-    width: 5vw;
-    font-size: 0.7rem;
+    flex-flow: column nowrap;
 }
 
-.passwordValidationIconContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.nameNotice, .emailNotice {
+    min-width: 5vh;
+    width: 96%;
+    
 }
-.passwordMatchIcon, .password12CharIcon, .password1SpecialCharIcon {
-    display: flex;
-    align-items: center;
-    height: 2.35vh;
-    width: max-content;
+
+.passwordNotice {
+    min-width: 5vh;
+    width: 95%;
 }
 
 .registerBtnOK {
