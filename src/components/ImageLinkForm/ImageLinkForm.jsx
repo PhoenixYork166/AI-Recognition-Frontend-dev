@@ -1,5 +1,5 @@
 import React from "react";
-import "./ImageLinkForm.css";
+import './ImageLinkForm.css';
 
 // Passing onInputChange event listener as props to App.js
 const ImageLinkForm = ({ 
@@ -11,13 +11,13 @@ const ImageLinkForm = ({
   return (
     <div className="center" id="container">
       <div id="paragraph">
-        <p className="f3">
+        <p className="paragraph-inner">
           {"This Brain will detect Colors or Celebrity faces in your pictures. Give it a try"}
         </p>
       </div>
 
       <div id="container-inner">
-        <div className="form center pa4 br3 shadow-5" id="input">
+        <div className="link-container">
           <input
             className="f4 pa2 w-70 center"
             id="input-inner"
@@ -27,19 +27,19 @@ const ImageLinkForm = ({
         </div>
         <div className="buttons">
           <button
-            className="detectCelebrity w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
+            className="detect-celebrity"
             onClick={onCelebrityButton}
           >
             Detect Celebrity
           </button>
           <button
-            className="detectColor w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
+            className="detect-color"
             onClick={onColorButton}
           >
             Detect Color
           </button>
           <button
-            className="detectAge w-30 grow f4 link ph3 pv2 dib white bg-light-purple"
+            className="detect-age"
             onClick={onAgeButton}
           >
             Detect Age

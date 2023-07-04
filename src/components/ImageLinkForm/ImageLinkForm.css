@@ -1,4 +1,11 @@
-.form {
+.link-container {
+    font-size: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    padding: var(--spacing-small);
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
     height: 15vh;
     background-image: radial-gradient(closest-side, transparent 98%, rgba(0, 0, 0, .3) 99%),
         radial-gradient(closest-side, transparent 98%, rgba(0, 0, 0, .3) 99%);
@@ -6,6 +13,12 @@
     background-position: 0 0, 40px 40px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    min-width: 75vw;
+    width: 88%;
+    min-height: 15vh;
+    height: 100%;
+    align-items: center;
 }
 
 #container {
@@ -26,21 +39,24 @@
     width: 90vw;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
-#input {
-    width: 60vw;
-    height: 15vh;
-    display: inline-block;
-    display: flex;
-    align-items: center;
+.paragraph-inner {
+    font-size: 1.5rem;
 }
 
 #input-inner {
-    width: 50vw;
+    min-width: 30vw;
+    width: 88%;
     overflow-x: scroll;
     display: inline-block;
+    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+
 }
 
 .buttons {
@@ -54,7 +70,34 @@
     
 }
 
-/* .detectCelebrity, .detectColor, .detectAge {
+.detect-celebrity, .detect-color, .detect-age {
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    font-size: 1.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #a463f2;
+    color: #fff;
+    min-width: 6.86625rem;
+    max-width: 7rem;
+    width: 50%;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    text-transform: none;
+    overflow: visible;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    cursor: pointer;
+}
+
+.detect-celebrity:hover, .detect-color:hover, .detect-age:hover {
     box-shadow: 0.3rem 0.3rem 1rem #e9ec13,
     -2px -2px 1rem #ffffff;
-} */
+    transform: translateZ(0);
+    transition: 0.25s;
+    scale: 1.05;
+}
