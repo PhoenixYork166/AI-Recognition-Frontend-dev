@@ -8,13 +8,16 @@
 }
 
 .color-page {
-    width: 48vw;
+    min-width: 48vw;
+    max-width: 60vw;
+    width: 100%;
     font-size: 20px;
     margin-top: 2vh;
     padding-inline: 2% 2%;
 }
 
 .color-table {
+
     width: 48vw;
     padding-right: 2vw;
 }
@@ -28,26 +31,26 @@
     justify-content: flex-start;
 }
 
+.raw-hex-input {
+    min-width: 6rem;
+    max-width: 6rem;
+    width: 100%;
+}
+
 .w3c-hex-input {
     width: 1vw;
 }
 
-.w3c-name-inner {
-    width: 10.5vw;
+.w3c-name-input {
+    min-width: 8rem;
+    max-width: 10rem;
+    width: 100%;
 }
 
 .w3c-hex-input-inner {
-    width: 7vw;
+    min-width: 6rem;
+    max-width: 10rem;
+    width: 100%;
 }
 
-.raw-hex-input {
-    width: 7vw;
-}
-
-
-.save-button {
-    height: 5vh;
-    width: 25vw;
-    display: flex;
-}
 

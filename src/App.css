@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  min-width: 13rem;
+  width: 90%;
+  min-height: 62.5rem;
+  height: 100%;
 }
 
 .center {

@@ -1,11 +1,12 @@
 .color-container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     margin-top: 5vh;
 }
 
 .color-image {
     margin-top: 2vh;
+    padding-inline: 1% 1%;
     top: 0vh;
     width: 50vw;
     height: 50vh;

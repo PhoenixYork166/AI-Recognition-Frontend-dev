@@ -3,11 +3,11 @@ import './Rank.css';
 
 const Rank = ( { name, entries } ) => {
   return (
-    <div className="">
-      <div className='white f3'>
+    <div className="container">
+      <div className='greet'>
         {`${name}, your current entry count is...`}
       </div>
-      <div className='white f1'>
+      <div className='count'>
         #{entries}
       </div>
     </div>

@@ -1,5 +1,18 @@
+.age-container {
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.age-container .age-subcontainer {
+    position: absolute;
+    margin-top: 0.5rem;
+}
+
 #face-image {
     margin-top: 1vh;
+    margin-bottom: 2vh;
     width: 50vw;
     height: 50vh;
 }

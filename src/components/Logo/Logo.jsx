@@ -5,15 +5,15 @@ import brain from './smart-brain.jpg';
 
 const Logo = () => {
   return (
-    <div className="ma4 mt0">
+    <div className="logo-container">
       <Tilt 
-        className="Tilt br2 shadow2" 
+        className="Tilt" 
         options={{ max: 55 }} 
         style={{ 
           height: "150px", width: "150px", backgroundColor: "purple" 
           }}
       >
-        <div className="Tilt-inner pa3">
+        <div className="Tilt-inner">
             <img 
              className="logo"
              style={{paddingTop: '5px'}} 

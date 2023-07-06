@@ -1,22 +1,4 @@
-.face-container {
-    margin-top: 10vh;
-}
-
-#face-image {
+/* #faceImage {
     margin-top: 5vh;
-    width: 50vw;
-    height: 50vh;
-}
+} */
 
-.bounding-box {
-    position: absolute;
-    box-shadow: 0 0 0 3px #069cfa inset;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.celebrity-name-outer {
-    display: flex;
-}

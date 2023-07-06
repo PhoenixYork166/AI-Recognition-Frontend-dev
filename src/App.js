@@ -31,46 +31,8 @@ const initialState = {
     email: '',
     entries: 0,
     joined: ''
-  },
-  state_raw_hex_array: [],
+  }
 }
-
-// Most API requires an API Key
-// const returnClarifaiRequestOptions = imageUrl => {
-//   const PAT = 'b3e95c6890e443c29885edab45529224';
-
-//   const USER_ID = 'phoenixyork166';
-//   const APP_ID = 'my-app';
-//   // const MODEL_ID = "face-detection";
-//   const IMAGE_URL = imageUrl;
-
-//   const raw = JSON.stringify({
-//     user_app_id: {
-//       user_id: USER_ID,
-//       app_id: APP_ID
-//     },
-//     inputs: [
-//       {
-//         data: {
-//           image: {
-//             url: IMAGE_URL
-//           }
-//         }
-//       }
-//     ]
-//   });
-
-//   const requestOptions = {
-//     method: 'POST',
-//     headers: {
-//       Accept: 'application/json',
-//       Authorization: 'Key ' + PAT
-//     },
-//     body: raw
-//   };
-
-//   return requestOptions;
-// };
 
 class App extends Component {
   constructor() {
@@ -214,8 +176,7 @@ class App extends Component {
       face_hidden: true,
       color_hidden: true,
       age_hidden: true,
-      responseStatusCode: Number(''),
-      state_raw_hex_array: [],
+      responseStatusCode: Number('')
         })
   };
 
@@ -240,8 +201,7 @@ class App extends Component {
         email: '',
         entries: 0,
         joined: ''
-      },
-      state_raw_hex_array: [],
+      }
     })
   };
 

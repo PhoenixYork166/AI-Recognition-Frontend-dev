@@ -4,25 +4,27 @@ import classes from './FaceRecognition.module.css';
 
 const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
 
-    const bounding_box = document.querySelector('#root > div > div.center.ma > div > div.bounding-box');
-
     return face_hidden ? (
     <h2></h2>
     ) : ( 
-        <div className="face-container center ma">
+        <div className={`${classes.faceContainer}`}>
             <div className='absolute mt2'>
                 <div >
                    <img
+                    className={`${classes.faceImage}`}
                     // id='face-image' is used for DOM manipulation
                     // cannot be edited
                     id='face-image'
+                    style={{
+                        marginTop: '5vh'
+                    }}
                     src={imageUrl}
                     alt="Ooops...It seems the entered URL is BROKEN...Please enter a working URL starting with 'https' in .jpg format"
                    /> 
                 </div>
                
                 <div 
-                  className='bounding-box'
+                  className={celebrityName ? `${classes.boundingBox}` : ``}
                   style={{
                    top: box.topRow,
                    right: box.rightCol,
@@ -33,7 +35,7 @@ const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
                 {/* Create a button to show Celebrity name && 
                 allow users to google search it for comparison 
                 on a new browser window*/}
-                <div className='celebrity-name-outer'>
+                <div className={`${classes.celebrityNameOuter}`}>
                     <button 
                      className=
                      {celebrityName ? `${classes.celebrityName}`:`${classes.invisible}`}

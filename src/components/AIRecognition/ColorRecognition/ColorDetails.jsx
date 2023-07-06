@@ -50,7 +50,7 @@ const ColorDetails = ({ color_props }) => {
                 <td>
                     <div className="w3c-name">
                         <input 
-                          className="w3c-name-inner"
+                          className="w3c-name-input"
                           type="text"
                           value={each.colors.w3c.name}
                           onClick={() => navigator.clipboard.writeText(w3c_name).then(() => {

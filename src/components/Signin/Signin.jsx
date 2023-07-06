@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classes from './Signin.module.css';
 
 class Signin extends Component {
   constructor(props) {
@@ -76,29 +77,29 @@ class Signin extends Component {
     const { onRouteChange } = this.props;
     return (
       <div>
-        <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-        <main className="pa4 black-80">
+        <article className={`${classes.article}`} >
+        <main className={`${classes.main}`}>
           <form className="measure">
-            <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-              <legend className="f1 fw6 ph0 mh0">Sign In</legend>
-              <div className="mt3">
-                <label className="db fw6 lh-copy f6" htmlFor="email-address">
+            <fieldset id="sign_up" className={`${classes.fieldset}`}>
+              <legend className={`${classes.legend}`}>Sign In</legend>
+              <div className={`${classes.emailContainer}`}>
+                <label className={`${classes.emailLabel}`} htmlFor="email-address">
                   Email
                 </label>
                 <input
-                  className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                  className={`${classes.emailInput}`}
                   type="email"
                   name="email-address"
                   id="email-address"
                   onChange={this.onEmailChange}
                 />
               </div>
-              <div className="mv3">
-                <label className="db fw6 lh-copy f6" htmlFor="current-password">
+              <div className={`${classes.passwordContainer}`}>
+                <label className={`${classes.passwordLabel}`} htmlFor="current-password">
                   Password
                 </label>
                 <input
-                  className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                  className={`${classes.passwordInput}`}
                   type="password"
                   name="current-password"
                   id="current-password"
@@ -114,15 +115,15 @@ class Signin extends Component {
                 // onClick={() => onRouteChange('home')}
                 onClick={this.onSubmitSignIn}
                 disabled={this.state.lockSignIn}
-                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                id={`${classes.signinInput}`}
                 type="submit"
                 value="Sign in"
               />
             </div>
-            <div className="lh-copy mt3">
+            <div className={`${classes.registerContainer}`}>
               <p
                onClick={() => onRouteChange('register')} 
-               className="f6 link dim black db pointer">
+               className={`${classes.registerInput}`}>
                 Register
               </p>
             </div>
