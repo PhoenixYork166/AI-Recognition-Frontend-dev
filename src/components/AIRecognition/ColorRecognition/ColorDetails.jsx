@@ -47,18 +47,18 @@ const ColorDetails = ({ color_props }) => {
       .then(() => {
         setTimeout(() => modal.style.opacity=0.85, 800)
       })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.8, 1200)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.75, 1500)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.7, 1800)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.65, 2100)
-      })
+      // .then(() => {
+      //   setTimeout(() => modal.style.opacity=0.8, 1200)
+      // })
+      // .then(() => {
+      //   setTimeout(() => modal.style.opacity=0.75, 1500)
+      // })
+      // .then(() => {
+      //   setTimeout(() => modal.style.opacity=0.7, 1800)
+      // })
+      // .then(() => {
+      //   setTimeout(() => modal.style.opacity=0.65, 2100)
+      // })
       .then(() => {
         setTimeout(() => modal.style.opacity=0.6, 2400)
       })

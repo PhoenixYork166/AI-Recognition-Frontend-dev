@@ -23,20 +23,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -15rem;
-    margin-left: 3rem;
-    /* position: absolute; */
-    opacity: 1;
+    margin-top: -40rem;
+    margin-left: 24rem;
+    opacity: 0;
 }
 
 .modal-window--inner {
     border: 2px solid white;
-    background-color: white;
-    height: 10vh;
+    background-color: rgb(2, 255, 65);
+    height: 8vh;
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     font-size: 1rem;
-
+    border-radius: 10px;
 }
