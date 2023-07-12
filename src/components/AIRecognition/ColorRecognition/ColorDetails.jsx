@@ -108,10 +108,10 @@ const ColorDetails = ({ color_props }) => {
                           className="w3c-name-input"
                           type="text"
                           value={each.colors.w3c.name}
-                          onClick={() => navigator.clipboard.writeText(w3c_name).then(() => {
-                            alert("All WC3 name copied!");
-                          })
-                          }
+                          // onClick={() => navigator.clipboard.writeText(w3c_name).then(() => {
+                          //   alert("All WC3 name copied!");
+                          // })
+                          // }
                         />
                     </div>
                     </td>
@@ -121,11 +121,11 @@ const ColorDetails = ({ color_props }) => {
                       className='w3c-hex-input-inner'
                       type="text"
                       value={each.colors.w3c.hex}
-                      onClick={() =>
-                        navigator.clipboard.writeText(w3c_hex).then(() => {
-                          alert("All W3C hex copied!");
-                        })
-                      }
+                      // onClick={() =>
+                      //   navigator.clipboard.writeText(w3c_hex).then(() => {
+                      //     alert("All W3C hex copied!");
+                      //   })
+                      // }
                     />
                   </div>
                 </td>
