@@ -11,7 +11,7 @@
     min-width: 48vw;
     max-width: 60vw;
     width: 100%;
-    font-size: 20px;
+    font-size: 1rem;
     margin-top: 2vh;
     padding-inline: 2% 2%;
 }
@@ -32,8 +32,8 @@
 }
 
 .raw-hex-input {
-    min-width: 6rem;
-    max-width: 6rem;
+    min-width: 4.5rem;
+    max-width: 5rem;
     width: 100%;
 }
 
@@ -42,13 +42,13 @@
 }
 
 .w3c-name-input {
-    min-width: 8rem;
-    max-width: 10rem;
+    min-width: 3rem;
+    max-width: 8rem;
     width: 100%;
 }
 
 .w3c-hex-input-inner {
-    min-width: 6rem;
+    min-width: 4.5rem;
     max-width: 10rem;
     width: 100%;
 }

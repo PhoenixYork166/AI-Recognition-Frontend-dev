@@ -1,9 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 130%;
+}
+
 .greet {
     font-size: 1.5rem;
-    color: #fff;
 }
 
 .count {
     font-size: 3rem;
+}
+
+.greet, .count {
     color: #fff;
+    margin-left: 20rem;
 }

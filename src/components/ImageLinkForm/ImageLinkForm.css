@@ -14,8 +14,10 @@
     justify-content: center;
     min-width: 75vw;
     width: 88%;
-    min-height: 15vh;
+    min-height: 10rem;
+    max-height: 12rem;
     height: 100%;
+    position:relative;
 }
 
 .link-container #input-inner {
@@ -63,7 +65,6 @@
 
 .buttons {
     margin-left: 2vw;
-    height: 15vh;
     width: 50vw;
     display: flex;
     flex-flow: column nowrap;
@@ -86,7 +87,7 @@
     max-width: 20rem;
     width: 120%;
     min-height: 2.6rem;
-    max-height: 7rem;
+    max-height: 4rem;
     height: 50%;
     text-decoration: none;
     display: inline-block;

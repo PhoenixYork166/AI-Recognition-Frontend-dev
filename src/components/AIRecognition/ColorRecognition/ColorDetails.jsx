@@ -13,6 +13,100 @@ const ColorDetails = ({ color_props }) => {
     return each.colors.w3c.name;
   });
 
+  // Using querySelectors to retrieve all Raw Hex values as DOM objects
+  const length = document.getElementsByClassName('raw-hex-input').length;
+  const raw_hex_elements = document.getElementsByClassName('raw-hex-input');
+
+  // Retrieve DOM element of modal-window pop-up upon users' copy events
+  const modal = document.querySelector('.modal-window');
+  // const modal_opacity_seventy = () => {
+  //   modal.style.opacity = 0.7;
+  // };
+  // const modal_opacity_fifty = () => {
+  //   modal.style.opacity = 0.5;
+  // };
+  // const modal_opacity_twenty = () => {
+  //   modal.style.opacity = 0.2;
+  // };
+  // const modal_opacity_zero = () => {
+  //   modal.style.opacity = 0;
+  // };
+
+  // Allow user to copy each raw hex value by clicking on it
+  for (let i=0; i < length; i++) {
+    const element = raw_hex_elements[i];
+
+    const clickHandler = () => {
+      navigator.clipboard.writeText(element.value)
+      .then( () => {
+        modal.style.opacity = 1;
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.9, 500)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.85, 800)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.8, 1200)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.75, 1500)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.7, 1800)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.65, 2100)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.6, 2400)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.55, 2700)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.5, 3000)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.45, 3300)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.4, 3600)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.35, 3900)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.3, 4200)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.25, 4500)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.2, 4800)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.15, 5200)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.1, 5500)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.05, 5800)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0, 6100)
+      })
+      .catch(err => {
+        console.error("Failed to copy raw hex: ", err);
+      });
+    };
+
+    element.addEventListener("click", clickHandler);
+  };
+
+
   return (
     <div className="color-name">
       {color_props.map((each) => {
@@ -36,11 +130,11 @@ const ColorDetails = ({ color_props }) => {
                     type="text"
                     className="raw-hex-input"
                     value={each.colors.raw_hex}
-                    onClick={() =>
-                      navigator.clipboard.writeText(hex).then(() => {
-                        alert("All Raw hex copied!");
-                      })
-                    }
+                    // onClick={() =>
+                    //   navigator.clipboard.writeText(hex).then(() => {
+                    //     alert("All Raw hex copied!");
+                    //   })
+                    // }
                   />
                 </td>
                 <td>{each.colors.value}</td>
@@ -56,7 +150,7 @@ const ColorDetails = ({ color_props }) => {
                           onClick={() => navigator.clipboard.writeText(w3c_name).then(() => {
                             alert("All WC3 name copied!");
                           })
-                        }
+                          }
                         />
                     </div>
                     </td>

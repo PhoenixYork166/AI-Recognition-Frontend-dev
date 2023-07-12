@@ -1,10 +1,11 @@
+import classes from './Navigation.module.css';
 import React from 'react';
 
 const Navigation = ( { onRouteChange, isSignedIn }) => {
 
         if (isSignedIn) {
             return (
-            <nav style={{display: 'flex', justifyContent: 'flex-end'}}>
+            <nav style={{display: 'flex', justifyContent: 'flex-end', width: '95%', position: 'absolute' }}>
                 {/* If 'Sign Out' is clicked, nav to 'signin' page */}
                 <p onClick={() => onRouteChange('signin')} className='f3 link dim black underline pa3 pointer'>
                     Sign Out
