@@ -42,52 +42,13 @@ const ColorDetails = ({ color_props }) => {
         modal.style.opacity = 1;
       })
       .then(() => {
-        setTimeout(() => modal.style.opacity=0.9, 500)
-      })
-      .then(() => {
         setTimeout(() => modal.style.opacity=0.85, 800)
       })
-      // .then(() => {
-      //   setTimeout(() => modal.style.opacity=0.8, 1200)
-      // })
-      // .then(() => {
-      //   setTimeout(() => modal.style.opacity=0.75, 1500)
-      // })
-      // .then(() => {
-      //   setTimeout(() => modal.style.opacity=0.7, 1800)
-      // })
-      // .then(() => {
-      //   setTimeout(() => modal.style.opacity=0.65, 2100)
-      // })
       .then(() => {
         setTimeout(() => modal.style.opacity=0.6, 2400)
       })
       .then(() => {
-        setTimeout(() => modal.style.opacity=0.55, 2700)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.5, 3000)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.45, 3300)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.4, 3600)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.35, 3900)
-      })
-      .then(() => {
         setTimeout(() => modal.style.opacity=0.3, 4200)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.25, 4500)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.2, 4800)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.15, 5200)
       })
       .then(() => {
         setTimeout(() => modal.style.opacity=0.1, 5500)
