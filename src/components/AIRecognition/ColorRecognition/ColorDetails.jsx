@@ -81,13 +81,13 @@ const ColorDetails = ({ color_props }) => {
         modal.style.opacity = 1;
       })
       .then(() => {
-        setTimeout(() => modal.style.opacity=0.85, 2000)
+        setTimeout(() => modal.style.opacity=0.85, 1000)
       })
       .then(() => {
-        setTimeout(() => modal.style.opacity=0.3, 6000)
+        setTimeout(() => modal.style.opacity=0.3, 2000)
       })
       .then(() => {
-        setTimeout(() => modal.style.opacity=0, 6500)
+        setTimeout(() => modal.style.opacity=0, 3000)
       })
       .catch(err => {
         console.error("Failed to copy raw hex: ", err);
