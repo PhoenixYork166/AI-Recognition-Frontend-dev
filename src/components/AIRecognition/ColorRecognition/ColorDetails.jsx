@@ -16,55 +16,85 @@ const ColorDetails = ({ color_props }) => {
   // Using querySelectors to retrieve all Raw Hex values as DOM objects
   const length = document.getElementsByClassName('raw-hex-input').length;
   const raw_hex_elements = document.getElementsByClassName('raw-hex-input');
+  const w3c_name_elements = document.getElementsByClassName('w3c-name-input');
+  const w3c_hex_elements = document.getElementsByClassName('w3c-hex-input-inner');
 
   // Retrieve DOM element of modal-window pop-up upon users' copy events
   const modal = document.querySelector('.modal-window');
-  // const modal_opacity_seventy = () => {
-  //   modal.style.opacity = 0.7;
-  // };
-  // const modal_opacity_fifty = () => {
-  //   modal.style.opacity = 0.5;
-  // };
-  // const modal_opacity_twenty = () => {
-  //   modal.style.opacity = 0.2;
-  // };
-  // const modal_opacity_zero = () => {
-  //   modal.style.opacity = 0;
-  // };
 
-  // Allow user to copy each raw hex value by clicking on it
+  // Allow user to copy values by clicking on it
   for (let i=0; i < length; i++) {
-    const element = raw_hex_elements[i];
+    
+    // Allow users to copy raw_hex values from web-app
+    const raw_hex_element = raw_hex_elements[i];
 
-    const clickHandler = () => {
-      navigator.clipboard.writeText(element.value)
+    const raw_hex_clickHandler = () => {
+      navigator.clipboard.writeText(raw_hex_element.value)
       .then( () => {
         modal.style.opacity = 1;
       })
       .then(() => {
-        setTimeout(() => modal.style.opacity=0.85, 800)
+        setTimeout(() => modal.style.opacity=0.85, 2000)
       })
       .then(() => {
-        setTimeout(() => modal.style.opacity=0.6, 2400)
+        setTimeout(() => modal.style.opacity=0.3, 6000)
       })
       .then(() => {
-        setTimeout(() => modal.style.opacity=0.3, 4200)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.1, 5500)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.05, 5800)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0, 6100)
+        setTimeout(() => modal.style.opacity=0, 6500)
       })
       .catch(err => {
         console.error("Failed to copy raw hex: ", err);
       });
     };
+    raw_hex_element.addEventListener("click", raw_hex_clickHandler);
 
-    element.addEventListener("click", clickHandler);
+
+    // Allow users to copy w3c color name from web-app
+    const w3c_name_element = w3c_name_elements[i];
+    
+    const w3c_name_clickHandler = () => {
+      navigator.clipboard.writeText(w3c_name_element.value)
+      .then( () => {
+        modal.style.opacity = 1;
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.85, 2000)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.3, 6000)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0, 6500)
+      })
+      .catch(err => {
+        console.error("Failed to copy raw hex: ", err);
+      });
+    };
+    w3c_name_element.addEventListener('click', w3c_name_clickHandler);
+    
+    // Allow users to copy w3c hex values from web-app
+    const w3c_hex_element = w3c_hex_elements[i];
+    
+    const w3c_hex_clickHandler = () => {
+      navigator.clipboard.writeText(w3c_hex_element.value)
+      .then( () => {
+        modal.style.opacity = 1;
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.85, 2000)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0.3, 6000)
+      })
+      .then(() => {
+        setTimeout(() => modal.style.opacity=0, 6500)
+      })
+      .catch(err => {
+        console.error("Failed to copy raw hex: ", err);
+      });
+    };
+    w3c_hex_element.addEventListener('click', w3c_hex_clickHandler);
+    
   };
 
 

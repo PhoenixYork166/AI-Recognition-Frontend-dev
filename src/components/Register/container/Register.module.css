@@ -25,7 +25,7 @@
 
 .article .formContainer {
     padding: var(--spacing-large);
-    height: 47vh;
+    height: 58vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

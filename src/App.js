@@ -7,7 +7,7 @@ import FaceRecognition from './components/AIRecognition/FaceRecognition/FaceReco
 import ColorRecognition from './components/AIRecognition/ColorRecognition/ColorRecognition';
 import AgeRecognition from './components/AIRecognition/AgeRecognition/AgeRecognition';
 import Signin from './components/Signin/Signin';
-import Register from './components/Register/Register';
+import Register from './components/Register/container/Register';
 import Rank from './components/Rank/Rank';
 
 

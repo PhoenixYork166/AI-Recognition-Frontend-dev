@@ -1,6 +1,6 @@
 import classes from './Password.module.css';
-import tick from './tick.jpg';
-import cross from './cross2.png';
+import tick from '../images/tick.jpg';
+import cross from '../images/cross2.png';
 
 const Password = ({ onPasswordChange, password12Char }) => {
   

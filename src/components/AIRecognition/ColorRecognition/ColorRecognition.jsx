@@ -21,7 +21,7 @@ const ColorRecognition = ( {
                 </div>
                 <div className='modal-window'>
                     <h1 class='modal-window--inner'>
-                        The selected raw hex value has been copied!
+                        Copied!
                     </h1>
                 </div>
             </div>
