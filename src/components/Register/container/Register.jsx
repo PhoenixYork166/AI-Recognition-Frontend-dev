@@ -206,7 +206,20 @@ class Register extends Component {
     // To avoid Query Strings
     // by fetching our server - localhost:3000/register
     // fetch(url, {method: '', headers: '', body: JSON.stringify({ name: '', email: '', password: ''}) })
-    fetch('http://localhost:3000/register', {
+
+    // Fetching local web server
+    // fetch('http://localhost:3000/register', {
+    //   method: 'post', // to create
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify({ // stringifying this.state variables before fetching
+    //     name: name,
+    //     email: email,
+    //     password: password
+    //   })
+    // })
+
+    // Fetching live Web Server on Render
+    fetch('https://ai-recognition-backend.onrender.com/register', {
       method: 'post', // to create
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ // stringifying this.state variables before fetching

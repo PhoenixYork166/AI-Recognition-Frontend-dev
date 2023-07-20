@@ -208,28 +208,55 @@ class App extends Component {
   // Everytime any of the Detection Models is activated
   // update this.state.user.entries by 1 through
   // sending data to server-side
+  
+  // Fetching local web server
+  // updateEntries = async () => {
+  //     await fetch('http://localhost:3000/image', {
+  //       method: 'put', // PUT (Update) 
+  //       headers: {'Content-Type': 'application/json'},
+  //       body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+  //       id: this.state.user.id
+  //       })
+  //     })
+  //     .then(response => {
+  //       return response.json()
+  //     })
+  //     .then(fetchedEntries => {
+  //       console.log(`fetched ENTRIES from server: \n ${fetchedEntries}`);
+  //       console.log(`typeof fetched ENTRIES from server: \n ${typeof fetchedEntries}`);
+  //        this.setState(Object.assign(this.state.user, {
+  //         entries: fetchedEntries
+  //       }), () => {
+  //         console.log(`this.state.user.entries is: ${this.state.user.entries}`);
+  //       })
+  //       })
+  //     .catch(err => console.log(err))
+  // }
+
+  // Fetching live Web Server on Render
   updateEntries = async () => {
-      await fetch('http://localhost:3000/image', {
-        method: 'put', // PUT (Update) 
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ // sending stringified this.state variables as JSON objects
-        id: this.state.user.id
-        })
+    await fetch('https://ai-recognition-backend.onrender.com/image', {
+      method: 'put', // PUT (Update) 
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+      id: this.state.user.id
       })
-      .then(response => {
-        return response.json()
+    })
+    .then(response => {
+      return response.json()
+    })
+    .then(fetchedEntries => {
+      console.log(`fetched ENTRIES from server: \n ${fetchedEntries}`);
+      console.log(`typeof fetched ENTRIES from server: \n ${typeof fetchedEntries}`);
+       this.setState(Object.assign(this.state.user, {
+        entries: fetchedEntries
+      }), () => {
+        console.log(`this.state.user.entries is: ${this.state.user.entries}`);
       })
-      .then(fetchedEntries => {
-        console.log(`fetched ENTRIES from server: \n ${fetchedEntries}`);
-        console.log(`typeof fetched ENTRIES from server: \n ${typeof fetchedEntries}`);
-         this.setState(Object.assign(this.state.user, {
-          entries: fetchedEntries
-        }), () => {
-          console.log(`this.state.user.entries is: ${this.state.user.entries}`);
-        })
-        })
-      .catch(err => console.log(err))
-  }
+      })
+    .catch(err => console.log(err))
+}
+
 
   // ClarifaiAPI Celebrity Face Detection model
   onCelebrityButton = () => {
@@ -259,49 +286,82 @@ class App extends Component {
     //     '/outputs',
     //   returnClarifaiRequestOptions(this.state.input)
     // )
-    fetch('http://localhost:3000/celebrityimage', {
-        method: 'post', 
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ // sending stringified this.state variables as JSON objects
-          input: this.state.input
-        })
-      })
-      .then(response => response.json())
-      .then(response => {
-        console.log('HTTP Response: \n', response);
-        console.log('HTTP request status code:\n', response.status.code);
-        console.log(
-          'bounding box',
-          response.outputs[0].data.regions[0].region_info.bounding_box
-        );
-        console.log(
-          'Celebrity obj:\n',
-          response.outputs[0].data.regions[0].data.concepts[0]
-        );
+
+    // Fetching local web server for celebrityimage
+    // fetch('http://localhost:3000/celebrityimage', {
+    //     method: 'post', 
+    //     headers: {'Content-Type': 'application/json'},
+    //     body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+    //       input: this.state.input
+    //     })
+    //   })
+    //   .then(response => response.json())
+    //   .then(response => {
+    //     console.log('HTTP Response: \n', response);
+    //     console.log('HTTP request status code:\n', response.status.code);
+    //     console.log(
+    //       'bounding box',
+    //       response.outputs[0].data.regions[0].region_info.bounding_box
+    //     );
+    //     console.log(
+    //       'Celebrity obj:\n',
+    //       response.outputs[0].data.regions[0].data.concepts[0]
+    //     );
 
         // If there's a response from Clarifai API
         // update this.state.user.entries on Front-end
-        if (response) { 
-          this.updateEntries();
-        };
+        // if (response) { 
+        //   this.updateEntries();
+        // };
 
-        this.displayFaceBox(this.calculateFaceLocation(response));
+        // this.displayFaceBox(this.calculateFaceLocation(response));
         // Celebrity-face-detection
-        this.displayCelebrity(this.findCelebrity(response));
+        // this.displayCelebrity(this.findCelebrity(response));
         
         // Store HTTP response status code
-        this.setState({ responseStatusCode: response.status.code });
-        // this.displayFaceBox() setState({box: box})
-        // getting values returned by:
-        // this.calculateFaceLocation return {
-        // leftCol: clarifaiFace.left_col * width,
-        // topRow: clarifaiFace.top_row * height,
-        // rightCol: width - (clarifaiFace.right_col * width),
-        // bottomRow: height - (clarifaiFace.bottom_row * height)
-        // }
-      })
-      .catch(err => console.log(err));
-  };
+  //       this.setState({ responseStatusCode: response.status.code });
+
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
+  // Fetching live Web Server on Render
+  fetch('https://ai-recognition-backend.onrender.com/celebrityimage', {
+    method: 'post', 
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+      input: this.state.input
+    })
+  })
+  .then(response => response.json())
+  .then(response => {
+    console.log('HTTP Response: \n', response);
+    console.log('HTTP request status code:\n', response.status.code);
+    console.log(
+      'bounding box',
+      response.outputs[0].data.regions[0].region_info.bounding_box
+    );
+    console.log(
+      'Celebrity obj:\n',
+      response.outputs[0].data.regions[0].data.concepts[0]
+    );
+
+    // If there's a response from Clarifai API
+    // update this.state.user.entries on Front-end
+    if (response) { 
+      this.updateEntries();
+    };
+
+    this.displayFaceBox(this.calculateFaceLocation(response));
+    // Celebrity-face-detection
+    this.displayCelebrity(this.findCelebrity(response));
+    
+    // Store HTTP response status code
+    this.setState({ responseStatusCode: response.status.code });
+
+  })
+  .catch(err => console.log(err));
+};
 
   // ClarifaiAPI Color Detection model
   onColorButton = () => {
@@ -321,7 +381,29 @@ class App extends Component {
       () => console.log(`this.state.input:\n${this.state.input}\nthis.state.color_hidden:\n${this.state.color_hidden}`)
     );
 
-    fetch('http://localhost:3000/colorimage', {
+    // Fetching local web server
+    // fetch('http://localhost:3000/colorimage', {
+    //     method: 'post', 
+    //     headers: {'Content-Type': 'application/json'},
+    //     body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+    //       input: this.state.input
+    //     })
+    //   })
+    //   .then(response => response.json())
+    //   .then(response => {
+    //     console.log('Fetched Colors obj:\n', response.outputs[0].data);
+        // If there's a response upon fetching Clarifai API
+        // fetch our server-side to update entries count too
+      //   if (response) { 
+      //     this.updateEntries();
+      //   };
+
+      //   this.displayColor(this.findColor(response));
+      // })
+      // .catch(err => console.log(err));
+
+      // Fetching live Web Server on Render
+      fetch('https://ai-recognition-backend.onrender.com/colorimage', {
         method: 'post', 
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ // sending stringified this.state variables as JSON objects
@@ -330,14 +412,7 @@ class App extends Component {
       })
       .then(response => response.json())
       .then(response => {
-        // console.log('HTTP Response: \n', response);
-        // console.log('HTTP request status code:\n', response.status.code);
         console.log('Fetched Colors obj:\n', response.outputs[0].data);
-        // user.raw_hex: 
-        // color-detection
-        // this.displayColor adding color hex to this.state.color
-        // this.findColor(response) returns color hex
-
         // If there's a response upon fetching Clarifai API
         // fetch our server-side to update entries count too
         if (response) { 
@@ -347,6 +422,7 @@ class App extends Component {
         this.displayColor(this.findColor(response));
       })
       .catch(err => console.log(err));
+
   };
 
   // For <SaveColorBtn /> in <ColorRecognition />
@@ -354,14 +430,24 @@ class App extends Component {
   // to server-side right after setting state for state_raw_hex_array
   // to avoid delay in server-side
   loadRawHex = async() => {
-    // Sending state user.id && state_raw_hex_array to server-side
-    await fetch('http://localhost:3000/image', {
-        method: 'put', // PUT (Update) 
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ // sending stringified this.state variables as JSON objects
-        id: this.state.user.id,
-        raw_hex: this.state.state_raw_hex_array
-        })
+    // Sending state user.id && state_raw_hex_array to local server-side
+    // await fetch('http://localhost:3000/image', {
+    //     method: 'put', // PUT (Update) 
+    //     headers: {'Content-Type': 'application/json'},
+    //     body: JSON.stringify({
+    //     id: this.state.user.id,
+    //     raw_hex: this.state.state_raw_hex_array
+    //     })
+    // })
+
+    // Fetching live Web Server on Render
+    await fetch('https://ai-recognition-backend.onrender.com/image', {
+      method: 'put', // PUT (Update) 
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+      id: this.state.user.id,
+      raw_hex: this.state.state_raw_hex_array
+      })
     })
     .then(response => response.json()) // string to json
     .then(fetchedUser => { // entries is coming from server-side response
@@ -423,7 +509,17 @@ class App extends Component {
       () => console.log('this.state.age_hidden:\n', this.state.age_hidden)
     );
 
-    fetch('http://localhost:3000/ageimage', {
+      // Fetching local web server
+      // fetch('http://localhost:3000/ageimage', {
+      //   method: 'post', 
+      //   headers: {'Content-Type': 'application/json'},
+      //   body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+      //     input: this.state.input
+      //   })
+      // })
+
+      // Fetching live Web Server on Render
+      fetch('https://ai-recognition-backend.onrender.com/ageimage', {
         method: 'post', 
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ // sending stringified this.state variables as JSON objects
