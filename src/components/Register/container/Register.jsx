@@ -271,10 +271,10 @@ class Register extends Component {
     return (
       <div>
         <article className={`${classes.article}`}> 
-        <main className={`${classes.formContainer} black-80`}>
-          <form className="measure">
-            <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-              <legend className={`${classes.register} f1 fw6 ph0 mh0`}>Register</legend>
+        <main className={`${classes.formContainer}`}>
+          <form className={`${classes.measure}`}>
+            <fieldset id="sign_up" className={`${classes.fieldset}`}>
+              <legend className={`${classes.register}`}>Register</legend>
               <div className={`${classes.inputs}`} >
                 <Name 
                   onNameChange={this.onNameChange}

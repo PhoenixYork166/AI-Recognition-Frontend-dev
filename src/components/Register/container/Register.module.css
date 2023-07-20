@@ -1,3 +1,665 @@
+@media only screen 
+    and (min-width: 250px) {
+
+    .article {
+        display: flex;
+        justify-content: center;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 35rem;
+        min-width: 30rem;
+        max-height: 40rem;
+        min-height: 35rem;
+        margin-right: auto;
+        margin-left: auto;
+        height: 100%;
+        width: 50%;
+        position: relative;
+        /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+    }
+    
+    .article .register {
+        font-size: 3rem;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.8);
+        box-sizing: border-box;
+        display: table;
+        max-width: 100%;
+        white-space: normal;
+    }
+    
+    .article .formContainer {
+        padding: 0;
+        height: 0%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 50%;
+    }
+
+    .measure {
+        scale: 0.7;
+    }
+
+    .fieldset {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0.35em 0 0.625em 0;
+        border: 1px solid transparent;
+        color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .article .formContainer .inputs {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    
+    .nameNotice, .emailNotice {
+        min-width: 5vh;
+        width: 96%;
+        
+    }
+    
+    .passwordNotice {
+        min-width: 5vh;
+        width: 95%;
+    }
+    
+    .registerBtnOK {
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8,
+        -2px -2px 1rem #eefa43;
+    }
+}
+
+/* iphone XE */
+@media only screen 
+    and (device-width: 375px)
+    and (device-height: 667px) {
+        .article {
+            display: flex;
+            justify-content: center;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 35rem;
+            min-width: 30rem;
+            max-height: 40rem;
+            min-height: 35rem;
+            margin-right: auto;
+            margin-left: auto;
+            height: 100%;
+            width: 50%;
+            position: relative;
+            /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+        }
+        
+        .article .register {
+            font-size: 3rem;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+            box-sizing: border-box;
+            display: table;
+            max-width: 100%;
+            white-space: normal;
+        }
+        
+        .article .formContainer {
+            padding: 0;
+            height: 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 50%;
+        }
+        
+        .measure {
+            scale: 0.9;
+        }
+        
+        .fieldset {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0.35em 0 0.625em 0;
+            border: 1px solid transparent;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .article .formContainer .inputs {
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        
+        .nameNotice, .emailNotice {
+            min-width: 5vh;
+            width: 96%;
+            
+        }
+        
+        .passwordNotice {
+            min-width: 5vh;
+            width: 95%;
+        }
+        
+        .registerBtnOK {
+            box-shadow: 0.3rem 0.3rem 1rem #f6f8f8,
+            -2px -2px 1rem #eefa43;
+        }
+    }
+
+/* iPhone XR & iPhone XS Max*/
+@media only screen 
+    and (device-width: 414px)
+    and (device-height: 896px) {
+        .article {
+            display: flex;
+            justify-content: center;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 35rem;
+            min-width: 30rem;
+            max-height: 40rem;
+            min-height: 35rem;
+            margin-right: auto;
+            margin-left: auto;
+            height: 100%;
+            width: 50%;
+            position: relative;
+            /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+        }
+        
+        .article .register {
+            font-size: 3rem;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+            box-sizing: border-box;
+            display: table;
+            max-width: 100%;
+            white-space: normal;
+        }
+        
+        .article .formContainer {
+            padding: 0;
+            height: 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 50%;
+        }
+        
+        .measure {
+            scale: 0.8;
+        }
+        
+        .fieldset {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0.35em 0 0.625em 0;
+            border: 1px solid transparent;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .article .formContainer .inputs {
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        
+        .nameNotice, .emailNotice {
+            min-width: 5vh;
+            width: 96%;
+            
+        }
+        
+        .passwordNotice {
+            min-width: 5vh;
+            width: 95%;
+        }
+        
+        .registerBtnOK {
+            box-shadow: 0.3rem 0.3rem 1rem #f6f8f8,
+            -2px -2px 1rem #eefa43;
+        }
+    }
+
+/* iPod Touch */
+@media only screen 
+    and (device-width: 320px)
+    and (device-height: 568px) {
+        .article {
+            display: flex;
+            justify-content: center;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 35rem;
+            min-width: 30rem;
+            max-height: 40rem;
+            min-height: 35rem;
+            margin-right: auto;
+            margin-left: auto;
+            height: 100%;
+            width: 50%;
+            position: relative;
+            /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+        }
+        
+        .article .register {
+            font-size: 3rem;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+            box-sizing: border-box;
+            display: table;
+            max-width: 100%;
+            white-space: normal;
+        }
+        
+        .article .formContainer {
+            padding: 0;
+            height: 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 50%;
+        }
+        
+        .measure {
+            scale: 0.9;
+        }
+        
+        .fieldset {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0.35em 0 0.625em 0;
+            border: 1px solid transparent;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .article .formContainer .inputs {
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        
+        .nameNotice, .emailNotice {
+            min-width: 5vh;
+            width: 96%;
+            
+        }
+        
+        .passwordNotice {
+            min-width: 5vh;
+            width: 95%;
+        }
+        
+        .registerBtnOK {
+            box-shadow: 0.3rem 0.3rem 1rem #f6f8f8,
+            -2px -2px 1rem #eefa43;
+        }
+    }
+
+/* Google Pixel 2 */
+@media only screen 
+    and (device-width: 411px)
+    and (device-height: 731px) {
+        .article {
+            display: flex;
+            justify-content: center;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 35rem;
+            min-width: 30rem;
+            max-height: 40rem;
+            min-height: 35rem;
+            margin-right: auto;
+            margin-left: auto;
+            height: 100%;
+            width: 50%;
+            position: relative;
+            /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+        }
+        
+        .article .register {
+            font-size: 3rem;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+            box-sizing: border-box;
+            display: table;
+            max-width: 100%;
+            white-space: normal;
+        }
+        
+        .article .formContainer {
+            padding: 0;
+            height: 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 50%;
+        }
+        
+        .measure {
+            scale: 0.8;
+        }
+        
+        .fieldset {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0.35em 0 0.625em 0;
+            border: 1px solid transparent;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .article .formContainer .inputs {
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        
+        .nameNotice, .emailNotice {
+            min-width: 5vh;
+            width: 96%;
+            
+        }
+        
+        .passwordNotice {
+            min-width: 5vh;
+            width: 95%;
+        }
+        
+        .registerBtnOK {
+            box-shadow: 0.3rem 0.3rem 1rem #f6f8f8,
+            -2px -2px 1rem #eefa43;
+        }
+    }
+
+/* Samsung Galaxy S8+ */ 
+@media only screen 
+    and (device-width: 360px)
+    and (device-height: 740px) {
+        .article {
+            display: flex;
+            justify-content: center;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 35rem;
+            min-width: 30rem;
+            max-height: 40rem;
+            min-height: 35rem;
+            margin-right: auto;
+            margin-left: auto;
+            height: 100%;
+            width: 50%;
+            position: relative;
+            /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+        }
+        
+        .article .register {
+            font-size: 3rem;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+            box-sizing: border-box;
+            display: table;
+            max-width: 100%;
+            white-space: normal;
+        }
+        
+        .article .formContainer {
+            padding: 0;
+            height: 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 50%;
+        }
+        
+        .measure {
+            scale: 0.8;
+        }
+        
+        .fieldset {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0.35em 0 0.625em 0;
+            border: 1px solid transparent;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .article .formContainer .inputs {
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        
+        .nameNotice, .emailNotice {
+            min-width: 5vh;
+            width: 96%;
+            
+        }
+        
+        .passwordNotice {
+            min-width: 5vh;
+            width: 95%;
+        }
+        
+        .registerBtnOK {
+            box-shadow: 0.3rem 0.3rem 1rem #f6f8f8,
+            -2px -2px 1rem #eefa43;
+        }
+    }
+
+/* Samsung Galaxy S5 */
+@media only screen 
+    and (device-width: 360px)
+    and (device-height: 640px) {
+        .article {
+            display: flex;
+            justify-content: center;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 35rem;
+            min-width: 30rem;
+            max-height: 40rem;
+            min-height: 35rem;
+            margin-right: auto;
+            margin-left: auto;
+            height: 100%;
+            width: 50%;
+            position: relative;
+            /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+        }
+        
+        .article .register {
+            font-size: 3rem;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+            box-sizing: border-box;
+            display: table;
+            max-width: 100%;
+            white-space: normal;
+        }
+        
+        .article .formContainer {
+            padding: 0;
+            height: 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 50%;
+        }
+        
+        .measure {
+            scale: 0.85;
+        }
+        
+        .fieldset {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0.35em 0 0.625em 0;
+            border: 1px solid transparent;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .article .formContainer .inputs {
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        
+        .nameNotice, .emailNotice {
+            min-width: 5vh;
+            width: 96%;
+            
+        }
+        
+        .passwordNotice {
+            min-width: 5vh;
+            width: 95%;
+        }
+        
+        .registerBtnOK {
+            box-shadow: 0.3rem 0.3rem 1rem #f6f8f8,
+            -2px -2px 1rem #eefa43;
+        }
+    }
+
+@media only screen 
+    and (device-width: 320px)
+    and (device-height: 533px) {
+        .article {
+            display: flex;
+            justify-content: center;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 35rem;
+            min-width: 30rem;
+            max-height: 40rem;
+            min-height: 35rem;
+            margin-right: auto;
+            margin-left: auto;
+            height: 100%;
+            width: 50%;
+            position: relative;
+            /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+        }
+        
+        .article .register {
+            font-size: 3rem;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+            box-sizing: border-box;
+            display: table;
+            max-width: 100%;
+            white-space: normal;
+        }
+        
+        .article .formContainer {
+            padding: 0;
+            height: 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 50%;
+        }
+        
+        .measure {
+            scale: 0.8;
+        }
+        
+        .fieldset {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0.35em 0 0.625em 0;
+            border: 1px solid transparent;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .article .formContainer .inputs {
+            display: flex;
+            flex-flow: column nowrap;
+        }
+        
+        .nameNotice, .emailNotice {
+            min-width: 5vh;
+            width: 96%;
+            
+        }
+        
+        .passwordNotice {
+            min-width: 5vh;
+            width: 95%;
+        }
+        
+        .registerBtnOK {
+            box-shadow: 0.3rem 0.3rem 1rem #f6f8f8,
+            -2px -2px 1rem #eefa43;
+        }
+    }
+
 .article {
     display: flex;
     justify-content: center;
@@ -14,21 +676,45 @@
     margin-left: auto;
     height: 100%;
     width: 50%;
-
+    position: relative;
     /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
 }
 
 .article .register {
-    max-height: 0.1rem;
-    min-height: 0rem;
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    display: table;
+    max-width: 100%;
+    white-space: normal;
 }
 
 .article .formContainer {
-    padding: var(--spacing-large);
-    height: 58vh;
+    padding: 0;
+    height: 0%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+}
+
+.measure {
+    scale: 0.85;
+}
+
+.fieldset {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.35em 0 0.625em 0;
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 .article .formContainer .inputs {
