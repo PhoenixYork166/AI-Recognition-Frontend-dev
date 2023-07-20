@@ -664,6 +664,7 @@
 @media only screen 
     and (device-width: 428px)
     and (device-height: 926px) {
+
         .article {
             display: flex;
             justify-content: center;
@@ -710,7 +711,7 @@
         }
         
         .measure {
-            scale: 0.8;
+            scale: 0.7;
         }
         
         .fieldset {
@@ -789,7 +790,7 @@
 }
 
 .measure {
-    scale: 0.85;
+    scale: 0.9;
 }
 
 .fieldset {
