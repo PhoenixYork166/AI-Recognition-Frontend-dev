@@ -338,8 +338,8 @@ class Register extends Component {
                 onClick={this.onSubmitRegister}
                 disabled={lockRegister}
                 className={lockRegister === true ? 
-                  `${registerTachyons}` :
-                  `${classes.registerBtnOK} ${registerTachyons}`}
+                  `${classes.registerBtn}` :
+                  `${classes.registerBtn} ${classes.registerBtnOK}`}
                 // "b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Register"
