@@ -237,6 +237,86 @@
   }
 }
 
+/* Samsung Galaxy S5 */
+@media only screen and (device-width: 360px) and (device-height: 640px) {
+    .article {
+      display: flex;
+      justify-content: center;
+      border-style: solid;
+      border-width: 1px;
+      border-color: rgba(0, 0, 0, 0.1);
+      border-radius: 0.5rem;
+      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 35rem;
+      min-width: 30rem;
+      max-height: 40rem;
+      min-height: 35rem;
+      margin-right: auto;
+      margin-left: auto;
+      height: 100%;
+      width: 50%;
+      position: relative;
+      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+    }
+  
+    .article .register {
+      font-size: 3rem;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.8);
+      box-sizing: border-box;
+      display: table;
+      max-width: 100%;
+      white-space: normal;
+    }
+  
+    .article .formContainer {
+      padding: 0;
+      height: 0%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: rgba(0, 0, 0, 0.8);
+      position: absolute;
+      top: 50%;
+    }
+  
+    .measure {
+      scale: 0.85;
+    }
+  
+    .fieldset {
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0.35em 0 0.625em 0;
+      border: 1px solid transparent;
+      color: rgba(0, 0, 0, 0.8);
+    }
+  
+    .article .formContainer .inputs {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+  
+    .nameNotice,
+    .emailNotice {
+      min-width: 5vh;
+      width: 96%;
+    }
+  
+    .passwordNotice {
+      min-width: 5vh;
+      width: 95%;
+    }
+  
+    .registerBtnOK {
+      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+    }
+  }
+
 /* Samsung Galaxy S8+ */
 @media only screen and (device-width: 360px) and (device-height: 740px) {
   .article {
@@ -286,86 +366,6 @@
 
   .measure {
     scale: 0.8;
-  }
-
-  .fieldset {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0.35em 0 0.625em 0;
-    border: 1px solid transparent;
-    color: rgba(0, 0, 0, 0.8);
-  }
-
-  .article .formContainer .inputs {
-    display: flex;
-    flex-flow: column nowrap;
-  }
-
-  .nameNotice,
-  .emailNotice {
-    min-width: 5vh;
-    width: 96%;
-  }
-
-  .passwordNotice {
-    min-width: 5vh;
-    width: 95%;
-  }
-
-  .registerBtnOK {
-    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-  }
-}
-
-/* Samsung Galaxy S5 */
-@media only screen and (device-width: 360px) and (device-height: 640px) {
-  .article {
-    display: flex;
-    justify-content: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 35rem;
-    min-width: 30rem;
-    max-height: 40rem;
-    min-height: 35rem;
-    margin-right: auto;
-    margin-left: auto;
-    height: 100%;
-    width: 50%;
-    position: relative;
-    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-  }
-
-  .article .register {
-    font-size: 3rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box;
-    display: table;
-    max-width: 100%;
-    white-space: normal;
-  }
-
-  .article .formContainer {
-    padding: 0;
-    height: 0%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    top: 50%;
-  }
-
-  .measure {
-    scale: 0.85;
   }
 
   .fieldset {
@@ -647,10 +647,10 @@
     border-color: rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 35rem;
-    min-width: 30rem;
-    max-height: 40rem;
-    min-height: 35rem;
+    max-width: 45rem;
+    min-width: 40rem;
+    max-height: 55rem;
+    min-height: 50rem;
     margin-right: auto;
     margin-left: auto;
     height: 100%;
@@ -716,6 +716,86 @@
     box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
   }
 }
+
+/* Surface Pro 7 */
+@media only screen and (device-width: 912px) and (device-height: 1368px) {
+    .article {
+      display: flex;
+      justify-content: center;
+      border-style: solid;
+      border-width: 1px;
+      border-color: rgba(0, 0, 0, 0.1);
+      border-radius: 0.5rem;
+      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 45rem;
+      min-width: 40rem;
+      max-height: 55rem;
+      min-height: 50rem;
+      margin-right: auto;
+      margin-left: auto;
+      height: 100%;
+      width: 50%;
+      position: relative;
+      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+    }
+  
+    .article .register {
+      font-size: 3rem;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.8);
+      box-sizing: border-box;
+      display: table;
+      max-width: 100%;
+      white-space: normal;
+    }
+  
+    .article .formContainer {
+      padding: 0;
+      height: 0%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: rgba(0, 0, 0, 0.8);
+      position: absolute;
+      top: 50%;
+    }
+  
+    .measure {
+      scale: 0.65;
+    }
+  
+    .fieldset {
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0.35em 0 0.625em 0;
+      border: 1px solid transparent;
+      color: rgba(0, 0, 0, 0.8);
+    }
+  
+    .article .formContainer .inputs {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+  
+    .nameNotice,
+    .emailNotice {
+      min-width: 5vh;
+      width: 96%;
+    }
+  
+    .passwordNotice {
+      min-width: 5vh;
+      width: 95%;
+    }
+  
+    .registerBtnOK {
+      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+    }
+  }
 
 .article {
   display: flex;
