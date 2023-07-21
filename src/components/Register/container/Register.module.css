@@ -1,6 +1,4 @@
-@media only screen 
-    and (min-width: 250px)
-    and (min-width: 499px) {
+@media only screen and (min-width: 250px) and (min-width: 499px) {
   .article {
     display: flex;
     justify-content: center;
@@ -75,22 +73,22 @@
 
   .registerBtn {
     position: absolute;
-            left: 35%;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            transition: webkit-transform 0.25s ease-out;
-            font-size: 1rem;
-            font-family: inherit;
-            line-height: 1.15;
-            margin: 0;
-            padding: 0.5rem 1rem 0.5rem 1rem;
-            background-color: initial;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            font-weight: 700;
-            display: inline-block;
-            border: 1px solid #000;
-            -webkit-appearance: button;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 1rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -174,22 +172,22 @@
 
   .registerBtn {
     position: absolute;
-            left: 35%;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            transition: webkit-transform 0.25s ease-out;
-            font-size: 0.8rem;
-            font-family: inherit;
-            line-height: 1.15;
-            margin: 0;
-            padding: 0.5rem 1rem 0.5rem 1rem;
-            background-color: initial;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            font-weight: 700;
-            display: inline-block;
-            border: 1px solid #000;
-            -webkit-appearance: button;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 0.8rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -273,22 +271,22 @@
 
   .registerBtn {
     position: absolute;
-            left: 35%;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            transition: webkit-transform 0.25s ease-out;
-            font-size: 0.8rem;
-            font-family: inherit;
-            line-height: 1.15;
-            margin: 0;
-            padding: 0.5rem 1rem 0.5rem 1rem;
-            background-color: initial;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            font-weight: 700;
-            display: inline-block;
-            border: 1px solid #000;
-            -webkit-appearance: button;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 0.8rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -297,110 +295,106 @@
 }
 
 /* Samsung Galaxy S5 */
-@media only screen 
-and (device-width: 360px) 
-and (device-height: 640px) {
-    .article {
-      display: flex;
-      justify-content: center;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0, 0, 0, 0.1);
-      border-radius: 0.5rem;
-      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 35rem;
-      min-width: 30rem;
-      max-height: 40rem;
-      min-height: 35rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: 100%;
-      width: 50%;
-      position: relative;
-      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-    
-    .article > .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-  
-    .measure {
-      scale: 0.85;
-    }
-  
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-  
-    .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-  
-    .register {
-        font-size: 3rem;
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
-        font-weight: 600;
-        color: rgba(0, 0, 0, 0.8);
-        box-sizing: border-box;
-        max-width: 100%;
-        white-space: normal;
-      }
-
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-  
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-  
-    .registerBtn {
-        position: absolute;
-                left: 35%;
-                backface-visibility: hidden;
-                transform: translateZ(0);
-                transition: webkit-transform 0.25s ease-out;
-                font-size: 0.8rem;
-                font-family: inherit;
-                line-height: 1.15;
-                margin: 0;
-                padding: 0.5rem 1rem 0.5rem 1rem;
-                background-color: initial;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                font-weight: 700;
-                display: inline-block;
-                border: 1px solid #000;
-                -webkit-appearance: button;
-    }
-
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+@media only screen and (device-width: 360px) and (device-height: 640px) {
+  .article {
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 35rem;
+    min-width: 30rem;
+    max-height: 40rem;
+    min-height: 35rem;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
 
+  .article > .formContainer {
+    padding: 0;
+    height: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+  }
+
+  .measure {
+    scale: 0.85;
+  }
+
+  .fieldset {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.35em 0 0.625em 0;
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .inputs {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .nameNotice,
+  .emailNotice {
+    min-width: 5vh;
+    width: 96%;
+  }
+
+  .passwordNotice {
+    min-width: 5vh;
+    width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 0.8rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
+  }
+
+  .registerBtnOK {
+    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+  }
+}
+
 /* Samsung Galaxy S8+ */
-@media only screen 
-and (device-width: 360px) 
-and (device-height: 740px) {
+@media only screen and (device-width: 360px) and (device-height: 740px) {
   .article {
     display: flex;
     justify-content: center;
@@ -474,22 +468,22 @@ and (device-height: 740px) {
 
   .registerBtn {
     position: absolute;
-            left: 35%;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            transition: webkit-transform 0.25s ease-out;
-            font-size: 0.8rem;
-            font-family: inherit;
-            line-height: 1.15;
-            margin: 0;
-            padding: 0.5rem 1rem 0.5rem 1rem;
-            background-color: initial;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            font-weight: 700;
-            display: inline-block;
-            border: 1px solid #000;
-            -webkit-appearance: button;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 0.8rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -573,22 +567,22 @@ and (device-height: 740px) {
 
   .registerBtn {
     position: absolute;
-            left: 35%;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            transition: webkit-transform 0.25s ease-out;
-            font-size: 0.8rem;
-            font-family: inherit;
-            line-height: 1.15;
-            margin: 0;
-            padding: 0.5rem 1rem 0.5rem 1rem;
-            background-color: initial;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            font-weight: 700;
-            display: inline-block;
-            border: 1px solid #000;
-            -webkit-appearance: button;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 0.8rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -673,22 +667,22 @@ and (device-height: 740px) {
 
   .registerBtn {
     position: absolute;
-            left: 35%;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            transition: webkit-transform 0.25s ease-out;
-            font-size: 0.83rem;
-            font-family: inherit;
-            line-height: 1.15;
-            margin: 0;
-            padding: 0.5rem 1rem 0.5rem 1rem;
-            background-color: initial;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            font-weight: 700;
-            display: inline-block;
-            border: 1px solid #000;
-            -webkit-appearance: button;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 0.83rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -698,83 +692,102 @@ and (device-height: 740px) {
 
 /* Samsung Galaxy A51/71 */
 @media only screen and (device-width: 540px) and (device-height: 720px) {
-    .article {
-      display: flex;
-      justify-content: center;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0, 0, 0, 0.1);
-      border-radius: 0.5rem;
-      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 45rem;
-      min-width: 40rem;
-      max-height: 55rem;
-      min-height: 50rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: 100%;
-      width: 50%;
-      position: relative;
-      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-  
-    .article .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      display: table;
-      max-width: 100%;
-      white-space: normal;
-    }
-  
-    .article .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-  
-    .measure {
-      scale: 0.75;
-    }
-  
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-  
-    .article .formContainer .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-  
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-  
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-  
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+  .article {
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 45rem;
+    min-width: 40rem;
+    max-height: 55rem;
+    min-height: 50rem;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .article > .formContainer {
+    padding: 0;
+    height: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+  }
+
+  .measure {
+    scale: 0.75;
+  }
+
+  .fieldset {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.35em 0 0.625em 0;
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .inputs {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .registerBtn {
+    position: absolute;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 0.8rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
+  }
+
+  .nameNotice,
+  .emailNotice {
+    min-width: 5vh;
+    width: 96%;
+  }
+
+  .passwordNotice {
+    min-width: 5vh;
+    width: 95%;
+  }
+
+  .registerBtnOK {
+    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+  }
+}
 
 /* iPhone XR & iPhone XS Max*/
 @media only screen and (device-width: 414px) and (device-height: 896px) {
@@ -852,22 +865,22 @@ and (device-height: 740px) {
 
   .registerBtn {
     position: absolute;
-            left: 35%;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            transition: webkit-transform 0.25s ease-out;
-            font-size: 0.85rem;
-            font-family: inherit;
-            line-height: 1.15;
-            margin: 0;
-            padding: 0.5rem 1rem 0.5rem 1rem;
-            background-color: initial;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            font-weight: 700;
-            display: inline-block;
-            border: 1px solid #000;
-            -webkit-appearance: button;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 0.85rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -897,7 +910,7 @@ and (device-height: 740px) {
     /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
 
-  .article .register {
+  .register {
     font-size: 3rem;
     margin-left: 0;
     margin-right: 0;
@@ -906,7 +919,6 @@ and (device-height: 740px) {
     font-weight: 600;
     color: rgba(0, 0, 0, 0.8);
     box-sizing: border-box;
-    display: table;
     max-width: 100%;
     white-space: normal;
   }
@@ -934,9 +946,29 @@ and (device-height: 740px) {
     color: rgba(0, 0, 0, 0.8);
   }
 
-  .article .formContainer .inputs {
+  .inputs {
     display: flex;
     flex-flow: column nowrap;
+  }
+
+  .registerBtn {
+    position: absolute;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 0.85rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
   }
 
   .nameNotice,
@@ -957,633 +989,676 @@ and (device-height: 740px) {
 
 /* Surface Duo */
 @media only screen and (device-width: 540px) and (device-height: 720px) {
-    .article {
-      display: flex;
-      justify-content: center;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0, 0, 0, 0.1);
-      border-radius: 0.5rem;
-      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 45rem;
-      min-width: 40rem;
-      max-height: 55rem;
-      min-height: 50rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: 100%;
-      width: 50%;
-      position: relative;
-      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-  
-    .article .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      display: table;
-      max-width: 100%;
-      white-space: normal;
-    }
-  
-    .article .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-  
-    .measure {
-      scale: 0.8;
-    }
-  
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-  
-    .article .formContainer .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-  
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-  
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-  
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+  .article {
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 45rem;
+    min-width: 40rem;
+    max-height: 55rem;
+    min-height: 50rem;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .article > .formContainer {
+    padding: 0;
+    height: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+  }
+
+  .measure {
+    scale: 0.8;
+  }
+
+  .fieldset {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.35em 0 0.625em 0;
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .article .formContainer .inputs {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .nameNotice,
+  .emailNotice {
+    min-width: 5vh;
+    width: 96%;
+  }
+
+  .passwordNotice {
+    min-width: 5vh;
+    width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 1rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
+  }
+
+  .registerBtnOK {
+    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+  }
+}
 
 /* iPad Air */
 @media only screen and (device-width: 820px) and (device-height: 1180px) {
-    .article {
-      display: flex;
-      justify-content: center;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0, 0, 0, 0.1);
-      border-radius: 0.5rem;
-      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 45rem;
-      min-width: 40rem;
-      max-height: 55rem;
-      min-height: 50rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: 100%;
-      width: 50%;
-      position: relative;
-      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-  
-    .article .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      display: table;
-      max-width: 100%;
-      white-space: normal;
-    }
-  
-    .article .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-  
-    .measure {
-      scale: 0.65;
-    }
-  
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-  
-    .article .formContainer .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-  
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-  
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-  
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+  .article {
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 45rem;
+    min-width: 40rem;
+    max-height: 55rem;
+    min-height: 50rem;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
-  /* Surface Pro 7 */
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .article > .formContainer {
+    padding: 0;
+    height: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+  }
+
+  .measure {
+    scale: 0.65;
+  }
+
+  .fieldset {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.35em 0 0.625em 0;
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .article .formContainer .inputs {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .nameNotice,
+  .emailNotice {
+    min-width: 5vh;
+    width: 96%;
+  }
+
+  .passwordNotice {
+    min-width: 5vh;
+    width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 1.2rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
+  }
+
+  .registerBtnOK {
+    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+  }
+}
+/* Surface Pro 7 */
 @media only screen and (device-width: 912px) and (device-height: 1368px) {
-    .article {
-      display: flex;
-      justify-content: center;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0, 0, 0, 0.1);
-      border-radius: 0.5rem;
-      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 45rem;
-      min-width: 40rem;
-      max-height: 55rem;
-      min-height: 50rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: 100%;
-      width: 50%;
-      position: relative;
-      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-    
-    .article > .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-  
-    .measure {
-      scale: 0.6;
-    }
-  
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-  
-    .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-
-    .register {
-        font-size: 3rem;
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
-        font-weight: 600;
-        color: rgba(0, 0, 0, 0.8);
-        box-sizing: border-box;
-        max-width: 100%;
-        white-space: normal;
-      }
-  
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-  
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-  
-    .registerBtn {
-        position: absolute;
-        left: 35%;
-        backface-visibility: hidden;
-        transform: translateZ(0);
-        transition: webkit-transform 0.25s ease-out;
-        font-size: 1.2rem;
-        font-family: inherit;
-        line-height: 1.15;
-        margin: 0;
-        padding: 0.5rem 1rem 0.5rem 1rem;
-        background-color: initial;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        font-weight: 700;
-        display: inline-block;
-        border: 1px solid #000;
-        -webkit-appearance: button;
-      }
-
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+  .article {
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 45rem;
+    min-width: 40rem;
+    max-height: 55rem;
+    min-height: 50rem;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
+
+  .article > .formContainer {
+    padding: 0;
+    height: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+  }
+
+  .measure {
+    scale: 0.6;
+  }
+
+  .fieldset {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.35em 0 0.625em 0;
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .inputs {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .nameNotice,
+  .emailNotice {
+    min-width: 5vh;
+    width: 96%;
+  }
+
+  .passwordNotice {
+    min-width: 5vh;
+    width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 1.2rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
+  }
+
+  .registerBtnOK {
+    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+  }
+}
 
 /* Nest Hub */
 @media only screen and (device-width: 1024px) and (device-height: 600px) {
-    .article {
-      display: flex;
-      justify-content: center;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0, 0, 0, 0.1);
-      border-radius: 0.5rem;
-      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 45rem;
-      min-width: 40rem;
-      max-height: 55rem;
-      min-height: 50rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: 100%;
-      width: 50%;
-      position: relative;
-      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-  
-    .article .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      display: table;
-      max-width: 100%;
-      white-space: normal;
-    }
-  
-    .article .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-  
-    .measure {
-      scale: 0.9;
-    }
-  
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-  
-    .article .formContainer .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-  
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-  
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-  
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+  .article {
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 45rem;
+    min-width: 40rem;
+    max-height: 55rem;
+    min-height: 50rem;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
+
+  .article > .formContainer {
+    padding: 0;
+    height: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+  }
+
+  .measure {
+    scale: 0.9;
+  }
+
+  .fieldset {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.35em 0 0.625em 0;
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .inputs {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .nameNotice,
+  .emailNotice {
+    min-width: 5vh;
+    width: 96%;
+  }
+
+  .passwordNotice {
+    min-width: 5vh;
+    width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 1.2rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
+  }
+
+  .registerBtnOK {
+    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+  }
+}
 
 /* Nest Hub Max */
 @media only screen and (device-width: 1280px) and (device-height: 800px) {
-    .article {
-      display: flex;
-      justify-content: center;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0, 0, 0, 0.1);
-      border-radius: 0.5rem;
-      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 45rem;
-      min-width: 40rem;
-      max-height: 55rem;
-      min-height: 50rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: 100%;
-      width: 50%;
-      position: relative;
-      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-  
-    .article .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      display: table;
-      max-width: 100%;
-      white-space: normal;
-    }
-  
-    .article .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-  
-    .measure {
-      scale: 0.8;
-    }
-  
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-  
-    .article .formContainer .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-  
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-  
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-  
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+  .article {
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 45rem;
+    min-width: 40rem;
+    max-height: 55rem;
+    min-height: 50rem;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
 
+  .article > .formContainer {
+    padding: 0;
+    height: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+  }
+
+  .measure {
+    scale: 0.8;
+  }
+
+  .fieldset {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.35em 0 0.625em 0;
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .inputs {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .nameNotice,
+  .emailNotice {
+    min-width: 5vh;
+    width: 96%;
+  }
+
+  .passwordNotice {
+    min-width: 5vh;
+    width: 95%;
+  }
+
+  .registerBtnOK {
+    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+  }
+}
+
 /* Desktop */
-@media only screen 
-    and (min-width: 500px) 
-    and (min-width: 600px) 
-    and (min-width: 800px) 
-    and (min-width: 1000px) 
-     {
+@media only screen and (min-width: 500px) and (min-width: 600px) and (min-width: 800px) and (min-width: 1000px) {
+  .article {
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 35rem;
+    min-width: 30rem;
+    max-height: 40rem;
+    min-height: 35rem;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+  }
 
-        .article {
-            display: flex;
-            justify-content: center;
-            border-style: solid;
-            border-width: 1px;
-            border-color: rgba(0, 0, 0, 0.1);
-            border-radius: 0.5rem;
-            box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-            max-width: 35rem;
-            min-width: 30rem;
-            max-height: 40rem;
-            min-height: 35rem;
-            margin-right: auto;
-            margin-left: auto;
-            height: 100%;
-            width: 50%;
-            position: relative;
-            /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-          }
-                    
-          .article > .formContainer {
-            padding: 0;
-            height: 0%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: rgba(0, 0, 0, 0.8);
-            position: absolute;
-            top: 50%;
-          }
-          
-          .measure {
-            scale: 0.75;
-          }
-          
-          .fieldset {
-            margin-left: 0;
-            margin-right: 0;
-            padding: 0.35em 0 0.625em 0;
-            border: 1px solid transparent;
-            color: rgba(0, 0, 0, 0.8);
-          }
-          
-          .inputs {
-            display: flex;
-            flex-flow: column nowrap;
-          }
+  .article > .formContainer {
+    padding: 0;
+    height: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+  }
 
-          .register {
-            font-size: 3rem;
-            margin-left: 0;
-            margin-right: 0;
-            padding-left: 0;
-            padding-right: 0;
-            font-weight: 600;
-            color: rgba(0, 0, 0, 0.8);
-            box-sizing: border-box;
-            max-width: 100%;
-            white-space: normal;
-          }
-          
-          .nameNotice,
-          .emailNotice {
-            min-width: 5vh;
-            width: 96%;
-          }
-          
-          .passwordNotice {
-            min-width: 5vh;
-            width: 95%;
-          }
-          
-          .registerBtn {
-            position: absolute;
-            left: 35%;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            transition: webkit-transform 0.25s ease-out;
-            font-size: 1.2rem;
-            font-family: inherit;
-            line-height: 1.15;
-            margin: 0;
-            padding: 0.5rem 1rem 0.5rem 1rem;
-            background-color: initial;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            font-weight: 700;
-            display: inline-block;
-            border: 1px solid #000;
-            -webkit-appearance: button;
-          }
-          
-          .registerBtnOK {
-            box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-          }
-          
-    }
+  .measure {
+    scale: 0.75;
+  }
 
-@media only screen 
-    and (min-width: 1300px) 
-    and (min-width: 1600px) 
-    and (min-width: 1900px) 
-    and (min-width: 2500px) {
-        .article {
-            display: flex;
-            justify-content: center;
-            border-style: solid;
-            border-width: 1px;
-            border-color: rgba(0, 0, 0, 0.1);
-            border-radius: 0.5rem;
-            box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-            max-width: 35rem;
-            min-width: 30rem;
-            max-height: 40rem;
-            min-height: 35rem;
-            margin-right: auto;
-            margin-left: auto;
-            height: 100%;
-            width: 50%;
-            position: relative;
-            /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-          }
-                    
-          .article > .formContainer {
-            padding: 0;
-            height: 0%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: rgba(0, 0, 0, 0.8);
-            position: absolute;
-            top: 50%;
-          }
-          
-          .measure {
-            scale: 0.8;
-          }
-          
-          .fieldset {
-            margin-left: 0;
-            margin-right: 0;
-            padding: 0.35em 0 0.625em 0;
-            border: 1px solid transparent;
-            color: rgba(0, 0, 0, 0.8);
-          }
-          
-          .inputs {
-            display: flex;
-            flex-flow: column nowrap;
-          }
+  .fieldset {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.35em 0 0.625em 0;
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.8);
+  }
 
-          .register {
-            font-size: 3rem;
-            margin-left: 0;
-            margin-right: 0;
-            padding-left: 0;
-            padding-right: 0;
-            font-weight: 600;
-            color: rgba(0, 0, 0, 0.8);
-            box-sizing: border-box;
-            max-width: 100%;
-            white-space: normal;
-          }
-          
-          .nameNotice,
-          .emailNotice {
-            min-width: 5vh;
-            width: 96%;
-          }
-          
-          .passwordNotice {
-            min-width: 5vh;
-            width: 95%;
-          }
-          
-          .registerBtn {
-            position: absolute;
-            left: 35%;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-            transition: webkit-transform 0.25s ease-out;
-            font-size: 1.2rem;
-            font-family: inherit;
-            line-height: 1.15;
-            margin: 0;
-            padding: 0.5rem 1rem 0.5rem 1rem;
-            background-color: initial;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            font-weight: 700;
-            display: inline-block;
-            border: 1px solid #000;
-            -webkit-appearance: button;
-          }
-          
-          .registerBtnOK {
-            box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-          }
-    }
+  .inputs {
+    display: flex;
+    flex-flow: column nowrap;
+  }
 
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+  }
 
+  .nameNotice,
+  .emailNotice {
+    min-width: 5vh;
+    width: 96%;
+  }
 
-  /*
+  .passwordNotice {
+    min-width: 5vh;
+    width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 1.2rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
+  }
+
+  .registerBtnOK {
+    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+  }
+}
+
+@media only screen and (min-width: 1300px) and (min-width: 1600px) and (min-width: 1900px) and (min-width: 2500px) {
+  .article {
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 35rem;
+    min-width: 30rem;
+    max-height: 40rem;
+    min-height: 35rem;
+    margin-right: auto;
+    margin-left: auto;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+  }
+
+  .article > .formContainer {
+    padding: 0;
+    height: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 50%;
+  }
+
+  .measure {
+    scale: 0.8;
+  }
+
+  .fieldset {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.35em 0 0.625em 0;
+    border: 1px solid transparent;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .inputs {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .nameNotice,
+  .emailNotice {
+    min-width: 5vh;
+    width: 96%;
+  }
+
+  .passwordNotice {
+    min-width: 5vh;
+    width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+    left: 35%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 1.2rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
+  }
+
+  .registerBtnOK {
+    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+  }
+}
+
+/*
 .article {
   display: flex;
   justify-content: center;
