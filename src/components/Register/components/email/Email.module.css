@@ -1,6 +1,6 @@
 @media only screen 
-    and (device-width: 1300px)
-    and (device-height: 1366px) {
+    and (min-device-width: 1300px)
+    and (min-device-height: 1366px) {
         .emailContainer {
             display: flex;
             flex-direction: column;
@@ -73,10 +73,6 @@
             height: 1.5vh;
         }
     }
-
-
-
-
 
 .emailContainer {
     display: flex;
