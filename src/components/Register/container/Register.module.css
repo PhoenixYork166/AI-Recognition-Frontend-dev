@@ -21,21 +21,7 @@
     /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
 
-  .article .register {
-    font-size: 3rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box;
-    display: table;
-    max-width: 100%;
-    white-space: normal;
-  }
-
-  .article .formContainer {
+  .formContainer {
     padding: 0;
     height: 0%;
     display: flex;
@@ -58,7 +44,20 @@
     color: rgba(0, 0, 0, 0.8);
   }
 
-  .article .formContainer .inputs {
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .inputs {
     display: flex;
     flex-flow: column nowrap;
   }
@@ -72,6 +71,26 @@
   .passwordNotice {
     min-width: 5vh;
     width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+            left: 35%;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            transition: webkit-transform 0.25s ease-out;
+            font-size: 1rem;
+            font-family: inherit;
+            line-height: 1.15;
+            margin: 0;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            background-color: initial;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-weight: 700;
+            display: inline-block;
+            border: 1px solid #000;
+            -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -101,21 +120,7 @@
     /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
 
-  .article .register {
-    font-size: 3rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box;
-    display: table;
-    max-width: 100%;
-    white-space: normal;
-  }
-
-  .article .formContainer {
+  .formContainer {
     padding: 0;
     height: 0%;
     display: flex;
@@ -138,9 +143,22 @@
     color: rgba(0, 0, 0, 0.8);
   }
 
-  .article .formContainer .inputs {
+  .inputs {
     display: flex;
     flex-flow: column nowrap;
+  }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
   }
 
   .nameNotice,
@@ -152,6 +170,26 @@
   .passwordNotice {
     min-width: 5vh;
     width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+            left: 35%;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            transition: webkit-transform 0.25s ease-out;
+            font-size: 0.8rem;
+            font-family: inherit;
+            line-height: 1.15;
+            margin: 0;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            background-color: initial;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-weight: 700;
+            display: inline-block;
+            border: 1px solid #000;
+            -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -181,21 +219,7 @@
     /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
 
-  .article .register {
-    font-size: 3rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box;
-    display: table;
-    max-width: 100%;
-    white-space: normal;
-  }
-
-  .article .formContainer {
+  .formContainer {
     padding: 0;
     height: 0%;
     display: flex;
@@ -218,9 +242,22 @@
     color: rgba(0, 0, 0, 0.8);
   }
 
-  .article .formContainer .inputs {
+  .inputs {
     display: flex;
     flex-flow: column nowrap;
+  }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
   }
 
   .nameNotice,
@@ -234,13 +271,35 @@
     width: 95%;
   }
 
+  .registerBtn {
+    position: absolute;
+            left: 35%;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            transition: webkit-transform 0.25s ease-out;
+            font-size: 0.8rem;
+            font-family: inherit;
+            line-height: 1.15;
+            margin: 0;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            background-color: initial;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-weight: 700;
+            display: inline-block;
+            border: 1px solid #000;
+            -webkit-appearance: button;
+  }
+
   .registerBtnOK {
     box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
   }
 }
 
 /* Samsung Galaxy S5 */
-@media only screen and (device-width: 360px) and (device-height: 640px) {
+@media only screen 
+and (device-width: 360px) 
+and (device-height: 640px) {
     .article {
       display: flex;
       justify-content: center;
@@ -260,22 +319,8 @@
       position: relative;
       /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
     }
-  
-    .article .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      display: table;
-      max-width: 100%;
-      white-space: normal;
-    }
-  
-    .article .formContainer {
+    
+    .article > .formContainer {
       padding: 0;
       height: 0%;
       display: flex;
@@ -298,11 +343,24 @@
       color: rgba(0, 0, 0, 0.8);
     }
   
-    .article .formContainer .inputs {
+    .inputs {
       display: flex;
       flex-flow: column nowrap;
     }
   
+    .register {
+        font-size: 3rem;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.8);
+        box-sizing: border-box;
+        max-width: 100%;
+        white-space: normal;
+      }
+
     .nameNotice,
     .emailNotice {
       min-width: 5vh;
@@ -314,13 +372,35 @@
       width: 95%;
     }
   
+    .registerBtn {
+        position: absolute;
+                left: 35%;
+                backface-visibility: hidden;
+                transform: translateZ(0);
+                transition: webkit-transform 0.25s ease-out;
+                font-size: 0.8rem;
+                font-family: inherit;
+                line-height: 1.15;
+                margin: 0;
+                padding: 0.5rem 1rem 0.5rem 1rem;
+                background-color: initial;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                font-weight: 700;
+                display: inline-block;
+                border: 1px solid #000;
+                -webkit-appearance: button;
+    }
+
     .registerBtnOK {
       box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
     }
   }
 
 /* Samsung Galaxy S8+ */
-@media only screen and (device-width: 360px) and (device-height: 740px) {
+@media only screen 
+and (device-width: 360px) 
+and (device-height: 740px) {
   .article {
     display: flex;
     justify-content: center;
@@ -338,24 +418,9 @@
     height: 100%;
     width: 50%;
     position: relative;
-    /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
 
-  .article .register {
-    font-size: 3rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box;
-    display: table;
-    max-width: 100%;
-    white-space: normal;
-  }
-
-  .article .formContainer {
+  .article > .formContainer {
     padding: 0;
     height: 0%;
     display: flex;
@@ -378,9 +443,22 @@
     color: rgba(0, 0, 0, 0.8);
   }
 
-  .article .formContainer .inputs {
+  .inputs {
     display: flex;
     flex-flow: column nowrap;
+  }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
   }
 
   .nameNotice,
@@ -392,6 +470,26 @@
   .passwordNotice {
     min-width: 5vh;
     width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+            left: 35%;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            transition: webkit-transform 0.25s ease-out;
+            font-size: 0.8rem;
+            font-family: inherit;
+            line-height: 1.15;
+            margin: 0;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            background-color: initial;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-weight: 700;
+            display: inline-block;
+            border: 1px solid #000;
+            -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -421,21 +519,7 @@
     /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
 
-  .article .register {
-    font-size: 3rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box;
-    display: table;
-    max-width: 100%;
-    white-space: normal;
-  }
-
-  .article .formContainer {
+  .article > .formContainer {
     padding: 0;
     height: 0%;
     display: flex;
@@ -458,9 +542,22 @@
     color: rgba(0, 0, 0, 0.8);
   }
 
-  .article .formContainer .inputs {
+  .inputs {
     display: flex;
     flex-flow: column nowrap;
+  }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
   }
 
   .nameNotice,
@@ -472,6 +569,26 @@
   .passwordNotice {
     min-width: 5vh;
     width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+            left: 35%;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            transition: webkit-transform 0.25s ease-out;
+            font-size: 0.8rem;
+            font-family: inherit;
+            line-height: 1.15;
+            margin: 0;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            background-color: initial;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-weight: 700;
+            display: inline-block;
+            border: 1px solid #000;
+            -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -554,6 +671,26 @@
     width: 95%;
   }
 
+  .registerBtn {
+    position: absolute;
+            left: 35%;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            transition: webkit-transform 0.25s ease-out;
+            font-size: 0.83rem;
+            font-family: inherit;
+            line-height: 1.15;
+            margin: 0;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            background-color: initial;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-weight: 700;
+            display: inline-block;
+            border: 1px solid #000;
+            -webkit-appearance: button;
+  }
+
   .registerBtnOK {
     box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
   }
@@ -581,21 +718,7 @@
     /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
   }
 
-  .article .register {
-    font-size: 3rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box;
-    display: table;
-    max-width: 100%;
-    white-space: normal;
-  }
-
-  .article .formContainer {
+  .article > .formContainer {
     padding: 0;
     height: 0%;
     display: flex;
@@ -618,9 +741,22 @@
     color: rgba(0, 0, 0, 0.8);
   }
 
-  .article .formContainer .inputs {
+  .inputs {
     display: flex;
     flex-flow: column nowrap;
+  }
+
+  .register {
+    font-size: 3rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    max-width: 100%;
+    white-space: normal;
   }
 
   .nameNotice,
@@ -632,6 +768,26 @@
   .passwordNotice {
     min-width: 5vh;
     width: 95%;
+  }
+
+  .registerBtn {
+    position: absolute;
+            left: 35%;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            transition: webkit-transform 0.25s ease-out;
+            font-size: 0.85rem;
+            font-family: inherit;
+            line-height: 1.15;
+            margin: 0;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            background-color: initial;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-weight: 700;
+            display: inline-block;
+            border: 1px solid #000;
+            -webkit-appearance: button;
   }
 
   .registerBtnOK {
@@ -722,7 +878,14 @@
 /* Desktop */
 @media only screen 
     and (min-width: 500px) 
+    and (min-width: 600px) 
+    and (min-width: 800px) 
+    and (min-width: 1000px) 
+    and (min-width: 1280px) 
+    and (min-width: 1600px) 
+    and (min-width: 1900px) 
     and (min-width: 2500px) {
+        
         .article {
             display: flex;
             justify-content: center;
@@ -742,22 +905,8 @@
             position: relative;
             /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
           }
-          
-          .article .register {
-            font-size: 3rem;
-            margin-left: 0;
-            margin-right: 0;
-            padding-left: 0;
-            padding-right: 0;
-            font-weight: 600;
-            color: rgba(0, 0, 0, 0.8);
-            box-sizing: border-box;
-            display: table;
-            max-width: 100%;
-            white-space: normal;
-          }
-          
-          .article .formContainer {
+                    
+          .article > .formContainer {
             padding: 0;
             height: 0%;
             display: flex;
@@ -780,9 +929,22 @@
             color: rgba(0, 0, 0, 0.8);
           }
           
-          .article .formContainer .inputs {
+          .inputs {
             display: flex;
             flex-flow: column nowrap;
+          }
+
+          .register {
+            font-size: 3rem;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+            box-sizing: border-box;
+            max-width: 100%;
+            white-space: normal;
           }
           
           .nameNotice,
@@ -802,7 +964,7 @@
             backface-visibility: hidden;
             transform: translateZ(0);
             transition: webkit-transform 0.25s ease-out;
-            font-size: 0.875rem;
+            font-size: 1.2rem;
             font-family: inherit;
             line-height: 1.15;
             margin: 0;
@@ -843,22 +1005,8 @@
       position: relative;
       /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
     }
-  
-    .article .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      display: table;
-      max-width: 100%;
-      white-space: normal;
-    }
-  
-    .article .formContainer {
+    
+    .article > .formContainer {
       padding: 0;
       height: 0%;
       display: flex;
@@ -870,7 +1018,7 @@
     }
   
     .measure {
-      scale: 0.65;
+      scale: 0.88;
     }
   
     .fieldset {
@@ -881,10 +1029,23 @@
       color: rgba(0, 0, 0, 0.8);
     }
   
-    .article .formContainer .inputs {
+    .inputs {
       display: flex;
       flex-flow: column nowrap;
     }
+
+    .register {
+        font-size: 3rem;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.8);
+        box-sizing: border-box;
+        max-width: 100%;
+        white-space: normal;
+      }
   
     .nameNotice,
     .emailNotice {
@@ -897,6 +1058,26 @@
       width: 95%;
     }
   
+    .registerBtn {
+        position: absolute;
+        left: 35%;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        transition: webkit-transform 0.25s ease-out;
+        font-size: 1.2rem;
+        font-family: inherit;
+        line-height: 1.15;
+        margin: 0;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        background-color: initial;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        font-weight: 700;
+        display: inline-block;
+        border: 1px solid #000;
+        -webkit-appearance: button;
+      }
+
     .registerBtnOK {
       box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
     }
