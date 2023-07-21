@@ -1877,7 +1877,6 @@
     }
   }
   
-  /* Tablets */
   
   /* Asus Nexus 7 (v2) && LG G Pad 8.3 */
   @media only screen and (device-width: 600px) and (device-height: 960px) {
@@ -2668,6 +2667,107 @@
     }
   }
   
+    /* Tablets */
+    @media only screen 
+    and (min-device-width: 820px)
+    and (min-device-height: 1180px) {
+        .article {
+            display: flex;
+            justify-content: center;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 45rem;
+            min-width: 40rem;
+            max-height: 55rem;
+            min-height: 50rem;
+            margin-right: auto;
+            margin-left: auto;
+            height: 100%;
+            width: 50%;
+            position: relative;
+            /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
+          }
+        
+          .register {
+            font-size: 3rem;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.8);
+            box-sizing: border-box;
+            max-width: 100%;
+            white-space: normal;
+          }
+        
+          .article > .formContainer {
+            padding: 0;
+            height: 0%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.8);
+            position: absolute;
+            top: 50%;
+          }
+        
+          .measure {
+            scale: 0.65;
+          }
+        
+          .fieldset {
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0.35em 0 0.625em 0;
+            border: 1px solid transparent;
+            color: rgba(0, 0, 0, 0.8);
+          }
+        
+          .article .formContainer .inputs {
+            display: flex;
+            flex-flow: column nowrap;
+          }
+        
+          .nameNotice,
+          .emailNotice {
+            min-width: 5vh;
+            width: 96%;
+          }
+        
+          .passwordNotice {
+            min-width: 5vh;
+            width: 95%;
+          }
+        
+          .registerBtn {
+            position: absolute;
+            left: 35%;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            transition: webkit-transform 0.25s ease-out;
+            font-size: 1rem;
+            font-family: inherit;
+            line-height: 1.15;
+            margin: 0;
+            padding: 0.5rem 1rem 0.5rem 1rem;
+            background-color: initial;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-weight: 700;
+            display: inline-block;
+            border: 1px solid #000;
+            -webkit-appearance: button;
+          }
+        
+          .registerBtnOK {
+            box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+          }
+    }
+
   /* Surface Pro 7 */
   @media only screen and (device-width: 912px) and (device-height: 1368px) {
     .article {
@@ -3242,7 +3342,7 @@
     }
   }
   
-  @media only screen and (min-width: 1300px) {
+  @media only screen and (min-width: 1000px) {
       .article {
           display: flex;
           justify-content: center;
@@ -3251,10 +3351,10 @@
           border-color: rgba(0, 0, 0, 0.1);
           border-radius: 0.5rem;
           box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-          max-width: 35rem;
-          min-width: 30rem;
-          max-height: 40rem;
-          min-height: 35rem;
+          max-width: 40rem;
+          min-width: 35rem;
+          max-height: 46rem;
+          min-height: 45rem;
           margin-right: auto;
           margin-left: auto;
           height: 100%;
@@ -3275,7 +3375,7 @@
         }
       
         .measure {
-          scale: 1.1;
+          scale: 1.2;
         }
       
         .fieldset {
@@ -3342,205 +3442,4 @@
         }
   }
   
-  @media only screen 
-  and (min-width: 1440px) 
-  and (min-width: 1680px) 
-  and (min-width: 1920px) 
-  and (min-width: 2560px) 
-  and (min-width: 3840px) 
-  and (min-width: 4096px) 
-  and (min-width: 5120px) {
-    .article {
-      display: flex;
-      justify-content: center;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0, 0, 0, 0.1);
-      border-radius: 0.5rem;
-      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 35rem;
-      min-width: 30rem;
-      max-height: 40rem;
-      min-height: 35rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: 100%;
-      width: 50%;
-      position: relative;
-      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-  
-    .article > .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-  
-    .measure {
-      scale: 0.8;
-    }
-  
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-  
-    .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-  
-    .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      max-width: 100%;
-      white-space: normal;
-    }
-  
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-  
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-  
-    .registerBtn {
-      position: absolute;
-      left: 35%;
-      backface-visibility: hidden;
-      transform: translateZ(0);
-      transition: webkit-transform 0.25s ease-out;
-      font-size: 1.2rem;
-      font-family: inherit;
-      line-height: 1.15;
-      margin: 0;
-      padding: 0.5rem 1rem 0.5rem 1rem;
-      background-color: initial;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      font-weight: 700;
-      display: inline-block;
-      border: 1px solid #000;
-      -webkit-appearance: button;
-    }
-  
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
-  }
-  /*
-  .article {
-    display: flex;
-    justify-content: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(0, 0, 0, 0.1);
-    border-radius: 0.5rem;
-    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 35rem;
-    min-width: 30rem;
-    max-height: 40rem;
-    min-height: 35rem;
-    margin-right: auto;
-    margin-left: auto;
-    height: 100%;
-    width: 50%;
-    position: relative;
-  }
-  
-  .article .register {
-    font-size: 3rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box;
-    display: table;
-    max-width: 100%;
-    white-space: normal;
-  }
-  
-  .article .formContainer {
-    padding: 0;
-    height: 0%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    top: 50%;
-  }
-  
-  .measure {
-    scale: 0.9;
-  }
-  
-  .fieldset {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0.35em 0 0.625em 0;
-    border: 1px solid transparent;
-    color: rgba(0, 0, 0, 0.8);
-  }
-  
-  .article .formContainer .inputs {
-    display: flex;
-    flex-flow: column nowrap;
-  }
-  
-  .nameNotice,
-  .emailNotice {
-    min-width: 5vh;
-    width: 96%;
-  }
-  
-  .passwordNotice {
-    min-width: 5vh;
-    width: 95%;
-  }
-  
-  .registerBtn {
-    position: absolute;
-    left: 35%;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    transition: webkit-transform 0.25s ease-out;
-    font-size: 0.875rem;
-    font-family: inherit;
-    line-height: 1.15;
-    margin: 0;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    background-color: initial;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    font-weight: 700;
-    display: inline-block;
-    border: 1px solid #000;
-    -webkit-appearance: button;
-  }
-  
-  .registerBtnOK {
-    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-  }
-  
-  */
+ 
