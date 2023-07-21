@@ -1069,7 +1069,7 @@ and (device-height: 740px) {
     }
   
     .measure {
-      scale: 0.88;
+      scale: 0.6;
     }
   
     .fieldset {
@@ -1334,7 +1334,7 @@ and (device-height: 740px) {
           }
           
           .measure {
-            scale: 1.0;
+            scale: 0.75;
           }
           
           .fieldset {
@@ -1437,7 +1437,7 @@ and (device-height: 740px) {
           }
           
           .measure {
-            scale: 0.85;
+            scale: 0.8;
           }
           
           .fieldset {
