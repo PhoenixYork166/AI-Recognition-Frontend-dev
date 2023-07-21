@@ -3251,16 +3251,15 @@
         border-color: rgba(0, 0, 0, 0.1);
         border-radius: 0.5rem;
         box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 35rem;
-        min-width: 30rem;
-        max-height: 40rem;
-        min-height: 35rem;
+        max-width: 66rem;
+        min-width: 65rem;
+        max-height: 60rem;
+        min-height: 55rem;
         margin-right: auto;
         margin-left: auto;
         height: 100%;
         width: 50%;
         position: relative;
-        /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
       }
     
       .article > .formContainer {
