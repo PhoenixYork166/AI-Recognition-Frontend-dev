@@ -1,4 +1,6 @@
-@media only screen and (min-width: 250px) {
+@media only screen 
+    and (min-width: 250px)
+    and (min-width: 499px) {
   .article {
     display: flex;
     justify-content: center;
@@ -685,7 +687,7 @@
   }
 
   .measure {
-    scale: 0.7;
+    scale: 0.6;
   }
 
   .fieldset {
@@ -720,7 +722,7 @@
 /* Desktop */
 @media only screen 
     and (min-width: 500px) 
-    and (max-width: 2500px) {
+    and (min-width: 2500px) {
         .article {
             display: flex;
             justify-content: center;
