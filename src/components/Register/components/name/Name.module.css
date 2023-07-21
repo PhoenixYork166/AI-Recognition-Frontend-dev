@@ -1,6 +1,6 @@
 @media only screen 
-    and (min-device-width: 1300px)
-    and (min-device-height: 1366px) {
+    and (device-width: 1300px)
+    and (device-height: 1366px) {
         .nameContainer {
             margin-top: 1vh;
             display: flex;
