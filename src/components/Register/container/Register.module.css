@@ -259,13 +259,14 @@
         box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
         margin-right: auto;
         margin-left: auto;
-        max-height: 55rem;
-        max-width: 41rem;
-        min-height: 55rem;
-        min-width: 41rem;
+        max-height: 44rem;
+        max-width: 30rem;
+        min-height: 44rem;
+        min-width: 30rem;
+        position: relative;
         height: 100%;
         width: 50%;
-        position: relative;
+        left: 12%;
       }
     
       .formContainer {
@@ -280,7 +281,7 @@
       }
     
       .measure {
-        scale: 1.4;
+        scale: 1.2;
       }
     
       .fieldset {
@@ -767,7 +768,7 @@
       }
   }
    
-  /* Tablets */
+  /* ///////// Tablets /////// */
 
   /* Asus Nexus 7 (v2) && LG G Pad 8.3 */
   @media only screen and (device-width: 600px) and (device-height: 960px) {
@@ -855,296 +856,92 @@
   
   /* Microsoft Surface Pro && Pro 2 */
   @media only screen and (device-width: 720px) and (device-height: 1280px) {
-      .article {
+    .article {
         display: flex;
         justify-content: center;
-        border-style: solid;
-        border-width: 1px;
-        border-color: rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 0.5rem;
         box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 45rem;
-        min-width: 40rem;
-        max-height: 55rem;
-        min-height: 50rem;
         margin-right: auto;
         margin-left: auto;
+        max-height: 115rem;
+        max-width: 75rem;
+        min-height: 115rem;
+        min-width: 75rem;
         height: 100%;
         width: 50%;
         position: relative;
-    }
-    
-    .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      max-width: 100%;
-      white-space: normal;
-    }
-    
-    .article > .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-    
-    .measure {
-      scale: 0.6;
-    }
-    
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-    
-    .article .formContainer .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-    
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-    
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-    
-    .registerBtn {
-      position: absolute;
-      left: 35%;
-      backface-visibility: hidden;
-      transform: translateZ(0);
-      transition: webkit-transform 0.25s ease-out;
-      font-size: 1.2rem;
-      font-family: inherit;
-      line-height: 1.15;
-      margin: 0;
-      padding: 0.5rem 1rem 0.5rem 1rem;
-      background-color: initial;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      font-weight: 700;
-      display: inline-block;
-      border: 1px solid #000;
-      -webkit-appearance: button;
-    }
-    
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+        left: 11%;
+      }
+
+      .measure {
+        scale: 2.1;
+      }
+
+      .inputs {
+        position: relative;
+        left: 5%;
+      }
     }
   
   /* Apple iPad Pro 9.7 && iPad mini && iPad 1, 2, 3, 4, Air, Air2 && HTC Nexus 9 && */
   @media only screen and (device-width: 768px) and (device-height: 1024px) {
-      .article {
+    .article {
         display: flex;
         justify-content: center;
-        border-style: solid;
-        border-width: 1px;
-        border-color: rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 0.5rem;
         box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 45rem;
-        min-width: 40rem;
-        max-height: 55rem;
-        min-height: 50rem;
         margin-right: auto;
         margin-left: auto;
+        max-height: 115rem;
+        max-width: 75rem;
+        min-height: 115rem;
+        min-width: 75rem;
         height: 100%;
         width: 50%;
         position: relative;
-    }
-    
-    .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      max-width: 100%;
-      white-space: normal;
-    }
-    
-    .article > .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-    
-    .measure {
-      scale: 0.7;
-    }
-    
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-    
-    .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-    
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-    
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-    
-    .registerBtn {
-      position: absolute;
-      left: 35%;
-      backface-visibility: hidden;
-      transform: translateZ(0);
-      transition: webkit-transform 0.25s ease-out;
-      font-size: 1.2rem;
-      font-family: inherit;
-      line-height: 1.15;
-      margin: 0;
-      padding: 0.5rem 1rem 0.5rem 1rem;
-      background-color: initial;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      font-weight: 700;
-      display: inline-block;
-      border: 1px solid #000;
-      -webkit-appearance: button;
-    }
-    
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+        left: 11%;
+      }
+
+      .measure {
+        scale: 2.1;
+      }
+
+      .inputs {
+        position: relative;
+        left: 5%;
+      }
     }  
   
   /* Microsoft Surface */
   @media only screen and (device-width: 768px) and (device-height: 1366px) {
-      .article {
+    .article {
         display: flex;
         justify-content: center;
-        border-style: solid;
-        border-width: 1px;
-        border-color: rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 0.5rem;
         box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 45rem;
-        min-width: 40rem;
-        max-height: 55rem;
-        min-height: 50rem;
         margin-right: auto;
         margin-left: auto;
+        max-height: 115rem;
+        max-width: 75rem;
+        min-height: 115rem;
+        min-width: 75rem;
         height: 100%;
         width: 50%;
         position: relative;
-    }
-    
-    .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      max-width: 100%;
-      white-space: normal;
-    }
-    
-    .article > .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-    
-    .measure {
-      scale: 0.6;
-    }
-    
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-    
-    .article .formContainer .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-    
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-    
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-    
-    .registerBtn {
-      position: absolute;
-      left: 35%;
-      backface-visibility: hidden;
-      transform: translateZ(0);
-      transition: webkit-transform 0.25s ease-out;
-      font-size: 1.2rem;
-      font-family: inherit;
-      line-height: 1.15;
-      margin: 0;
-      padding: 0.5rem 1rem 0.5rem 1rem;
-      background-color: initial;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      font-weight: 700;
-      display: inline-block;
-      border: 1px solid #000;
-      -webkit-appearance: button;
-    }
-    
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+        left: 11%;
+      }
+
+      .measure {
+        scale: 2.1;
+      }
+
+      .inputs {
+        position: relative;
+        left: 5%;
+      }
     }
   
   /* Samsung Galaxy Tab 2 10" && Tab 3 10" && Galaxy Tab (8.9") && Nexus 10 && Amazon Kindle Fire HD 8.9 */
