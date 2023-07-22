@@ -142,6 +142,8 @@
     .inputs {
       display: flex;
       flex-flow: column nowrap;
+      position: relative;
+      left: 5%;
     }
   
     .register {
@@ -424,7 +426,9 @@
     }
   
   /* Samsung Galaxy S5 && S6 && Note 4 && LG G4 */
-  @media only screen and (device-width: 360px) and (device-height: 640px) {
+  @media only screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) {
     .article {
         display: flex;
         justify-content: center;
@@ -448,7 +452,9 @@
   }
   
   /* Samsung Galaxy S8+ && S9 */
-  @media only screen and (device-width: 360px) and (device-height: 740px) {
+  @media only screen 
+  and (device-width: 360px) 
+  and (device-height: 740px) {
     .article {
         display: flex;
         justify-content: center;
@@ -472,7 +478,9 @@
   }
   
   /* iPod Touch */
-  @media only screen and (device-width: 375px) and (device-height: 568px) {
+  @media only screen 
+  and (device-width: 375px) 
+  and (device-height: 568px) {
     .article {
         display: flex;
         justify-content: center;
@@ -496,7 +504,9 @@
     }
   
   /* iphone XE && iPhone 8*/
-  @media only screen and (device-width: 375px) and (device-height: 667px) {
+  @media only screen 
+  and (device-width: 375px) 
+  and (device-height: 667px) {
     .article {
         display: flex;
         justify-content: center;
@@ -520,7 +530,9 @@
   }
   
   /* iPhone XS && Samsung Galaxy Note */
-  @media only screen and (device-width: 400px) and (device-height: 640px) {
+  @media only screen 
+  and (device-width: 400px) 
+  and (device-height: 640px) {
     .article {
         display: flex;
         justify-content: center;
@@ -544,7 +556,9 @@
     }
     
   /* Google Pixel XL && Pixel 2 */
-  @media only screen and (device-width: 411px) and (device-height: 731px) {
+  @media only screen 
+  and (device-width: 411px) 
+  and (device-height: 731px) {
     .article {
         display: flex;
         justify-content: center;
@@ -565,10 +579,19 @@
       .measure {
         scale: 2.3;
       }
+
+      .inputs {
+        display: flex;
+        flex-flow: column nowrap;
+        position: relative;
+        left: 4%;
+      }
   }
   
   /* iPhone 6s Plus / 7 Plus */
-  @media only screen and (device-width: 414px) and (device-height: 736px) {
+  @media only screen 
+  and (device-width: 414px) 
+  and (device-height: 736px) {
     .article {
         display: flex;
         justify-content: center;
@@ -588,11 +611,20 @@
 
       .measure {
         scale: 2.6;
+      }
+
+      .inputs {
+        display: flex;
+        flex-flow: column nowrap;
+        position: relative;
+        left: 5%;
       }
     }
 
   /* iPhone XR & iPhone XS Max*/
-  @media only screen and (device-width: 414px) and (device-height: 896px) {
+  @media only screen 
+  and (device-width: 414px) 
+  and (device-height: 896px) {
     .article {
         display: flex;
         justify-content: center;
@@ -612,11 +644,20 @@
 
       .measure {
         scale: 2.6;
+      }
+
+      .inputs {
+        display: flex;
+        flex-flow: column nowrap;
+        position: relative;
+        left: 5%;
       }
     }
   
     /* iPhone 14 */
-  @media only screen and (device-width: 428px) and (device-height: 926px) {
+  @media only screen 
+  and (device-width: 428px) 
+  and (device-height: 926px) {
     .article {
         display: flex;
         justify-content: center;
@@ -636,6 +677,10 @@
 
       .measure {
         scale: 2.6;
+      }
+
+      .inputs {
+        position: relative;
       }
     }
   
@@ -649,17 +694,17 @@
         box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
         margin-right: auto;
         margin-left: auto;
-        max-height: 125rem;
-        max-width: 65rem;
-        min-height: 125rem;
-        min-width: 65rem;
+        max-height: 100rem;
+        max-width: 55rem;
+        min-height: 100rem;
+        min-width: 55rem;
         height: 100%;
         width: 50%;
         position: relative;
       }
 
       .measure {
-        scale: 2.6;
+        scale: 2.2;
       }
     }
   
@@ -673,514 +718,136 @@
         box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
         margin-right: auto;
         margin-left: auto;
-        max-height: 125rem;
-        max-width: 65rem;
-        min-height: 125rem;
-        min-width: 65rem;
+        max-height: 100rem;
+        max-width: 55rem;
+        min-height: 100rem;
+        min-width: 55rem;
         height: 100%;
         width: 50%;
         position: relative;
       }
 
       .measure {
-        scale: 2.6;
+        scale: 2;
+      }
+
+      .inputs {
+        position: relative;
+        left: 4%;
       }
     }
   
-  /* Samsung Galaxy A51/71 */
+  /* Samsung Galaxy A51/71 && Surface Duo */
   @media only screen and (device-width: 540px) and (device-height: 720px) {
     .article {
-      display: flex;
-      justify-content: center;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0, 0, 0, 0.1);
-      border-radius: 0.5rem;
-      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 45rem;
-      min-width: 40rem;
-      max-height: 55rem;
-      min-height: 50rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: 100%;
-      width: 50%;
-      position: relative;
-      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-  
-    .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      max-width: 100%;
-      white-space: normal;
-    }
-  
-    .article > .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-  
-    .measure {
-      scale: 0.75;
-    }
-  
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-  
-    .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-  
-    .registerBtn {
-      position: absolute;
-      left: 35%;
-      backface-visibility: hidden;
-      transform: translateZ(0);
-      transition: webkit-transform 0.25s ease-out;
-      font-size: 0.8rem;
-      font-family: inherit;
-      line-height: 1.15;
-      margin: 0;
-      padding: 0.5rem 1rem 0.5rem 1rem;
-      background-color: initial;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      font-weight: 700;
-      display: inline-block;
-      border: 1px solid #000;
-      -webkit-appearance: button;
-    }
-  
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-  
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-  
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
-  }
-  
-  /* Surface Duo */
-  @media only screen and (device-width: 540px) and (device-height: 720px) {
-    .article {
-      display: flex;
-      justify-content: center;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0, 0, 0, 0.1);
-      border-radius: 0.5rem;
-      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 45rem;
-      min-width: 40rem;
-      max-height: 55rem;
-      min-height: 50rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: 100%;
-      width: 50%;
-      position: relative;
-      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-  
-    .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      max-width: 100%;
-      white-space: normal;
-    }
-  
-    .article > .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-  
-    .measure {
-      scale: 0.8;
-    }
-  
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-  
-    .article .formContainer .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-  
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-  
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-  
-    .registerBtn {
-      position: absolute;
-      left: 35%;
-      backface-visibility: hidden;
-      transform: translateZ(0);
-      transition: webkit-transform 0.25s ease-out;
-      font-size: 1rem;
-      font-family: inherit;
-      line-height: 1.15;
-      margin: 0;
-      padding: 0.5rem 1rem 0.5rem 1rem;
-      background-color: initial;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      font-weight: 700;
-      display: inline-block;
-      border: 1px solid #000;
-      -webkit-appearance: button;
-    }
-  
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
-  }
-  
-  
-  /* Asus Nexus 7 (v2) && LG G Pad 8.3 */
-  @media only screen and (device-width: 600px) and (device-height: 960px) {
-      .article {
         display: flex;
         justify-content: center;
-        border-style: solid;
-        border-width: 1px;
-        border-color: rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 0.5rem;
         box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 45rem;
-        min-width: 40rem;
-        max-height: 55rem;
-        min-height: 50rem;
         margin-right: auto;
         margin-left: auto;
+        max-height: 90rem;
+        max-width: 75rem;
+        min-height: 90rem;
+        min-width: 75rem;
         height: 100%;
         width: 50%;
         position: relative;
-        /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-    
-    .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      max-width: 100%;
-      white-space: normal;
-    }
-    
-    .article > .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-    
-    .measure {
-      scale: 0.65;
-    }
-    
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-    
-    .article .formContainer .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-    
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-    
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-    
-    .registerBtn {
-      position: absolute;
-      left: 35%;
-      backface-visibility: hidden;
-      transform: translateZ(0);
-      transition: webkit-transform 0.25s ease-out;
-      font-size: 1.2rem;
-      font-family: inherit;
-      line-height: 1.15;
-      margin: 0;
-      padding: 0.5rem 1rem 0.5rem 1rem;
-      background-color: initial;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      font-weight: 700;
-      display: inline-block;
-      border: 1px solid #000;
-      -webkit-appearance: button;
-    }
-    
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+      }
+
+      .measure {
+        scale: 2;
+      }
+
+      .inputs {
+        position: relative;
+      }
+  }
+   
+  
+  /* Asus Nexus 7 (v2) && LG G Pad 8.3 */
+  @media only screen and (device-width: 600px) and (device-height: 960px) {
+    .article {
+        display: flex;
+        justify-content: center;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin-right: auto;
+        margin-left: auto;
+        max-height: 115rem;
+        max-width: 75rem;
+        min-height: 115rem;
+        min-width: 75rem;
+        height: 100%;
+        width: 50%;
+        position: relative;
+      }
+
+      .measure {
+        scale: 2.3;
+      }
+
+      .inputs {
+        position: relative;
+      }
     }
   
   /* Samsung Galaxy Tab 2 (7") */
   @media only screen and (device-width: 600px) and (device-height: 1024px) {
     .article {
-      display: flex;
-      justify-content: center;
-      border-style: solid;
-      border-width: 1px;
-      border-color: rgba(0, 0, 0, 0.1);
-      border-radius: 0.5rem;
-      box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 45rem;
-      min-width: 40rem;
-      max-height: 55rem;
-      min-height: 50rem;
-      margin-right: auto;
-      margin-left: auto;
-      height: 100%;
-      width: 50%;
-      position: relative;
-      /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-  }
-  
-  .register {
-    font-size: 3rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-    box-sizing: border-box;
-    max-width: 100%;
-    white-space: normal;
-  }
-  
-  .article > .formContainer {
-    padding: 0;
-    height: 0%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    top: 50%;
-  }
-  
-  .measure {
-    scale: 0.65;
-  }
-  
-  .fieldset {
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0.35em 0 0.625em 0;
-    border: 1px solid transparent;
-    color: rgba(0, 0, 0, 0.8);
-  }
-  
-  .article .formContainer .inputs {
-    display: flex;
-    flex-flow: column nowrap;
-  }
-  
-  .nameNotice,
-  .emailNotice {
-    min-width: 5vh;
-    width: 96%;
-  }
-  
-  .passwordNotice {
-    min-width: 5vh;
-    width: 95%;
-  }
-  
-  .registerBtn {
-    position: absolute;
-    left: 35%;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    transition: webkit-transform 0.25s ease-out;
-    font-size: 1.2rem;
-    font-family: inherit;
-    line-height: 1.15;
-    margin: 0;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    background-color: initial;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    font-weight: 700;
-    display: inline-block;
-    border: 1px solid #000;
-    -webkit-appearance: button;
-  }
-  
-  .registerBtnOK {
-    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-  }
+        display: flex;
+        justify-content: center;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin-right: auto;
+        margin-left: auto;
+        max-height: 115rem;
+        max-width: 75rem;
+        min-height: 115rem;
+        min-width: 75rem;
+        height: 100%;
+        width: 50%;
+        position: relative;
+      }
+
+      .measure {
+        scale: 2.3;
+      }
+
+      .inputs {
+        position: relative;
+      }
   }
   
   /* Asus Nexus 7 (v1) */
   @media only screen and (device-width: 604px) and (device-height: 966px) {
-      .article {
+    .article {
         display: flex;
         justify-content: center;
-        border-style: solid;
-        border-width: 1px;
-        border-color: rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 0.5rem;
         box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 45rem;
-        min-width: 40rem;
-        max-height: 55rem;
-        min-height: 50rem;
         margin-right: auto;
         margin-left: auto;
+        max-height: 115rem;
+        max-width: 75rem;
+        min-height: 115rem;
+        min-width: 75rem;
         height: 100%;
         width: 50%;
         position: relative;
-        /* "br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center"*/
-    }
-    
-    .register {
-      font-size: 3rem;
-      margin-left: 0;
-      margin-right: 0;
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: 600;
-      color: rgba(0, 0, 0, 0.8);
-      box-sizing: border-box;
-      max-width: 100%;
-      white-space: normal;
-    }
-    
-    .article > .formContainer {
-      padding: 0;
-      height: 0%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.8);
-      position: absolute;
-      top: 50%;
-    }
-    
-    .measure {
-      scale: 0.7;
-    }
-    
-    .fieldset {
-      margin-left: 0;
-      margin-right: 0;
-      padding: 0.35em 0 0.625em 0;
-      border: 1px solid transparent;
-      color: rgba(0, 0, 0, 0.8);
-    }
-    
-    .article .formContainer .inputs {
-      display: flex;
-      flex-flow: column nowrap;
-    }
-    
-    .nameNotice,
-    .emailNotice {
-      min-width: 5vh;
-      width: 96%;
-    }
-    
-    .passwordNotice {
-      min-width: 5vh;
-      width: 95%;
-    }
-    
-    .registerBtn {
-      position: absolute;
-      left: 35%;
-      backface-visibility: hidden;
-      transform: translateZ(0);
-      transition: webkit-transform 0.25s ease-out;
-      font-size: 1.2rem;
-      font-family: inherit;
-      line-height: 1.15;
-      margin: 0;
-      padding: 0.5rem 1rem 0.5rem 1rem;
-      background-color: initial;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      font-weight: 700;
-      display: inline-block;
-      border: 1px solid #000;
-      -webkit-appearance: button;
-    }
-    
-    .registerBtnOK {
-      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
-    }
+      }
+
+      .measure {
+        scale: 2.3;
+      }
+
+      .inputs {
+        position: relative;
+      }
     }
   
   /* Microsoft Surface Pro && Pro 2 */
