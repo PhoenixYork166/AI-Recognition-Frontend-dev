@@ -345,8 +345,7 @@
         box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
       }
   }
-
-  @media only screen 
+@media only screen 
   and (min-device-width: 400px) {
     
       .article {
@@ -444,8 +443,8 @@
       }
   }
 
-  /* iPhone 3/4/4s */
-  @media only screen 
+/* iPhone 3/4/4s */
+@media only screen 
   and (device-width: 320px) 
   and (device-height: 480px) {
     .article {
@@ -543,8 +542,8 @@
       }
     }
   
-  /* Samsung Galaxy S2 && S3 mini */
-  @media only screen 
+/* Samsung Galaxy S2 && S3 mini */
+@media only screen 
   and (device-width: 320px) 
   and (device-height: 533px) {
     .article {
@@ -570,8 +569,8 @@
 
   }
   
-  /* iPod Touch */
-  @media only screen 
+/* iPod Touch */
+@media only screen 
   and (device-width: 320px) 
   and (device-height: 568px) {
     .article {
@@ -597,8 +596,8 @@
 
   }
   
-  /* Samsung Galaxy Nexus */
-  @media only screen 
+/* Samsung Galaxy Nexus */
+@media only screen 
   and (device-width: 360px) 
   and (device-height: 600px) {
     .article {
@@ -624,8 +623,8 @@
       }
     }
   
-  /* Samsung Galaxy S5 && S6 && Note 4 && LG G4 */
-  @media only screen 
+/* Samsung Galaxy S5 && S6 && Note 4 && LG G4 */
+@media only screen 
   and (device-width: 360px) 
   and (device-height: 640px) {
     .article {
@@ -651,8 +650,8 @@
       }
   }
   
-  /* Samsung Galaxy S8+ && S9 */
-  @media only screen 
+/* Samsung Galaxy S8+ && S9 */
+@media only screen 
   and (device-width: 360px) 
   and (device-height: 740px) {
     .article {
@@ -677,8 +676,8 @@
       }
   }
   
-  /* iPod Touch */
-  @media only screen 
+/* iPod Touch */
+@media only screen 
   and (device-width: 375px) 
   and (device-height: 568px) {
     .article {
@@ -703,8 +702,8 @@
       }
     }
   
-  /* iphone XE && iPhone 8*/
-  @media only screen 
+/* iphone XE && iPhone 8*/
+@media only screen 
   and (device-width: 375px) 
   and (device-height: 667px) {
     .article {
@@ -729,8 +728,60 @@
       }
   }
   
-  /* iPhone XS && Samsung Galaxy Note */
-  @media only screen 
+/* iPhone 12 Pro */
+@media only screen 
+  and (device-width: 390px)
+  and (device-height: 844px) {
+    .article {
+        display: flex;
+        justify-content: center;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin-right: auto;
+        margin-left: auto;
+        max-height: 90rem;
+        max-width: 53rem;
+        min-height: 90rem;
+        min-width: 52rem;
+        height: 100%;
+        width: 50%;
+        position: relative;
+      }
+
+      .measure {
+        scale: 2.1;
+         }
+    }
+
+/* Pixel 5 */
+@media only screen 
+  and (device-width: 393px)
+  and (device-height: 851px) {
+    .article {
+        display: flex;
+        justify-content: center;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin-right: auto;
+        margin-left: auto;
+        max-height: 90rem;
+        max-width: 53rem;
+        min-height: 90rem;
+        min-width: 52rem;
+        height: 100%;
+        width: 50%;
+        position: relative;
+      }
+
+      .measure {
+        scale: 2.1;
+      }
+  }
+
+/* iPhone XS && Samsung Galaxy Note */
+@media only screen 
   and (device-width: 400px) 
   and (device-height: 640px) {
     .article {
@@ -755,8 +806,8 @@
       }
     }
     
-  /* Google Pixel XL && Pixel 2 */
-  @media only screen 
+/* Google Pixel XL && Pixel 2 */
+@media only screen 
   and (device-width: 411px) 
   and (device-height: 731px) {
     .article {
@@ -788,8 +839,74 @@
       }
   }
   
-  /* iPhone 6s Plus / 7 Plus */
-  @media only screen 
+/* Samsung Galaxy S20 Ultra */
+@media only screen 
+  and (device-width: 411px) 
+  and (device-height: 731px) {
+    .article {
+        display: flex;
+        justify-content: center;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin-right: auto;
+        margin-left: auto;
+        max-height: 100rem;
+        max-width: 62rem;
+        min-height: 100rem;
+        min-width: 62rem;
+        height: 100%;
+        width: 50%;
+        position: relative;
+      }
+
+      .measure {
+        scale: 2.3;
+      }
+
+      .inputs {
+        display: flex;
+        flex-flow: column nowrap;
+        position: relative;
+        left: 4%;
+      }
+  }
+
+/* Samsung Galaxy S20 Ultra */
+@media only screen 
+  and (device-width: 412px) 
+  and (device-height: 915px) {
+    .article {
+        display: flex;
+        justify-content: center;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin-right: auto;
+        margin-left: auto;
+        max-height: 100rem;
+        max-width: 62rem;
+        min-height: 100rem;
+        min-width: 62rem;
+        height: 100%;
+        width: 50%;
+        position: relative;
+      }
+
+      .measure {
+        scale: 2.3;
+      }
+
+      .inputs {
+        display: flex;
+        flex-flow: column nowrap;
+        position: relative;
+        left: 4%;
+      }
+  }
+
+/* iPhone 6s Plus / 7 Plus */
+@media only screen 
   and (device-width: 414px) 
   and (device-height: 736px) {
     .article {
@@ -821,8 +938,8 @@
       }
     }
 
-  /* iPhone XR & iPhone XS Max*/
-  @media only screen 
+/* iPhone XR & iPhone XS Max*/
+@media only screen 
   and (device-width: 414px) 
   and (device-height: 896px) {
     .article {
@@ -854,8 +971,8 @@
       }
     }
   
-    /* iPhone 14 */
-  @media only screen 
+/* iPhone 14 */
+@media only screen 
   and (device-width: 428px) 
   and (device-height: 926px) {
     .article {
@@ -884,8 +1001,10 @@
       }
     }
   
-  /* Amazon Kindle Fire HD 7 */
-  @media only screen and (device-width: 480px) and (device-height: 800px) {
+/* Amazon Kindle Fire HD 7 */
+@media only screen 
+  and (device-width: 480px) 
+  and (device-height: 800px) {
     .article {
         display: flex;
         justify-content: center;
