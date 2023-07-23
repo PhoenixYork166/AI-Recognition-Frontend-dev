@@ -1,4 +1,63 @@
 @media only screen 
+and (min-width: 50px) {
+    .emailContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .emailLabel {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .emailLabelInner {
+        display: block;
+        font-weight: 600;
+        line-height: 1.5;
+        font-size: .875rem;
+    }
+    
+    .emailSubContainer {
+        display: flex;
+        flex-direction: row;
+        padding-left: 6em;
+    }
+    
+    .emailInputInner {
+        font-weight: bold;
+        padding: 0.5rem;
+        border-style: solid;
+        border-width: 1px;
+        background-color: var(--transparent);
+        width: 100%;
+    }
+    
+    .emailInputInner:hover {
+        background-color: black;
+        color: white;
+    }
+    
+    .emailIconEmptyContainer {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+    }
+    
+    .emailIconEmptyContainer .emailIcon {
+        display: flex;
+        height: 2.5vh;
+        width: 2.5vh;
+        align-self: center;
+    }
+    
+    .emailIconEmptyContainer .empty {
+        display: flex;
+        width: 7.5vh;
+        height: 2.5vh;
+    }
+}
+
+@media only screen 
     and (device-width: 1300px)
     and (device-height: 1366px) {
         .emailContainer {
@@ -137,58 +196,3 @@
 
 
 
-.emailContainer {
-    display: flex;
-    flex-direction: column;
-}
-
-.emailLabel {
-    display: flex;
-    justify-content: center;
-}
-
-.emailLabelInner {
-    display: block;
-    font-weight: 600;
-    line-height: 1.5;
-    font-size: .875rem;
-}
-
-.emailSubContainer {
-    display: flex;
-    flex-direction: row;
-    padding-left: 6em;
-}
-
-.emailInputInner {
-    font-weight: bold;
-    padding: 0.5rem;
-    border-style: solid;
-    border-width: 1px;
-    background-color: var(--transparent);
-    width: 100%;
-}
-
-.emailInputInner:hover {
-    background-color: black;
-    color: white;
-}
-
-.emailIconEmptyContainer {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-}
-
-.emailIconEmptyContainer .emailIcon {
-    display: flex;
-    height: 2.5vh;
-    width: 2.5vh;
-    align-self: center;
-}
-
-.emailIconEmptyContainer .empty {
-    display: flex;
-    width: 7.5vh;
-    height: 2.5vh;
-}
