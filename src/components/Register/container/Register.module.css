@@ -249,8 +249,8 @@
   /* Mobile */
   /* iPhone 3/4/4s */
   @media only screen 
-  and (device-width: 320px) 
-  and (device-height: 480px) {
+  and (min-device-width: 320px) 
+  and (min-device-height: 480px) {
     .article {
         display: flex;
         justify-content: center;
