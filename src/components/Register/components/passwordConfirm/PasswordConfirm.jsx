@@ -39,6 +39,7 @@ const PasswordConfirm = ({ onPasswordConfirmChange, password1SpecialChar }) => {
               name="password1SpecialCharInput"
               id="password1SpecialCharhInput"
               value="1Symbol"
+              disabled="true"
             />
           </div>
         </div>

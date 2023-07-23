@@ -189,7 +189,7 @@
       }
   }
 
-@media only screen and (min-width: 500px) and (min-width: 600px) and (min-width: 800px) {
+@media only screen and (min-width: 500px) {
     .article {
       display: flex;
       justify-content: center;
@@ -288,7 +288,7 @@
     }
   }
   
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 700px) {
     .article {
         display: flex;
         justify-content: center;
