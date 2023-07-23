@@ -39,6 +39,7 @@ const Password = ({ onPasswordChange, password12Char }) => {
               name="password12CharInput"
               id="password12CharhInput"
               value="12Char"
+              disabled="true"
             />
           </div>
         </div>
