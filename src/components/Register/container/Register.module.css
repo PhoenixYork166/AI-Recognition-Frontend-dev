@@ -248,7 +248,7 @@
   
   /* Mobile */
   /* Min-device-width: 320px */
-  @media only screen 
+  /* @media only screen 
   and (min-device-width: 320px) {
     
       .article {
@@ -344,7 +344,7 @@
       .registerBtnOK {
         box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
       }
-  }
+  } */
 
 /* iPhone 3/4/4s */
 @media only screen 
