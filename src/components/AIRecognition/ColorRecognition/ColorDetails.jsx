@@ -14,10 +14,10 @@ const ColorDetails = ({ color_props }) => {
   });
 
   // Using querySelectors to retrieve all Raw Hex values as DOM objects
-  const length = document.getElementsByClassName('raw-hex-input').length;
-  const raw_hex_elements = document.getElementsByClassName('raw-hex-input');
-  const w3c_name_elements = document.getElementsByClassName('w3c-name-input');
-  const w3c_hex_elements = document.getElementsByClassName('w3c-hex-input-inner');
+  const length = document.getElementsByClassName('raw-hex').length;
+  const raw_hex_elements = document.getElementsByClassName('raw-hex');
+  const w3c_name_elements = document.getElementsByClassName('w3c-name');
+  const w3c_hex_elements = document.getElementsByClassName('w3c-hex');
 
   // Retrieve DOM element of modal-window pop-up upon users' copy events
   const modal = document.querySelector('.modal-window');
@@ -134,34 +134,34 @@ const ColorDetails = ({ color_props }) => {
                 </td>
                 <td>{each.colors.value}</td>
                 <td>
-                  <input type="color" value={each.colors.w3c.hex} />
+                  <input 
+                    className="w3c-color"
+                    type="color" 
+                    value={each.colors.w3c.hex} 
+                  />
                 </td>
                 <td>
-                    <div className="w3c-name-box">
-                        <input 
-                          className="w3c-name"
-                          type="text"
-                          value={each.colors.w3c.name}
-                          // onClick={() => navigator.clipboard.writeText(w3c_name).then(() => {
-                          //   alert("All WC3 name copied!");
-                          // })
-                          // }
-                        />
-                    </div>
-                    </td>
+                  <input 
+                    className="w3c-name"
+                    type="text"
+                    value={each.colors.w3c.name}
+                    // onClick={() => navigator.clipboard.writeText(w3c_name).then(() => {
+                    //   alert("All WC3 name copied!");
+                    // })
+                    // }
+                  />
+                </td>
                 <td>
-                  <div className="w3c-hex-box">
-                    <input
-                      className='w3c-hex'
-                      type="text"
-                      value={each.colors.w3c.hex}
-                      // onClick={() =>
-                      //   navigator.clipboard.writeText(w3c_hex).then(() => {
-                      //     alert("All W3C hex copied!");
-                      //   })
-                      // }
-                    />
-                  </div>
+                  <input
+                    className='w3c-hex'
+                    type="text"
+                    value={each.colors.w3c.hex}
+                    // onClick={() =>
+                    //   navigator.clipboard.writeText(w3c_hex).then(() => {
+                    //     alert("All W3C hex copied!");
+                    //   })
+                    // }
+                  />
                 </td>
                 {/* <input class="color1" type="color" name="color1" value="#00ff00"></input> */}
               </tr>
