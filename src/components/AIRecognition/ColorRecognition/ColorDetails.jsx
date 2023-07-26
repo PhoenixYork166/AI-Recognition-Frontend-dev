@@ -114,12 +114,16 @@ const ColorDetails = ({ color_props }) => {
               </tr>
               <tr>
                 <td>
-                  <input type="color" value={each.colors.raw_hex} disabled={false}/>
+                  <input 
+                  type="color" 
+                  value={each.colors.raw_hex} 
+                  className="color"
+                  />
                 </td>
                 <td>
                   <input
                     type="text"
-                    className="raw-hex-input"
+                    className="raw-hex"
                     value={each.colors.raw_hex}
                     // onClick={() =>
                     //   navigator.clipboard.writeText(hex).then(() => {
@@ -133,9 +137,9 @@ const ColorDetails = ({ color_props }) => {
                   <input type="color" value={each.colors.w3c.hex} />
                 </td>
                 <td>
-                    <div className="w3c-name">
+                    <div className="w3c-name-box">
                         <input 
-                          className="w3c-name-input"
+                          className="w3c-name"
                           type="text"
                           value={each.colors.w3c.name}
                           // onClick={() => navigator.clipboard.writeText(w3c_name).then(() => {
@@ -146,9 +150,9 @@ const ColorDetails = ({ color_props }) => {
                     </div>
                     </td>
                 <td>
-                  <div className="w3c-hex-input">
+                  <div className="w3c-hex-box">
                     <input
-                      className='w3c-hex-input-inner'
+                      className='w3c-hex'
                       type="text"
                       value={each.colors.w3c.hex}
                       // onClick={() =>

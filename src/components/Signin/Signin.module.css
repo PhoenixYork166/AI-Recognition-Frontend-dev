@@ -88,7 +88,7 @@
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
     transform: translateZ(0);
-    transition: 0.25s ease-out;
+    transition: 0.15s ease-out;
     font-size: 0.875rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -110,16 +110,28 @@
     transform: scale(1.05);
 }
 
+#signinInput:hover {
+    transform: translateY(-3px);
+}
+
 .registerContainer {
     line-height: 1.5;
     margin-top: 1rem;
 }
 
-.registerContainer .registerInput {
+.registerContainer > .registerInput {
     opacity: 1;
-    transition: 0.15s ease-in;
     font-size: 0.875rem;
     color: #000;
     display: block;
     text-decoration: none;
+    transition: 0.15s ease-in;
+}
+
+.registerInput:hover {
+    transform: translateY(-3px);
+}
+
+.registerInput:active {
+    transform: translateY(-1px);
 }

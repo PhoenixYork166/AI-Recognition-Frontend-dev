@@ -89,7 +89,15 @@
       }
     
       .registerBtnOK {
+        transition: all .1s ease-in;
         box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
   }
 
@@ -185,7 +193,15 @@
       }
     
       .registerBtnOK {
+        transition: all .1s ease-in;
         box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
   }
 
@@ -284,7 +300,15 @@
     }
   
     .registerBtnOK {
+      transition: all .1s ease-in;
       box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+    }
+
+    .registerBtnOK:hover {
+      transform: translateY(-3px);
+    }
+    .registerBtnOK:active {
+      transform: translateY(-1px);
     }
   }
   
@@ -311,6 +335,18 @@
     .measure {
         scale: 0.9;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
   }
 
 @media only screen and (min-width: 1000px) {
@@ -336,6 +372,18 @@
       
         .measure {
           scale: 1.2;
+        }
+
+        .registerBtnOK {
+          transition: all .1s ease-in;
+          box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+        }
+    
+        .registerBtnOK:hover {
+          transform: translateY(-3px);
+        }
+        .registerBtnOK:active {
+          transform: translateY(-1px);
         }
   }
   
@@ -534,7 +582,15 @@
       }
     
       .registerBtnOK {
+        transition: all .1s ease-in;
         box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
     }
   
@@ -563,6 +619,17 @@
         scale: 1.4;
       }
 
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
   }
   
 /* iPod Touch */
@@ -590,6 +657,17 @@
         scale: 1.4;
       }
 
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
   }
   
 /* Samsung Galaxy Nexus */
@@ -616,6 +694,18 @@
 
       .measure {
         scale: 1.4;
+      }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
     }
   
@@ -644,6 +734,18 @@
       .measure {
         scale: 1.4;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
   }
   
 /* Samsung Galaxy S8+ && S9 */
@@ -669,6 +771,18 @@
 
       .measure {
         scale: 2.1;
+      }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
   }
   
@@ -696,6 +810,18 @@
       .measure {
         scale: 2.1;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
     }
   
 /* iphone XE && iPhone 8*/
@@ -722,6 +848,18 @@
       .measure {
         scale: 2.1;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
   }
   
 /* iPhone 12 Pro */
@@ -747,7 +885,19 @@
 
       .measure {
         scale: 2.1;
-         }
+      }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
     }
 
 /* Pixel 5 */
@@ -774,6 +924,18 @@
       .measure {
         scale: 2.1;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
   }
 
 /* iPhone XS && Samsung Galaxy Note */
@@ -799,6 +961,18 @@
 
       .measure {
         scale: 2.1;
+      }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
     }
     
@@ -833,6 +1007,18 @@
         position: relative;
         left: 4%;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
   }
   
 /* Samsung Galaxy S20 Ultra */
@@ -865,6 +1051,18 @@
         flex-flow: column nowrap;
         position: relative;
         left: 4%;
+      }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
   }
 
@@ -899,6 +1097,18 @@
         position: relative;
         left: 4%;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
   }
 
   /* Samsung Galaxy S20 Ultra */
@@ -931,6 +1141,18 @@ and (device-height: 915px) {
       flex-flow: column nowrap;
       position: relative;
       left: 4%;
+    }
+
+    .registerBtnOK {
+      transition: all .1s ease-in;
+      box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+    }
+
+    .registerBtnOK:hover {
+      transform: translateY(-3px);
+    }
+    .registerBtnOK:active {
+      transform: translateY(-1px);
     }
 }
 
@@ -965,6 +1187,18 @@ and (device-height: 915px) {
         position: relative;
         left: 5%;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
     }
 
 /* iPhone XR & iPhone XS Max*/
@@ -998,7 +1232,19 @@ and (device-height: 915px) {
         position: relative;
         left: 5%;
       }
-    }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
+}
   
 /* iPhone 14 */
 @media only screen 
@@ -1028,7 +1274,19 @@ and (device-height: 915px) {
       .inputs {
         position: relative;
       }
-    }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
+}
   
 /* Amazon Kindle Fire HD 7 */
 @media only screen 
@@ -1054,7 +1312,19 @@ and (device-height: 915px) {
       .measure {
         scale: 2.2;
       }
-    }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
+  }
   
   /* Samsung Galaxy Note 5 */
   @media only screen and (device-width: 480px) and (device-height: 853px) {
@@ -1083,6 +1353,18 @@ and (device-height: 915px) {
         position: relative;
         left: 4%;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
     }
   
   /* Samsung Galaxy A51/71 && Surface Duo */
@@ -1110,6 +1392,18 @@ and (device-height: 915px) {
 
       .inputs {
         position: relative;
+      }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
   }
    
@@ -1141,6 +1435,18 @@ and (device-height: 915px) {
       .inputs {
         position: relative;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
     }
   
   /* Samsung Galaxy Tab 2 (7") */
@@ -1169,6 +1475,18 @@ and (device-height: 915px) {
       .inputs {
         position: relative;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
   }
   
   /* Asus Nexus 7 (v1) */
@@ -1196,6 +1514,18 @@ and (device-height: 915px) {
 
       .inputs {
         position: relative;
+      }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
     }
   
@@ -1227,6 +1557,18 @@ and (device-height: 915px) {
         position: relative;
         left: 5%;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
     }
   
   /* Apple iPad Pro 9.7 && iPad mini && iPad 1, 2, 3, 4, Air, Air2 && HTC Nexus 9 && */
@@ -1257,6 +1599,18 @@ and (device-height: 915px) {
         position: relative;
         left: 5%;
       }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
+      }
     }  
   
   /* Microsoft Surface */
@@ -1286,6 +1640,18 @@ and (device-height: 915px) {
       .inputs {
         position: relative;
         left: 5%;
+      }
+
+      .registerBtnOK {
+        transition: all .1s ease-in;
+        box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
     }
   
@@ -1384,7 +1750,15 @@ and (device-height: 915px) {
       }
     
       .registerBtnOK {
+        transition: all .1s ease-in;
         box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
     }
   
@@ -1483,7 +1857,15 @@ and (device-height: 915px) {
     }
   
     .registerBtnOK {
+      transition: all .1s ease-in;
       box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+    }
+
+    .registerBtnOK:hover {
+      transform: translateY(-3px);
+    }
+    .registerBtnOK:active {
+      transform: translateY(-1px);
     }
   }
   
@@ -1582,7 +1964,15 @@ and (device-height: 915px) {
     }
   
     .registerBtnOK {
+      transition: all .1s ease-in;
       box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+    }
+
+    .registerBtnOK:hover {
+      transform: translateY(-3px);
+    }
+    .registerBtnOK:active {
+      transform: translateY(-1px);
     }
   }
   
@@ -1681,7 +2071,15 @@ and (device-height: 915px) {
     }
   
     .registerBtnOK {
+      transition: all .1s ease-in;
       box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+    }
+
+    .registerBtnOK:hover {
+      transform: translateY(-3px);
+    }
+    .registerBtnOK:active {
+      transform: translateY(-1px);
     }
   }
   
@@ -1780,7 +2178,15 @@ and (device-height: 915px) {
       }
     
       .registerBtnOK {
+        transition: all .1s ease-in;
         box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
     }
   
@@ -1879,7 +2285,15 @@ and (device-height: 915px) {
       }
     
       .registerBtnOK {
+        transition: all .1s ease-in;
         box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
     }
   
@@ -1958,7 +2372,15 @@ and (device-height: 915px) {
     }
   
     .registerBtnOK {
+      transition: all .1s ease-in;
       box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+    }
+
+    .registerBtnOK:hover {
+      transform: translateY(-3px);
+    }
+    .registerBtnOK:active {
+      transform: translateY(-1px);
     }
   }
   
@@ -2058,6 +2480,14 @@ and (device-height: 915px) {
       }
     
       .registerBtnOK {
+        transition: all .1s ease-in;
         box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+      }
+  
+      .registerBtnOK:hover {
+        transform: translateY(-3px);
+      }
+      .registerBtnOK:active {
+        transform: translateY(-1px);
       }
 }

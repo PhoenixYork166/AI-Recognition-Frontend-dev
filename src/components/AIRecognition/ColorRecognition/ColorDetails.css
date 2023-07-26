@@ -17,12 +17,11 @@
 }
 
 .color-table {
-
     width: 48vw;
     padding-right: 2vw;
 }
 
-.raw-hex {
+.raw-hex-box {
     height: 5vh;
     width: 9vw;
     display: flex;
@@ -31,23 +30,24 @@
     justify-content: flex-start;
 }
 
-.raw-hex-input {
-    min-width: 4.5rem;
-    max-width: 5rem;
-    width: 100%;
+.raw-hex {
+    width: 5rem;
 }
 
-.w3c-hex-input {
+.w3c-name-box {
+    /* */
+}
+
+.w3c-name {
+    max-width: 8rem;
+    min-width: 3rem;
+}
+
+.w3c-hex-box {
     width: 1vw;
 }
 
-.w3c-name-input {
-    min-width: 3rem;
-    max-width: 8rem;
-    width: 100%;
-}
-
-.w3c-hex-input-inner {
+.w3c-hex {
     min-width: 4.5rem;
     max-width: 10rem;
     width: 100%;

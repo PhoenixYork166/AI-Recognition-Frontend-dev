@@ -6,25 +6,21 @@ const Password = ({ onPasswordChange, password12Char }) => {
   
   return (
     <div className={`${classes.passwordContainer}`}>
-      <div className={`${classes.passwordLabel}`}>
-        <label className={`${classes.passwordLabelInner}`} htmlFor="password">
-          Password
-        </label>
-      </div>
+      <label className={`${classes.passwordLabel}`} htmlFor="password">
+        Password
+      </label>
       <div className={`${classes.passwordSubContainer}`}>
-        <div className={`${classes.passwordInputContainer}`}>
-          <input
-            className={`${classes.passwordInputInner}`}  
-            type="password"
-            name="password"
-            id="password"
-            onChange={onPasswordChange}
-          />
-        </div>
+        <input
+          className={`${classes.passwordInput}`}  
+          type="password"
+          name="password"
+          id="password"
+          onChange={onPasswordChange}
+        />
         <div className={`${classes.password12CharContainer}`}>
-          <div className={`${classes.password12CharIcon}`}>
+          <div className={`${classes.password12CharIconBox}`}>
             <img
-              className={`${classes.password12CharIconInner}`}
+              className={`${classes.password12CharIcon}`}
               type="text"
               name="password12CharIcon"
               id="password12CharIcon"
@@ -32,9 +28,9 @@ const Password = ({ onPasswordChange, password12Char }) => {
               alt="password12CharIcon"
             />
           </div>
-          <div className={`${classes.password12CharInput}`}>
+          <div className={`${classes.password12CharInputBox}`}>
             <input
-              className={`${classes.password12CharInputInner}`}
+              className={`${classes.password12CharInput}`}
               type="text"
               name="password12CharInput"
               id="password12CharhInput"

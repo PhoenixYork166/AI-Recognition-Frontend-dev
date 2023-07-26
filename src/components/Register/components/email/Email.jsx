@@ -5,25 +5,23 @@ import cross from '../images/cross2.png';
 const Email = ( { onEmailChange, emailValid } ) => {
     return (
       <div className={`${classes.emailContainer}`}>
-      <div className={`${classes.emailLabel}`}>
-        <label className={`${classes.emailLabelInner}`} htmlFor="email">
+      <div className={`${classes.emailLabelBox}`}>
+        <label className={`${classes.emailLabel}`} htmlFor="email">
           Email
         </label>
       </div>
       <div className={`${classes.emailSubContainer}`}>
-        <div className={`${classes.emailInputContainer}`}>
           <input
-            className={`${classes.emailInputInner}`}  
+            className={`${classes.emailInput}`}  
             type="text"
             name="email"
             id="email"
             onChange={onEmailChange}
           />
-        </div>
         <div className={`${classes.emailIconEmptyContainer}`}>
-          <div className={`${classes.emailIcon}`}>
+          <div className={`${classes.emailIconBox}`}>
             <img
-              className={`${classes.emailIconInner}`}
+              className={`${classes.emailIcon}`}
               type="text"
               name="emailIcon"
               id="emailIcon"
@@ -31,7 +29,7 @@ const Email = ( { onEmailChange, emailValid } ) => {
               alt="emailIcon"
             />
           </div>
-          <div className={`${classes.empty}`}>
+          <div className={`${classes.emptyBox}`}>
             <p
               className={`${classes.emptyInner}`}
             />

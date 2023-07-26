@@ -5,13 +5,8 @@ and (min-width: 50px) {
         display: flex;
         flex-direction: column;
     }
-    
+        
     .nameLabel {
-        display: flex;
-        justify-content: center;
-    }
-    
-    .nameLabelInner {
         display: block;
         font-weight: 600;
         line-height: 1.5;
@@ -24,7 +19,7 @@ and (min-width: 50px) {
         padding-left: 6em;
     }
     
-    .nameInputInner {
+    .nameInput {
         font-weight: bold;
         padding: 0.5rem;
         border-style: solid;
@@ -33,7 +28,7 @@ and (min-width: 50px) {
         width: 100%;
     }
     
-    .nameInputInner:hover {
+    .nameInput:hover {
         background-color: black;
         color: white;
     }
@@ -44,14 +39,14 @@ and (min-width: 50px) {
         justify-content: center;
     }
     
-    .nameIconEmptyContainer .nameIcon {
+    .nameIconEmptyContainer .nameIconBox {
         display: flex;
         height: 2.5vh;
         width: 2.5vh;
         align-self: center;
     }
     
-    .nameIconEmptyContainer .empty {
+    .nameIconEmptyContainer .emptyBox {
         display: flex;
         width: 7.5vh;
         height: 2.5vh;
@@ -65,13 +60,8 @@ and (min-device-width: 320px) {
         display: flex;
         flex-direction: column;
     }
-    
+        
     .nameLabel {
-        display: flex;
-        justify-content: center;
-    }
-    
-    .nameLabelInner {
         display: block;
         font-weight: 600;
         line-height: 1.5;
@@ -84,18 +74,16 @@ and (min-device-width: 320px) {
         padding-left: 6em;
     }
     
-    .nameInputInner {
+    .nameInput {
         font-weight: bold;
         padding: 0.5rem;
         border-style: solid;
         border-width: 1px;
         background-color: var(--transparent);
         width: 100%;
-        min-width: 10rem;
-        max-width: 10rem;
     }
     
-    .nameInputInner:hover {
+    .nameInput:hover {
         background-color: black;
         color: white;
     }
@@ -106,14 +94,14 @@ and (min-device-width: 320px) {
         justify-content: center;
     }
     
-    .nameIconEmptyContainer .nameIcon {
+    .nameIconEmptyContainer .nameIconBox {
         display: flex;
         height: 2.5vh;
         width: 2.5vh;
         align-self: center;
     }
     
-    .nameIconEmptyContainer .empty {
+    .nameIconEmptyContainer .emptyBox {
         display: flex;
         width: 7.5vh;
         height: 2.5vh;
@@ -130,16 +118,11 @@ and (min-device-width: 320px) {
         }
         
         .nameLabel {
-            display: flex;
-            justify-content: center;
-            scale: 2.0;
-        }
-        
-        .nameLabelInner {
             display: block;
             font-weight: 600;
             line-height: 1.5;
             font-size: .875rem;
+            scale: 2.0;
         }
         
         .nameSubContainer {
@@ -151,13 +134,7 @@ and (min-device-width: 320px) {
             margin-top: 0.5vh;
         }
 
-        .nameInputContainer {
-            box-sizing: border-box;
-            scale: 1.009;
-            position: relative;
-        }
-        
-        .nameInputInner {
+        .nameInput {
             font-weight: 700;
             padding: 0.5rem;
             border-style: solid;
@@ -166,7 +143,7 @@ and (min-device-width: 320px) {
             width: 100%;
         }
         
-        .nameInputInner:hover {
+        .nameInput:hover {
             background-color: black;
             color: white;
         }
@@ -181,12 +158,12 @@ and (min-device-width: 320px) {
             left: 88%;
         }
         
-        .nameIconEmptyContainer > .nameIcon {
+        .nameIconEmptyContainer > .nameIconBox {
             height: 1.5vh;
             width: 1.5vh;
         }
         
-        .nameIconEmptyContainer > .empty {
+        .nameIconEmptyContainer > .emptyBox {
             width: 7.5vh;
             height: 1.5vh;
         }

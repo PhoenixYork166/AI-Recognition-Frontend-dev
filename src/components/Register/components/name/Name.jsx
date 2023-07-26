@@ -6,25 +6,21 @@ const Name = ( { onNameChange, nameValid } ) => {
 
     return (
     <div className={`${classes.nameContainer}`}>
-      <div className={`${classes.nameLabel}`}>
-        <label className={`${classes.nameLabelInner}`} htmlFor="name">
-          Name
-        </label>
-      </div>
+      <label className={`${classes.nameLabel}`} htmlFor="name">
+        Name
+      </label>
       <div className={`${classes.nameSubContainer}`}>
-        <div className={`${classes.nameInputContainer}`}>
-          <input
-            className={`${classes.nameInputInner}`}  
-            type="text"
-            name="name"
-            id="name"
-            onChange={onNameChange}
-          />
-        </div>
+        <input
+          className={`${classes.nameInput}`}  
+          type="text"
+          name="name"
+          id="name"
+          onChange={onNameChange}
+        />
         <div className={`${classes.nameIconEmptyContainer}`}>
-          <div className={`${classes.nameIcon}`}>
+          <div className={`${classes.nameIconBox}`}>
             <img
-              className={`${classes.nameIconInner}`}
+              className={`${classes.nameIcon}`}
               type="text"
               name="nameIcon"
               id="nameIcon"
@@ -32,9 +28,9 @@ const Name = ( { onNameChange, nameValid } ) => {
               alt="nameIcon"
             />
           </div>
-          <div className={`${classes.empty}`}>
+          <div className={`${classes.emptyBox}`}>
             <p
-              className={`${classes.emptyInner}`}
+              className={`${classes.empty}`}
             />
           </div>
         </div>

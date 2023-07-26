@@ -278,49 +278,49 @@ class Register extends Component {
               <div className={`${classes.inputs}`} >
                 <Name 
                   onNameChange={this.onNameChange}
-                  nameValid={this.state.nameValid}
+                  nameValid={nameValid}
                 />
                 <div className={`${classes.nameNotice}`}>
                   <p
                     className={`${classes.nameNoticeInner}`}
                   >
                     {
-                      this.state.nameValid === true ?
+                      nameValid === true ?
                       `Name is valid` : `Please enter a valid name`
                     }
                   </p>
                 </div>
                 <Email 
                   onEmailChange={this.onEmailChange}
-                  emailValid={this.state.emailValid}
+                  emailValid={emailValid}
                 />
                 <div className={`${classes.emailNotice}`}>
                   <p
                     className={`${classes.emailNoticeInner}`}
                   >
                     {
-                    this.state.emailValid === true ? 
+                    emailValid === true ? 
                     `Email is valid` : `Please enter a valid email`
                     }
                   </p>
                 </div>
                 <Password
                   onPasswordChange={this.onPasswordChange}
-                  password12Char={this.state.password12Char}
+                  password12Char={password12Char}
 
                 />
                 <PasswordConfirm
                   onPasswordConfirmChange={this.onPasswordConfirmChange}
-                  password1SpecialChar={this.state.password1SpecialChar}
+                  password1SpecialChar={password1SpecialChar}
                 />      
                 <div className={`${classes.passwordNotice}`}>
                 <p
                   className={`${classes.passwordNoticeInner}`}
                 >{
-                  !this.state.passwordConfirm === true ? 
+                  passwordConfirm === true ? 
                   `Please confirm password` 
                   : 
-                  this.state.password === this.state.passwordConfirm ? 
+                  password === passwordConfirm ? 
                   `Password MATCH!` : `Password must MATCH`
                 }</p>     
                 </div>

@@ -6,23 +6,19 @@ const PasswordConfirm = ({ onPasswordConfirmChange, password1SpecialChar }) => {
   
   return (
     <div className={`${classes.passwordConfirmContainer}`}>
-      <div className={`${classes.passwordConfirmLabel}`}>
-        <label className={`${classes.passwordConfirmLabelInner}`} htmlFor="passwordConfirmation">
-          Confirm Password
-        </label>
-      </div>
+      <label className={`${classes.passwordConfirmLabel}`} htmlFor="passwordConfirmation">
+        Confirm Password
+      </label>
       <div className={`${classes.passwordConfirmSubContainer}`}>
-        <div className={`${classes.passwordConfirmInputContainer}`}>
-          <input
-            className={`${classes.passwordConfirmInputInner}`}  
-            type="password"
-            name="passwordConfirm"
-            id="passwordConfirm"
-            onChange={onPasswordConfirmChange}
-          />
-        </div>
+        <input
+          className={`${classes.passwordConfirmInput}`}  
+          type="password"
+          name="passwordConfirm"
+          id="passwordConfirm"
+          onChange={onPasswordConfirmChange}
+        />
         <div className={`${classes.password1SepcialCharContainer}`}>
-          <div className={`${classes.password1SpecialCharIcon}`}>
+          <div className={`${classes.password1SpecialCharIconBox}`}>
             <img
               className={`${classes.password1SpecialCharIconInner}`}
               type="text"
@@ -32,9 +28,9 @@ const PasswordConfirm = ({ onPasswordConfirmChange, password1SpecialChar }) => {
               alt="password1SpecialCharIcon"
             />
           </div>
-          <div className={`${classes.password1SpecialCharInput}`}>
+          <div className={`${classes.password1SpecialCharInputBox}`}>
             <input
-              className={`${classes.password1SpecialCharInputInner}`}
+              className={`${classes.password1SpecialCharInput}`}
               type="text"
               name="password1SpecialCharInput"
               id="password1SpecialCharhInput"
