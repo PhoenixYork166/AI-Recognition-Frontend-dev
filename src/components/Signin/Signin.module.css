@@ -107,11 +107,8 @@
 }
 
 #signinInput:hover {
-    transform: scale(1.05);
-}
-
-#signinInput:hover {
     transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .registerContainer {
@@ -130,8 +127,10 @@
 
 .registerInput:hover {
     transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .registerInput:active {
     transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }

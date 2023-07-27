@@ -1,6 +1,25 @@
-.nav {
+.navSignedIn {
     display: flex;
     justify-content: flex-end;
     width: 95%;
     position: absolute;
+}
+
+.navSignedOut {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navSignedIn, .navSignedOut {
+    transition: all .1s ease-out;
+}
+
+.navSignedIn:hover, .navSignedOut:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navSignedIn:active, .navSignedOut:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }

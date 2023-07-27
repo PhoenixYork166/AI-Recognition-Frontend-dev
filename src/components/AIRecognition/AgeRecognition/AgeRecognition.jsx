@@ -11,7 +11,7 @@ const AgeRecognition = ( { imageUrl, age, age_hidden } ) => {
                 <div id='age-number'>
                     <h3>Age: {age}</h3>
                 </div>
-                <div>
+                <div className='age-image'>
                    <img
                     // id='face-image' is used for DOM manipulation
                     // cannot be edited

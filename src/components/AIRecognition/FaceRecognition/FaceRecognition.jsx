@@ -9,7 +9,7 @@ const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
     ) : ( 
         <div className={`${classes.faceContainer}`}>
             <div className='absolute mt2'>
-                <div >
+                <div className={`${classes.faceImageBox}`}>
                    <img
                     className={`${classes.faceImage}`}
                     // id='face-image' is used for DOM manipulation

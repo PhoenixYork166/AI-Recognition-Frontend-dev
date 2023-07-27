@@ -5,7 +5,10 @@ const Navigation = ( { onRouteChange, isSignedIn }) => {
 
         if (isSignedIn) {
             return (
-            <nav style={{display: 'flex', justifyContent: 'flex-end', width: '95%', position: 'absolute' }}>
+            <nav 
+                className={`${classes.navSignedIn}`}
+                // style={{display: 'flex', justifyContent: 'flex-end', width: '95%', position: 'absolute' }}
+            >
                 {/* If 'Sign Out' is clicked, nav to 'signin' page */}
                 <p onClick={() => onRouteChange('signin')} className='f3 link dim black underline pa3 pointer'>
                     Sign Out
@@ -16,7 +19,10 @@ const Navigation = ( { onRouteChange, isSignedIn }) => {
             return (
             <div>
                 {/* If 'Signin' is clicked, nav to 'signin' page */}
-                <nav style={{display: 'flex', justifyContent: 'flex-end'}}>
+                <nav
+                    className={`${classes.navSignedOut}`} 
+                    // style={{display: 'flex', justifyContent: 'flex-end'}}
+                >
                     <p onClick={() => onRouteChange('signin')} className='f3 link dim black underline pa3 pointer'>
                         Sign In
                     </p>
