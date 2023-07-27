@@ -70,20 +70,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: flex-start;
-    transition: all .1s ease-out;
     cursor: pointer;
-}
-.buttons:hover {
-    cursor: pointer;
-    box-shadow: 0.3rem 0.3rem 1rem #e9ec13,
-    -2px -2px 1rem #ffffff;
-    transform: translateY(-3px);
-}
-
-.buttons:active {
-    transform: translateY(-1px);
-    box-shadow: 0.3rem 0.3rem 1rem #e9ec13,
-    -2px -2px 1rem #ffffff;
 }
 
 .detect-celebrity, .detect-color, .detect-age {
