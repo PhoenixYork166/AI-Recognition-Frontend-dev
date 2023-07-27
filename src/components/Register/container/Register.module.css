@@ -2445,6 +2445,7 @@ and (device-height: 915px) {
         box-sizing: border-box;
         max-width: 100%;
         white-space: normal;
+        cursor: pointer;
       }
     
       .nameNotice,
@@ -2477,17 +2478,21 @@ and (device-height: 915px) {
         display: inline-block;
         border: 1px solid #000;
         -webkit-appearance: button;
+        cursor: pointer;
       }
     
       .registerBtnOK {
         transition: all .1s ease-in;
         box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+        cursor: pointer;
       }
   
       .registerBtnOK:hover {
         transform: translateY(-3px);
+        cursor: pointer;
       }
       .registerBtnOK:active {
         transform: translateY(-1px);
+        cursor: pointer;
       }
 }

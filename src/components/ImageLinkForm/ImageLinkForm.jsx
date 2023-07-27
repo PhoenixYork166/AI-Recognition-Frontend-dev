@@ -21,7 +21,7 @@ const ImageLinkForm = ({
           <input
             id="input-inner"
             type="url"
-            placeholder='Enter .jpg image hyperlink here for detection'
+            placeholder='Enter .jpg hyperlink e.g. https://wiki.org/image.jpg'
             onChange={onInputChange}
           />
         </div>

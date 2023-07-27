@@ -122,7 +122,7 @@ class Signin extends Component {
                 <input type="checkbox" /> Remember me
               </label> */}
             </fieldset>
-            <div className="">
+            <div className={`${classes.signInBox}`}>
               <input
                 // onClick={() => onRouteChange('home')}
                 onClick={this.onSubmitSignIn}
@@ -132,7 +132,7 @@ class Signin extends Component {
                 value="Sign in"
               />
             </div>
-            <div className={`${classes.registerContainer}`}>
+            <div className={`${classes.registerBox}`}>
               <p
                onClick={() => onRouteChange('register')} 
                className={`${classes.registerInput}`}>
