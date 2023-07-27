@@ -8,6 +8,7 @@ const ImageLinkForm = ({
   onColorButton,
   onAgeButton,
 }) => {
+  const placeholder = `Enter .jpg hyperlink e.g. https://wiki.org/image.jpg`;
   return (
     <div className="center" id="container">
       <div id="paragraph">
@@ -21,7 +22,7 @@ const ImageLinkForm = ({
           <input
             id="input-inner"
             type="url"
-            placeholder='Enter .jpg hyperlink e.g. https://wiki.org/image.jpg'
+            placeholder={placeholder}
             onChange={onInputChange}
           />
         </div>

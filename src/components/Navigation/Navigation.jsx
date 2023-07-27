@@ -17,7 +17,7 @@ const Navigation = ( { onRouteChange, isSignedIn }) => {
             )
         } else {
             return (
-            <div>
+            <div className={`${classes.navBoxSignedOut}`}>
                 {/* If 'Signin' is clicked, nav to 'signin' page */}
                 <nav
                     className={`${classes.navSignedOut}`} 
@@ -33,7 +33,7 @@ const Navigation = ( { onRouteChange, isSignedIn }) => {
                 </nav>
             </div>
             )
-        }
+    }
     
 }
 

@@ -5,6 +5,10 @@
     position: absolute;
 }
 
+.navBoxSignedOut {
+    display: block;
+}
+
 .navSignedOut {
     display: flex;
     justify-content: flex-end;
