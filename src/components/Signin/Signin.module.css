@@ -126,6 +126,9 @@
     text-decoration: none;
     transition: 0.15s ease-in;
     cursor: pointer;
+    display: inline-block;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
 }
 
 .registerInput:hover {

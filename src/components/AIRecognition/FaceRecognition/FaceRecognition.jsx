@@ -1,5 +1,4 @@
 import React from 'react';
-import './FaceRecognition.css';
 import classes from './FaceRecognition.module.css';
 
 const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {

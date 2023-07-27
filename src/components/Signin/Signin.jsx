@@ -7,7 +7,8 @@ class Signin extends Component {
     this.state = {
       signInEmail: '',
       signInPassword: '',
-      lockSignIn: true
+      lockSignIn: true,
+      hint: ''
     }
   }
 
@@ -24,6 +25,10 @@ class Signin extends Component {
       this.validateInputs();
       // console.log('this.state.signInPassword: \n', this.state.signInPassword);
     })
+  }
+
+  onIncorrect = () => {
+    this.setState( {hint: 'Incorrect credentials, try again'});
   }
 
   // App 'Sign In' button onClick event handler
@@ -63,8 +68,8 @@ class Signin extends Component {
       } else if (!user.id) { // if user.id does NOT exist
         const signInPasswordInput = document.querySelector('#current-password');
         this.props.onRouteChange('signin');
-        alert('Signin credentials incorrect...\nPlease try again');
         signInPasswordInput.value = '';
+        this.onIncorrect();
       }
     })
   }
@@ -95,7 +100,10 @@ class Signin extends Component {
             <fieldset id="sign_up" className={`${classes.fieldset}`}>
               <legend className={`${classes.legend}`}>Sign In</legend>
               <div className={`${classes.emailContainer}`}>
-                <label className={`${classes.emailLabel}`} htmlFor="email-address">
+                <label 
+                className={`${classes.emailLabel}`} 
+                htmlFor="email-address"
+                >
                   Email
                 </label>
                 <input
@@ -104,10 +112,14 @@ class Signin extends Component {
                   name="email-address"
                   id="email-address"
                   onChange={this.onEmailChange}
+                  placeholder='Enter email'
                 />
               </div>
               <div className={`${classes.passwordContainer}`}>
-                <label className={`${classes.passwordLabel}`} htmlFor="current-password">
+                <label 
+                  className={`${classes.passwordLabel}`} 
+                  htmlFor="current-password"
+                >
                   Password
                 </label>
                 <input
@@ -116,8 +128,12 @@ class Signin extends Component {
                   name="current-password"
                   id="current-password"
                   onChange={this.onPasswordChange}
+                  placeholder='Enter password'
                 />
               </div>
+              <p className={`${classes.hint}`}>
+                {this.state.hint}
+              </p>
               {/* <label className="pa0 ma0 lh-copy f6 pointer">
                 <input type="checkbox" /> Remember me
               </label> */}

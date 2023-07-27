@@ -14,16 +14,21 @@
     justify-content: flex-end;
 }
 
-.navSignedIn, .navSignedOut {
+.navPara {
     transition: all .1s ease-out;
+    opacity: 1;
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: #000;
+    text-decoration: none;
 }
 
-.navSignedIn:hover, .navSignedOut:hover {
+.navPara:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.navSignedIn:active, .navSignedOut:active {
+.navPara:active {
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }

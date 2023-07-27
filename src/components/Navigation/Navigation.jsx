@@ -10,7 +10,11 @@ const Navigation = ( { onRouteChange, isSignedIn }) => {
                 // style={{display: 'flex', justifyContent: 'flex-end', width: '95%', position: 'absolute' }}
             >
                 {/* If 'Sign Out' is clicked, nav to 'signin' page */}
-                <p onClick={() => onRouteChange('signin')} className='f3 link dim black underline pa3 pointer'>
+                <p 
+                    className={`${classes.navPara}`}
+                    onClick={() => onRouteChange('signin')} 
+                    
+                >
                     Sign Out
                 </p>
             </nav>
@@ -23,11 +27,17 @@ const Navigation = ( { onRouteChange, isSignedIn }) => {
                     className={`${classes.navSignedOut}`} 
                     // style={{display: 'flex', justifyContent: 'flex-end'}}
                 >
-                    <p onClick={() => onRouteChange('signin')} className='f3 link dim black underline pa3 pointer'>
+                    <p 
+                        className={`${classes.navPara}`}
+                        onClick={() => onRouteChange('signin')} 
+                    >
                         Sign In
                     </p>
                     {/* If 'Register' is clicked, nav to 'register' page */}
-                    <p onClick={() => onRouteChange('register')} className='f3 link dim black underline pa3 pointer'>
+                    <p 
+                        className={`${classes.navPara}`}
+                        onClick={() => onRouteChange('register')} 
+                    >
                         Register
                     </p>
                 </nav>
