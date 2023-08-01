@@ -280,9 +280,9 @@ class Register extends Component {
                   onNameChange={this.onNameChange}
                   nameValid={nameValid}
                 />
-                <div className={`${classes.nameNotice}`}>
+                <div className={`${classes.hintBox}`}>
                   <p
-                    className={`${classes.nameNoticeInner}`}
+                    className={`${classes.hint}`}
                   >
                     {
                       nameValid === true ?
@@ -294,9 +294,9 @@ class Register extends Component {
                   onEmailChange={this.onEmailChange}
                   emailValid={emailValid}
                 />
-                <div className={`${classes.emailNotice}`}>
+                <div className={`${classes.hintBox}`}>
                   <p
-                    className={`${classes.emailNoticeInner}`}
+                    className={`${classes.hint}`}
                   >
                     {
                     emailValid === true ? 
@@ -313,16 +313,18 @@ class Register extends Component {
                   onPasswordConfirmChange={this.onPasswordConfirmChange}
                   password1SpecialChar={password1SpecialChar}
                 />      
-                <div className={`${classes.passwordNotice}`}>
-                <p
-                  className={`${classes.passwordNoticeInner}`}
-                >{
-                  passwordConfirm === true ? 
-                  `Please confirm password` 
-                  : 
-                  password === passwordConfirm ? 
-                  `Password MATCH!` : `Password must MATCH`
-                }</p>     
+                <div className={`${classes.hintBox}`}>
+                  <p
+                    className={`${classes.hint}`}
+                  >
+                    {
+                    passwordConfirm === true ? 
+                    `Please confirm password` 
+                    : 
+                    password === passwordConfirm ? 
+                    `Password MATCH!` : `Password must MATCH`
+                    }
+                  </p>     
                 </div>
   
               </div>

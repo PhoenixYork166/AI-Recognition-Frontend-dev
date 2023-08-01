@@ -27,7 +27,7 @@ const Password = ({ onPasswordChange, password12Char }) => {
               alt="12CharIcon"
             />
             <p
-              className="icon-p--solid"
+              className="icon-p-empty"
             >
               12Char
             </p>

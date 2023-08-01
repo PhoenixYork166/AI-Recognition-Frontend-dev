@@ -10,12 +10,12 @@
     line-height: 1.5;
     font-size: $font-size;
     position: relative;
-    left: 11%;
+    left: -5%;
 }
 
 @mixin secondary {
     display: flex;
-    padding-left: 6em;
+    padding-left: 2em;
 }
 
 @mixin input($font-size) {
@@ -60,5 +60,5 @@
 }
 
 @mixin hint {
-    
+
 }
