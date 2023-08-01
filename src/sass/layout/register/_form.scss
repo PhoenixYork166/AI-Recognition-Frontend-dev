@@ -1,0 +1,45 @@
+@mixin box {
+    margin-top: 0.5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin label($font-size) {
+    display: block;
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: $font-size;
+}
+
+@mixin secondary {
+    display: flex;
+    padding-left: 6em;
+}
+
+@mixin input($font-size) {
+    font-weight: bold;
+    padding: 0.5rem;
+    border-style: solid;
+    border-width: 1px;
+    background-color: var(--transparent);
+    font-size: $font-size;
+}
+
+@mixin input-hover {
+    background-color: black;
+    color: white;
+}
+
+@mixin tertiary($width, $height) {
+    display: flex;
+    margin: 0.5rem 0;
+    width: $width;
+    height: $height;
+}
+
+@mixin icon {
+    align-self: center;
+}
+@mixin icon-p-empty {
+    align-self: center;
+}

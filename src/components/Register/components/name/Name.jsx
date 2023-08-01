@@ -1,41 +1,39 @@
-import classes from './Name.module.css';
+import './Name.scss';
 import tick from '../images/tick.jpg';
 import cross from '../images/cross2.png';
 
 const Name = ( { onNameChange, nameValid } ) => {
 
     return (
-    <div className={`${classes.nameContainer}`}>
-      <label className={`${classes.nameLabel}`} htmlFor="name">
+    <div className="name-box" >
+      <label className="name-box__label" htmlFor="name">
         Name
       </label>
-      <div className={`${classes.nameSubContainer}`}>
+      <div className="name-box__secondary">
         <input
-          className={`${classes.nameInput}`}  
+          className="name-box__secondary__input"  
           type="text"
           name="name"
           id="name"
           onChange={onNameChange}
         />
-        <div className={`${classes.nameIconEmptyContainer}`}>
-          <div className={`${classes.nameIconBox}`}>
+        <div className="name-box__secondary__tertiary">
             <img
-              className={`${classes.nameIcon}`}
+              className="icon"
               type="text"
               name="nameIcon"
               id="nameIcon"
               src={nameValid === true ? `${tick}` : `${cross}`}
               alt="nameIcon"
             />
-          </div>
-          <div className={`${classes.emptyBox}`}>
             <p
-              className={`${classes.empty}`}
-            />
+              className="icon-p"
+            >
+              
+            </p>
           </div>
         </div>
       </div>
-    </div>
     )
 };
 
