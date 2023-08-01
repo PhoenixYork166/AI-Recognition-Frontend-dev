@@ -1,46 +1,39 @@
-import classes from './PasswordConfirm.module.css';
+import './PasswordConfirm.scss';
 import tick from '../images/tick.jpg';
 import cross from '../images/cross2.png';
 
 const PasswordConfirm = ({ onPasswordConfirmChange, password1SpecialChar }) => {
   
   return (
-    <div className={`${classes.passwordConfirmContainer}`}>
-      <label className={`${classes.passwordConfirmLabel}`} htmlFor="passwordConfirmation">
+    <div className="passwordConfirm-box" >
+      <label className="passwordConfirm-box__label" htmlFor="name">
         Confirm Password
       </label>
-      <div className={`${classes.passwordConfirmSubContainer}`}>
+      <div className="passwordConfirm-box__secondary">
         <input
-          className={`${classes.passwordConfirmInput}`}  
+          className="passwordConfirm-box__secondary__input"  
           type="password"
-          name="passwordConfirm"
-          id="passwordConfirm"
+          name="password"
+          id="password"
           onChange={onPasswordConfirmChange}
         />
-        <div className={`${classes.password1SepcialCharContainer}`}>
-          <div className={`${classes.password1SpecialCharIconBox}`}>
+        <div className="name-box__secondary__tertiary">
             <img
-              className={`${classes.password1SpecialCharIconInner}`}
+              className="icon"
               type="text"
-              name="password1SpecialCharIcon"
-              id="password1SpecialCharIcon"
+              name="password1SpecialChar"
+              id="password1SpecialChar"
               src={password1SpecialChar === true ? `${tick}` : `${cross}`}
-              alt="password1SpecialCharIcon"
+              alt="password1SpecialChar"
             />
-          </div>
-          <div className={`${classes.password1SpecialCharInputBox}`}>
-            <input
-              className={`${classes.password1SpecialCharInput}`}
-              type="text"
-              name="password1SpecialCharInput"
-              id="password1SpecialCharhInput"
-              value="1Symbol"
-              disabled="true"
-            />
+            <p
+              className="icon-p-empty"
+            >
+              1Symbol
+            </p>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

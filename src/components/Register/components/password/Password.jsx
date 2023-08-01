@@ -1,46 +1,39 @@
-import classes from './Password.module.css';
+import './Password.scss';
 import tick from '../images/tick.jpg';
 import cross from '../images/cross2.png';
 
 const Password = ({ onPasswordChange, password12Char }) => {
   
   return (
-    <div className={`${classes.passwordContainer}`}>
-      <label className={`${classes.passwordLabel}`} htmlFor="password">
+    <div className="password-box" >
+      <label className="password-box__label" htmlFor="password">
         Password
       </label>
-      <div className={`${classes.passwordSubContainer}`}>
+      <div className="password-box__secondary">
         <input
-          className={`${classes.passwordInput}`}  
+          className="password-box__secondary__input"  
           type="password"
           name="password"
           id="password"
           onChange={onPasswordChange}
         />
-        <div className={`${classes.password12CharContainer}`}>
-          <div className={`${classes.password12CharIconBox}`}>
+        <div className="name-box__secondary__tertiary">
             <img
-              className={`${classes.password12CharIcon}`}
+              className="icon"
               type="text"
-              name="password12CharIcon"
-              id="password12CharIcon"
+              name="12CharIcon"
+              id="12CharIcon"
               src={password12Char === true ? `${tick}` : `${cross}`}
-              alt="password12CharIcon"
+              alt="12CharIcon"
             />
-          </div>
-          <div className={`${classes.password12CharInputBox}`}>
-            <input
-              className={`${classes.password12CharInput}`}
-              type="text"
-              name="password12CharInput"
-              id="password12CharhInput"
-              value="12Char"
-              disabled="true"
-            />
+            <p
+              className="icon-p--solid"
+            >
+              12Char
+            </p>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

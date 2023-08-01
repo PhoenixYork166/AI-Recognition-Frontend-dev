@@ -9,6 +9,8 @@
     font-weight: 600;
     line-height: 1.5;
     font-size: $font-size;
+    position: relative;
+    left: 11%;
 }
 
 @mixin secondary {
@@ -40,6 +42,23 @@
 @mixin icon {
     align-self: center;
 }
+
+@mixin icon-p--solid {
+    align-self: center;
+    height: 2.5vh;
+    max-width: 5rem;
+    min-width: 5rem;
+}
+
 @mixin icon-p-empty {
     align-self: center;
+}
+
+@mixin hint-box {
+    min-width: 5vh;
+    width: 96%;
+}
+
+@mixin hint {
+    
 }

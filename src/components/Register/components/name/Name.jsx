@@ -27,9 +27,9 @@ const Name = ( { onNameChange, nameValid } ) => {
               alt="nameIcon"
             />
             <p
-              className="icon-p"
+              className="icon-p-empty"
             >
-              
+
             </p>
           </div>
         </div>
