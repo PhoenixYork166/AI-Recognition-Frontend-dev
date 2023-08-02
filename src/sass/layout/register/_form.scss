@@ -11,6 +11,10 @@
     font-size: $font-size;
     position: relative;
     left: -5%;
+    
+    &:last-child {
+        margin-top: 0.5rem;
+    }
 }
 
 @mixin secondary {

@@ -19,7 +19,9 @@ class Register extends Component {
       lockRegister: true,
       password12Char: false,
       password1SpecialChar: false,
-      passwordMatch: false
+      passwordMatch: false,
+      passwordNotEmpty: false,
+      emailRegistered: false
     }
   }
   
@@ -54,6 +56,23 @@ class Register extends Component {
     this.setState({ passwordConfirm: newPasswordConfirm }, () => {
       this.validateInputs();
       // console.log('this.state.passwordConfirm: \n', this.state.passwordConfirm);
+    })
+  }
+
+  // If users fail to register => Clear inputs
+  resetInputs = () => {
+    this.setState({
+      name: '',
+      nameValid: false,
+      email: '',
+      emailValid: false,
+      password: '',
+      passwordConfirm: '',
+      lockRegister: true,
+      password12Char: false,
+      password1SpecialChar: false,
+      passwordMatch: false,
+      passwordNotEmpty: false
     })
   }
 
@@ -175,6 +194,17 @@ class Register extends Component {
             // console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
           })
         }
+
+        // Validate both password && passwordConfirm are not empty
+        if (this.state.password !== "" && this.state.passwordConfirm !== "") {
+          this.setState({
+            passwordNotEmpty: true
+          })
+        } else {
+          this.setState({
+            passwordNotEmpty: false
+          })
+        }
     };
   
   
@@ -186,11 +216,12 @@ class Register extends Component {
         this.state.email !== prevState.email ||
         this.state.emailValid !== prevState.emailValid ||
         this.state.password !== prevState.password || 
+        this.state.passwordConfirm !== prevState.passwordConfirm ||
         this.state.passwordMatch !== prevState.passwordMatch || 
         this.state.password.length !== prevState.password.length ||
         this.state.password12Char !== prevState.password12Char ||
         this.state.password1SpecialChar !== prevState.password1SpecialChar ||
-        this.state.passwordConfirm !== prevState.passwordConfirm
+        this.state.passwordNotEmpty !== prevState.passwordNotEmpty
       ) {
         this.validateInputs();
       }
@@ -201,7 +232,11 @@ class Register extends Component {
   onSubmitRegister = (event) => {
     // Destructuring this.state variables for Registration
     const { name, email, password } = this.state;
-    event.preventDefault(); // Stop page from refreshing on Signin form submission
+
+    // Stop page from refreshing on Signin form submission
+    // To allow users re-enter inputs should registration fail
+    event.preventDefault();
+
     // Send Register info via HTTP POST request to server localhost:3000
     // To avoid Query Strings
     // by fetching our server - localhost:3000/register
@@ -231,20 +266,35 @@ class Register extends Component {
     .then(response => response.json()) // res.json() to parse data
     .then(user => { // data passing in as user with props
       console.log('onRegisterSignIn - user: \n', user);
-      if (user.id) { // if we get a user with props => route to 'home'
+      if (user.id) { 
+        // if we get a user with props => route to 'home'
         // this.props coming from App.js
         // App.js front-end will handle user features
         this.props.loadUser(user); 
         this.props.onRouteChange('home');
       } else if (!user.id) {
         this.props.onRouteChange('register');
-        alert('Email has been registered...\nPlease try again');
-        const emailInput = document.querySelector('#email-address');
+        
+        // If users registered with existed emails
+        this.setState({
+          emailRegistered: true,
+          email: '',
+          password: '',
+          passwordConfirm: ''
+        })
+
+        this.resetInputs();
+
+        // Clear off previous user inputs
+        const nameInput = document.querySelector('#name');
+        const emailInput = document.querySelector('#email');
         const passwordInput = document.querySelector('#password');
-        const passwordConfirmInput = document.querySelector('#confirmPassword');
+        const passwordConfirmInput = document.querySelector('#confirm-password');
+        nameInput.value = '';
         emailInput.value = '';
         passwordInput.value = '';
         passwordConfirmInput.value = '';
+        
       }
     })
   }
@@ -262,7 +312,9 @@ class Register extends Component {
       lockRegister,
       password12Char,
       password1SpecialChar,
-      passwordMatch
+      passwordMatch,
+      passwordNotEmpty,
+      emailRegistered
       } = this.state;
 
     // tachyons styling for register button
@@ -318,13 +370,22 @@ class Register extends Component {
                     className={`${classes.hint}`}
                   >
                     {
-                    passwordConfirm === true ? 
-                    `Please confirm password` 
-                    : 
+                    passwordNotEmpty === false ?
+                    `Password cannot be empty` 
+                    :
                     password === passwordConfirm ? 
                     `Password MATCH!` : `Password must MATCH`
                     }
                   </p>     
+                  <br/>
+                  <p
+                    className={`${classes.hint}`}
+                  >
+                    {
+                    emailRegistered === true ?
+                    `Try using another email!` : ``
+                    }
+                  </p>
                 </div>
   
               </div>

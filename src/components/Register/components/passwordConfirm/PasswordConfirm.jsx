@@ -13,8 +13,8 @@ const PasswordConfirm = ({ onPasswordConfirmChange, password1SpecialChar }) => {
         <input
           className="passwordConfirm-box__secondary__input"  
           type="password"
-          name="password"
-          id="password"
+          name="confirm-password"
+          id="confirm-password"
           onChange={onPasswordConfirmChange}
         />
         <div className="name-box__secondary__tertiary">
