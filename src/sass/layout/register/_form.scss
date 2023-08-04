@@ -1,19 +1,8 @@
 // Variables
-$padding-right-large: 12rem;
 $padding-right-middle: 6rem;
-$padding-right-small: 3rem;
+$padding-right-small: 4rem;
 
-.padding-right-large {
-    padding-right: $padding-right-large;
-}
 
-.padding-right-middle {
-    padding-right: $padding-right-middle;
-}
-
-.padding-right-small {
-    padding-right: $padding-right-small;
-}
 
 @mixin box {
     margin-top: 0.5vh;

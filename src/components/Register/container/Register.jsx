@@ -331,7 +331,7 @@ class Register extends Component {
                   onNameChange={this.onNameChange}
                   nameValid={nameValid}
                 />
-                <div className="hint-box padding-right-middle">
+                <div className="hint-box padding-right-small">
                   <p
                     className="hint"
                   >
@@ -345,7 +345,7 @@ class Register extends Component {
                   onEmailChange={this.onEmailChange}
                   emailValid={emailValid}
                 />
-                <div className="hint-box padding-right-large">
+                <div className="hint-box padding-right-middle">
                   <p
                     className="hint"
                   >
@@ -364,7 +364,7 @@ class Register extends Component {
                   onPasswordConfirmChange={this.onPasswordConfirmChange}
                   password1SpecialChar={password1SpecialChar}
                 />      
-                <div className="hint-box padding-right-middle">
+                <div className="hint-box padding-right-small">
                   <p
                     className="hint"
                   >
