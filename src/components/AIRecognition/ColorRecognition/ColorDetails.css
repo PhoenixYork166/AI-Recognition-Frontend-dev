@@ -1,5 +1,5 @@
 .color-name {
-    margin-top: 1vh;
+    margin-top: 1rem;
 }
 
 .error-msg {
@@ -30,7 +30,8 @@
 }
 
 .raw-hex {
-    width: 5rem;
+    max-width: 3.5rem;
+    min-width: 3rem;
 }
 
 .w3c-color {
@@ -43,18 +44,16 @@
 }
 
 .w3c-name {
-    max-width: 8rem;
+    max-width: 6rem;
     min-width: 3rem;
-    width: 100%;
 }
 
 .w3c-hex {
-    min-width: 4.5rem;
-    max-width: 4.5rem;
-    width: 100%;
+    min-width: 3rem;
+    max-width: 3.5rem;
 }
 
-.raw-hex, .w3c-color, .w3c-hex {
+.raw-hex, .w3c-color, .w3c-name, .w3c-hex {
     transition: all .15s ease-in;
     border-radius: 5px;
 }

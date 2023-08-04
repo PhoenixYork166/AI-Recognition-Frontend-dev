@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import classes from '../container/Register.module.css';
+import './Register.scss';
 import Name from '../components/name/Name';
 import Email from '../components/email/Email';
 import Password from '../components/password/Password';
@@ -318,23 +318,22 @@ class Register extends Component {
       } = this.state;
 
     // tachyons styling for register button
-    const registerTachyons = 'b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib';
 
     return (
       <div>
-        <article className={`${classes.article}`}> 
-        <main className={`${classes.formContainer}`}>
-          <form className={`${classes.measure}`}>
-            <fieldset id="sign_up" className={`${classes.fieldset}`}>
-              <legend className={`${classes.register}`}>Register</legend>
-              <div className={`${classes.inputs}`} >
+        <article className="article"> 
+        <main className="article__main">
+          <form className="measure" >
+            <fieldset id="sign_up" className="fieldset">
+              <legend className="register" >Register</legend>
+              <div className="inputs" >
                 <Name 
                   onNameChange={this.onNameChange}
                   nameValid={nameValid}
                 />
-                <div className={`${classes.hintBox}`}>
+                <div className="hint-box padding-right-middle">
                   <p
-                    className={`${classes.hint}`}
+                    className="hint"
                   >
                     {
                       nameValid === true ?
@@ -346,9 +345,9 @@ class Register extends Component {
                   onEmailChange={this.onEmailChange}
                   emailValid={emailValid}
                 />
-                <div className={`${classes.hintBox}`}>
+                <div className="hint-box padding-right-large">
                   <p
-                    className={`${classes.hint}`}
+                    className="hint"
                   >
                     {
                     emailValid === true ? 
@@ -365,9 +364,9 @@ class Register extends Component {
                   onPasswordConfirmChange={this.onPasswordConfirmChange}
                   password1SpecialChar={password1SpecialChar}
                 />      
-                <div className={`${classes.hintBox}`}>
+                <div className="hint-box padding-right-middle">
                   <p
-                    className={`${classes.hint}`}
+                    className="hint"
                   >
                     {
                     passwordNotEmpty === false ?
@@ -379,7 +378,7 @@ class Register extends Component {
                   </p>     
                   <br/>
                   <p
-                    className={`${classes.hint}`}
+                    className="hint"
                   >
                     {
                     emailRegistered === true ?
@@ -387,22 +386,20 @@ class Register extends Component {
                     }
                   </p>
                 </div>
-  
               </div>
                    
-         
               {/* <label className="pa0 ma0 lh-copy f6 pointer">
                 <input type="checkbox" /> Remember me
               </label> */}
             </fieldset>
 
-            <div className={`${classes.register}`}>
+            <div className="registerBtnBox">
               <input
                 onClick={this.onSubmitRegister}
                 disabled={lockRegister}
                 className={lockRegister === true ? 
-                  `${classes.registerBtn}` :
-                  `${classes.registerBtn} ${classes.registerBtnOK}`}
+                  "registerBtn" :
+                  "registerBtn registerBtnOK"}
                 type="submit"
                 value="Register"
               />

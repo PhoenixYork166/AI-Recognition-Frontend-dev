@@ -13,8 +13,9 @@ const ColorRecognition = ( {
     ) : (
         <div className="color-container" id="color-container">
             <div className='color-image__modal-container'>
-                <div className='color-image'> 
+                <div className='color-image-box'> 
                     <img 
+                        className='color-image'
                         src={imageUrl}
                         alt="Ooops...It seems the entered URL is BROKEN...Please enter a working URL starting with 'https' in .jpg format"
                     />

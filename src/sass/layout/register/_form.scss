@@ -1,3 +1,20 @@
+// Variables
+$padding-right-large: 12rem;
+$padding-right-middle: 6rem;
+$padding-right-small: 3rem;
+
+.padding-right-large {
+    padding-right: $padding-right-large;
+}
+
+.padding-right-middle {
+    padding-right: $padding-right-middle;
+}
+
+.padding-right-small {
+    padding-right: $padding-right-small;
+}
+
 @mixin box {
     margin-top: 0.5vh;
     display: flex;
@@ -5,7 +22,6 @@
 }
 
 @mixin label($font-size) {
-    display: block;
     font-weight: 600;
     line-height: 1.5;
     font-size: $font-size;
@@ -19,7 +35,7 @@
 
 @mixin secondary {
     display: flex;
-    padding-left: 2em;
+    align-self: center;
 }
 
 @mixin input($font-size) {
@@ -44,7 +60,7 @@
 }
 
 @mixin icon {
-    align-self: center;
+    // align-self: center;
 }
 
 @mixin icon-p--solid {

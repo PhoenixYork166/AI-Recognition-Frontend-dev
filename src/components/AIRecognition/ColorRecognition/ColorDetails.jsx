@@ -1,18 +1,6 @@
 import "./ColorDetails.css";
 
 const ColorDetails = ({ color_props }) => {
-  const hex = color_props.map((each) => {
-    return each.colors.raw_hex;
-  });
-
-  const w3c_hex = color_props.map((each) => {
-    return each.colors.w3c.hex;
-  });
-
-  const w3c_name = color_props.map((each) => {
-    return each.colors.w3c.name;
-  });
-
   // Using querySelectors to retrieve all Raw Hex values as DOM objects
   const length = document.getElementsByClassName('raw-hex').length;
   const raw_hex_elements = document.getElementsByClassName('raw-hex');
@@ -34,19 +22,14 @@ const ColorDetails = ({ color_props }) => {
         modal.style.opacity = 1;
       })
       .then(() => {
-        setTimeout(() => modal.style.opacity=0.85, 2000)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.3, 6000)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0, 6500)
+        setTimeout(() => modal.style.opacity=0, 2000)
       })
       .catch(err => {
         console.error("Failed to copy raw hex: ", err);
       });
     };
     raw_hex_element.addEventListener("click", raw_hex_clickHandler);
+    
 
 
     // Allow users to copy w3c color name from web-app
@@ -58,16 +41,10 @@ const ColorDetails = ({ color_props }) => {
         modal.style.opacity = 1;
       })
       .then(() => {
-        setTimeout(() => modal.style.opacity=0.85, 2000)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.3, 6000)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0, 6500)
+        setTimeout(() => modal.style.opacity=0, 2000)
       })
       .catch(err => {
-        console.error("Failed to copy raw hex: ", err);
+        console.error("Failed to copy w3c_name: ", err);
       });
     };
     w3c_name_element.addEventListener('click', w3c_name_clickHandler);
@@ -81,20 +58,14 @@ const ColorDetails = ({ color_props }) => {
         modal.style.opacity = 1;
       })
       .then(() => {
-        setTimeout(() => modal.style.opacity=0.85, 1000)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0.3, 2000)
-      })
-      .then(() => {
-        setTimeout(() => modal.style.opacity=0, 3000)
+        setTimeout(() => modal.style.opacity=0, 2000)
       })
       .catch(err => {
-        console.error("Failed to copy raw hex: ", err);
+        console.error("Failed to copy w3c hex: ", err);
       });
     };
     w3c_hex_element.addEventListener('click', w3c_hex_clickHandler);
-    
+
   };
 
 

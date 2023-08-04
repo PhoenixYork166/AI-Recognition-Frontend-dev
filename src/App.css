@@ -1,15 +1,16 @@
 .App {
   text-align: center;
   min-width: 75vw;
-  width: 55%;
   min-height: 62.5rem;
-  height: 100%;
+  overflow: hidden;
 }
 
+/*
 .center {
   display: flex;
   justify-content: center;
 }
+*/
 
 .particles {
   position: fixed;

@@ -1,19 +1,27 @@
 .color-container {
     display: flex;
     flex-flow: row nowrap;
-    margin-top: 5vh;
+    margin-top: 5rem;
+    margin-left: 3rem;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .color-image__modal-container {
     position: relative;
 }
 
-.color-image {
-    margin-top: 2vh;
+.color-image-box {
+    margin: 2rem 1rem;
     padding-inline: 1% 1%;
-    width: 50vw;
-    height: 50vh;
     transition: all .2s ease-out;
+}
+
+.color-image {
+    max-width: 100%;
+    min-width: 10rem;
+    max-height: 100%;
+    min-height: 10rem;
 }
 .color-image:hover {
     transform: translate(-1px);
@@ -44,4 +52,14 @@
     align-items: center;
     font-size: 1rem;
     border-radius: 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .color-container {
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 5rem auto;
+        max-width: 100%;
+        max-height: 100%;
+    }
 }

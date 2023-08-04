@@ -17,6 +17,8 @@
 }
 
 .logo {
+    height: 7rem;
+    width: 7rem;
     box-shadow: 0.3rem 0.3rem 3rem #e9ec13,
     -2px -2px 10rem #ffffff;
 }

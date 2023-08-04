@@ -1,2 +1,104 @@
-@import '../../../../sass/layout/register/form';
+@import '../../../sass/layout/register/form';
 
+.padding-right-large {
+    padding-right: $padding-right-large;
+}
+
+.padding-right-middle {
+    padding-right: $padding-right-middle;
+}
+
+.padding-right-small {
+    padding-right: $padding-right-small;
+}
+
+.article {
+    border-radius: 10px;
+    max-width: 100%;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.3);
+    overflow: hidden;
+    max-width: 60rem;
+    min-width: 33rem;
+
+    &__main {
+        .measure {
+            padding: 1rem;
+
+            .fieldset {
+                max-width: 100%;
+
+                .register {
+                    box-sizing: border-box;
+                    color: rgba(0, 0, 0, 0.8);
+                    font-size: 3rem;
+                    font-weight: 600;
+                    margin-left: 0;
+                    margin-right: 0;
+                    padding-left: 0;
+                    padding-right: 0;    
+                    max-width: 100%;
+                    white-space: normal;
+                  }
+                
+                .inputs {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    position: relative;
+                    left: 5%;
+
+                    .hint-box {
+                        .hint {
+                            display: inline-block;
+                          }
+                    }
+                }  
+            }
+          }
+    }
+  }
+
+  .registerBtnBox {
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 3rem;
+    font-weight: 600;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;    
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .registerBtn {
+    left: 30%;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: webkit-transform 0.25s ease-out;
+    font-size: 1.2rem;
+    font-family: inherit;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: initial;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-weight: 700;
+    display: inline-block;
+    border: 1px solid #000;
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+
+  .registerBtnOK {
+    cursor: pointer;
+    transition: all .1s ease-in;
+    box-shadow: 0.3rem 0.3rem 1rem #f6f8f8, -2px -2px 1rem #eefa43;
+  }
+
+  .registerBtnOK:hover {
+    transform: translateY(-3px);
+  }
+  .registerBtnOK:active {
+    transform: translateY(-1px);
+  }
