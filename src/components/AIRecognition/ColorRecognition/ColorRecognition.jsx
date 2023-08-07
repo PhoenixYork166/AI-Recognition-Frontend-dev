@@ -1,6 +1,6 @@
 import React from 'react';
-import './ColorRecognition.css';
-import ColorDetails from './ColorDetails';
+import './ColorRecognition.scss';
+import ColorDetails from './ColorDetails/ColorDetails';
 
 const ColorRecognition = ( { 
     name, 
@@ -11,8 +11,8 @@ const ColorRecognition = ( {
     return color_hidden ? (
     <h2></h2>
     ) : (
-        <div className="color-container" id="color-container">
-            <div className='color-image__modal-container'>
+        <div className="color-container row" id="color-container">
+            <div className='color-image__modal-container col-1-of-2'>
                 <div className='color-image-box'> 
                     <img 
                         className='color-image'
@@ -27,12 +27,11 @@ const ColorRecognition = ( {
                 </div>
             </div>
                 
-            <div id='detailBtn'>                
-                <div id="color-details">
-                    <ColorDetails color_props={color_props} />        
-                </div>
+               
+            <div className="col-1-of-2">
+                <ColorDetails color_props={color_props} />        
             </div>
         </div>
     )
 }
-export default ColorRecognition
+export default ColorRecognition;
