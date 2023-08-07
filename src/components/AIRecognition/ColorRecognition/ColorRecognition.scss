@@ -11,16 +11,19 @@
 }
 
 // Grid
-$grid-width: 71rem;
+$grid-width: 142rem;
 $gutter-vertical: 5rem;
 $gutter-horizontal: 3.75rem;
 
 .row {
     max-width: $grid-width;
     margin: 0 auto; // CSS auto-calc left & right margin
+
+    /*
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
     }
+    */
 
     // @include clearfix;
 
@@ -45,6 +48,7 @@ $gutter-horizontal: 3.75rem;
     margin-left: 3rem;
     max-width: 100%;
     max-height: 100%;
+    max-width: 142rem;
 }
 
 .color-image__modal-container {

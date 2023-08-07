@@ -1,0 +1,113 @@
+// Grid
+$grid-width: 142rem;
+$gutter-vertical: 5rem;
+$gutter-horizontal: 3.75rem;
+
+.row {
+    max-width: $grid-width;
+    margin: 0 auto; // CSS auto-calc left & right margin
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+    }
+
+    // Columns
+    .col-1-of-4 {
+        width: calc((100% - 3* #{$gutter-horizontal}) / 4);
+    }
+
+    .col-2-of-4 {
+        // 2 * .col-1-of-4 + #{$gutter-horizontal}
+        width: calc(2*((100% - 3* #{$gutter-horizontal})/4) + #{$gutter-horizontal});
+    }
+
+    .col-3-of-4 {
+        // 3 * .col-1-of-4 + 2*#{$gutter-horizontal}
+        width: calc(3*((100% - 3* #{$gutter-horizontal})/4) + 2*#{$gutter-horizontal});;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 0.5rem;
+    display: flex;
+}
+
+.link-form {
+    &__paragraph {
+        font-size: 1.5rem;
+    }
+}
+
+.link-container {
+    font-size: 1.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    background-image: radial-gradient(closest-side, transparent 98%, rgba(0, 0, 0, .3) 99%),
+        radial-gradient(closest-side, transparent 98%, rgba(0, 0, 0, .3) 99%);
+    background-size: 80px 80px;
+    background-position: 0 0, 40px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 95%;
+    min-height: 10rem;
+    max-height: 12rem;
+    height: 100%;
+    position:relative;
+
+    &__input {
+        min-width: 30vw;
+        width: 88%;
+        overflow-x: scroll;
+        display: inline-block;
+        box-sizing: border-box;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        justify-content: center;
+    }
+}
+
+.buttons-box {
+    display: flex;
+    align-items: flex-end;
+
+    .buttons {
+        cursor: pointer;
+        max-width: 4rem;
+    
+        &__btn {
+            -moz-osx-font-smoothing: grayscale;
+            backface-visibility: hidden;
+            font-size: calc(1rem);
+            background-color: #a463f2;
+            color: #fff;
+            min-width: 5rem;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: none;
+            overflow: visible;
+            font-family: inherit;
+            line-height: 1.15;
+            margin-left: 1rem;
+            cursor: pointer;
+    
+            &:hover {
+                box-shadow: 0.3rem 0.3rem 1rem #e9ec13,
+                -2px -2px 1rem #ffffff;
+                transform: translateY(-3px);
+            }
+    
+            &:active {
+                transform: translateY(-1px);
+                box-shadow: 0.3rem 0.3rem 1rem #e9ec13,
+                -2px -2px 1rem #ffffff;
+            }
+        }
+    }
+}
+

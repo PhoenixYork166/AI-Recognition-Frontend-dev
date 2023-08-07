@@ -1,5 +1,5 @@
 import React from "react";
-import './ImageLinkForm.css';
+import './ImageLinkForm.scss';
 
 // Passing onInputChange event listener as props to App.js
 const ImageLinkForm = ({ 
@@ -10,37 +10,40 @@ const ImageLinkForm = ({
 }) => {
   const placeholder = `Enter .jpg hyperlink e.g. https://wiki.org/image.jpg`;
   return (
-    <div className="center" id="container">
-      <div id="paragraph">
-        <p className="paragraph-inner">
-          {"This Brain will detect Colors or Celebrity faces in your pictures. Give it a try"}
-        </p>
-      </div>
-
-      <div id="container-inner">
+    <div className="container row">
+      <div className="col-3-of-4">
+        <div className="link-form">
+          <p className="link-form__paragraph">
+            {"This Brain will detect Colors or Celebrity faces in your pictures. Give it a try"}
+          </p>
+        </div>
         <div className="link-container">
           <input
+            className="link-container__input"
             id="input-inner"
             type="url"
             placeholder={placeholder}
             onChange={onInputChange}
           />
         </div>
+      </div>
+      
+      <div className="col-1-of-4 buttons-box">
         <div className="buttons">
           <button
-            className="detect-celebrity"
+            className="buttons__btn"
             onClick={onCelebrityButton}
           >
             Detect Celebrity
           </button>
           <button
-            className="detect-color"
+            className="buttons__btn"
             onClick={onColorButton}
           >
             Detect Color
           </button>
           <button
-            className="detect-age"
+            className="buttons__btn"
             onClick={onAgeButton}
           >
             Detect Age
