@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  min-width: 75vw;
+  /* min-width: 75rem; */
   min-height: 62.5rem;
   overflow: hidden;
 }

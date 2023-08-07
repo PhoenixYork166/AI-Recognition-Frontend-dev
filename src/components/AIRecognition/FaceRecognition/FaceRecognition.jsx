@@ -1,16 +1,15 @@
 import React from 'react';
-import classes from './FaceRecognition.module.css';
+import './FaceRecognition.scss';
 
 const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
 
     return face_hidden ? (
     <h2></h2>
     ) : ( 
-        <div className={`${classes.faceContainer}`}>
-            <div className='absolute mt2'>
-                <div className={`${classes.faceImageBox}`}>
+        <div className="face-recognition">
+            <div className="container">
+                <div className="image-box">
                    <img
-                    className={`${classes.faceImage}`}
                     // id='face-image' is used for DOM manipulation
                     // cannot be edited
                     id='face-image'
@@ -23,7 +22,7 @@ const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
                 </div>
                
                 <div 
-                  className={celebrityName ? `${classes.boundingBox}` : ``}
+                  className={celebrityName ? "bounding-box" : ""}
                   style={{
                    top: box.topRow,
                    right: box.rightCol,
@@ -34,10 +33,10 @@ const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
                 {/* Create a button to show Celebrity name && 
                 allow users to google search it for comparison 
                 on a new browser window*/}
-                <div className={`${classes.celebrityNameOuter}`}>
+                <div className="celebrity-container">
                     <button 
                      className=
-                     {celebrityName ? `${classes.celebrityName}`:`${classes.invisible}`}
+                     {celebrityName ? "celebrity-name": "invisible"}
                      onClick={() => 
                         window.open(`https://www.google.com/search?q=${celebrityName}`, '_blank')}
                     >
