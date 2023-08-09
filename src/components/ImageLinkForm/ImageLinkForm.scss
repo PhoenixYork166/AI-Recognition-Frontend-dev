@@ -78,7 +78,8 @@ $gutter-horizontal: 3.75rem;
 
     .buttons {
         cursor: pointer;
-        max-width: 4rem;
+        max-width: 6rem;
+        min-width: 5rem;
     
         &__btn {
             -moz-osx-font-smoothing: grayscale;
@@ -87,6 +88,7 @@ $gutter-horizontal: 3.75rem;
             background-color: #a463f2;
             color: #fff;
             min-width: 5rem;
+            max-width: 6rem;
             text-decoration: none;
             display: inline-block;
             text-transform: none;
