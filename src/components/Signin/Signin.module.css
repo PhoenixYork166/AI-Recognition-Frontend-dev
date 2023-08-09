@@ -122,12 +122,12 @@
     opacity: 1;
     font-size: 0.875rem;
     color: #000;
-    display: block;
+    display: inline-block;
     text-decoration: none;
     transition: 0.15s ease-in;
     cursor: pointer;
     display: inline-block;
-    border: 1px solid transparent;
+    border: 1px solid rgba(0,0,0,1);
     padding: 0.5rem 1rem;
 }
 

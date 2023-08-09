@@ -9,7 +9,7 @@ const ColorRecognition = ( {
     color_hidden,
 } ) => {
     return color_hidden ? (
-    <h2></h2>
+    <h2>&nbsp;</h2>
     ) : (
         <div className="color-container row" id="color-container">
             <div className='color-image__modal-container col-1-of-2'>

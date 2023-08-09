@@ -4,7 +4,7 @@ import './AgeRecognition.css';
 const AgeRecognition = ( { imageUrl, age, age_hidden } ) => {
 
     return age_hidden ? (
-    <h2></h2>
+    <h2>&nbsp;</h2>
     ) : ( 
         <div className="age-container">
             <div className='age-subcontainer'>

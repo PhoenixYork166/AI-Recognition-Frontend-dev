@@ -4,7 +4,7 @@ import './FaceRecognition.scss';
 const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
 
     return face_hidden ? (
-    <h2></h2>
+    <h2>&nbsp;</h2>
     ) : ( 
         <div className="face-recognition">
             <div className="container">
