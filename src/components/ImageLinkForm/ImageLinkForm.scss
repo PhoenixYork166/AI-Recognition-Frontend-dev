@@ -1,3 +1,5 @@
+@import '../../sass/layout/variables/variables';
+
 // Grid
 $grid-width: 142rem;
 $gutter-vertical: 5rem;
@@ -22,7 +24,8 @@ $gutter-horizontal: 3.75rem;
 
     .col-3-of-4 {
         // 3 * .col-1-of-4 + 2*#{$gutter-horizontal}
-        width: calc(3*((100% - 3* #{$gutter-horizontal})/4) + 2*#{$gutter-horizontal});;
+        
+        width: calc(3*((100% - 3* #{$gutter-horizontal})/4) + 2*#{$gutter-horizontal});
     }
 }
 
@@ -35,6 +38,8 @@ $gutter-horizontal: 3.75rem;
 .link-form {
     &__paragraph {
         font-size: 1.5rem;
+
+        color: $text-color;
     }
 }
 

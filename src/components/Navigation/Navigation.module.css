@@ -2,7 +2,7 @@
     display: flex;
     justify-content: flex-end;
     width: 95%;
-    position: absolute;
+    /* position: absolute; */
 }
 
 .navBoxSignedOut {
@@ -21,8 +21,9 @@
     opacity: 1;
     font-size: 1.5rem;
     padding: 1rem;
-    color: #000;
+    color: #fdc6fb;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .navPara:hover {

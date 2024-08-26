@@ -3,11 +3,11 @@ $padding-right-middle: 6rem;
 $padding-right-small: 4rem;
 
 
-
 @mixin box {
     margin-top: 0.5vh;
     display: flex;
     flex-direction: column;
+    border-radius: 0.2rem;
 }
 
 @mixin label($font-size) {

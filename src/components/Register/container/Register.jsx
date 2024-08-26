@@ -242,19 +242,8 @@ class Register extends Component {
     // by fetching our server - localhost:3000/register
     // fetch(url, {method: '', headers: '', body: JSON.stringify({ name: '', email: '', password: ''}) })
 
-    // Fetching local web server
-    // fetch('http://localhost:3000/register', {
-    //   method: 'post', // to create
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({ // stringifying this.state variables before fetching
-    //     name: name,
-    //     email: email,
-    //     password: password
-    //   })
-    // })
-
-    // Fetching live Web Server on Render
-    fetch('https://ai-recognition-backend.onrender.com/register', {
+    /* Fetching local web server */
+    fetch('http://localhost:3000/register', {
       method: 'post', // to create
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ // stringifying this.state variables before fetching
@@ -263,6 +252,17 @@ class Register extends Component {
         password: password
       })
     })
+
+    /* Fetching live Web Server on Render */
+    // fetch('https://ai-recognition-backend.onrender.com/register', {
+    //   method: 'post', // to create
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify({ // stringifying this.state variables before fetching
+    //     name: name,
+    //     email: email,
+    //     password: password
+    //   })
+    // })
     .then(response => response.json()) // res.json() to parse data
     .then(user => { // data passing in as user with props
       console.log('onRegisterSignIn - user: \n', user);
@@ -331,13 +331,13 @@ class Register extends Component {
                   onNameChange={this.onNameChange}
                   nameValid={nameValid}
                 />
-                <div className="hint-box padding-right-small">
+                <div className="hint-box">
                   <p
                     className="hint"
                   >
                     {
                       nameValid === true ?
-                      `Name is valid` : `Please enter a valid name`
+                      `Name is valid` : `Enter a valid name`
                     }
                   </p>
                 </div>
@@ -345,13 +345,13 @@ class Register extends Component {
                   onEmailChange={this.onEmailChange}
                   emailValid={emailValid}
                 />
-                <div className="hint-box padding-right-middle">
+                <div className="hint-box">
                   <p
                     className="hint"
                   >
                     {
                     emailValid === true ? 
-                    `Email is valid` : `Please enter a valid email`
+                    `Email is valid` : `Enter a valid email`
                     }
                   </p>
                 </div>
@@ -364,13 +364,13 @@ class Register extends Component {
                   onPasswordConfirmChange={this.onPasswordConfirmChange}
                   password1SpecialChar={password1SpecialChar}
                 />      
-                <div className="hint-box padding-right-small">
+                <div className="hint-box">
                   <p
                     className="hint"
                   >
                     {
                     passwordNotEmpty === false ?
-                    `Password cannot be empty` 
+                    `Pw cannot be empty` 
                     :
                     password === passwordConfirm ? 
                     `Password MATCH!` : `Password must MATCH`

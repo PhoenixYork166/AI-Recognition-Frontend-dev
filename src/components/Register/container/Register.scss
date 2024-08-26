@@ -22,6 +22,7 @@
 
             .fieldset {
                 max-width: 100%;
+                border-radius: 0.2rem;
 
                 .register {
                     box-sizing: border-box;
@@ -58,8 +59,7 @@
     color: rgba(0, 0, 0, 0.8);
     font-size: 3rem;
     font-weight: 600;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0 auto;
     padding-left: 0;
     padding-right: 0;    
     max-width: 100%;
@@ -74,7 +74,8 @@
     font-size: 1.2rem;
     font-family: inherit;
     line-height: 1.15;
-    margin: 0;
+    margin: 0 auto;
+    border-radius: 0.2rem;
     padding: 0.5rem 1rem 0.5rem 1rem;
     background-color: initial;
     -webkit-appearance: none;
