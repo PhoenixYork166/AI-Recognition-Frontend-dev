@@ -39,18 +39,8 @@ class Signin extends Component {
     // by fetching our server - localhost:3000/signin
     // fetch(url, {method: '', headers: '', body: JSON.stringify({ email: '', password: ''}) })
 
-    // Fetching local web server
-    // fetch('http://localhost:3000/signin', {
-    //   method: 'post', // Post (Create) to avoid Query Strings
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({ // sending stringified this.state variables as JSON objects
-    //     email: this.state.signInEmail,
-    //     password: this.state.signInPassword
-    //   })
-    // })
-
-    // Fetching live Web Server on Render
-    fetch('https://ai-recognition-backend.onrender.com/signin', {
+    /* Fetching local web server */
+    fetch('http://localhost:3000/signin', {
       method: 'post', // Post (Create) to avoid Query Strings
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ // sending stringified this.state variables as JSON objects
@@ -58,6 +48,15 @@ class Signin extends Component {
         password: this.state.signInPassword
       })
     })
+    /* Fetching live Web Server on Render */
+    // fetch('https://ai-recognition-backend.onrender.com/signin', {
+    //   method: 'post', // Post (Create) to avoid Query Strings
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+    //     email: this.state.signInEmail,
+    //     password: this.state.signInPassword
+    //   })
+    // })
     .then(response => response.json()) // JSON server response to parse data
     .then(user => { // server.js - app.post('/signin') --> res.json(database.users[i])
       console.log('onSubmitSignIn - response: \n', user);

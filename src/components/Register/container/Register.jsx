@@ -242,19 +242,8 @@ class Register extends Component {
     // by fetching our server - localhost:3000/register
     // fetch(url, {method: '', headers: '', body: JSON.stringify({ name: '', email: '', password: ''}) })
 
-    // Fetching local web server
-    // fetch('http://localhost:3000/register', {
-    //   method: 'post', // to create
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({ // stringifying this.state variables before fetching
-    //     name: name,
-    //     email: email,
-    //     password: password
-    //   })
-    // })
-
-    // Fetching live Web Server on Render
-    fetch('https://ai-recognition-backend.onrender.com/register', {
+    /* Fetching local web server */
+    fetch('http://localhost:3000/register', {
       method: 'post', // to create
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ // stringifying this.state variables before fetching
@@ -263,6 +252,17 @@ class Register extends Component {
         password: password
       })
     })
+
+    /* Fetching live Web Server on Render */
+    // fetch('https://ai-recognition-backend.onrender.com/register', {
+    //   method: 'post', // to create
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify({ // stringifying this.state variables before fetching
+    //     name: name,
+    //     email: email,
+    //     password: password
+    //   })
+    // })
     .then(response => response.json()) // res.json() to parse data
     .then(user => { // data passing in as user with props
       console.log('onRegisterSignIn - user: \n', user);
