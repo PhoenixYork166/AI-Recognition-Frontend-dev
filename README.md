@@ -7,12 +7,25 @@
 ### Clarifai documentation https://docs.clarifai.com/
 ![Clarifai](https://c8.alamy.com/comp/2NFXR8G/in-this-photo-illustration-the-logo-of-clarifai-is-seen-displayed-on-a-mobile-phone-screen-with-ai-artificial-intelligence-written-in-the-background-2NFXR8G.jpg)
 
-### To download this React app:
-git clone https://github.com/phoenixyork166/AI-Recognition.git
+### 1. To download this React app:
+```bash
+git clone https://github.com/PhoenixYork166/AI-Recognition.git;
+```
 
-### To install dependencies:
-npm install
+### 2. To install dependencies:
+```bash
+npm install;
+```
 
-### To run this app locally:
+### 3. To swap between git branch prod & git branch dev
+```bash
+git checkout dev;
+```
+```bash
+git checkout prod;
+```
+
+### 4. To run this app locally:
+```bash
 npm start
-
+```
