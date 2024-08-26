@@ -243,7 +243,10 @@ class Register extends Component {
     // fetch(url, {method: '', headers: '', body: JSON.stringify({ name: '', email: '', password: ''}) })
 
     /* Fetching local web server */
-    fetch('http://localhost:3000/register', {
+    this.devRegister = 'http://localhost:3000/register';
+    this.prodRegister = 'https://ai-recognition-backend.onrender.com/register';
+
+    fetch(this.devRegister, {
       method: 'post', // to create
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ // stringifying this.state variables before fetching
