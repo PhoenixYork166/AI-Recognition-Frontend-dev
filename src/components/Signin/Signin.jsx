@@ -39,8 +39,11 @@ class Signin extends Component {
     // by fetching our server - localhost:3000/signin
     // fetch(url, {method: '', headers: '', body: JSON.stringify({ email: '', password: ''}) })
 
-    /* Fetching local web server */
-    fetch('http://localhost:3000/signin', {
+    /* Fetching local web server vs live server on Render */
+    this.devSignin = 'http://localhost:3000/signin';
+    this.prodSignin = 'https://ai-recognition-backend.onrender.com/signin';
+
+    fetch(this.devSignin, {
       method: 'post', // Post (Create) to avoid Query Strings
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ // sending stringified this.state variables as JSON objects
