@@ -1,7 +1,11 @@
 import classes from './Navigation.module.css';
 import React from 'react';
 
-const Navigation = ( { onRouteChange, isSignedIn }) => {
+const Navigation = ( { 
+    isSignedIn, 
+    removeUserFromLocalStorage,
+    onRouteChange
+     }) => {
 
         if (isSignedIn) {
             return (
@@ -12,8 +16,10 @@ const Navigation = ( { onRouteChange, isSignedIn }) => {
                 {/* If 'Sign Out' is clicked, nav to 'signin' page */}
                 <p 
                     className={`${classes.navPara}`}
-                    onClick={() => onRouteChange('signin')} 
-                    
+                    onClick={() => {
+                        removeUserFromLocalStorage();
+                        onRouteChange('signin');
+                    }} 
                 >
                     Sign Out
                 </p>

@@ -273,7 +273,13 @@ class Register extends Component {
         // if we get a user with props => route to 'home'
         // this.props coming from App.js
         // App.js front-end will handle user features
-        this.props.loadUser(user); 
+
+        // Invoke App.js saveUserToLocalStorage() passed to this child component as props
+        this.props.saveUserToLocalStorage(user);
+
+        // Invoke App.js loadUserFromLocalStorage() passed to this child component as props
+        this.props.loadUserFromLocalStorage();
+
         this.props.onRouteChange('home');
       } else if (!user.id) {
         this.props.onRouteChange('register');
@@ -306,7 +312,6 @@ class Register extends Component {
 
     // Destructuring props from this.state
     const { 
-      name,
       nameValid,
       email,
       emailValid,

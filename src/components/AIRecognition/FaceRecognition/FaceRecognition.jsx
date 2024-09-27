@@ -45,11 +45,10 @@ const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
                 </div>
                 </div>
             </div>
-            
         </div>
     )
 }
-export default FaceRecognition
+export default FaceRecognition;
 // From App.js:
 // calculateFaceLocation()
 // return {

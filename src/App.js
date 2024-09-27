@@ -10,6 +10,9 @@ import Signin from './components/Signin/Signin';
 import Register from './components/Register/container/Register';
 import Rank from './components/Rank/Rank';
 
+const localStorage = window.localStorage;
+const userData = localStorage.getItem('user');
+const defaultRoute = userData? 'home' : 'signin';
 
 const initialState = {
   input: '',
@@ -23,14 +26,14 @@ const initialState = {
   color_hidden: true,
   age_hidden: true,
   responseStatusCode: Number(''),
-  route: 'signin',
+  route: defaultRoute,
   isSignedIn: false,
-  user: { // just copy from database
-    id: '',
-    name: '',
-    email: '',
-    entries: 0,
-    joined: ''
+  user: { // a copy from window.localStorage
+    id: userData?.id,
+    name: userData?.name,
+    email: userData?.email,
+    entries: userData?.entries,
+    joined: userData?.joined
   }
 }
 
@@ -38,24 +41,102 @@ class App extends Component {
   constructor() {
     super();
     this.state = initialState;
+    // Persisting users' signed in sessions 
+    this.loadUserFromLocalStorage();
+    this.inactivityTimer = null;
+  }
+
+  componentDidMount() {
+    this.loadUserFromLocalStorage();
+    this.resetInactivityTimer();
+  }
+
+  // Keep tracking for user
+  // Validate users whenever there's a change
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.user !== prevState.user) this.validateUsers();
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.inactivityTimer);
   }
   
+  resetUser = () => {
+    localStorage.removeItem('user');
+
+    this.setState({
+      user: {
+        id: '',
+        name: '',
+        email: '',
+        entries: 0,
+        joined: ''
+      }
+    });
+  }
+
+  resetInactivityTimer = () => {
+    clearTimeout(this.inactivityTimer);
+    // Force users to sign out after 15 minutes (900000 milli-seconds)
+    this.inactivityTimer = setTimeout(this.resetUser, 900000); 
+  }
+
   // For <Register /> && <Signin />
   // To receive fetched data from server-side
   // fetch('http://localhost:3000/signin') || fetch('http://localhost:3000/register')
   // .then(res => res.json())
   // .then(data => )
   // data here equals to response.json()
-  loadUser = (data) => {
-    this.setState({user: {
-        id: data.id,
-        name: data.name,
-        email: data.email,
-        entries: data.entries,
-        joined: data.joined
-    }}, () => {
-      console.log('App.js - this.state.user: \n', this.state.user)
-    })
+  // loadUser = (data) => {
+  //   this.setState({ user: 
+  //     {
+  //       id: data.id,
+  //       name: data.name,
+  //       email: data.email,
+  //       entries: data.entries,
+  //       joined: data.joined
+  //     }
+  //   }, () => {
+  //     console.log('App.js - this.state.user: \n', this.state.user);
+  //   });
+  // }
+
+  setUserState = (data) => {
+      this.setState({ user: 
+        {
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          entries: data.entries,
+          joined: data.joined
+        }
+      }, () => {
+        console.log('App.js - this.state.user: \n', this.state.user);
+      });
+  }
+
+  saveUserToLocalStorage = (user) => {
+    // A callback function that accepts passed-in user to save user to window.localStorage
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  loadUserFromLocalStorage = () => {
+    const userData = localStorage.getItem('user');
+    console.log(`userData:`);
+    console.log(userData);
+
+    // If there's 'user' in localStorage
+    if (userData) {
+      this.setState({ 
+        user: JSON.parse(userData), 
+        isSignedIn: true,
+        route: 'home'
+      });
+    }
+  }
+
+  removeUserFromLocalStorage = () => {
+    localStorage.removeItem('user');
   }
 
   // For Celebrity detection model
@@ -179,42 +260,17 @@ class App extends Component {
     })
   };
 
-  resetApp = () => {
-    this.setState({
-      input: '',
-      imageUrl: '',
-      box: {},
-      celebrity: {},
-      celebrityName: '',
-      colors: [],
-      age: [],
-      face_hidden: true,
-      color_hidden: true,
-      age_hidden: true,
-      responseStatusCode: Number(''),
-      route: 'signin',
-      isSignedIn: false,
-      user: { // just copy from database
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-      }
-    })
-  };
-
   // Everytime any of the Detection Models is activated
   // update this.state.user.entries by 1 through
   // sending data to server-side
   
   /* Updating Entries - Fetching local web server vs live web server on Render */
   
-  updateEntries = async () => {
+  updateEntries = () => {
     this.devUpdateEntriesUrl = 'http://localhost:3000/image';
     this.prodUpdateEntriesUrl = 'https://ai-recognition-backend.onrender.com/image';
     
-    await fetch(this.devUpdateEntriesUrl, {
+    fetch(this.devUpdateEntriesUrl, {
         method: 'put', // PUT (Update) 
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ // sending stringified this.state variables as JSON objects
@@ -256,16 +312,6 @@ class App extends Component {
     );
 
     /* From Clarifai API documentation, this API can be consumed as below: */
-    /* fetch(
-     "https://api.clarifai.com/v2/models/general-image-recognition/outputs", 
-     returnClarifaiRequestOptions(imageUrl))
-    fetch(
-      'https://api.clarifai.com/v2/models/' +
-        'celebrity-face-detection' +
-        '/outputs',
-      returnClarifaiRequestOptions(this.state.input)
-    )
-    */
 
     /* Celebrity Recognition - Fetching local web server for celebrityimage */
     this.devFetchCelebrityImageUrl = 'http://localhost:3000/celebrityimage';
@@ -349,13 +395,13 @@ class App extends Component {
   // Arrow function to send this.state.state_raw_hex_array
   // to server-side right after setting state for state_raw_hex_array
   // to avoid delay in server-side
-  loadRawHex = async() => {
+  loadRawHex = () => {
     this.devFetchRawHexUrl = 'http://localhost:3000/image';
     this.prodFetchRawHexUrl = 'https://ai-recognition-backend.onrender.com/image';
 
     /* Sending state user.id && state_raw_hex_array to local server-side */
     // Fetching live Web Server on Render
-    await fetch(this.devFetchRawHexUrl, {
+    fetch(this.devFetchRawHexUrl, {
       method: 'put', // PUT (Update) 
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -380,30 +426,30 @@ class App extends Component {
   }
 
   // For <SaveColorBtn /> in <ColorRecognition />
-  onSaveColorButton = () => {
-    this.updateEntries();
-    // Create an empty array to store raw_hex values 
-    // from this.state.colors data fetched from Clarifai API
-    let raw_hex_array = [];
+  // onSaveColorButton = () => {
+  //   this.updateEntries();
+  //   // Create an empty array to store raw_hex values 
+  //   // from this.state.colors data fetched from Clarifai API
+  //   let raw_hex_array = [];
 
-    // Iterate through each color in this.state.colors 
-    // && push each raw_hex to empty array
-    this.state.colors.map((color) => {
-      raw_hex_array.push(color.colors.raw_hex);
-    });
-    // Logging updated empty array with raw_hex values
-    console.log('Cached raw hex array: \n', raw_hex_array);
+  //   // Iterate through each color in this.state.colors 
+  //   // && push each raw_hex to empty array
+  //   this.state.colors.map((color) => {
+  //     raw_hex_array.push(color.colors.raw_hex);
+  //   });
+  //   // Logging updated empty array with raw_hex values
+  //   console.log('Cached raw hex array: \n', raw_hex_array);
 
-    // Shallow copying raw_hex array to this.state.state_raw_hex_array
-    this.setState({
-      state_raw_hex_array: raw_hex_array
-    }, () => {
-      // sending state_raw_hex_array to server-side
-      // right after setting state to avoid delay in server-side
-      this.loadRawHex(); 
-    });
+  //   // Shallow copying raw_hex array to this.state.state_raw_hex_array
+  //   this.setState({
+  //     state_raw_hex_array: raw_hex_array
+  //   }, () => {
+  //     // sending state_raw_hex_array to server-side
+  //     // right after setting state to avoid delay in server-side
+  //     this.loadRawHex(); 
+  //   });
 
-    };
+  //   };
   
   // ClarifaiAPI Age Detection model
   onAgeButton = () => {
@@ -427,40 +473,59 @@ class App extends Component {
     this.devFetchAgeUrl = 'http://localhost:3000/ageimage';
     this.prodFetchAgeUrl = 'https://ai-recognition-backend.onrender.com/ageimage';
 
-      fetch(this.devFetchAgeUrl, {
+    fetch(this.devFetchAgeUrl, {
         method: 'post', 
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ // sending stringified this.state variables as JSON objects
           input: this.state.input
         })
-      })
-      .then(response => response.json())
-      .then(response => {
-        console.log('HTTP Response\nAge Detection', response);
-        console.log('HTTP request status code:\n', response.status.code);
-        console.log(
-          'Fetched Age grp obj:\n',
-          response.outputs[0].data.concepts
-        );
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log('HTTP Response\nAge Detection', response);
+      console.log('HTTP request status code:\n', response.status.code);
+      console.log(
+        'Fetched Age grp obj:\n',
+        response.outputs[0].data.concepts
+    );
 
-        // color-detection
-        // this.displayColor adding color hex to this.state.color
-        // this.findColor(response) returns color hex
-        if (response) { 
-          this.updateEntries();
-        };
-        this.displayAge(this.findAge(response));
-      })
-      .catch(err => console.log(err));
+    // color-detection
+    // this.displayColor adding color hex to this.state.color
+    // this.findColor(response) returns color hex
+    if (response) { 
+      this.updateEntries();
+      };
+      this.displayAge(this.findAge(response));
+    })
+    .catch(err => console.log(err));
   };
 
   // To allow routing through onClick={() => onRouteChange(routeInput)}
   onRouteChange = (routeInput) => {
     // if onClick={() => onRouteChange('signout')}
     if (routeInput === 'signout') {
-      this.setState({ isSignedIn: false});
+      this.setState({ 
+        ...initialState,
+        route: 'sigin',
+        isSignedIn: false
+      });
+
       // else if onClick={() => onRouteChange('home')}
     } else if (routeInput === 'home') {
+      if (this.state.user !== null) {
+        // setUserState = (data) => {
+        //   this.setState({ user: 
+        //     {
+        //       id: data.id,
+        //       name: data.name,
+        //       email: data.email,
+        //       entries: data.entries,
+        //       joined: data.joined
+        //     }
+        //   }, () => {
+        //     console.log('App.js - this.state.user: \n', this.state.user);
+        //   });
+      }
       this.setState({ isSignedIn: true });
     } else {
       this.setState(initialState);
@@ -475,12 +540,6 @@ class App extends Component {
     if (!this.state.user.id) {
       this.onRouteChange('signin');
     }
-  }
-
-  // Keep tracking for user
-  // Validate users whenever there's a change
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.user !== prevState.user) this.validateUsers();
   }
 
   /* Rendering all components */
@@ -507,7 +566,8 @@ class App extends Component {
     console.log('age_props\n', age_props);
 
     // Tracking all state variables in render() {...}
-    {
+    console.log(`\ndefaultRoute:\n${defaultRoute}\n`);
+    console.log(`\n`);
     console.log('this.state.input: \n', input);
     console.log('this.state.imageUrl: \n', imageUrl);
     console.log('this.state.box: \n', box);
@@ -520,15 +580,18 @@ class App extends Component {
     console.log('this.state.color_hidden', color_hidden);
     console.log('this.state.age_hidden', age_hidden);
     console.log('this.state.responseStatusCode:\n', responseStatusCode);
-    console.log('this.state.user.id:\n', user.id);
-    console.log('this.state.user.entries:\n', user.entries);
-    }
-
+    console.log('this.state.user.id:\n', userData?.id);
+    console.log('this.state.user.email:\n', userData?.email);
+    console.log('this.state.user.entries:\n', userData?.entries);
+    console.log(`localStorage.getItem('user'):`);
+    console.log(userData);
+    
     return (
       <div className="App">
         {/* Conditional rendering */}
         <Navigation
           isSignedIn={isSignedIn}
+          removeUserFromLocalStorage={this.removeUserFromLocalStorage}
           onRouteChange={this.onRouteChange}
         />
         {route === 'home' ? (
@@ -568,9 +631,18 @@ class App extends Component {
             />
           </>
         ) : route === 'signin' ? (
-          <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+          <Signin 
+            setUserState={this.setUserState} 
+            saveUserToLocalStorage={this.saveUserToLocalStorage}
+            loadUserFromLocalStorage={this.loadUserFromLocalStorage}
+            onRouteChange={this.onRouteChange} />
         ) : (
-          <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
+          <Register 
+            setUserState={this.setUserState}
+            saveUserToLocalStorage={this.saveUserToLocalStorage}
+            loadUserFromLocalStorage={this.loadUserFromLocalStorage}
+            onRouteChange={this.onRouteChange} 
+          />
         )}
       </div>
     );
