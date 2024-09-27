@@ -152,14 +152,15 @@ class Register extends Component {
           if (this.state.password.includes(element)) {
             return true;
           } else {
-            this.setState({
+            return this.setState({
               password1SpecialChar: false,
               lockRegister: true
             }, () => {
-              // console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
+              console.log(`this.state.lockRegister:\n${this.state.lockRegister}`);
             })
           }
         }) 
+
         if (anySpecialChar.includes(true) ) {
           this.setState({
             password1SpecialChar: true
@@ -237,12 +238,12 @@ class Register extends Component {
     // To allow users re-enter inputs should registration fail
     event.preventDefault();
 
-    // Send Register info via HTTP POST request to server localhost:3000
-    // To avoid Query Strings
-    // by fetching our server - localhost:3000/register
-    // fetch(url, {method: '', headers: '', body: JSON.stringify({ name: '', email: '', password: ''}) })
+    /* Send Register info via HTTP POST request to server localhost:3000
+    To avoid Query Strings
+    by fetching our server - localhost:3000/register
+    fetch(url, {method: '', headers: '', body: JSON.stringify({ name: '', email: '', password: ''}) }) */
 
-    /* Fetching local web server */
+    // Fetching local web server or on Render
     this.devRegister = 'http://localhost:3000/register';
     this.prodRegister = 'https://ai-recognition-backend.onrender.com/register';
 
@@ -255,24 +256,10 @@ class Register extends Component {
         password: password
       })
     })
-
-    /* Fetching live Web Server on Render */
-    // fetch('https://ai-recognition-backend.onrender.com/register', {
-    //   method: 'post', // to create
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({ // stringifying this.state variables before fetching
-    //     name: name,
-    //     email: email,
-    //     password: password
-    //   })
-    // })
     .then(response => response.json()) // res.json() to parse data
     .then(user => { // data passing in as user with props
       console.log('onRegisterSignIn - user: \n', user);
-      if (user.id) { 
-        // if we get a user with props => route to 'home'
-        // this.props coming from App.js
-        // App.js front-end will handle user features
+      if (user.id) { /* If we get a user with props => route to 'home'; this.props coming from App.js; Parent App.js front-end will handle user features */
 
         // Invoke App.js saveUserToLocalStorage() passed to this child component as props
         this.props.saveUserToLocalStorage(user);

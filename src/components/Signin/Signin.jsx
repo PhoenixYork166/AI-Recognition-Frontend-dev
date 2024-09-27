@@ -71,8 +71,7 @@ class Signin extends Component {
 
         // Invoke App.js loadUserFromLocalStorage to this.setState(user:{})
         this.props.loadUserFromLocalStorage();
-        
-        /* this.props.setUserState(user); */
+
         this.props.onRouteChange('home');
       } else if (!user.id) { // if user.id does NOT exist
         // Reset users' inputed password

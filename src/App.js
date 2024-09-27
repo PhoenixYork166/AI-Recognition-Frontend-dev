@@ -54,9 +54,12 @@ class App extends Component {
   // Keep tracking for user
   // Validate users whenever there's a change
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.user !== prevState.user) this.validateUsers();
+    if (this.state.user !== prevState.user) { 
+      this.validateUsers();
+    }
   }
 
+  // useEffect() hook
   componentWillUnmount() {
     clearTimeout(this.inactivityTimer);
   }
@@ -100,20 +103,6 @@ class App extends Component {
   //     console.log('App.js - this.state.user: \n', this.state.user);
   //   });
   // }
-
-  setUserState = (data) => {
-      this.setState({ user: 
-        {
-          id: data.id,
-          name: data.name,
-          email: data.email,
-          entries: data.entries,
-          joined: data.joined
-        }
-      }, () => {
-        console.log('App.js - this.state.user: \n', this.state.user);
-      });
-  }
 
   saveUserToLocalStorage = (user) => {
     // A callback function that accepts passed-in user to save user to window.localStorage
@@ -512,20 +501,6 @@ class App extends Component {
 
       // else if onClick={() => onRouteChange('home')}
     } else if (routeInput === 'home') {
-      if (this.state.user !== null) {
-        // setUserState = (data) => {
-        //   this.setState({ user: 
-        //     {
-        //       id: data.id,
-        //       name: data.name,
-        //       email: data.email,
-        //       entries: data.entries,
-        //       joined: data.joined
-        //     }
-        //   }, () => {
-        //     console.log('App.js - this.state.user: \n', this.state.user);
-        //   });
-      }
       this.setState({ isSignedIn: true });
     } else {
       this.setState(initialState);
@@ -632,13 +607,11 @@ class App extends Component {
           </>
         ) : route === 'signin' ? (
           <Signin 
-            setUserState={this.setUserState} 
             saveUserToLocalStorage={this.saveUserToLocalStorage}
             loadUserFromLocalStorage={this.loadUserFromLocalStorage}
             onRouteChange={this.onRouteChange} />
         ) : (
           <Register 
-            setUserState={this.setUserState}
             saveUserToLocalStorage={this.saveUserToLocalStorage}
             loadUserFromLocalStorage={this.loadUserFromLocalStorage}
             onRouteChange={this.onRouteChange} 
