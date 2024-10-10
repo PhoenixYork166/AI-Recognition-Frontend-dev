@@ -41,6 +41,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = initialState;
+
     // Persisting users' signed in sessions 
     this.loadUserFromLocalStorage();
     this.inactivityTimer = null;
@@ -111,16 +112,23 @@ class App extends Component {
 
   loadUserFromLocalStorage = () => {
     const userData = localStorage.getItem('user');
-    console.log(`userData:`);
+
+    console.log(`\nuserData:`);
     console.log(userData);
 
     // If there's 'user' in localStorage
     if (userData) {
-      this.setState({ 
-        user: JSON.parse(userData), 
-        isSignedIn: true,
-        route: 'home'
-      });
+      try {
+        this.setState({ 
+          user: JSON.parse(userData), 
+          isSignedIn: true,
+          route: 'home'
+        });
+      } catch (err) {
+        console.error(`\nFailed to parse user data: `, err);
+      }
+    } else {
+      console.log(`\nNo user data was found in local storage\n`);
     }
   }
 

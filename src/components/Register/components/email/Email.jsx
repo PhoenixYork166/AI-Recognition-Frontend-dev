@@ -1,4 +1,4 @@
-import classes from './Email.module.css';
+// import classes from './Email.module.css';
 import './Email.scss';
 import tick from '../images/tick.jpg';
 import cross from '../images/cross2.png';
