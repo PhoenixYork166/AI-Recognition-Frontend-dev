@@ -1,23 +1,26 @@
-import './Password.scss';
+import '../form.scss';
 import tick from '../images/tick.jpg';
 import cross from '../images/cross2.png';
 
-const Password = ({ onPasswordChange, password12Char }) => {
+const Password = ({ 
+    onPasswordChange, 
+    password12Char 
+  }) => {
   
   return (
-    <div className="password-box" >
-      <label className="password-box__label" htmlFor="password">
+    <div className="form-box" >
+      <label className="form-box__label" htmlFor="password">
         Password
       </label>
-      <div className="password-box__secondary">
+      <div className="form-box__secondary">
         <input
-          className="password-box__secondary__input"  
+          className="form-box__secondary--input"  
           type="password"
           name="password"
           id="password"
           onChange={onPasswordChange}
         />
-        <div className="name-box__secondary__tertiary">
+        <div className="form-box__tertiary">
             <img
               className="icon"
               type="text"

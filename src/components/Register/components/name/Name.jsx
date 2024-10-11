@@ -1,23 +1,23 @@
-import './Name.scss';
+import '../form.scss';
 import tick from '../images/tick.jpg';
 import cross from '../images/cross2.png';
 
 const Name = ( { onNameChange, nameValid } ) => {
 
     return (
-    <div className="name-box" >
-      <label className="name-box__label" htmlFor="name">
+    <div className="form-box" >
+      <label className="form-box__label" htmlFor="name">
         Name
       </label>
-      <div className="name-box__secondary">
+      <div className="form-box__secondary">
         <input
-          className="name-box__secondary__input"  
+          className="form-box__secondary--input"  
           type="text"
           name="name"
           id="name"
           onChange={onNameChange}
         />
-        <div className="name-box__secondary__tertiary">
+        <div className="form-box__tertiary">
             <img
               className="icon"
               type="text"
@@ -29,7 +29,6 @@ const Name = ( { onNameChange, nameValid } ) => {
             <p
               className="icon-p-empty"
             >
-
             </p>
           </div>
         </div>

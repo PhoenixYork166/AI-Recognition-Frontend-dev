@@ -7,8 +7,9 @@ import PasswordConfirm from '../components/passwordConfirm/PasswordConfirm';
 
 // Make Register a smart component to process states
 class Register extends Component {
+  // class Register to inherit React class Component
   constructor(props) {
-    super(props);
+    super(props); // Inheriting all React class Components attributes & methods()
     this.state = {
       name: '',
       nameValid: false,
