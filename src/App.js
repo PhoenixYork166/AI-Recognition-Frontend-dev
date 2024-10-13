@@ -2,56 +2,49 @@ import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
 
-/*
-import Logo from './components/Logo/Logo';
-import Rank from './components/Rank/Rank';
-import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
-import FaceRecognition from './components/AIRecognition/FaceRecognition/FaceRecognition';
-import ColorRecognition from './components/AIRecognition/ColorRecognition/ColorRecognition';
-import AgeRecognition from './components/AIRecognition/AgeRecognition/AgeRecognition';
-*/
 import Home from './routes/Home';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/container/Register';
 
-
+// Utility helper functions
+// import loadUserFromLocalStorage from './util/loadUserFromLocalStorage';
+import findCelebrity from './util/ai-detection/findCelebrity';
+import findColor from './util/ai-detection/findColor';
+import findAge from './util/ai-detection/findAge';
 import { returnDateTime } from './util/returnDateTime';
 
 const localStorage = window.localStorage;
-const userData = localStorage.getItem('user');
-const defaultRoute = userData? 'home' : 'signin';
-
-const initialState = {
-  input: '',
-  imageUrl: '',
-  box: {},
-  celebrity: {},
-  celebrityName: '',
-  colors: [],
-  age: [],
-  face_hidden: true,
-  color_hidden: true,
-  age_hidden: true,
-  responseStatusCode: Number(''),
-  route: defaultRoute,
-  isSignedIn: false,
-  user: { // a copy from window.localStorage
-    id: userData?.id,
-    name: userData?.name,
-    email: userData?.email,
-    entries: userData?.entries,
-    joined: userData?.joined
-  },
-  
-}
 
 class App extends Component {
   constructor() {
     super();
-    this.state = initialState;
+    // this.state = initialState;
+
+    const userData = localStorage.getItem('user');
+    // const userData = loadUserFromLocalStorage();
+    const defaultRoute = userData? 'home' : 'signin';
+
+    this.state = {
+      input: '',
+      imageUrl: '',
+      box: {},
+      celebrity: {},
+      celebrityName: '',
+      colors: [],
+      age: [],
+      face_hidden: true,
+      color_hidden: true,
+      age_hidden: true,
+      responseStatusCode: Number(''),
+      route: defaultRoute,
+      isSignedIn: userData ? true : false,
+      user: userData || {}
+    };
 
     // Persisting users' signed in sessions 
     this.loadUserFromLocalStorage();
+
+    // loadUserFromLocalStorage(this.setState.bind(this));
     this.inactivityTimer = null;
   }
 
@@ -74,44 +67,15 @@ class App extends Component {
   }
   
   resetUser = () => {
-    localStorage.removeItem('user');
-
-    this.setState({
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-      }
-    });
+    this.resetUser(this.setState.bind(this));
   }
 
   resetInactivityTimer = () => {
     clearTimeout(this.inactivityTimer);
+    
     // Force users to sign out after 15 minutes (900000 milli-seconds)
     this.inactivityTimer = setTimeout(this.resetUser, 900000); 
   }
-
-  // For <Register /> && <Signin />
-  // To receive fetched data from server-side
-  // fetch('http://localhost:3000/signin') || fetch('http://localhost:3000/register')
-  // .then(res => res.json())
-  // .then(data => )
-  // data here equals to response.json()
-  // loadUser = (data) => {
-  //   this.setState({ user: 
-  //     {
-  //       id: data.id,
-  //       name: data.name,
-  //       email: data.email,
-  //       entries: data.entries,
-  //       joined: data.joined
-  //     }
-  //   }, () => {
-  //     console.log('App.js - this.state.user: \n', this.state.user);
-  //   });
-  // }
 
   saveUserToLocalStorage = (user) => {
     // A callback function that accepts passed-in user to save user to window.localStorage
@@ -143,46 +107,6 @@ class App extends Component {
   removeUserFromLocalStorage = () => {
     localStorage.removeItem('user');
   }
-
-  // For Celebrity detection model
-  // data from fetching Clarifai API response
-  findCelebrity = (data) => {
-    // We'd like to only get 1 celebrity at a time
-    const clarifaiCelebrity = data.outputs[0].data.regions[0].data.concepts[0];
-    const celebrityName = clarifaiCelebrity.name;
-    const celebrityValue = clarifaiCelebrity.value;
-
-    return {
-      name: celebrityName,
-      value: celebrityValue
-    };
-  };
-
-  // For Color detection model
-  // data from fetching Clarifai API response
-  findColor = (data) => {
-    const clarifaiColors = data.outputs[0].data.colors;
-    console.log('data - Colors:\n', clarifaiColors);
-
-    return clarifaiColors.map(color => {
-      return {
-        colors: color
-      };
-    });
-  };
-
-  // For Age detection model
-  // data from fetching Clarifai API response
-  findAge = (data) => {
-    const clarifaiAges = data.outputs[0].data.concepts;
-    console.log('findAge(data) - Ages:\n', clarifaiAges);
-
-    return clarifaiAges.map(each_age => {
-      return {
-        age: each_age
-      };
-    });
-  };
 
   // For Celebrity detection model
   displayCelebrity = (celebrity) => {
@@ -347,11 +271,12 @@ class App extends Component {
         };
 
         this.displayFaceBox(this.calculateFaceLocation(response));
-        this.displayCelebrity(this.findCelebrity(response));
+        // this.displayCelebrity(this.findCelebrity(response));
+        this.displayCelebrity(findCelebrity(response));
         this.setState({ responseStatusCode: response.status.code });
         })
-        .catch(err => console.log(err));
-       };
+      .catch(err => console.log(err));
+  };
 
   // ClarifaiAPI Color Detection model
   onColorButton = () => {
@@ -391,7 +316,7 @@ class App extends Component {
         this.updateEntries();
       };
 
-      this.displayColor(this.findColor(response));
+      this.displayColor(findColor(response));
     })
     .catch(err => console.log(err));
   };
@@ -429,7 +354,6 @@ class App extends Component {
     });
   }
 
-
   // For <SaveColorBtn /> in <ColorRecognition />
   // Arrow function to send this.state.state_raw_hex_array
   // to server-side right after setting state for state_raw_hex_array
@@ -437,10 +361,11 @@ class App extends Component {
   loadRawHex = () => {
     this.devFetchRawHexUrl = 'http://localhost:3000/image';
     this.prodFetchRawHexUrl = 'https://ai-recognition-backend.onrender.com/image';
+    const url = process.env.NODE_ENV === 'product' ? this.prodFetchRawHexUrl : this.devFetchRawHexUrl;
 
     /* Sending state user.id && state_raw_hex_array to local server-side */
     // Fetching live Web Server on Render
-    fetch(this.devFetchRawHexUrl, {
+    fetch(url, {
       method: 'put', // PUT (Update) 
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -463,32 +388,6 @@ class App extends Component {
     })
     .catch (err => console.log(err))
   }
-
-  // For <SaveColorBtn /> in <ColorRecognition />
-  // onSaveColorButton = () => {
-  //   this.updateEntries();
-  //   // Create an empty array to store raw_hex values 
-  //   // from this.state.colors data fetched from Clarifai API
-  //   let raw_hex_array = [];
-
-  //   // Iterate through each color in this.state.colors 
-  //   // && push each raw_hex to empty array
-  //   this.state.colors.map((color) => {
-  //     raw_hex_array.push(color.colors.raw_hex);
-  //   });
-  //   // Logging updated empty array with raw_hex values
-  //   console.log('Cached raw hex array: \n', raw_hex_array);
-
-  //   // Shallow copying raw_hex array to this.state.state_raw_hex_array
-  //   this.setState({
-  //     state_raw_hex_array: raw_hex_array
-  //   }, () => {
-  //     // sending state_raw_hex_array to server-side
-  //     // right after setting state to avoid delay in server-side
-  //     this.loadRawHex(); 
-  //   });
-
-  //   };
   
   // ClarifaiAPI Age Detection model
   onAgeButton = () => {
@@ -511,8 +410,10 @@ class App extends Component {
     /* Age Recognition - Fetching local dev server vs live Web Server on Render */
     this.devFetchAgeUrl = 'http://localhost:3000/ageimage';
     this.prodFetchAgeUrl = 'https://ai-recognition-backend.onrender.com/ageimage';
+    const url = process.env.NODE_ENV === 'product' ? this.prodFetchAgeUrl : this.devFetchAgeUrl;
 
-    fetch(this.devFetchAgeUrl, {
+
+    fetch(url, {
         method: 'post', 
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ // sending stringified this.state variables as JSON objects
@@ -530,33 +431,42 @@ class App extends Component {
 
     // color-detection
     // this.displayColor adding color hex to this.state.color
-    // this.findColor(response) returns color hex
+    // findColor(response) returns color hex
     if (response) { 
       this.updateEntries();
       };
-      this.displayAge(this.findAge(response));
+      this.displayAge(findAge(response));
     })
     .catch(err => console.log(err));
   };
 
   // To allow routing through onClick={() => onRouteChange(routeInput)}
   onRouteChange = (routeInput) => {
-    // if onClick={() => onRouteChange('signout')}
-    if (routeInput === 'signout') {
-      this.setState({ 
-        ...initialState,
-        route: 'sigin',
-        isSignedIn: false
-      });
-
+    switch (routeInput) {
+      case 'signout':
+        this.setState({ 
+          ...this.state,
+          route: 'sigin',
+          isSignedIn: false
+        });
+        break;
+      
       // else if onClick={() => onRouteChange('home')}
-    } else if (routeInput === 'home') {
-      this.setState({ isSignedIn: true });
-    } else {
-      this.setState(initialState);
+      case 'home':
+        this.setState({ 
+          isSignedIn: true,
+          route: routeInput
+        });
+        return;
+      
+      // No matter what, still wanna change the route
+      default:
+        this.setState({ 
+          ...this.state, 
+          route: routeInput 
+        });
+        return;
     }
-    // No matter what, still wanna change the route
-    this.setState({ route: routeInput });
   };
 
   // To avoid malicious users from breaking in from <Register />
@@ -594,26 +504,63 @@ class App extends Component {
     console.log('\ndateTime:\n', dateTime);
 
     // Tracking all state variables in render() {...}
-    console.log(`\ndefaultRoute:\n${defaultRoute}\n`);
+    console.log(`\ndefaultRoute:\n${this.defaultRoute}\n`);
     console.log(`\n`);
-    console.log('this.state.input: \n', input);
-    console.log('this.state.imageUrl: \n', imageUrl);
-    console.log('this.state.box: \n', box);
-    console.log('this.state.celebrity: \n', celebrity);
-    console.log('this.state.celebrity.name: \n', celebrity.name);
+    console.log('\nthis.state.input: \n', input);
+    console.log('\nthis.state.imageUrl: \n', imageUrl);
+    console.log('\nthis.state.box: \n', box);
+    console.log('\nthis.state.celebrity: \n', celebrity);
+    console.log('\nthis.state.celebrity.name: \n', celebrity.name);
     console.log('typeof this.state.celebrity.name: \n', typeof celebrity.name);
-    console.log('this.state.colors: \n', colors);
-    console.log('this.state.age: \n', age);
-    console.log('this.state.face_hidden', face_hidden);
-    console.log('this.state.color_hidden', color_hidden);
-    console.log('this.state.age_hidden', age_hidden);
-    console.log('this.state.responseStatusCode:\n', responseStatusCode);
-    console.log('this.state.user.id:\n', userData?.id);
-    console.log('this.state.user.email:\n', userData?.email);
-    console.log('this.state.user.entries:\n', userData?.entries);
-    console.log(`localStorage.getItem('user'):`);
-    console.log(userData);
+    console.log('\nthis.state.colors: \n', colors);
+    console.log('\nthis.state.age: \n', age);
+    console.log('\nthis.state.face_hidden', face_hidden);
+    console.log('\nthis.state.color_hidden', color_hidden);
+    console.log('\nthis.state.age_hidden', age_hidden);
+    console.log('\nthis.state.responseStatusCode:\n', responseStatusCode);
+    console.log('\nthis.state.user.id:\n', this.userData?.id);
+    console.log('\nthis.state.user.email:\n', this.userData?.email);
+    console.log('\nthis.state.user.entries:\n', this.userData?.entries);
+    console.log(`\nlocalStorage.getItem('user'):`);
+    console.log(this.userData);
     
+    // Scalability for allowing to add more React routes without React Router DOM
+    const routeComponents = {
+      'home': (
+        <Home
+          name={user.name}
+          entries={user.entries}
+          imageUrl={imageUrl}
+          celebrityName={celebrity.name}
+          face_hidden={face_hidden}
+          onInputChange={this.onInputChange}
+          onCelebrityButton={this.onCelebrityButton}
+          onColorButton={this.onColorButton}
+          onSaveColorButton={this.onSaveColorButton}
+          onAgeButton={this.onAgeButton}
+          color_props={colors_array}
+          color_hidden={color_hidden}
+          age={age_props}
+          age_hidden={age_hidden}
+          box={box}
+        />
+      ),
+      'signin': (
+        <Signin 
+          saveUserToLocalStorage={this.saveUserToLocalStorage}
+          loadUserFromLocalStorage={this.loadUserFromLocalStorage}
+          onRouteChange={this.onRouteChange} 
+        />
+      ),
+      'register': (
+        <Register 
+          saveUserToLocalStorage={this.saveUserToLocalStorage}
+          loadUserFromLocalStorage={this.loadUserFromLocalStorage}
+          onRouteChange={this.onRouteChange} 
+        />
+      )
+    }
+
     return (
       <div className="App">
         {/* Conditional rendering */}
@@ -622,39 +569,8 @@ class App extends Component {
           removeUserFromLocalStorage={this.removeUserFromLocalStorage}
           onRouteChange={this.onRouteChange}
         />
-        {route === 'home' ? (
-          // Render 'home' page
-          <React.Fragment>
-            <Home
-              name={user.name}
-              entries={user.entries}
-              imageUrl={imageUrl}
-              celebrityName={celebrity.name}
-              face_hidden={face_hidden}
-              onInputChange={this.onInputChange}
-              onCelebrityButton={this.onCelebrityButton}
-              onColorButton={this.onColorButton}
-              onSaveColorButton={this.onSaveColorButton}
-              onAgeButton={this.onAgeButton}
-              color_props={colors_array}
-              color_hidden={color_hidden}
-              age={age_props}
-              age_hidden={age_hidden}
-              box={box}
-            />
-          </React.Fragment>
-        ) : route === 'signin' ? (
-          <Signin 
-            saveUserToLocalStorage={this.saveUserToLocalStorage}
-            loadUserFromLocalStorage={this.loadUserFromLocalStorage}
-            onRouteChange={this.onRouteChange} />
-        ) : (
-          <Register 
-            saveUserToLocalStorage={this.saveUserToLocalStorage}
-            loadUserFromLocalStorage={this.loadUserFromLocalStorage}
-            onRouteChange={this.onRouteChange} 
-          />
-        )}
+
+        {routeComponents[route] ?? <div>Page not found</div>}
       </div>
     );
   }
