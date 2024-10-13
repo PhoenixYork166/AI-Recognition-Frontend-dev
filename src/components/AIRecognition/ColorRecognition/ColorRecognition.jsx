@@ -1,5 +1,6 @@
 import React from 'react';
 import './ColorRecognition.scss';
+
 import ColorDetails from './ColorDetails/ColorDetails';
 
 const ColorRecognition = ( { 

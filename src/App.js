@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
+
+/*
 import Logo from './components/Logo/Logo';
+import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/AIRecognition/FaceRecognition/FaceRecognition';
 import ColorRecognition from './components/AIRecognition/ColorRecognition/ColorRecognition';
 import AgeRecognition from './components/AIRecognition/AgeRecognition/AgeRecognition';
+*/
+import Home from './routes/Home';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/container/Register';
-import Rank from './components/Rank/Rank';
+
+
+import { returnDateTime } from './util/returnDateTime';
 
 const localStorage = window.localStorage;
 const userData = localStorage.getItem('user');
@@ -34,7 +41,8 @@ const initialState = {
     email: userData?.email,
     entries: userData?.entries,
     joined: userData?.joined
-  }
+  },
+  
 }
 
 class App extends Component {
@@ -138,7 +146,7 @@ class App extends Component {
 
   // For Celebrity detection model
   // data from fetching Clarifai API response
-  findCelebrity = data => {
+  findCelebrity = (data) => {
     // We'd like to only get 1 celebrity at a time
     const clarifaiCelebrity = data.outputs[0].data.regions[0].data.concepts[0];
     const celebrityName = clarifaiCelebrity.name;
@@ -152,7 +160,7 @@ class App extends Component {
 
   // For Color detection model
   // data from fetching Clarifai API response
-  findColor = data => {
+  findColor = (data) => {
     const clarifaiColors = data.outputs[0].data.colors;
     console.log('data - Colors:\n', clarifaiColors);
 
@@ -165,7 +173,7 @@ class App extends Component {
 
   // For Age detection model
   // data from fetching Clarifai API response
-  findAge = data => {
+  findAge = (data) => {
     const clarifaiAges = data.outputs[0].data.concepts;
     console.log('findAge(data) - Ages:\n', clarifaiAges);
 
@@ -177,21 +185,21 @@ class App extends Component {
   };
 
   // For Celebrity detection model
-  displayCelebrity = celebrity => {
+  displayCelebrity = (celebrity) => {
     this.setState({ celebrity: celebrity }, () =>
       console.log('Celebrity object: \n', celebrity)
     );
   };
 
   // For Color detection model
-  displayColor = colorInput => {
+  displayColor = (colorInput) => {
     this.setState({ colors: colorInput }, () =>
       console.log('Colors obj locally stored: \n', colorInput)
     );
   };
 
   // For Age detection model
-  displayAge = ageInput => {
+  displayAge = (ageInput) => {
     this.setState({ age: ageInput }, () =>
       console.log('Age group objs locally stored: \n', ageInput)
     );
@@ -199,7 +207,7 @@ class App extends Component {
 
   // Face-detection func
   // data from fetching Clarifai API response
-  calculateFaceLocation = data => {
+  calculateFaceLocation = (data) => {
     // We'd like to try only get 1 face now
     // bounding_box is % of image size
     const clarifaiFace =
@@ -230,12 +238,12 @@ class App extends Component {
     };
   };
 
-  displayFaceBox = box => {
+  displayFaceBox = (box) => {
     this.setState({ box: box }, () => console.log('box object: \n', box));
   };
 
   // For <ImageLinkForm />
-  onInputChange = event => {
+  onInputChange = (event) => {
     this.setState({ input: event.target.value }, () =>
       console.log('ImageLinkForm Input value:\n', event.target.value)
     );
@@ -387,6 +395,40 @@ class App extends Component {
     })
     .catch(err => console.log(err));
   };
+
+  // Save button to save Color details into PostgreSQL as blob metadata
+  saveColor = (input) => {
+    this.devSaveColor = 'http://localhost:3000/saveColor';
+    this.prodSaveColor = 'http://localhost:3000/saveColor';
+
+    const user = this.state.user;
+    // Invoking returnDateTime() to retrieve current time
+    const dateTime = returnDateTime();
+
+    fetch(this.devFetchAgeUrl, {
+      method: 'post', 
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+        // user: {
+        //   id: userData?.id,
+        //   name: userData?.name,
+        //   email: userData?.email,
+        //   entries: userData?.entries,
+        //   joined: userData?.joined
+        // },
+        userId: user.userId,
+        input: this.state.input,
+        dateTime: dateTime,
+      })
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log('HTTP Response\nAge Detection', response);
+      console.log('HTTP request status code:\n', response.status.code);
+      console.log('Fetched Age grp obj:\n', response.outputs[0].data.concepts)
+    });
+  }
+
 
   // For <SaveColorBtn /> in <ColorRecognition />
   // Arrow function to send this.state.state_raw_hex_array
@@ -546,7 +588,10 @@ class App extends Component {
 
     const colors_array = colors.map(color => color);
     const age_props = age.map((each, i) => each.age.name)[0];
-    console.log('age_props\n', age_props);
+
+    const dateTime = returnDateTime();
+    console.log('\nage_props\n', age_props);
+    console.log('\ndateTime:\n', dateTime);
 
     // Tracking all state variables in render() {...}
     console.log(`\ndefaultRoute:\n${defaultRoute}\n`);
@@ -579,40 +624,25 @@ class App extends Component {
         />
         {route === 'home' ? (
           // Render 'home' page
-          <>
-            <Logo />
-            <Rank 
+          <React.Fragment>
+            <Home
               name={user.name}
               entries={user.entries}
-            />
-            <ImageLinkForm
-              onInputChange={this.onInputChange}
-              onCelebrityButton={this.onCelebrityButton}
-              onColorButton={this.onColorButton}
-              onAgeButton={this.onAgeButton}
-              face_hidden={face_hidden}
-              color_hidden={color_hidden}
-              age_hidden={age_hidden}
-            />
-            <FaceRecognition
-              box={box}
               imageUrl={imageUrl}
               celebrityName={celebrity.name}
               face_hidden={face_hidden}
-            />
-            <ColorRecognition
-              imageUrl={imageUrl}
+              onInputChange={this.onInputChange}
+              onCelebrityButton={this.onCelebrityButton}
+              onColorButton={this.onColorButton}
+              onSaveColorButton={this.onSaveColorButton}
+              onAgeButton={this.onAgeButton}
               color_props={colors_array}
               color_hidden={color_hidden}
-              name={user.name}
-              onSaveColorButton={this.onSaveColorButton}
-            />
-            <AgeRecognition
               age={age_props}
-              imageUrl={imageUrl}
               age_hidden={age_hidden}
+              box={box}
             />
-          </>
+          </React.Fragment>
         ) : route === 'signin' ? (
           <Signin 
             saveUserToLocalStorage={this.saveUserToLocalStorage}

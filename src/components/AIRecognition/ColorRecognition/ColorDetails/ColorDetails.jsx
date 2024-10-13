@@ -1,4 +1,6 @@
 import "./ColorDetails.css";
+import '../../../ImageLinkForm/ImageLinkForm.scss';
+import React from 'react';
 
 const ColorDetails = ({ color_props }) => {
   // Using querySelectors to retrieve all Raw Hex values as DOM objects
@@ -70,6 +72,7 @@ const ColorDetails = ({ color_props }) => {
 
 
   return (
+    <React.Fragment>
     <div className="color-name">
       {color_props.map((each) => {
         return (
@@ -137,10 +140,20 @@ const ColorDetails = ({ color_props }) => {
                 {/* <input class="color1" type="color" name="color1" value="#00ff00"></input> */}
               </tr>
             </table>
-          </div>
+          </div>          
         );
       })}
     </div>
+    <br />
+            <div className="buttons-box">
+                <button
+                className="buttons__btn"
+                // onClick={}
+                >
+                    Save
+                </button>
+            </div>
+    </React.Fragment>
   );
 };
 

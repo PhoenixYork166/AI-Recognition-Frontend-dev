@@ -102,6 +102,7 @@ $gutter-horizontal: 3.75rem;
             line-height: 1.15;
             margin-left: 1rem;
             cursor: pointer;
+            transition: 0.5s ease-in-out;
     
             &:hover {
                 box-shadow: 0.3rem 0.3rem 1rem #e9ec13,
