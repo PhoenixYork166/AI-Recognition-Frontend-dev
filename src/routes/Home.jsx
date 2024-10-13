@@ -43,7 +43,7 @@ const Home = ( {
             <FaceRecognition
             box={box}
             imageUrl={imageUrl}
-            celebrityName={name}
+            celebrityName={celebrityName}
             face_hidden={face_hidden}
             />
             <ColorRecognition
