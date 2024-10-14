@@ -3,8 +3,11 @@ import './ColorRecognition.scss';
 
 import ColorDetails from './ColorDetails/ColorDetails';
 
+// Parent component
 const ColorRecognition = ( { 
+    user,
     name, 
+    input,
     imageUrl, 
     color_props, 
     color_hidden,
@@ -30,7 +33,7 @@ const ColorRecognition = ( {
                 
                
             <div className="col-1-of-2">
-                <ColorDetails color_props={color_props} />        
+                <ColorDetails user={user} input={input} color_props={color_props} imageUrl={imageUrl} />        
             </div>
         </div>
     )

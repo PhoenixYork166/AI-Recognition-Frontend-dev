@@ -1,13 +1,42 @@
 import "./ColorDetails.css";
 import '../../../ImageLinkForm/ImageLinkForm.scss';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const ColorDetails = ({ color_props }) => {
+// Parent = src/components/AIRecognition/ColorRecognition/ColorRecognition.jsx
+const ColorDetails = ({ user, input, color_props, imageUrl }) => {
+  const [imageBlob, setImageBlob] = useState(''); // Blob { size: Number, type: String, userId: undefined }
+  const [resData, setResData] = useState('');
+
   // Using querySelectors to retrieve all Raw Hex values as DOM objects
   const length = document.getElementsByClassName('raw-hex').length;
   const raw_hex_elements = document.getElementsByClassName('raw-hex');
   const w3c_name_elements = document.getElementsByClassName('w3c-name');
   const w3c_hex_elements = document.getElementsByClassName('w3c-hex');
+
+  // Keep monitoring Blob fetched from axios.get(imageUrl, { responseType: 'blob' })
+  useEffect(() => {
+    const fetchImage = async() => {
+      const fetchUrl = input;
+
+      try {
+        const response = await axios.get(fetchUrl, { responseType: 'blob' });
+        console.log(`\nReceived metadata blob response:`, response, `\n`);
+
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          // useState() to store this.state.imageBlob: response.data
+          setImageBlob(reader.result);
+        };
+        reader.readAsDataURL(response.data);
+        setResData(response.data);
+        console.log(`\nresponse.data:\n$`, response.data, `\n`);
+      } catch (err) {
+        console.error(`\nFailed to get 'blob' via axios.get(${fetchUrl}\nError: ${err}\n`);
+      }
+    };
+    fetchImage();
+  }, [input]); // State management array[] to listen on imageUrl
 
   // Retrieve DOM element of modal-window pop-up upon users' copy events
   const modal = document.querySelector('.modal-window');
@@ -24,10 +53,11 @@ const ColorDetails = ({ color_props }) => {
         modal.style.opacity = 1;
       })
       .then(() => {
+        // Pop-up disappears in 2 seconds
         setTimeout(() => modal.style.opacity=0, 2000)
       })
       .catch(err => {
-        console.error("Failed to copy raw hex: ", err);
+        console.error("\nFailed to copy raw hex: ", err);
       });
     };
     raw_hex_element.addEventListener("click", raw_hex_clickHandler);
@@ -67,10 +97,55 @@ const ColorDetails = ({ color_props }) => {
       });
     };
     w3c_hex_element.addEventListener('click', w3c_hex_clickHandler);
-
   };
 
+  // Save button to save Color details into PostgreSQL as blob metadata
+  const saveColor = () => {
+    const devSaveColorUrl = 'http://localhost:3000/save_color';
+    const prodSaveColorUrl = 'http://localhost:3000/save_color';
 
+    const color_props_array = color_props;
+    
+    const fetchUrl = process.env.NODE_ENV === 'production' ? prodSaveColorUrl : devSaveColorUrl;
+  
+    const imageRecord = {
+      userId: user.id,
+      imageUrl: input,
+      metadata: resData,
+      dateTime: new Date()
+    };
+
+    const imageDetails = color_props_array.map((eachColor) => {
+        return {
+          raw_hex: eachColor.colors.raw_hex,
+          value: eachColor.colors.value,
+          w3c_hex: eachColor.colors.w3c.hex,
+          w3c_name: eachColor.colors.w3c.name
+        }
+    });
+
+    console.log(`\nColorDetails src/App.js user: `, user, `\n`);
+    console.log(`\nColorDetails color_props: `, color_props, `\n`);
+    console.log(`\nColorDetails input: `, input, `\n`);
+    console.log(`\nColorDetails saveColor imageRecord:\n`, imageRecord, `\n`);
+    console.log(`\nColorDetails saveColor imageDetails:\n`, imageDetails, `\n`);
+    console.log(`\nColorDetails saveColor JSON.stringify({ imageRecord, imageDetails }): `, JSON.stringify({ imageRecord, imageDetails }), `\n`);
+
+    fetch(fetchUrl, {
+      method: 'post', 
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+        imageRecord: imageRecord,
+        imageDetails: imageDetails
+      })
+    })
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(`\nColorDetails saveColor response: `, response, `\n`);
+      console.log(`\nColorDetails saveColor response.status.code: `, response.status.code);
+    });
+  }
+  
   return (
     <React.Fragment>
     <div className="color-name">
@@ -99,11 +174,6 @@ const ColorDetails = ({ color_props }) => {
                     type="text"
                     className="raw-hex"
                     value={each.colors.raw_hex}
-                    // onClick={() =>
-                    //   navigator.clipboard.writeText(hex).then(() => {
-                    //     alert("All Raw hex copied!");
-                    //   })
-                    // }
                   />
                 </td>
                 <td>{each.colors.value}</td>
@@ -119,10 +189,6 @@ const ColorDetails = ({ color_props }) => {
                     className="w3c-name"
                     type="text"
                     value={each.colors.w3c.name}
-                    // onClick={() => navigator.clipboard.writeText(w3c_name).then(() => {
-                    //   alert("All WC3 name copied!");
-                    // })
-                    // }
                   />
                 </td>
                 <td>
@@ -130,11 +196,6 @@ const ColorDetails = ({ color_props }) => {
                     className='w3c-hex'
                     type="text"
                     value={each.colors.w3c.hex}
-                    // onClick={() =>
-                    //   navigator.clipboard.writeText(w3c_hex).then(() => {
-                    //     alert("All W3C hex copied!");
-                    //   })
-                    // }
                   />
                 </td>
                 {/* <input class="color1" type="color" name="color1" value="#00ff00"></input> */}
@@ -145,14 +206,17 @@ const ColorDetails = ({ color_props }) => {
       })}
     </div>
     <br />
-            <div className="buttons-box">
-                <button
-                className="buttons__btn"
-                // onClick={}
-                >
-                    Save
-                </button>
-            </div>
+    <div className="buttons-box">
+      <button 
+        className="buttons__btn"
+        onClick={saveColor} // ColorDetails.jsx saveColor()
+      >
+        Save to Account
+      </button>
+    </div>
+    <br/>
+    <h2>Test Metadata Blob:</h2>
+    <img alt="test-blob" src={imageBlob} />
     </React.Fragment>
   );
 };

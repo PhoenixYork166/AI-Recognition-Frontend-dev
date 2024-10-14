@@ -40,11 +40,17 @@ class Signin extends Component {
     // fetch(url, {method: '', headers: '', body: JSON.stringify({ email: '', password: ''}) })
 
     /* Fetching local web server vs live server on Render */
-    this.devSignin = 'http://localhost:3000/signin';
-    this.prodSignin = 'https://ai-recognition-backend.onrender.com/signin';
+    // this.devRegisterUrl = 'http://localhost:3000/register';
+    // this.prodRegisterUrl = 'https://ai-recognition-backend.onrender.com/register';
+
+    // const fetchUrl = process.env.NODE_ENV === 'production' ? this.prodRegisterUrl : this.devRegisterUrl;
+    this.devSigninUrl = 'http://localhost:3000/signin';
+    this.prodSigninUrl = 'https://ai-recognition-backend.onrender.com/signin';
+
+    const fetchUrl = process.env.NODE_ENV === 'production' ? this.prodSigninUrl : this.devSigninUrl;
 
     // Fetching http://localhost:3000/signin to retrieve user
-    fetch(this.devSignin, {
+    fetch(fetchUrl, {
       method: 'post', // Post (Create) to avoid Query Strings
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ // sending stringified this.state variables as JSON objects
@@ -52,15 +58,6 @@ class Signin extends Component {
         password: this.state.signInPassword
       })
     })
-    /* Fetching live Web Server on Render */
-    // fetch('https://ai-recognition-backend.onrender.com/signin', {
-    //   method: 'post', // Post (Create) to avoid Query Strings
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({ // sending stringified this.state variables as JSON objects
-    //     email: this.state.signInEmail,
-    //     password: this.state.signInPassword
-    //   })
-    // })
     .then(response => response.json()) // http://localhost:3000/signin server response to parse JSON data user
     .then(user => { // server.js - app.post('/signin') --> res.json(database.users[i])
       console.log('onSubmitSignIn - response: \n', user);

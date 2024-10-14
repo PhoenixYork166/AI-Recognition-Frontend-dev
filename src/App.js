@@ -25,8 +25,8 @@ class App extends Component {
     const defaultRoute = userData? 'home' : 'signin';
 
     this.state = {
-      input: '',
-      imageUrl: '',
+      input: '', // this.state.input => Users' input imageUrl => Can be used for onClick events
+      imageUrl: '', // this.state.imageUrl should NOT be used for onClick => React circular references
       box: {},
       celebrity: {},
       celebrityName: '',
@@ -67,7 +67,14 @@ class App extends Component {
   }
   
   resetUser = () => {
-    this.resetUser(this.setState.bind(this));
+    // this.resetUser(this.setState.bind(this));
+    this.setState({
+      user: {},
+      isSignedIn: false,
+      route: 'signin'
+    }, () => {
+      this.removeUserFromLocalStorage();
+    })
   }
 
   resetInactivityTimer = () => {
@@ -232,6 +239,7 @@ class App extends Component {
     this.setState(
       {
         // setState imageUrl: this.state.input from InputChange as event onChange
+        // Thus this.state.imageUrl = a React Event => NOT be used as props involving circular references
         imageUrl: this.state.input,
         face_hidden: false
       },
@@ -321,38 +329,7 @@ class App extends Component {
     .catch(err => console.log(err));
   };
 
-  // Save button to save Color details into PostgreSQL as blob metadata
-  saveColor = (input) => {
-    this.devSaveColor = 'http://localhost:3000/saveColor';
-    this.prodSaveColor = 'http://localhost:3000/saveColor';
-
-    const user = this.state.user;
-    // Invoking returnDateTime() to retrieve current time
-    const dateTime = returnDateTime();
-
-    fetch(this.devFetchAgeUrl, {
-      method: 'post', 
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ // sending stringified this.state variables as JSON objects
-        // user: {
-        //   id: userData?.id,
-        //   name: userData?.name,
-        //   email: userData?.email,
-        //   entries: userData?.entries,
-        //   joined: userData?.joined
-        // },
-        userId: user.userId,
-        input: this.state.input,
-        dateTime: dateTime,
-      })
-    })
-    .then(response => response.json())
-    .then(response => {
-      console.log('HTTP Response\nAge Detection', response);
-      console.log('HTTP request status code:\n', response.status.code);
-      console.log('Fetched Age grp obj:\n', response.outputs[0].data.concepts)
-    });
-  }
+  
 
   // For <SaveColorBtn /> in <ColorRecognition />
   // Arrow function to send this.state.state_raw_hex_array
@@ -504,6 +481,7 @@ class App extends Component {
     console.log('\ndateTime:\n', dateTime);
 
     // Tracking all state variables in render() {...}
+    console.log(`\nthis.state.user: \n`, user, `\n`);
     console.log(`\ndefaultRoute:\n${this.defaultRoute}\n`);
     console.log(`\n`);
     console.log('\nthis.state.input: \n', input);
@@ -518,18 +496,15 @@ class App extends Component {
     console.log('\nthis.state.color_hidden', color_hidden);
     console.log('\nthis.state.age_hidden', age_hidden);
     console.log('\nthis.state.responseStatusCode:\n', responseStatusCode);
-    console.log('\nthis.state.user.id:\n', this.userData?.id);
-    console.log('\nthis.state.user.email:\n', this.userData?.email);
-    console.log('\nthis.state.user.entries:\n', this.userData?.entries);
-    console.log(`\nlocalStorage.getItem('user'):`);
-    console.log(this.userData);
     
     // Scalability for allowing to add more React routes without React Router DOM
     const routeComponents = {
       'home': (
         <Home
+          user={user}
           name={user.name}
           entries={user.entries}
+          input={input}
           imageUrl={imageUrl}
           celebrityName={celebrity.name}
           face_hidden={face_hidden}
@@ -551,6 +526,7 @@ class App extends Component {
           loadUserFromLocalStorage={this.loadUserFromLocalStorage}
           onRouteChange={this.onRouteChange} 
         />
+        // <TestMetadataBlob />
       ),
       'register': (
         <Register 

@@ -7,8 +7,10 @@ import ColorRecognition from '../components/AIRecognition/ColorRecognition/Color
 import AgeRecognition from '../components/AIRecognition/AgeRecognition/AgeRecognition';
 
 const Home = ( {
+    user,
     name,
     entries,
+    input,
     imageUrl,
     celebrityName,
     face_hidden,
@@ -41,12 +43,16 @@ const Home = ( {
             age_hidden={age_hidden}
             />
             <FaceRecognition
+            user={user}
             box={box}
+            input={input}
             imageUrl={imageUrl}
             celebrityName={celebrityName}
             face_hidden={face_hidden}
             />
             <ColorRecognition
+            user={user}
+            input={input}
             imageUrl={imageUrl}
             color_props={color_props}
             color_hidden={color_hidden}
@@ -54,7 +60,9 @@ const Home = ( {
             onSaveColorButton={onSaveColorButton}
             />
             <AgeRecognition
+            user={user}
             age={age}
+            input={input}
             imageUrl={imageUrl}
             age_hidden={age_hidden}
             />
