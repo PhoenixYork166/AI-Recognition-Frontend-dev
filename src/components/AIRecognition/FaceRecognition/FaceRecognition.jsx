@@ -6,8 +6,8 @@ const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
 
     return face_hidden ? (
     <h2>&nbsp;</h2>
-    ) : ( !celebrityName ? <Loading /> :
-        <React.Fragment>
+    ) : ( 
+    <React.Fragment>
         <div className="face-recognition">
             <div className="container">
                 <div className="image-box">
@@ -48,7 +48,7 @@ const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
                 </div>
             </div>
         </div>
-        </React.Fragment>
+    </React.Fragment>
     )
 }
 export default FaceRecognition;
