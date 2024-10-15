@@ -491,6 +491,7 @@ class App extends Component {
     console.log('\nthis.state.celebrity.name: \n', celebrity.name);
     console.log('typeof this.state.celebrity.name: \n', typeof celebrity.name);
     console.log('\nthis.state.colors: \n', colors);
+    console.log('\nthis.state.colors[0]: \n', colors[0]);
     console.log('\nthis.state.age: \n', age);
     console.log('\nthis.state.face_hidden', face_hidden);
     console.log('\nthis.state.color_hidden', color_hidden);

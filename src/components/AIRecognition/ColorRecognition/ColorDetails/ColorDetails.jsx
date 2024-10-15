@@ -6,10 +6,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 // Parent = src/components/AIRecognition/ColorRecognition/ColorRecognition.jsx
-const ColorDetails = ({ user, input, color_props, imageUrl }) => {
+const ColorDetails = ({ user, input, color_props }) => {
   const [imageBlob, setImageBlob] = useState(''); // Blob { size: Number, type: String, userId: undefined }
   const [resData, setResData] = useState('');
-  const [colorProps, setColorProps] = useState(color_props);
 
 
   // Using querySelectors to retrieve all Raw Hex values as DOM objects
@@ -66,7 +65,6 @@ const ColorDetails = ({ user, input, color_props, imageUrl }) => {
     };
     raw_hex_element.addEventListener("click", raw_hex_clickHandler);
     
-
 
     // Allow users to copy w3c color name from web-app
     const w3c_name_element = w3c_name_elements[i];
@@ -170,90 +168,164 @@ const ColorDetails = ({ user, input, color_props, imageUrl }) => {
     })
     ;
   }
-  
+
   return (
-    <React.Fragment>
-    <div className="color-name">
-      {color_props.map((each) => {
-        return (
-          <div className="color-page">
-            <table className="color-table">
-              <tr>
-                <th>Color</th>
-                <th>Raw hex</th>
-                <th>Raw hex val</th>
-                <th>W3C Color</th>
-                <th>W3C Color Name</th>
-                <th>W3C hex</th>
-              </tr>
-              <tr>
-                <td>
-                  <input 
-                  type="color" 
-                  value={each.colors.raw_hex} 
-                  className="color"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="text"
-                    className="raw-hex"
-                    value={each.colors.raw_hex}
-                  />
-                </td>
-                <td>{each.colors.value}</td>
-                <td>
-                  <input 
-                    className="w3c-color"
-                    type="color" 
-                    value={each.colors.w3c.hex} 
-                  />
-                </td>
-                <td>
-                  <input 
-                    className="w3c-name"
-                    type="text"
-                    value={each.colors.w3c.name}
-                  />
-                </td>
-                <td>
-                  <input
-                    className='w3c-hex'
-                    type="text"
-                    value={each.colors.w3c.hex}
-                  />
-                </td>
-                {/* <input class="color1" type="color" name="color1" value="#00ff00"></input> */}
-              </tr>
-            </table>
-          </div>          
-        );
-      })}
-    </div>
-    <br />
-    <div className="saveBtn">
-      {/* Render nothing if length !> 0 */}
-      {colorProps.length > 0 ? 
-        <button 
-        className="saveBtn__p"
-        onClick={saveColor} // ColorDetails.jsx saveColor()
-        >
-          Save to Account
-        </button>
-      : <Loading />
-      }
-      {/* Modal Window for saving a Color Record */}
-      <div className='modal-window'>
-          <h1 class='modal-window--inner'>
-            Saved!
-          </h1>
-      </div>
-    </div>
-    {/* <br/>
-    <h2>Test Metadata Blob:</h2>
-    <img alt="test-blob" src={imageBlob} /> */}
-    </React.Fragment>
-  );
-};
+    !color_props.length > 0 ? 
+      <Loading /> :
+      <React.Fragment>
+        <div className="color-name">
+          {color_props.map((each) => {
+            return (
+              <React.Fragment>
+              <div className="color-page">
+                <table className="color-table">
+                  <tr>
+                    <th>Color</th>
+                    <th>Raw hex</th>
+                    <th>Raw hex val</th>
+                    <th>W3C Color</th>
+                    <th>W3C Color Name</th>
+                    <th>W3C hex</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input 
+                      type="color" 
+                      value={each.colors.raw_hex} 
+                      className="color"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        className="raw-hex"
+                        value={each.colors.raw_hex}
+                      />
+                    </td>
+                    <td>{each.colors.value}</td>
+                    <td>
+                      <input 
+                        className="w3c-color"
+                        type="color" 
+                        value={each.colors.w3c.hex} 
+                      />
+                    </td>
+                    <td>
+                      <input 
+                        className="w3c-name"
+                        type="text"
+                        value={each.colors.w3c.name}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        className='w3c-hex'
+                        type="text"
+                        value={each.colors.w3c.hex}
+                      />
+                    </td>
+                    {/* <input class="color1" type="color" name="color1" value="#00ff00"></input> */}
+                  </tr>
+                </table>
+              </div>
+              </React.Fragment>
+            );
+          })}
+        </div>
+        <div className="saveBtn">
+          <button 
+            className="saveBtn__p"
+            onClick={saveColor} // ColorDetails.jsx saveColor()
+          >
+            Save to Account
+          </button>
+          </div>
+          <div className='modal-window'>
+            <h1 class='modal-window--inner'>
+              Saved!
+            </h1>
+        </div>
+      </React.Fragment>
+    )
+}
+
+  
+  // return (
+  //   <React.Fragment>
+  //   <div className="color-name">
+  //     {color_props.map((each) => {
+  //       return (
+  //         <React.Fragment>
+  //         <div className="color-page">
+  //           <table className="color-table">
+  //             <tr>
+  //               <th>Color</th>
+  //               <th>Raw hex</th>
+  //               <th>Raw hex val</th>
+  //               <th>W3C Color</th>
+  //               <th>W3C Color Name</th>
+  //               <th>W3C hex</th>
+  //             </tr>
+  //             <tr>
+  //               <td>
+  //                 <input 
+  //                 type="color" 
+  //                 value={each.colors.raw_hex} 
+  //                 className="color"
+  //                 />
+  //               </td>
+  //               <td>
+  //                 <input
+  //                   type="text"
+  //                   className="raw-hex"
+  //                   value={each.colors.raw_hex}
+  //                 />
+  //               </td>
+  //               <td>{each.colors.value}</td>
+  //               <td>
+  //                 <input 
+  //                   className="w3c-color"
+  //                   type="color" 
+  //                   value={each.colors.w3c.hex} 
+  //                 />
+  //               </td>
+  //               <td>
+  //                 <input 
+  //                   className="w3c-name"
+  //                   type="text"
+  //                   value={each.colors.w3c.name}
+  //                 />
+  //               </td>
+  //               <td>
+  //                 <input
+  //                   className='w3c-hex'
+  //                   type="text"
+  //                   value={each.colors.w3c.hex}
+  //                 />
+  //               </td>
+  //               {/* <input class="color1" type="color" name="color1" value="#00ff00"></input> */}
+  //             </tr>
+  //           </table>
+  //         </div>
+  //         </React.Fragment>
+  //       );
+  //     })}
+  //   </div>
+  //   <div className="saveBtn">
+  //     <button 
+  //       className="saveBtn__p"
+  //       onClick={saveColor} // ColorDetails.jsx saveColor()
+  //     >
+  //       Save to Account
+  //     </button>
+  //     </div>
+  //     <div className='modal-window'>
+  //       <h1 class='modal-window--inner'>
+  //         Saved!
+  //       </h1>
+  //   </div>
+  //   </React.Fragment>
+  // );
+// };
 
 export default ColorDetails;
