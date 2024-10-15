@@ -156,11 +156,13 @@ export default function CheckRecords({ isSignedIn, onRouteChange }) {
   }
 
   return (
-    !isSignedIn ? 
-    (dimensions.width > mobileBreakpoint ? <NavGt860 /> : <NavLt860 />) 
-    :
-    <p>&nbsp;</p>
+    isSignedIn
+      ? (dimensions.width > mobileBreakpoint 
+         ? <NavGt860 /> 
+         : <NavLt860 />)
+      : <p>&nbsp;</p>
   );
+
   // return dimensions.width > mobileBreakpoint ? <NavGt860 /> : <NavLt860 />;
 }
 

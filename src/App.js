@@ -429,7 +429,7 @@ class App extends Component {
     switch (routeInput) {
       case 'signout':
         this.setState({ 
-          // ...this.state,
+          ...this.state,
           route: 'sigin',
           isSignedIn: false
         });
@@ -438,6 +438,7 @@ class App extends Component {
       // else if onClick={() => onRouteChange('home')}
       case 'home':
         this.setState({ 
+          ...this.state,
           route: routeInput,
           isSignedIn: true
         });
@@ -445,6 +446,7 @@ class App extends Component {
 
       case 'colorRecords':
         this.setState({
+          ...this.state,
           route: routeInput,
           isSignedIn: true
         })
@@ -516,6 +518,7 @@ class App extends Component {
     const routeComponents = {
       'home': (
         <Home
+          isSignedIn={isSignedIn}
           user={user}
           name={user.name}
           entries={user.entries}
@@ -534,6 +537,7 @@ class App extends Component {
           age_hidden={age_hidden}
           box={box}
           onRouteChange={this.onRouteChange}
+          resetUser={this.resetUser}
         />
       ),
       'signin': (
@@ -563,6 +567,7 @@ class App extends Component {
           isSignedIn={isSignedIn}
           removeUserFromLocalStorage={this.removeUserFromLocalStorage}
           onRouteChange={this.onRouteChange}
+          resetUser={this.resetUser}
         />
 
         {routeComponents[route] ?? <div>Page not found</div>}

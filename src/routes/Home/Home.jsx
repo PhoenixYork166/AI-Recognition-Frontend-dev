@@ -1,10 +1,13 @@
 import React from 'react';
+// import Rank from '../../components/Rank/Rank';
+import CheckRecords from '../../components/CheckRecords/CheckRecords';
 import ImageLinkForm from '../../components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from '../../components/AIRecognition/FaceRecognition/FaceRecognition';
 import ColorRecognition from '../../components/AIRecognition/ColorRecognition/ColorRecognition';
 import AgeRecognition from '../../components/AIRecognition/AgeRecognition/AgeRecognition';
 
 const Home = ( {
+    isSignedIn,
     user,
     name,
     entries,
@@ -22,16 +25,18 @@ const Home = ( {
     age,
     age_hidden,
     box,
-    onRouteChange    
+    onRouteChange,
+    resetUser    
 } ) => {
 
     return (
         <React.Fragment>
-            {/* <Logo />
-            <Rank 
+            {/* <Logo /> */}
+            {/* <Rank 
             name={name}
             entries={entries}
             /> */}
+            <CheckRecords isSignedIn={isSignedIn}/>
             <ImageLinkForm
             onInputChange={onInputChange}
             onCelebrityButton={onCelebrityButton}

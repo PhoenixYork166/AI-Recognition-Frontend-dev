@@ -1,17 +1,19 @@
 import classes from './Navigation.module.css';
 import React from 'react';
-import CheckRecords from '../CheckRecords/CheckRecords';
+// import CheckRecords from '../CheckRecords/CheckRecords';
+// import { removeNavigation } from '../../util/removeNavigation';
 
 const Navigation = ( { 
     isSignedIn, 
     removeUserFromLocalStorage,
-    onRouteChange
+    onRouteChange,
+    resetUser
      }) => {
 
         if (isSignedIn) {
             return (
             <React.Fragment>
-            <div className={`${classes.navContainer}`}>
+            <div className={`${classes.navContainer}`} id="navigation">
                 <nav 
                     className={`${classes.navSignedIn}`}
                     // style={{display: 'flex', justifyContent: 'flex-end', width: '95%', position: 'absolute' }}
@@ -20,6 +22,8 @@ const Navigation = ( {
                     <p 
                         className={`${classes.navPara}`}
                         onClick={() => {
+                            // removeNavigation();
+                            resetUser();
                             removeUserFromLocalStorage();
                             onRouteChange('signin');
                         }} 
@@ -28,10 +32,10 @@ const Navigation = ( {
                     </p>
                 </nav>
             </div>
-            <CheckRecords 
+            {/* <CheckRecords 
                 isSignedIn={isSignedIn} 
                 onRouteChange={onRouteChange} 
-            />
+            /> */}
             </React.Fragment>
             )
         } else {
