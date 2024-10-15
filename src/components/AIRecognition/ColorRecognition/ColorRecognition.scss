@@ -41,6 +41,43 @@ $gutter-horizontal: 3.75rem;
     }
 }
 
+.saveBtn {
+    // display: flex;
+    // align-items: flex-end;
+    
+    &__p {
+        border-radius: 0.5rem;
+        -moz-osx-font-smoothing: grayscale;
+        backface-visibility: hidden;
+        font-size: calc(1rem);
+        background-color: #a463f2;
+        color: #fff;
+        min-width: 5rem;
+        max-width: 6rem;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: none;
+        overflow: visible;
+        font-family: inherit;
+        line-height: 1.15;
+        margin-left: 1rem;
+        cursor: pointer;
+        transition: 0.5s ease-in-out;
+    
+        &:hover {
+            box-shadow: 0.3rem 0.3rem 1rem #e9ec13,
+            -2px -2px 1rem #ffffff;
+            transform: translateY(-3px);
+        }
+    
+        &:active {
+            transform: translateY(-1px);
+            box-shadow: 0.3rem 0.3rem 1rem #e9ec13,
+                -2px -2px 1rem #ffffff;
+        }
+    }
+}
+
 .color-container {
     display: flex;
     flex-flow: row nowrap;

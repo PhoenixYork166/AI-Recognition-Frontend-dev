@@ -1,5 +1,6 @@
 import classes from './Navigation.module.css';
 import React from 'react';
+import CheckRecords from '../CheckRecords/CheckRecords';
 
 const Navigation = ( { 
     isSignedIn, 
@@ -9,21 +10,26 @@ const Navigation = ( {
 
         if (isSignedIn) {
             return (
-            <nav 
-                className={`${classes.navSignedIn}`}
-                // style={{display: 'flex', justifyContent: 'flex-end', width: '95%', position: 'absolute' }}
-            >
-                {/* If 'Sign Out' is clicked, nav to 'signin' page */}
-                <p 
-                    className={`${classes.navPara}`}
-                    onClick={() => {
-                        removeUserFromLocalStorage();
-                        onRouteChange('signin');
-                    }} 
+            <React.Fragment>
+            <div className={`${classes.navContainer}`}>
+                <nav 
+                    className={`${classes.navSignedIn}`}
+                    // style={{display: 'flex', justifyContent: 'flex-end', width: '95%', position: 'absolute' }}
                 >
-                    Sign Out
-                </p>
-            </nav>
+                    {/* If 'Sign Out' is clicked, nav to 'signin' page */}
+                    <p 
+                        className={`${classes.navPara}`}
+                        onClick={() => {
+                            removeUserFromLocalStorage();
+                            onRouteChange('signin');
+                        }} 
+                    >
+                        Sign Out
+                    </p>
+                </nav>
+            </div>
+            <CheckRecords />
+            </React.Fragment>
             )
         } else {
             return (

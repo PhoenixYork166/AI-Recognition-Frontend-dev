@@ -1,5 +1,7 @@
-import "./ColorDetails.css";
-import '../../../ImageLinkForm/ImageLinkForm.scss';
+import Loading from '../../../Loading/Loading';
+import './ColorDetails.css';
+// import '../../../ImageLinkForm/ImageLinkForm.scss';
+import '../../../AIRecognition/ColorRecognition/ColorRecognition.scss';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -99,20 +101,34 @@ const ColorDetails = ({ user, input, color_props, imageUrl }) => {
     w3c_hex_element.addEventListener('click', w3c_hex_clickHandler);
   };
 
+  // Function to convert Blob to Base64
+  const blobToBase64 = blob => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = reject;
+    reader.onload = () => {
+        resolve(reader.result);
+    };
+    reader.readAsDataURL(blob);
+  });
+
   // Save button to save Color details into PostgreSQL as blob metadata
-  const saveColor = () => {
-    const devSaveColorUrl = 'http://localhost:3000/save_color';
-    const prodSaveColorUrl = 'http://localhost:3000/save_color';
+  const saveColor = async () => {
+    const callbackName = `src/components/AIRecognition/ColorRecognition/ColorDetails/ColorDetails.jsx\nsaveColor = async () => {...}`;
+    const devSaveColorUrl = 'http://localhost:3000/save-user-color';
+    const prodSaveColorUrl = 'http://localhost:3000/save-user-color';
 
     const color_props_array = color_props;
     
     const fetchUrl = process.env.NODE_ENV === 'production' ? prodSaveColorUrl : devSaveColorUrl;
+
+    // Assuming resData is the Blob
+    const base64Metadata = await blobToBase64(resData);
   
     const imageRecord = {
       userId: user.id,
       imageUrl: input,
-      metadata: resData,
-      dateTime: new Date()
+      metadata: base64Metadata,
+      dateTime: new Date().toISOString()
     };
 
     const imageDetails = color_props_array.map((eachColor) => {
@@ -123,13 +139,15 @@ const ColorDetails = ({ user, input, color_props, imageUrl }) => {
           w3c_name: eachColor.colors.w3c.name
         }
     });
+    
+    const bodyData = JSON.stringify({ imageRecord, imageDetails });
 
     console.log(`\nColorDetails src/App.js user: `, user, `\n`);
     console.log(`\nColorDetails color_props: `, color_props, `\n`);
     console.log(`\nColorDetails input: `, input, `\n`);
     console.log(`\nColorDetails saveColor imageRecord:\n`, imageRecord, `\n`);
     console.log(`\nColorDetails saveColor imageDetails:\n`, imageDetails, `\n`);
-    console.log(`\nColorDetails saveColor JSON.stringify({ imageRecord, imageDetails }): `, JSON.stringify({ imageRecord, imageDetails }), `\n`);
+    console.log(`\nColorDetails saveColor JSON.stringify({ imageRecord, imageDetails }):\n\nbodyData:\n`, bodyData, `\n`);
 
     fetch(fetchUrl, {
       method: 'post', 
@@ -142,8 +160,13 @@ const ColorDetails = ({ user, input, color_props, imageUrl }) => {
     .then((response) => response.json())
     .then((response) => {
       console.log(`\nColorDetails saveColor response: `, response, `\n`);
+      console.log(`\nColorDetails saveColor response.message: `, response.message, `\n`);
       console.log(`\nColorDetails saveColor response.status.code: `, response.status.code);
-    });
+    })
+    .catch((err) => {
+      console.error(`\nError in callbackName:\n`, callbackName, `\n\nError: `, err, `\n`);
+    })
+    ;
   }
   
   return (
@@ -206,17 +229,27 @@ const ColorDetails = ({ user, input, color_props, imageUrl }) => {
       })}
     </div>
     <br />
-    <div className="buttons-box">
-      <button 
-        className="buttons__btn"
+    <div className="saveBtn">
+      {/* Render nothing if length !> 0 */}
+      {length > 0 ? 
+        <button 
+        className="saveBtn__p"
         onClick={saveColor} // ColorDetails.jsx saveColor()
-      >
-        Save to Account
-      </button>
+        >
+          Save to Account
+        </button>
+      : <Loading />
+      }
+      {/* Modal Window for saving a Color Record */}
+      <div className='modal-window'>
+          <h1 class='modal-window--inner'>
+            Saved!
+          </h1>
+      </div>
     </div>
-    <br/>
+    {/* <br/>
     <h2>Test Metadata Blob:</h2>
-    <img alt="test-blob" src={imageBlob} />
+    <img alt="test-blob" src={imageBlob} /> */}
     </React.Fragment>
   );
 };

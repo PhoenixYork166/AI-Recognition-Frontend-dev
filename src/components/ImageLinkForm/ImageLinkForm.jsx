@@ -11,7 +11,7 @@ const ImageLinkForm = ({
   const placeholder = `Enter .jpg hyperlink e.g. https://wiki.org/image.jpg`;
   return (
     <div className="container row">
-      <div className="col-3-of-4">
+      <div className="col-4-of-5">
         <div className="link-form">
           <p className="link-form__paragraph">
             {"This Brain will detect Colors or Celebrity faces in your pictures. Give it a try"}
@@ -28,7 +28,7 @@ const ImageLinkForm = ({
         </div>
       </div>
       
-      <div className="col-1-of-4 buttons-box">
+      <div className="col-1-of-5 buttons-box">
         <div className="buttons">
           <button
             className="buttons__btn"

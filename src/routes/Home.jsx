@@ -28,11 +28,11 @@ const Home = ( {
 
     return (
         <React.Fragment>
-            <Logo />
+            {/* <Logo />
             <Rank 
             name={name}
             entries={entries}
-            />
+            /> */}
             <ImageLinkForm
             onInputChange={onInputChange}
             onCelebrityButton={onCelebrityButton}
