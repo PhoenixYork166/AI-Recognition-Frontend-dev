@@ -17,8 +17,10 @@ return (
         className="form-box__secondary--input"  
         type="password"
         name="passwordConfirm"
+        autoComplete="off"
         id="passwordConfirm"
         onChange={onPasswordConfirmChange}
+        placeholder="Confirm password"
       />
       <div className="form-box__tertiary">
           <img

@@ -6,7 +6,8 @@ import Logo from "../Logo/Logo";
 import { FaList } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
-export default function CheckRecords() {
+// Parent component
+export default function CheckRecords({ isSignedIn, onRouteChange }) {
   // Keep monitor resolution changes
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -154,7 +155,13 @@ export default function CheckRecords() {
     );
   }
 
-  return dimensions.width > mobileBreakpoint ? <NavGt860 /> : <NavLt860 />;
+  return (
+    !isSignedIn ? 
+    (dimensions.width > mobileBreakpoint ? <NavGt860 /> : <NavLt860 />) 
+    :
+    <p>&nbsp;</p>
+  );
+  // return dimensions.width > mobileBreakpoint ? <NavGt860 /> : <NavLt860 />;
 }
 
 

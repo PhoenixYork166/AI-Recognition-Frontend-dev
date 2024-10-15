@@ -16,6 +16,7 @@ const Email = ( { onEmailChange, emailValid } ) => {
           name="email"
           id="email"
           onChange={onEmailChange}
+          placeholder="Enter email"
         />
         <div className="form-box__tertiary">
             <img

@@ -28,7 +28,10 @@ const Navigation = ( {
                     </p>
                 </nav>
             </div>
-            <CheckRecords />
+            <CheckRecords 
+                isSignedIn={isSignedIn} 
+                onRouteChange={onRouteChange} 
+            />
             </React.Fragment>
             )
         } else {

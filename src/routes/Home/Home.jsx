@@ -1,8 +1,4 @@
 import React from 'react';
-// import ImageLinkForm from '../components/ImageLinkForm/ImageLinkForm';
-// import FaceRecognition from '../components/AIRecognition/FaceRecognition/FaceRecognition';
-// import ColorRecognition from '../components/AIRecognition/ColorRecognition/ColorRecognition';
-// import AgeRecognition from '../components/AIRecognition/AgeRecognition/AgeRecognition';
 import ImageLinkForm from '../../components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from '../../components/AIRecognition/FaceRecognition/FaceRecognition';
 import ColorRecognition from '../../components/AIRecognition/ColorRecognition/ColorRecognition';
@@ -25,7 +21,8 @@ const Home = ( {
     color_hidden,
     age,
     age_hidden,
-    box    
+    box,
+    onRouteChange    
 } ) => {
 
     return (

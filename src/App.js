@@ -203,10 +203,12 @@ class App extends Component {
   /* Updating Entries - Fetching local web server vs live web server on Render */
   
   updateEntries = () => {
-    this.devUpdateEntriesUrl = 'http://localhost:3000/image';
-    this.prodUpdateEntriesUrl = 'https://ai-recognition-backend.onrender.com/image';
+    const devUpdateEntriesUrl = 'http://localhost:3000/image';
+    const prodUpdateEntriesUrl = 'https://ai-recognition-backend.onrender.com/image';
+
+    const fetchUrl = process.env.NODE_ENV === 'production' ? prodUpdateEntriesUrl : devUpdateEntriesUrl;
     
-    fetch(this.devUpdateEntriesUrl, {
+    fetch(fetchUrl, {
         method: 'put', // PUT (Update) 
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ // sending stringified this.state variables as JSON objects
@@ -251,10 +253,12 @@ class App extends Component {
     /* From Clarifai API documentation, this API can be consumed as below: */
 
     /* Celebrity Recognition - Fetching local web server for celebrityimage */
-    this.devFetchCelebrityImageUrl = 'http://localhost:3000/celebrityimage';
-    this.prodFetchCelebrityImageUrl = 'https://ai-recognition-backend.onrender.com/celebrityimage';
+    const devFetchCelebrityImageUrl = 'http://localhost:3000/celebrityimage';
+    const prodFetchCelebrityImageUrl = 'https://ai-recognition-backend.onrender.com/celebrityimage';
 
-    fetch(this.devFetchCelebrityImageUrl, {
+    const fetchUrl = process.env.NODE_ENV === 'production' ? prodFetchCelebrityImageUrl : devFetchCelebrityImageUrl;
+
+    fetch(fetchUrl, {
         method: 'post', 
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ // sending stringified this.state variables as JSON objects
@@ -305,10 +309,12 @@ class App extends Component {
     );
 
     /* Color Recognition - Fetching local Web Server vs live Web Server on Render */
-    this.devFetchColorImageUrl = 'http://localhost:3000/colorimage';
-    this.prodFetchColorImageUrl = 'https://ai-recognition-backend.onrender.com/colorimage';
+    const devFetchColorImageUrl = 'http://localhost:3000/colorimage';
+    const prodFetchColorImageUrl = 'https://ai-recognition-backend.onrender.com/colorimage';
 
-    fetch(this.devFetchColorImageUrl, {
+    const fetchUrl = process.env.NODE_ENV === 'production' ? prodFetchColorImageUrl : devFetchColorImageUrl;
+
+    fetch(fetchUrl, {
       method: 'post', 
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ // sending stringified this.state variables as JSON objects
@@ -336,13 +342,14 @@ class App extends Component {
   // to server-side right after setting state for state_raw_hex_array
   // to avoid delay in server-side
   loadRawHex = () => {
-    this.devFetchRawHexUrl = 'http://localhost:3000/image';
-    this.prodFetchRawHexUrl = 'https://ai-recognition-backend.onrender.com/image';
-    const url = process.env.NODE_ENV === 'product' ? this.prodFetchRawHexUrl : this.devFetchRawHexUrl;
+    const devFetchRawHexUrl = 'http://localhost:3000/image';
+    const prodFetchRawHexUrl = 'https://ai-recognition-backend.onrender.com/image';
+    
+    const fetchUrl = process.env.NODE_ENV === 'product' ? prodFetchRawHexUrl : devFetchRawHexUrl;
 
     /* Sending state user.id && state_raw_hex_array to local server-side */
     // Fetching live Web Server on Render
-    fetch(url, {
+    fetch(fetchUrl, {
       method: 'put', // PUT (Update) 
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -385,12 +392,12 @@ class App extends Component {
     );
 
     /* Age Recognition - Fetching local dev server vs live Web Server on Render */
-    this.devFetchAgeUrl = 'http://localhost:3000/ageimage';
-    this.prodFetchAgeUrl = 'https://ai-recognition-backend.onrender.com/ageimage';
-    const url = process.env.NODE_ENV === 'product' ? this.prodFetchAgeUrl : this.devFetchAgeUrl;
+    const devFetchAgeUrl = 'http://localhost:3000/ageimage';
+    const prodFetchAgeUrl = 'https://ai-recognition-backend.onrender.com/ageimage';
 
+    const fetchUrl = process.env.NODE_ENV === 'product' ? prodFetchAgeUrl : devFetchAgeUrl;
 
-    fetch(url, {
+    fetch(fetchUrl, {
         method: 'post', 
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ // sending stringified this.state variables as JSON objects
@@ -399,8 +406,8 @@ class App extends Component {
     })
     .then(response => response.json())
     .then(response => {
-      console.log('HTTP Response\nAge Detection', response);
-      console.log('HTTP request status code:\n', response.status.code);
+      console.log('\nHTTP Response\nAge Detection', response);
+      console.log('\nHTTP request status code:\n', response.status.code);
       console.log(
         'Fetched Age grp obj:\n',
         response.outputs[0].data.concepts
@@ -422,7 +429,7 @@ class App extends Component {
     switch (routeInput) {
       case 'signout':
         this.setState({ 
-          ...this.state,
+          // ...this.state,
           route: 'sigin',
           isSignedIn: false
         });
@@ -431,9 +438,16 @@ class App extends Component {
       // else if onClick={() => onRouteChange('home')}
       case 'home':
         this.setState({ 
-          isSignedIn: true,
-          route: routeInput
+          route: routeInput,
+          isSignedIn: true
         });
+        return;
+
+      case 'colorRecords':
+        this.setState({
+          route: routeInput,
+          isSignedIn: true
+        })
         return;
       
       // No matter what, still wanna change the route
@@ -519,6 +533,7 @@ class App extends Component {
           age={age_props}
           age_hidden={age_hidden}
           box={box}
+          onRouteChange={this.onRouteChange}
         />
       ),
       'signin': (

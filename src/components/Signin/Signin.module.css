@@ -98,7 +98,7 @@
     box-sizing: border-box;
 }
 
-#signinBtn {
+.signinBtn {
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
     transform: translateZ(0);

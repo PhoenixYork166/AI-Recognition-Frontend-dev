@@ -17,8 +17,10 @@ const Password = ({
           className="form-box__secondary--input"  
           type="password"
           name="password"
+          autoComplete="off"
           id="password"
           onChange={onPasswordChange}
+          placeholder="Enter password"
         />
         <div className="form-box__tertiary">
             <img

@@ -16,6 +16,7 @@ const Name = ( { onNameChange, nameValid } ) => {
           name="name"
           id="name"
           onChange={onNameChange}
+          placeholder="Enter name"
         />
         <div className="form-box__tertiary">
             <img

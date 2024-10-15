@@ -100,6 +100,7 @@ class Signin extends Component {
 
   render() {
     const { onRouteChange } = this.props;
+
     return (
       <div>
         <article className={`${classes.article}`} >
@@ -133,6 +134,7 @@ class Signin extends Component {
                 <input
                   className={`${classes.passwordInput}`}
                   type="password"
+                  autoComplete="off"
                   name="current-password"
                   id="current-password"
                   onChange={this.onPasswordChange}
@@ -151,7 +153,7 @@ class Signin extends Component {
                 // onClick={() => onRouteChange('home')}
                 onClick={this.onSubmitSignIn}
                 disabled={this.state.lockSignIn}
-                id={`${classes.signinBtn}`}
+                className={`${classes.signinBtn}`}
                 type="submit"
                 value=" Sign In "
               />
@@ -159,7 +161,7 @@ class Signin extends Component {
             <div className={`${classes.registerBox}`}>
               <input
                onClick={() => onRouteChange('register')} 
-               id={`${classes.signinBtn}`}
+               className={`${classes.signinBtn}`}
                type="submit"
                value="Register"
               />
