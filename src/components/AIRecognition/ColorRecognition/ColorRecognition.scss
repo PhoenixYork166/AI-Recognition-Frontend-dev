@@ -151,7 +151,8 @@ $gutter-horizontal: 3.75rem;
 .color-container {
     display: flex;
     flex-flow: row nowrap;
-    margin: 5rem auto;
+    // margin: 5rem auto;
+    margin: 0rem auto;
     max-width: 100%;
     max-height: 100%;
 }

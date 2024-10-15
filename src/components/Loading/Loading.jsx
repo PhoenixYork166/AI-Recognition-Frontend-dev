@@ -6,7 +6,7 @@ export const Loading = () => {
     return (
         <React.Fragment>
         <div className="loadingContainer">
-            <p className="loadingContainer__p">Loading Color Details...</p>
+            <p className="loadingContainer__p">Loading Details...</p>
             <img className="loadingContainer__img" src={loading} alt="loading-gif" />
         </div>      
         </React.Fragment>

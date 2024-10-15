@@ -1,3 +1,4 @@
+import '../../../../sass/base/_utilities.scss';
 import Loading from '../../../Loading/Loading';
 import './ColorDetails.css';
 // import '../../../ImageLinkForm/ImageLinkForm.scss';
@@ -232,7 +233,7 @@ const ColorDetails = ({ user, input, color_props }) => {
             );
           })}
         </div>
-        <div className="saveBtn">
+        <div className="saveBtn u-margin-top-small">
           <button 
             className="saveBtn__p"
             onClick={saveColor} // ColorDetails.jsx saveColor()
