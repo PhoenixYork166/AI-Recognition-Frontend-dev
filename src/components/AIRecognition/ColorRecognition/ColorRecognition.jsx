@@ -108,6 +108,15 @@ const ColorRecognition = ( {
         ;
     }
 
+    const showModal = () => {
+        // Retrieve DOM element of modal-window pop-up upon users' copy events
+        const modal = document.querySelector('.modal-window');
+            
+        modal.style.opacity = 1;
+       
+        setTimeout(() => modal.style.opacity=0, 2000)
+    }
+
     return color_hidden ? (
     <h2>&nbsp;</h2>
     ) : (<React.Fragment>
@@ -134,16 +143,11 @@ const ColorRecognition = ( {
         <div className="saveBtn u-margin-top-small">
         <button 
           className="saveBtn__p"
-          onClick={saveColor} // ColorDetails.jsx saveColor()
+          onClick={() => { saveColor(); showModal();} } // ColorDetails.jsx saveColor()
         >
           Save to Account
         </button>
         </div>
-        <div className='modal-window'>
-          <h1 class='modal-window--inner'>
-            Saved!
-          </h1>
-      </div>
       </React.Fragment>
     )
 }

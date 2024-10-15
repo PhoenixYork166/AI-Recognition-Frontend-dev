@@ -114,8 +114,8 @@ $gutter-horizontal: 3.75rem;
     width: 50%;
     opacity: 0;
     position: absolute;
-    left: 50%;
-    top: 90%;
+    left: 160%;
+    top: 100%;
 
     &--inner {
         border: 2px solid white;
@@ -127,6 +127,13 @@ $gutter-horizontal: 3.75rem;
         align-items: center;
         font-size: 1rem;
         border-radius: 10px;
+    }
+}
+
+@media (max-width: 750px) {
+    .modal-window {
+        left: 50%;
+        top: 125%;
     }
 }
 
