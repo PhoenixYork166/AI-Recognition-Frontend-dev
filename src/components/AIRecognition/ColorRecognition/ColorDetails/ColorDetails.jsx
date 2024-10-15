@@ -9,6 +9,8 @@ import axios from 'axios';
 const ColorDetails = ({ user, input, color_props, imageUrl }) => {
   const [imageBlob, setImageBlob] = useState(''); // Blob { size: Number, type: String, userId: undefined }
   const [resData, setResData] = useState('');
+  const [colorProps, setColorProps] = useState(color_props);
+
 
   // Using querySelectors to retrieve all Raw Hex values as DOM objects
   const length = document.getElementsByClassName('raw-hex').length;
@@ -231,7 +233,7 @@ const ColorDetails = ({ user, input, color_props, imageUrl }) => {
     <br />
     <div className="saveBtn">
       {/* Render nothing if length !> 0 */}
-      {length > 0 ? 
+      {colorProps.length > 0 ? 
         <button 
         className="saveBtn__p"
         onClick={saveColor} // ColorDetails.jsx saveColor()
