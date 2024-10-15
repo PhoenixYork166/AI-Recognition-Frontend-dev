@@ -50,9 +50,9 @@ export default function CheckRecordsLi( { dimensions } ) {
     return (
         <div className="frosted">
           <li className={`${classes.recordLi}`}>
-            <a className={`${classes.lk}`}>Celebirty</a>
-            <a className={`${classes.lk}`}>Color</a>
-            <a className={`${classes.lk}`}>Age</a>
+            <a className={`${classes.lk}`}>Celebirty records</a>
+            <a className={`${classes.lk}`}>Color records</a>
+            <a className={`${classes.lk}`}>Age records</a>
           </li>  
             {/* <li>
                 <a className={`${className}`}
