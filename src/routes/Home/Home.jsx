@@ -1,10 +1,12 @@
 import React from 'react';
-import Logo from '../components/Logo/Logo';
-import Rank from '../components/Rank/Rank';
-import ImageLinkForm from '../components/ImageLinkForm/ImageLinkForm';
-import FaceRecognition from '../components/AIRecognition/FaceRecognition/FaceRecognition';
-import ColorRecognition from '../components/AIRecognition/ColorRecognition/ColorRecognition';
-import AgeRecognition from '../components/AIRecognition/AgeRecognition/AgeRecognition';
+// import ImageLinkForm from '../components/ImageLinkForm/ImageLinkForm';
+// import FaceRecognition from '../components/AIRecognition/FaceRecognition/FaceRecognition';
+// import ColorRecognition from '../components/AIRecognition/ColorRecognition/ColorRecognition';
+// import AgeRecognition from '../components/AIRecognition/AgeRecognition/AgeRecognition';
+import ImageLinkForm from '../../components/ImageLinkForm/ImageLinkForm';
+import FaceRecognition from '../../components/AIRecognition/FaceRecognition/FaceRecognition';
+import ColorRecognition from '../../components/AIRecognition/ColorRecognition/ColorRecognition';
+import AgeRecognition from '../../components/AIRecognition/AgeRecognition/AgeRecognition';
 
 const Home = ( {
     user,

@@ -63,8 +63,9 @@
     list-style-type: none;
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
-    // align-items: flex-end;
+    // align-items: center;
+    align-items: flex-end;
+    margin-right: 1rem;
 }
 
 @media (min-width: 860px) {
@@ -212,7 +213,8 @@
 
 .lk {
     //color: var(--white-1);
-    
+    margin-right: 1rem;
+    width: 6rem;
     padding: 0.5rem 0.5rem; 
     margin-bottom: 0.5rem;
     box-shadow: 0 0.25rem 0.25rem 0.1rem rgba($color-primary, 0.6);

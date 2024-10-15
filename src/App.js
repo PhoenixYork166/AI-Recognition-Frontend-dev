@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
 
-import Home from './routes/Home';
+import Home from './routes/Home/Home';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/container/Register';
 
@@ -535,6 +535,9 @@ class App extends Component {
           loadUserFromLocalStorage={this.loadUserFromLocalStorage}
           onRouteChange={this.onRouteChange} 
         />
+      ),
+      'colorRecords': (
+        <p></p>
       )
     }
 
