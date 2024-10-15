@@ -246,7 +246,7 @@ class App extends Component {
          this.setState(Object.assign(this.state.user, {
           entries: fetchedEntries
         }), () => {
-          console.log(`this.state.user.entries is: ${this.state.user.entries}`);
+          // console.log(`this.state.user.entries is: ${this.state.user.entries}`);
         })
         })
       .catch(err => console.log(err))
