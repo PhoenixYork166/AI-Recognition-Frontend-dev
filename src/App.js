@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
-
+import { useEffect } from 'react';
 import Home from './routes/Home/Home';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/container/Register';
@@ -65,17 +65,39 @@ class App extends Component {
   componentWillUnmount() {
     clearTimeout(this.inactivityTimer);
   }
+
+
   
   resetUser = () => {
+    // Batch 1
     // this.resetUser(this.setState.bind(this));
+
+    // Round 1
     this.setState({
       user: {},
       isSignedIn: false,
       route: 'signin'
-    }, () => {
+    }, 
+    // Round 2
+    () => {
+      // this.removeUserFromLocalStorage();
       this.removeUserFromLocalStorage();
+      console.log(`\nthis.state.isSignedIn after resetUser:\n`,this.state.isSignedIn, `\n`);//true
     })
+
+    // this.removeUserFromLocalStorage(() => {
+    //   this.setState({
+    //     user: {},
+    //     isSignedIn: false,
+    //     route: 'signin'
+    //   })
+    // }, () => {
+    //   console.log(`\nisSignedIn: `, this.state.isSignedIn, `\n`);
+    // })
+
   }
+
+  
 
   resetInactivityTimer = () => {
     clearTimeout(this.inactivityTimer);
@@ -559,6 +581,8 @@ class App extends Component {
         <p></p>
       )
     }
+
+
 
     return (
       <div className="App">
