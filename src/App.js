@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+
+// Top Navigation panel
 import Navigation from './components/Navigation/Navigation';
+
+// Routes
 import Home from './routes/Home/Home';
 import Signin from './routes/Signin/Signin';
 import Register from './routes/Register/container/Register';
+import ColorRecords from './routes/Records/ColorRecords';
 
 // Utility helper functions
 // import loadUserFromLocalStorage from './util/loadUserFromLocalStorage';
@@ -22,6 +27,8 @@ class App extends Component {
 
     const userData = localStorage.getItem('user');
     // const userData = loadUserFromLocalStorage();
+
+
     const defaultRoute = userData? 'home' : 'signin';
 
     this.state = {
@@ -38,7 +45,8 @@ class App extends Component {
       responseStatusCode: Number(''),
       route: defaultRoute,
       isSignedIn: userData ? true : false,
-      user: JSON.parse(userData) || {} // localStorage user{} is stored in JSON.stringified
+      user: JSON.parse(userData) || {}, // localStorage user{} is stored in JSON.stringified
+      userColorRecords: {}
     };
 
     // Persisting users' signed in sessions 
@@ -395,8 +403,10 @@ class App extends Component {
     .catch(err => console.log(err));
   };
 
-  // To allow routing through onClick={() => onRouteChange(routeInput)}
+
+  // To allow SPA Routing without React Router DOM through onClick={() => onRouteChange(routeInput)}
   onRouteChange = (routeInput) => {
+    const callbackName = `onRouteChange`;
     switch (routeInput) {
       case 'signout':
         this.setState({ 
@@ -404,6 +414,7 @@ class App extends Component {
           route: 'sigin',
           isSignedIn: false
         });
+        console.log(`\n${callbackName}(signout)\n`);
         break;
       
       // else if onClick={() => onRouteChange('home')}
@@ -413,14 +424,15 @@ class App extends Component {
           route: routeInput,
           isSignedIn: true
         });
+        console.log(`\n${callbackName}(home)\n`);
         return;
 
       case 'colorRecords':
         this.setState({
-          ...this.state,
           route: routeInput,
           isSignedIn: true
-        })
+        });
+        console.log(`\n${callbackName}(colorRecords)\n`);
         return;
       
       // No matter what, still wanna change the route
@@ -457,7 +469,8 @@ class App extends Component {
       input,
       isSignedIn,
       responseStatusCode,
-      user
+      user,
+      userColorRecords
     } = this.state;
 
     const colors_array = colors.map(color => color);
@@ -486,7 +499,7 @@ class App extends Component {
     console.log('\nthis.state.age_hidden', age_hidden);
     console.log('\nthis.state.responseStatusCode:\n', responseStatusCode);
     
-    // Scalability for allowing to add more React routes without React Router DOM
+    // Enhance React Scalability for allowing to add more React routes without React Router DOM
     const routeComponents = {
       'home': (
         <Home
@@ -510,6 +523,7 @@ class App extends Component {
           box={box}
           onRouteChange={this.onRouteChange}
           resetUser={this.resetUser}
+          resetState={this.resetState}
         />
       ),
       'signin': (
@@ -528,7 +542,10 @@ class App extends Component {
         />
       ),
       'colorRecords': (
-        <p></p>
+        <ColorRecords
+          user={user}
+          userColorRecords={userColorRecords}
+        />
       )
     }
 

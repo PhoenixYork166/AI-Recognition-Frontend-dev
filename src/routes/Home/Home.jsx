@@ -1,11 +1,14 @@
 import React from 'react';
 // import Rank from '../../components/Rank/Rank';
-import CheckRecords from '../../components/CheckRecords/CheckRecords';
+import CheckRecordsPanel from '../../components/CheckRecords/CheckRecordsPanel';
+import CheckRecordsLi from '../../components/CheckRecords/CheckRecordsLi';
 import ImageLinkForm from '../../components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from '../../components/AIRecognition/FaceRecognition/FaceRecognition';
 import ColorRecognition from '../../components/AIRecognition/ColorRecognition/ColorRecognition';
 import AgeRecognition from '../../components/AIRecognition/AgeRecognition/AgeRecognition';
 
+// Parent component
+// src/App.js
 const Home = ( {
     isSignedIn,
     user,
@@ -26,7 +29,8 @@ const Home = ( {
     age_hidden,
     box,
     onRouteChange,
-    resetUser    
+    resetUser,
+    resetState 
 } ) => {
 
     return (
@@ -36,39 +40,44 @@ const Home = ( {
             name={name}
             entries={entries}
             /> */}
-            <CheckRecords user={user} isSignedIn={isSignedIn}/>
+            <CheckRecordsPanel 
+                user={user} 
+                isSignedIn={isSignedIn} 
+                onRouteChange={onRouteChange}
+                resetState={resetState}
+            />
             <ImageLinkForm
-            onInputChange={onInputChange}
-            onCelebrityButton={onCelebrityButton}
-            onColorButton={onColorButton}
-            onAgeButton={onAgeButton}
-            face_hidden={face_hidden}
-            color_hidden={color_hidden}
-            age_hidden={age_hidden}
+                onInputChange={onInputChange}
+                onCelebrityButton={onCelebrityButton}
+                onColorButton={onColorButton}
+                onAgeButton={onAgeButton}
+                face_hidden={face_hidden}
+                color_hidden={color_hidden}
+                age_hidden={age_hidden}
             />
             <FaceRecognition
-            user={user}
-            box={box}
-            input={input}
-            imageUrl={imageUrl}
-            celebrityName={celebrityName}
-            face_hidden={face_hidden}
+                user={user}
+                box={box}
+                input={input}
+                imageUrl={imageUrl}
+                celebrityName={celebrityName}
+                face_hidden={face_hidden}
             />
             <ColorRecognition
-            user={user}
-            input={input}
-            imageUrl={imageUrl}
-            color_props={color_props}
-            color_hidden={color_hidden}
-            name={name}
-            onSaveColorButton={onSaveColorButton}
+                user={user}
+                input={input}
+                imageUrl={imageUrl}
+                color_props={color_props}
+                color_hidden={color_hidden}
+                name={name}
+                onSaveColorButton={onSaveColorButton}
             />
             <AgeRecognition
-            user={user}
-            age={age}
-            input={input}
-            imageUrl={imageUrl}
-            age_hidden={age_hidden}
+                user={user}
+                age={age}
+                input={input}
+                imageUrl={imageUrl}
+                age_hidden={age_hidden}
             />
         </React.Fragment>
     )

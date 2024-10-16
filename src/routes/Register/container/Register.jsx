@@ -5,6 +5,8 @@ import Email from '../components/email/Email';
 import Password from '../components/password/Password';
 import PasswordConfirm from '../components/passwordConfirm/PasswordConfirm';
 
+// Parent component
+// src/App.js
 // Make Register a smart component to process states
 class Register extends Component {
   // class Register to inherit React class Component

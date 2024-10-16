@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import classes from './Signin.module.css';
 
+// Parent component
+// src/App.js
 class Signin extends Component {
   constructor(props) {
     super(props);
