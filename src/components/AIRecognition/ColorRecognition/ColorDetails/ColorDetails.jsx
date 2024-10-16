@@ -129,7 +129,6 @@ const ColorDetails = ({ user, input, color_props }) => {
                         value={each.colors.w3c.hex}
                       />
                     </td>
-                    {/* <input class="color1" type="color" name="color1" value="#00ff00"></input> */}
                   </tr>
                 </table>
               </div>

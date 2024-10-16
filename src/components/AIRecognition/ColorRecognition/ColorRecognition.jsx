@@ -53,18 +53,17 @@ const ColorRecognition = ( {
     // Save button to save Color details into PostgreSQL as blob metadata
     const saveColor = async () => {
         const callbackName = `src/components/AIRecognition/ColorRecognition/ColorDetails/ColorDetails.jsx\nsaveColor = async () => {...}`;
-        const devSaveColorUrl = 'http://localhost:3001/save-user-color';
-        const prodSaveColorUrl = 'https://ai-recognition-backend.onrender.com/save-user-color';
 
         const color_props_array = color_props;
         
+        const devSaveColorUrl = 'http://localhost:3001/save-user-color';
+        const prodSaveColorUrl = 'https://ai-recognition-backend.onrender.com/save-user-color';
         const fetchUrl = process.env.NODE_ENV === 'production' ? prodSaveColorUrl : devSaveColorUrl;
 
         // Assuming resData is the Blob
         const base64Metadata = await blobToBase64(resData);
     
         const imageRecord = {
-        userId: user.id,
         imageUrl: input,
         metadata: base64Metadata,
         dateTime: new Date().toISOString()
@@ -79,19 +78,25 @@ const ColorRecognition = ( {
             }
         });
         
-        const bodyData = JSON.stringify({ imageRecord, imageDetails });
+        const bodyData = JSON.stringify({ 
+            userId: user.id, 
+            imageRecord: imageRecord, 
+            imageDetails: imageDetails 
+        });
 
         console.log(`\nColorDetails src/App.js user: `, user, `\n`);
+        console.log(`\nColorDetails src/App.js user.id: `, user.id, `\n`);
         console.log(`\nColorDetails color_props: `, color_props, `\n`);
         console.log(`\nColorDetails input: `, input, `\n`);
         console.log(`\nColorDetails saveColor imageRecord:\n`, imageRecord, `\n`);
         console.log(`\nColorDetails saveColor imageDetails:\n`, imageDetails, `\n`);
-        console.log(`\nColorDetails saveColor JSON.stringify({ imageRecord, imageDetails }):\n\nbodyData:\n`, bodyData, `\n`);
+        console.log(`\nFetching ${fetchUrl} with bodyData`, bodyData, `\n`);
 
         fetch(fetchUrl, {
         method: 'post', 
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ // sending stringified this.state variables as JSON objects
+            userId: user.id,
             imageRecord: imageRecord,
             imageDetails: imageDetails
         })

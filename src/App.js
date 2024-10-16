@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
-import { useEffect } from 'react';
 import Home from './routes/Home/Home';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/container/Register';
@@ -11,6 +10,7 @@ import Register from './components/Register/container/Register';
 import findCelebrity from './util/ai-detection/findCelebrity';
 import findColor from './util/ai-detection/findColor';
 import findAge from './util/ai-detection/findAge';
+import calculateFaceLocation from './util/ai-detection/calculateFaceLocation';
 import { returnDateTime } from './util/returnDateTime';
 
 const localStorage = window.localStorage;
@@ -65,8 +65,6 @@ class App extends Component {
   componentWillUnmount() {
     clearTimeout(this.inactivityTimer);
   }
-
-
   
   resetUser = () => {
     // Batch 1
@@ -96,8 +94,6 @@ class App extends Component {
     // })
 
   }
-
-  
 
   resetInactivityTimer = () => {
     clearTimeout(this.inactivityTimer);
@@ -156,39 +152,6 @@ class App extends Component {
     this.setState({ age: ageInput }, () =>
       console.log('Age group objs locally stored: \n', ageInput)
     );
-  };
-
-  // Face-detection func
-  // data from fetching Clarifai API response
-  calculateFaceLocation = (data) => {
-    // We'd like to try only get 1 face now
-    // bounding_box is % of image size
-    const clarifaiFace =
-      data.outputs[0].data.regions[0].region_info.bounding_box;
-    // DOM manipulation
-    // for <img id='...'/> in <FaceRecognition/>
-    const image = document.getElementById('face-image');
-    const width = Number(image.width);
-    const height = Number(image.height);
-    console.log('img width:\n', width, '\nimg height:\n', height);
-    console.log('bounding box - calcFaceLocaiton\n', clarifaiFace);
-    // returning an object to fill up this.state.box
-    // img width 238px
-    // img height 384px
-    // sample dataset (%)
-    // { top_row: 0.0871627, left_col: 0.3230537, bottom_row: 0.8270308, right_col: 0.7289897 }
-
-    // sample dataset (px)
-    // { top_row: 33.47(h),
-    // left_col: 76.89(w),
-    // bottom_row: 66.42(h),
-    // right_col: 64.5(w) }
-    return {
-      topRow: clarifaiFace.top_row * height,
-      leftCol: clarifaiFace.left_col * width,
-      bottomRow: height - clarifaiFace.bottom_row * height,
-      rightCol: width - clarifaiFace.right_col * width
-    };
   };
 
   displayFaceBox = (box) => {
@@ -304,7 +267,7 @@ class App extends Component {
           this.updateEntries();
         };
 
-        this.displayFaceBox(this.calculateFaceLocation(response));
+        this.displayFaceBox(calculateFaceLocation(response));
         // this.displayCelebrity(this.findCelebrity(response));
         this.displayCelebrity(findCelebrity(response));
         this.setState({ responseStatusCode: response.status.code });
@@ -520,6 +483,7 @@ class App extends Component {
 
     // Tracking all state variables in render() {...}
     console.log(`\nthis.state.user: \n`, user, `\n`);
+    // console.log(`\nthis.state.user => JSON.parse(user):\n`, JSON.parse(user), `\n`);
     console.log(`\ndefaultRoute:\n${this.defaultRoute}\n`);
     console.log(`\n`);
     console.log('\nthis.state.input: \n', input);
@@ -581,8 +545,6 @@ class App extends Component {
         <p></p>
       )
     }
-
-
 
     return (
       <div className="App">
