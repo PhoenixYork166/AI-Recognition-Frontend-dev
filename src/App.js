@@ -38,6 +38,7 @@ class App extends Component {
       celebrity: {},
       celebrityName: '',
       colors: [],
+      dimensions: { width: window.innerWidth }, // Initialize dimensions state
       age: [],
       face_hidden: true,
       color_hidden: true,
@@ -49,6 +50,9 @@ class App extends Component {
       userColorRecords: {}
     };
 
+    // this.state.dimensions => Bind methods for handleResize regarding this.handleResize
+    this.handleResize = this.handleResize.bind(this);
+
     // Persisting users' signed in sessions 
     this.loadUserFromLocalStorage();
 
@@ -56,9 +60,20 @@ class App extends Component {
     this.inactivityTimer = null;
   }
 
+  // Keep tracking window.innerWidth px
+  handleResize() {
+    this.setState({ dimensions: { width: window.innerWidth } });
+  }
+
   componentDidMount() {
     this.loadUserFromLocalStorage();
     this.resetInactivityTimer();
+    // Adding EventListener to window 'resize' events
+    window.addEventListener('resize', this.handleResize);
+    // this.state.dimensions => Periodically clean up this.state.dimensions{} in every 30 seconds
+    this.dimensionsCleanupTimer = setInterval(() => {
+      this.setState({ dimensions: { width: window.innerWidth } });
+    }, 30000); // Reset this.state.dimensions{} in every 30 seconds
   }
 
   // Keep tracking for user
@@ -72,6 +87,9 @@ class App extends Component {
   // useEffect() hook
   componentWillUnmount() {
     clearTimeout(this.inactivityTimer);
+    window.removeEventListener('resize', this.handleResize);
+    // this.state.dimensions => Clear the interval on unmount to avoid memory leak on browser 
+    clearInterval(this.dimensionsCleanupTimer);
   }
   
   resetUser = () => {
@@ -464,6 +482,7 @@ class App extends Component {
       box,
       colors,
       celebrity,
+      dimensions,
       imageUrl,
       route,
       input,
@@ -498,6 +517,7 @@ class App extends Component {
     console.log('\nthis.state.color_hidden', color_hidden);
     console.log('\nthis.state.age_hidden', age_hidden);
     console.log('\nthis.state.responseStatusCode:\n', responseStatusCode);
+    console.log(`\nthis.state.dimensions.width:\n`, dimensions.width, `\n`);
     
     // Enhance React Scalability for allowing to add more React routes without React Router DOM
     const routeComponents = {
@@ -545,6 +565,7 @@ class App extends Component {
         <ColorRecords
           user={user}
           userColorRecords={userColorRecords}
+          dimensions={dimensions}
         />
       )
     }
