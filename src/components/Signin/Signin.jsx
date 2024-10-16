@@ -35,21 +35,21 @@ class Signin extends Component {
   onSubmitSignIn = (event) => {
     event.preventDefault(); // Stop page from refreshing on Signin form submission
 
-    // Send Sign In info as HTTP POST request to server localhost:3000
-    // by fetching our server - localhost:3000/signin
+    // Send Sign In info as HTTP POST request to server localhost:3001
+    // by fetching our server - localhost:3001/signin
     // fetch(url, {method: '', headers: '', body: JSON.stringify({ email: '', password: ''}) })
 
     /* Fetching local web server vs live server on Render */
-    // this.devRegisterUrl = 'http://localhost:3000/register';
+    // this.devRegisterUrl = 'http://localhost:3001/register';
     // this.prodRegisterUrl = 'https://ai-recognition-backend.onrender.com/register';
 
     // const fetchUrl = process.env.NODE_ENV === 'production' ? this.prodRegisterUrl : this.devRegisterUrl;
-    this.devSigninUrl = 'http://localhost:3000/signin';
+    this.devSigninUrl = 'http://localhost:3001/signin';
     this.prodSigninUrl = 'https://ai-recognition-backend.onrender.com/signin';
 
     const fetchUrl = process.env.NODE_ENV === 'production' ? this.prodSigninUrl : this.devSigninUrl;
 
-    // Fetching http://localhost:3000/signin to retrieve user
+    // Fetching http://localhost:3001/signin to retrieve user
     fetch(fetchUrl, {
       method: 'post', // Post (Create) to avoid Query Strings
       headers: {'Content-Type': 'application/json'},
@@ -58,7 +58,7 @@ class Signin extends Component {
         password: this.state.signInPassword
       })
     })
-    .then(response => response.json()) // http://localhost:3000/signin server response to parse JSON data user
+    .then(response => response.json()) // http://localhost:3001/signin server response to parse JSON data user
     .then(user => { // server.js - app.post('/signin') --> res.json(database.users[i])
       console.log('onSubmitSignIn - response: \n', user);
       console.log('onSubmitSignIn - typeof response: \n', typeof user);

@@ -239,13 +239,13 @@ class Register extends Component {
     // To allow users re-enter inputs should registration fail
     event.preventDefault();
 
-    /* Send Register info via HTTP POST request to server localhost:3000
+    /* Send Register info via HTTP POST request to server localhost:3001
     To avoid Query Strings
-    by fetching our server - localhost:3000/register
+    by fetching our server - localhost:3001/register
     fetch(url, {method: '', headers: '', body: JSON.stringify({ name: '', email: '', password: ''}) }) */
 
     // Fetching local web server or on Render
-    this.devRegisterUrl = 'http://localhost:3000/register';
+    this.devRegisterUrl = 'http://localhost:3001/register';
     this.prodRegisterUrl = 'https://ai-recognition-backend.onrender.com/register';
 
     const fetchUrl = process.env.NODE_ENV === 'production' ? this.prodRegisterUrl : this.devRegisterUrl;
@@ -288,7 +288,7 @@ class Register extends Component {
         const nameInput = document.querySelector('#name');
         const emailInput = document.querySelector('#email');
         const passwordInput = document.querySelector('#password');
-        const passwordConfirmInput = document.querySelector('#confirm-password');
+        const passwordConfirmInput = document.querySelector('#passwordConfirm');
         nameInput.value = '';
         emailInput.value = '';
         passwordInput.value = '';

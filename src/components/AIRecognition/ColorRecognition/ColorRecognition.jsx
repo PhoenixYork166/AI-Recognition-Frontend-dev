@@ -53,8 +53,8 @@ const ColorRecognition = ( {
     // Save button to save Color details into PostgreSQL as blob metadata
     const saveColor = async () => {
         const callbackName = `src/components/AIRecognition/ColorRecognition/ColorDetails/ColorDetails.jsx\nsaveColor = async () => {...}`;
-        const devSaveColorUrl = 'http://localhost:3000/save-user-color';
-        const prodSaveColorUrl = 'http://localhost:3000/save-user-color';
+        const devSaveColorUrl = 'http://localhost:3001/save-user-color';
+        const prodSaveColorUrl = 'https://ai-recognition-backend.onrender.com/save-user-color';
 
         const color_props_array = color_props;
         

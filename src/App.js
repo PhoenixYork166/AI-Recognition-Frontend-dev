@@ -225,7 +225,7 @@ class App extends Component {
   /* Updating Entries - Fetching local web server vs live web server on Render */
   
   updateEntries = () => {
-    const devUpdateEntriesUrl = 'http://localhost:3000/image';
+    const devUpdateEntriesUrl = 'http://localhost:3001/image';
     const prodUpdateEntriesUrl = 'https://ai-recognition-backend.onrender.com/image';
 
     const fetchUrl = process.env.NODE_ENV === 'production' ? prodUpdateEntriesUrl : devUpdateEntriesUrl;
@@ -275,7 +275,7 @@ class App extends Component {
     /* From Clarifai API documentation, this API can be consumed as below: */
 
     /* Celebrity Recognition - Fetching local web server for celebrityimage */
-    const devFetchCelebrityImageUrl = 'http://localhost:3000/celebrityimage';
+    const devFetchCelebrityImageUrl = 'http://localhost:3001/celebrityimage';
     const prodFetchCelebrityImageUrl = 'https://ai-recognition-backend.onrender.com/celebrityimage';
 
     const fetchUrl = process.env.NODE_ENV === 'production' ? prodFetchCelebrityImageUrl : devFetchCelebrityImageUrl;
@@ -331,7 +331,7 @@ class App extends Component {
     );
 
     /* Color Recognition - Fetching local Web Server vs live Web Server on Render */
-    const devFetchColorImageUrl = 'http://localhost:3000/colorimage';
+    const devFetchColorImageUrl = 'http://localhost:3001/colorimage';
     const prodFetchColorImageUrl = 'https://ai-recognition-backend.onrender.com/colorimage';
 
     const fetchUrl = process.env.NODE_ENV === 'production' ? prodFetchColorImageUrl : devFetchColorImageUrl;
@@ -364,7 +364,7 @@ class App extends Component {
   // to server-side right after setting state for state_raw_hex_array
   // to avoid delay in server-side
   loadRawHex = () => {
-    const devFetchRawHexUrl = 'http://localhost:3000/image';
+    const devFetchRawHexUrl = 'http://localhost:3001/image';
     const prodFetchRawHexUrl = 'https://ai-recognition-backend.onrender.com/image';
     
     const fetchUrl = process.env.NODE_ENV === 'product' ? prodFetchRawHexUrl : devFetchRawHexUrl;
@@ -414,7 +414,7 @@ class App extends Component {
     );
 
     /* Age Recognition - Fetching local dev server vs live Web Server on Render */
-    const devFetchAgeUrl = 'http://localhost:3000/ageimage';
+    const devFetchAgeUrl = 'http://localhost:3001/ageimage';
     const prodFetchAgeUrl = 'https://ai-recognition-backend.onrender.com/ageimage';
 
     const fetchUrl = process.env.NODE_ENV === 'product' ? prodFetchAgeUrl : devFetchAgeUrl;
