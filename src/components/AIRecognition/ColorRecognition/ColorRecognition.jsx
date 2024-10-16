@@ -4,6 +4,9 @@ import axios from 'axios';
 
 import ColorDetails from './ColorDetails/ColorDetails';
 
+// Utility functions
+import blobToBase64 from '../../../util/blobToBase64';
+
 // Parent component
 const ColorRecognition = ( { 
     user,
@@ -38,17 +41,7 @@ const ColorRecognition = ( {
           }
         };
         fetchImage();
-      }, [input]); // State management array[] to listen on imageUrl
-    
-    // Function to convert Blob to Base64
-    const blobToBase64 = blob => new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onerror = reject;
-        reader.onload = () => {
-            resolve(reader.result);
-        };
-        reader.readAsDataURL(blob);
-    });
+    }, [input]); // State management array[] to listen on imageUrl
 
     // Save button to save Color details into PostgreSQL as blob metadata
     const saveColor = async () => {

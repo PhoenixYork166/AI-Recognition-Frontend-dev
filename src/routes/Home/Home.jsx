@@ -36,7 +36,7 @@ const Home = ( {
             name={name}
             entries={entries}
             /> */}
-            <CheckRecords isSignedIn={isSignedIn}/>
+            <CheckRecords user={user} isSignedIn={isSignedIn}/>
             <ImageLinkForm
             onInputChange={onInputChange}
             onCelebrityButton={onCelebrityButton}

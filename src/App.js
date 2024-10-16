@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
 import Home from './routes/Home/Home';
-import Signin from './components/Signin/Signin';
-import Register from './components/Register/container/Register';
+import Signin from './routes/Signin/Signin';
+import Register from './routes/Register/container/Register';
 
 // Utility helper functions
 // import loadUserFromLocalStorage from './util/loadUserFromLocalStorage';
@@ -38,7 +38,7 @@ class App extends Component {
       responseStatusCode: Number(''),
       route: defaultRoute,
       isSignedIn: userData ? true : false,
-      user: userData || {}
+      user: JSON.parse(userData) || {} // localStorage user{} is stored in JSON.stringified
     };
 
     // Persisting users' signed in sessions 
@@ -82,16 +82,6 @@ class App extends Component {
       this.removeUserFromLocalStorage();
       console.log(`\nthis.state.isSignedIn after resetUser:\n`,this.state.isSignedIn, `\n`);//true
     })
-
-    // this.removeUserFromLocalStorage(() => {
-    //   this.setState({
-    //     user: {},
-    //     isSignedIn: false,
-    //     route: 'signin'
-    //   })
-    // }, () => {
-    //   console.log(`\nisSignedIn: `, this.state.isSignedIn, `\n`);
-    // })
 
   }
 
@@ -186,7 +176,6 @@ class App extends Component {
   // sending data to server-side
   
   /* Updating Entries - Fetching local web server vs live web server on Render */
-  
   updateEntries = () => {
     const devUpdateEntriesUrl = 'http://localhost:3001/image';
     const prodUpdateEntriesUrl = 'https://ai-recognition-backend.onrender.com/image';
@@ -214,7 +203,6 @@ class App extends Component {
         })
       .catch(err => console.log(err))
   }
-
 
   // ClarifaiAPI Celebrity Face Detection model
   onCelebrityButton = () => {
@@ -320,8 +308,6 @@ class App extends Component {
     .catch(err => console.log(err));
   };
 
-  
-
   // For <SaveColorBtn /> in <ColorRecognition />
   // Arrow function to send this.state.state_raw_hex_array
   // to server-side right after setting state for state_raw_hex_array
@@ -330,7 +316,7 @@ class App extends Component {
     const devFetchRawHexUrl = 'http://localhost:3001/image';
     const prodFetchRawHexUrl = 'https://ai-recognition-backend.onrender.com/image';
     
-    const fetchUrl = process.env.NODE_ENV === 'product' ? prodFetchRawHexUrl : devFetchRawHexUrl;
+    const fetchUrl = process.env.NODE_ENV === 'production' ? prodFetchRawHexUrl : devFetchRawHexUrl;
 
     /* Sending state user.id && state_raw_hex_array to local server-side */
     // Fetching live Web Server on Render
@@ -380,7 +366,7 @@ class App extends Component {
     const devFetchAgeUrl = 'http://localhost:3001/ageimage';
     const prodFetchAgeUrl = 'https://ai-recognition-backend.onrender.com/ageimage';
 
-    const fetchUrl = process.env.NODE_ENV === 'product' ? prodFetchAgeUrl : devFetchAgeUrl;
+    const fetchUrl = process.env.NODE_ENV === 'production' ? prodFetchAgeUrl : devFetchAgeUrl;
 
     fetch(fetchUrl, {
         method: 'post', 

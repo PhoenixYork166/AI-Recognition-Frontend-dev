@@ -7,7 +7,8 @@ import { FaList } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
 // Parent component
-export default function CheckRecords({ isSignedIn, onRouteChange }) {
+// src/routes/Home.jsx
+export default function CheckRecords({ user, isSignedIn, onRouteChange }) {
   // Keep monitor resolution changes
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -87,9 +88,10 @@ export default function CheckRecords({ isSignedIn, onRouteChange }) {
           />
         </div>
         <CheckRecordsLi
-                fontGt={fontGt}
-                fontLt={fontLt}
-                dimensions={dimensions}
+          user={user}
+          fontGt={fontGt}
+          fontLt={fontLt}
+          dimensions={dimensions}
         />
       </div>
     );

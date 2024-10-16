@@ -42,7 +42,13 @@ $gutter-horizontal: 3.75rem;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+
+.links {
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 .link-form {
@@ -97,7 +103,7 @@ $gutter-horizontal: 3.75rem;
         min-width: 5rem;
     
         &__btn {
-            margin-bottom: 0.15rem;
+            margin-bottom: 0.55rem;
             border-radius: 0.5rem;
             -moz-osx-font-smoothing: grayscale;
             backface-visibility: hidden;

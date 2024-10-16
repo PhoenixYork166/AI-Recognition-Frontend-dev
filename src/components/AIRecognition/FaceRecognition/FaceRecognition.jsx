@@ -1,8 +1,38 @@
 import Loading from '../../Loading/Loading';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './FaceRecognition.scss';
+import axios from 'axios';
 
-const FaceRecognition = ( { imageUrl, box, celebrityName, face_hidden } ) => {
+// Utility functions
+import blobToBase64 from '../../../util/blobToBase64';
+
+const FaceRecognition = ( { user, input, imageUrl, box, celebrityName, face_hidden } ) => {
+    const [imageBlob, setImageBlob] = useState(''); // Blob { size: Number, type: String, userId: undefined }
+    const [resData, setResData] = useState('');
+
+    // Keep monitoring Blob fetched from axios.get(imageUrl, { responseType: 'blob' })
+    useEffect(() => {
+        const fetchImage = async() => {
+          const fetchUrl = input;
+    
+          try {
+            const response = await axios.get(fetchUrl, { responseType: 'blob' });
+            console.log(`\nReceived metadata blob response:`, response, `\n`);
+    
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              // useState() to store this.state.imageBlob: response.data
+              setImageBlob(reader.result);
+            };
+            reader.readAsDataURL(response.data);
+            setResData(response.data);
+            console.log(`\nresponse.data:\n$`, response.data, `\n`);
+          } catch (err) {
+            console.error(`\nFailed to get 'blob' via axios.get(${fetchUrl}\nError: ${err}\n`);
+          }
+        };
+        fetchImage();
+    }, [input]); // State management array[] to listen on imageUrl
 
     return face_hidden ? (
     <h2>&nbsp;</h2>
